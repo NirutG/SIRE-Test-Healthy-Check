@@ -65,7 +65,10 @@ namespace SIRE_Test_Healthy_Check
         private void buttonTestGoParametricUrl1_Click(object sender, EventArgs e)
         {
             this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56)); //InnerState15 : Go Parametric URL 1
+            
         }
+
+
         //:)
     }
 }
