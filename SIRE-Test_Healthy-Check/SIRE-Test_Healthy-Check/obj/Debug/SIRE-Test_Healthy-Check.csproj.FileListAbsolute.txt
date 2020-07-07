@@ -1,0 +1,10 @@
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\bin\Debug\SIRE-Test_Healthy-Check.exe.config
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\bin\Debug\SIRE-Test_Healthy-Check.exe
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\bin\Debug\SIRE-Test_Healthy-Check.pdb
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.csprojAssemblyReference.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE_Test_Healthy_Check.Form1.resources
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE_Test_Healthy_Check.Properties.Resources.resources
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.csproj.GenerateResource.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.csproj.CoreCompileInputs.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.exe
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.pdb
