@@ -15,6 +15,10 @@ namespace SIRE_Test_Healthy_Check
         //##### Begin : Decare variable in Form1 #####
         string[] wordWebCodeResponse; //Decare String Array to check Word in textBoxWebCodeResponse
         int indexWordWebCodeResponse = 0; //Decare to check Index of string array, wordWebCodeResponse
+        bool fgState_Delay = false; //Decare for check Function state_Delay is done?
+        byte functionState = 0; //Decare functionState for state_Delay Function
+        int test = 0;
+
         DataTable datatableWordWebCodeResponse = new DataTable(); //Decare to use Class DataTable to help checking
 
         //##### End : Decare variable in Form1 #####
@@ -22,8 +26,45 @@ namespace SIRE_Test_Healthy_Check
         public Form1()
         {
             InitializeComponent();
+            timerStateCyclic.Enabled = true;
         }
 
+        //##### Begin : My function Area
+        public bool state_Delay(int intervalValue) //Delay function
+        {
+            switch(functionState)
+            {
+                case 0: //Initial variable
+                    fgState_Delay = false;
+                    functionState = 1;
+                    break;
+                case 1: //Set Interval and Enable timer1
+                    timer1.Interval = intervalValue;
+                    timer1.Enabled = true;
+                    functionState = 2;
+                    break;
+                case 2: //Wait until timer1 will Tick
+                    if(fgState_Delay == true)
+                    {
+                        functionState = 0;
+                    }
+                    else
+                    {
+                        functionState = 2;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return fgState_Delay;
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            fgState_Delay = true;
+            timer1.Enabled = false;
+        }
+
+        //##### End : My function Area
         private void Form1_Load(object sender, EventArgs e)
         {
             datatableWordWebCodeResponse.Columns.Add("INDEX");
@@ -68,7 +109,10 @@ namespace SIRE_Test_Healthy_Check
             
         }
 
+        private void timerStateCyclic_Tick(object sender, EventArgs e)
+        {
 
-        //:)
+        }
+
     }
 }

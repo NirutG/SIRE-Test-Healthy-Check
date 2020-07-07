@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonTest = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.textBoxUrlToGo = new System.Windows.Forms.TextBox();
@@ -52,10 +53,12 @@
             this.textBoxParametricUrl1 = new System.Windows.Forms.TextBox();
             this.buttonTestGoParametricUrl1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage0 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage0 = new System.Windows.Forms.TabPage();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -270,6 +273,15 @@
             this.tabControl1.Size = new System.Drawing.Size(1767, 900);
             this.tabControl1.TabIndex = 10;
             // 
+            // tabPage0
+            // 
+            this.tabPage0.Location = new System.Drawing.Point(4, 25);
+            this.tabPage0.Name = "tabPage0";
+            this.tabPage0.Size = new System.Drawing.Size(1759, 871);
+            this.tabPage0.TabIndex = 3;
+            this.tabPage0.Text = "tabPage0";
+            this.tabPage0.UseVisualStyleBackColor = true;
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.buttonTest);
@@ -322,14 +334,14 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage0
+            // timer1
             // 
-            this.tabPage0.Location = new System.Drawing.Point(4, 25);
-            this.tabPage0.Name = "tabPage0";
-            this.tabPage0.Size = new System.Drawing.Size(1759, 752);
-            this.tabPage0.TabIndex = 3;
-            this.tabPage0.Text = "tabPage0";
-            this.tabPage0.UseVisualStyleBackColor = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerStateCyclic
+            // 
+            this.timerStateCyclic.Interval = 10;
+            this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
             // Form1
             // 
@@ -381,6 +393,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage0;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerStateCyclic;
     }
 }
 
