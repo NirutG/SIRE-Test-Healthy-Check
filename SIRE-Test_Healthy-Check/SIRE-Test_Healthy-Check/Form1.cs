@@ -73,7 +73,7 @@ namespace SIRE_Test_Healthy_Check
         //##### Begin : csvFile_Download
         private void csvFile_Download()
         {
-            if(switchCsvFileDownload)
+            if(switchCsvFileDownload) 
             {
                 switch(stateCsvFileDownload)
                 {
@@ -81,57 +81,110 @@ namespace SIRE_Test_Healthy_Check
                         fgWebBrowser1_Navigated = false;
                         stateCsvFileDownload = 1;
                         break;
-                    case 1: //State1 : Go URL
-                        this.webBrowser1.Navigate(textBoxUrlToGo.Text);
+                    case 1: //State1 : Go URL, Index Page
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/index.jsp");
                         stateCsvFileDownload = 2;
                         break;
-                    case 2: //State2 : After webBrowser1_Navigated, Show URL Response from Server
+                    case 2: //State2 : After webBrowser1_Navigated, Show URL Response from Server of Index Page
                         if (fgWebBrowser1_Navigated)
                         {
                             textBoxUrlResponse.Text = "" + webBrowser1.Url;
                             stateCsvFileDownload = 3;
                         }
                         break;
-                    case 3: //State3 : Show WebCode Response from Server
+                    case 3: //State3 : Show WebCode Response from Server of Index Page
                         textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
                         stateCsvFileDownload = 4;
                         break;
-                    case 4: //State4 : Show WebCode Response String Length from Server
-                        textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString();
+                    case 4: //State4 : Go URL, Login Page
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login");
                         stateCsvFileDownload = 5;
                         break;
-                    case 5:
-
+                    case 5: //State5 : After webBrowser1_Navigated, Show URL Response from Server of Login Page
+                        if (fgWebBrowser1_Navigated)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateCsvFileDownload = 6;
+                        }
                         break;
-                    case 6:
-
+                    case 6: //State6 : Show WebCode Response from Server of Login Page
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateCsvFileDownload = 7;
                         break;
-                    case 7:
-
+                    case 7: //State7 : Go URL, Entering Loging by Send Login UserName + Password
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login.jsp/j_security_check?j_username=woravit&j_password=123456&Logon=Log%20On");
+                        stateCsvFileDownload = 8;
                         break;
-                    case 8:
-
+                    case 8: //State8 : After webBrowser1_Navigated, Show URL Response from Server of Entering Loging by Send Login UserName + Password
+                        if (fgWebBrowser1_Navigated)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateCsvFileDownload = 9;
+                        }
                         break;
-                    case 9:
-
+                    case 9: //State3 : Show WebCode Response from Server of Entering Loging by Send Login UserName + Password
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateCsvFileDownload = 10;
                         break;
-                    case 10:
 
+
+                    case 10: //State4 : Show WebCode Response String Length from Server
+                        textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString();
+                        stateCsvFileDownload = 11;
                         break;
-                    case 11:
-
+                    case 11: //State5 : Make SubString by Remove no need characters from Web Code Response
+                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(null); //SubState5.1 : Split null
+                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); //SubState5.2
+                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //SubState5.3 (InnerState5.1 to 5.3 = Remove no need characters)
+                        stateCsvFileDownload = 12;
                         break;
-                    case 12:
-
+                    case 12: //State6 : Show WebCode Response SubString Length
+                        textBoxWebCodeResponseSubStringLength.Text = wordWebCodeResponse.Length.ToString();
+                        stateCsvFileDownload = 13;
                         break;
-                    case 13:
-
+                    case 13://State7 : Show WebCode Response Last SubString 
+                        textBoxWebCodeResponseLastSubString.Text = wordWebCodeResponse.Last();
+                        stateCsvFileDownload = 14;
                         break;
-                    case 14:
-
+                    case 14: //State8 : Clear all data in datatable
+                        datatableWordWebCodeResponse.Clear();
+                        stateCsvFileDownload = 15;
                         break;
-                    case 15:
-
+                    case 15: //State9 : Initial indexWordWebCodeResponse = 0
+                        indexWordWebCodeResponse = 0;
+                        stateCsvFileDownload = 16;
+                        break;
+                    case 16: //State10 : Looping until last word in String Array wordWebCodeResponse
+                        foreach (var word in wordWebCodeResponse) 
+                        {
+                            datatableWordWebCodeResponse.Rows.Add(indexWordWebCodeResponse.ToString(), wordWebCodeResponse[indexWordWebCodeResponse]); //Add Data to new Row in Table
+                            indexWordWebCodeResponse++;
+                        }
+                        stateCsvFileDownload = 17; 
+                        break;
+                    case 17: //State11 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
+                        dataGridView1.DataSource = datatableWordWebCodeResponse;
+                        stateCsvFileDownload = 18;
+                        break;
+                    case 18: //State12 : Show wordWebCodeResponse[17] to textbox
+                        textBoxWebCodeResponseSubStringIndex17.Text = wordWebCodeResponse[17];
+                        stateCsvFileDownload = 19;
+                        break;
+                    case 19: //State13 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
+                        textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Text = wordWebCodeResponse[17].Substring(7, 56);
+                        stateCsvFileDownload = 20;
+                        break;
+                    case 20: //State14 : Show Parametric URL 1 to textbox
+                        textBoxParametricUrl1.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56);
+                        stateCsvFileDownload = 21;
+                        break;
+                    case 21: //State15 : Go Parametric URL 1
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56));
+                        stateCsvFileDownload = 22;
+                        break;
+                    case 22: //State16 : End This Function and Resetting variables
+                        switchCsvFileDownload = false;
+                        stateCsvFileDownload = 0;
                         break;
                     default:
                         break;
@@ -139,8 +192,8 @@ namespace SIRE_Test_Healthy_Check
             }
         }
         //##### End : csvFile_Download
-
         //##### End : My function Area #####
+
         private void Form1_Load(object sender, EventArgs e)
         {
             datatableWordWebCodeResponse.Columns.Add("INDEX");
@@ -150,7 +203,7 @@ namespace SIRE_Test_Healthy_Check
 
         private void buttonTest_Click(object sender, EventArgs e)
         {   
-            this.webBrowser1.Navigate(textBoxUrlToGo.Text); //InnerState1 : Go URL
+            //this.webBrowser1.Navigate(textBoxUrlToGo.Text); //InnerState1 : Go URL
         }
 
         public void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
@@ -158,33 +211,36 @@ namespace SIRE_Test_Healthy_Check
             //textBoxUrlResponse.Text = "" + webBrowser1.Url; //InnerState2 : Show URL Response from Server
             //textBoxWebCodeResponse.Text = webBrowser1.DocumentText; //InnerState3 : Show WebCode Response from Server
             //textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString(); //InnerState4 : Show WebCode Response String Length from Server
+            /*
             wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(null); //InnerState5.1 : Split null
             wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); //InnerState5.2
             wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //InnerState5.3 (InnerState5.1 to 5.3 = Remove no need characters)
-            textBoxWebCodeResponseSubStringLength.Text = wordWebCodeResponse.Length.ToString(); //InnerState6 : Show WebCode Response SubString Length
-            textBoxWebCodeResponseLastSubString.Text = wordWebCodeResponse.Last(); //InnerState7 : Show WebCode Response Last SubString
-            datatableWordWebCodeResponse.Clear(); //InnerState8 : Clear all data in datatable
-            indexWordWebCodeResponse = 0; //InnerState9 : Initial indexWordWebCodeResponse = 0
+            */
+            //textBoxWebCodeResponseSubStringLength.Text = wordWebCodeResponse.Length.ToString(); //InnerState6 : Show WebCode Response SubString Length
+            //textBoxWebCodeResponseLastSubString.Text = wordWebCodeResponse.Last(); //InnerState7 : Show WebCode Response Last SubString
+            //datatableWordWebCodeResponse.Clear(); //InnerState8 : Clear all data in datatable
+            //indexWordWebCodeResponse = 0; //InnerState9 : Initial indexWordWebCodeResponse = 0
+            /*
             foreach (var word in wordWebCodeResponse) //InnerState10 : Looping until last word in String Array wordWebCodeResponse
             {
                 datatableWordWebCodeResponse.Rows.Add(indexWordWebCodeResponse.ToString(), wordWebCodeResponse[indexWordWebCodeResponse]); //Add Data to new Row in Table
                 indexWordWebCodeResponse++;
             }
-            dataGridView1.DataSource = datatableWordWebCodeResponse; //InnerState11 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
+            */
+            //dataGridView1.DataSource = datatableWordWebCodeResponse; //InnerState11 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
             fgWebBrowser1_Navigated = true; //ON Flag after webBrowser1_Navigated
         }
 
         private void buttonTestTrim_Click(object sender, EventArgs e) //Must Do After Login completed
         {
-            textBoxWebCodeResponseSubStringIndex17.Text = wordWebCodeResponse[17]; //InnerState12 : Show wordWebCodeResponse[17] to textbox
-            textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Text = wordWebCodeResponse[17].Substring(7, 56); //InnerState13 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
-            textBoxParametricUrl1.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56); //InnerState14 : Show Parametric URL 1 to textbox
+            //textBoxWebCodeResponseSubStringIndex17.Text = wordWebCodeResponse[17]; //InnerState12 : Show wordWebCodeResponse[17] to textbox
+            //textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Text = wordWebCodeResponse[17].Substring(7, 56); //InnerState13 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
+            //textBoxParametricUrl1.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56); //InnerState14 : Show Parametric URL 1 to textbox
         }
 
         private void buttonTestGoParametricUrl1_Click(object sender, EventArgs e)
         {
-            this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56)); //InnerState15 : Go Parametric URL 1
-            
+            //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56)); //InnerState15 : Go Parametric URL 1
         }
 
         private void timerStateCyclic_Tick(object sender, EventArgs e)
