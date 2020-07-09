@@ -16,8 +16,12 @@ namespace SIRE_Test_Healthy_Check
         string[] wordWebCodeResponse; //Decare String Array to check Word in textBoxWebCodeResponse
         int indexWordWebCodeResponse = 0; //Decare to check Index of string array, wordWebCodeResponse
         bool fgState_Delay = false; //Decare for check Function state_Delay is done?
-        byte functionState = 0; //Decare functionState for state_Delay Function
+        byte functionState = 0; //Initial State of Function state_Delay at state0
+        byte stateCsvFileDownload = 0; //Initial State of Function csvFile_Download at state0
         int test = 0;
+        bool switchCsvFileDownload = false; //Decare for ON function csvFile_Download
+        bool fgWebBrowser1_Navigated = false; //Decare for check when webBrowser1_Navigated
+
 
         DataTable datatableWordWebCodeResponse = new DataTable(); //Decare to use Class DataTable to help checking
 
@@ -29,7 +33,8 @@ namespace SIRE_Test_Healthy_Check
             timerStateCyclic.Enabled = true;
         }
 
-        //##### Begin : My function Area
+        //##### Begin : My function Area #####
+        //##### Begin : state_Delay
         public bool state_Delay(int intervalValue) //Delay function
         {
             switch(functionState)
@@ -63,12 +68,84 @@ namespace SIRE_Test_Healthy_Check
             fgState_Delay = true;
             timer1.Enabled = false;
         }
+        //##### End : state_Delay
 
-        //##### End : My function Area
+        //##### Begin : csvFile_Download
+        private void csvFile_Download()
+        {
+            if(switchCsvFileDownload)
+            {
+                switch(stateCsvFileDownload)
+                {
+                    case 0: //Initial Variables
+                        fgWebBrowser1_Navigated = false;
+                        stateCsvFileDownload = 1;
+                        break;
+                    case 1: //State1 : Go URL
+                        this.webBrowser1.Navigate(textBoxUrlToGo.Text);
+                        stateCsvFileDownload = 2;
+                        break;
+                    case 2: //State2 : After webBrowser1_Navigated, Show URL Response from Server
+                        if (fgWebBrowser1_Navigated)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateCsvFileDownload = 3;
+                        }
+                        break;
+                    case 3: //State3 : Show WebCode Response from Server
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateCsvFileDownload = 4;
+                        break;
+                    case 4: //State4 : Show WebCode Response String Length from Server
+                        textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString();
+                        stateCsvFileDownload = 5;
+                        break;
+                    case 5:
+
+                        break;
+                    case 6:
+
+                        break;
+                    case 7:
+
+                        break;
+                    case 8:
+
+                        break;
+                    case 9:
+
+                        break;
+                    case 10:
+
+                        break;
+                    case 11:
+
+                        break;
+                    case 12:
+
+                        break;
+                    case 13:
+
+                        break;
+                    case 14:
+
+                        break;
+                    case 15:
+
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        //##### End : csvFile_Download
+
+        //##### End : My function Area #####
         private void Form1_Load(object sender, EventArgs e)
         {
             datatableWordWebCodeResponse.Columns.Add("INDEX");
             datatableWordWebCodeResponse.Columns.Add("WORD");
+            switchCsvFileDownload = true; //Start function : csvFile_Download()
         }
 
         private void buttonTest_Click(object sender, EventArgs e)
@@ -76,11 +153,11 @@ namespace SIRE_Test_Healthy_Check
             this.webBrowser1.Navigate(textBoxUrlToGo.Text); //InnerState1 : Go URL
         }
 
-        private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        public void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
-            textBoxUrlResponse.Text = "" + webBrowser1.Url; //InnerState2 : Show URL Response from Server
-            textBoxWebCodeResponse.Text = webBrowser1.DocumentText; //InnerState3 : Show WebCode Response from Server
-            textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString(); //InnerState4 : Show WebCode Response String Length from Server
+            //textBoxUrlResponse.Text = "" + webBrowser1.Url; //InnerState2 : Show URL Response from Server
+            //textBoxWebCodeResponse.Text = webBrowser1.DocumentText; //InnerState3 : Show WebCode Response from Server
+            //textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString(); //InnerState4 : Show WebCode Response String Length from Server
             wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(null); //InnerState5.1 : Split null
             wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); //InnerState5.2
             wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //InnerState5.3 (InnerState5.1 to 5.3 = Remove no need characters)
@@ -94,6 +171,7 @@ namespace SIRE_Test_Healthy_Check
                 indexWordWebCodeResponse++;
             }
             dataGridView1.DataSource = datatableWordWebCodeResponse; //InnerState11 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
+            fgWebBrowser1_Navigated = true; //ON Flag after webBrowser1_Navigated
         }
 
         private void buttonTestTrim_Click(object sender, EventArgs e) //Must Do After Login completed
@@ -111,7 +189,7 @@ namespace SIRE_Test_Healthy_Check
 
         private void timerStateCyclic_Tick(object sender, EventArgs e)
         {
-
+            csvFile_Download(); //Auto download CSV File
         }
 
     }
