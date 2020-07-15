@@ -122,39 +122,39 @@ namespace SIRE_Test_Healthy_Check
                             stateCsvFileDownload = 9;
                         }
                         break;
-                    case 9: //State3 : Show WebCode Response from Server of Entering Loging by Send Login UserName + Password
+                    case 9: //State9 : Show WebCode Response from Server of Entering Loging by Send Login UserName + Password
                         textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
                         stateCsvFileDownload = 10;
                         break;
 
 
-                    case 10: //State4 : Show WebCode Response String Length from Server
+                    case 10: //State10 : Show WebCode Response String Length from Server
                         textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString();
                         stateCsvFileDownload = 11;
                         break;
-                    case 11: //State5 : Make SubString by Remove no need characters from Web Code Response
+                    case 11: //State11 : Make SubString by Remove no need characters from Web Code Response
                         wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(null); //SubState5.1 : Split null
                         wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); //SubState5.2
                         wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //SubState5.3 (InnerState5.1 to 5.3 = Remove no need characters)
                         stateCsvFileDownload = 12;
                         break;
-                    case 12: //State6 : Show WebCode Response SubString Length
+                    case 12: //State12 : Show WebCode Response SubString Length
                         textBoxWebCodeResponseSubStringLength.Text = wordWebCodeResponse.Length.ToString();
                         stateCsvFileDownload = 13;
                         break;
-                    case 13://State7 : Show WebCode Response Last SubString 
+                    case 13://State13 : Show WebCode Response Last SubString 
                         textBoxWebCodeResponseLastSubString.Text = wordWebCodeResponse.Last();
                         stateCsvFileDownload = 14;
                         break;
-                    case 14: //State8 : Clear all data in datatable
+                    case 14: //State14 : Clear all data in datatable
                         datatableWordWebCodeResponse.Clear();
                         stateCsvFileDownload = 15;
                         break;
-                    case 15: //State9 : Initial indexWordWebCodeResponse = 0
+                    case 15: //State15 : Initial indexWordWebCodeResponse = 0
                         indexWordWebCodeResponse = 0;
                         stateCsvFileDownload = 16;
                         break;
-                    case 16: //State10 : Looping until last word in String Array wordWebCodeResponse
+                    case 16: //State16 : Looping until last word in String Array wordWebCodeResponse
                         foreach (var word in wordWebCodeResponse) 
                         {
                             datatableWordWebCodeResponse.Rows.Add(indexWordWebCodeResponse.ToString(), wordWebCodeResponse[indexWordWebCodeResponse]); //Add Data to new Row in Table
@@ -162,27 +162,31 @@ namespace SIRE_Test_Healthy_Check
                         }
                         stateCsvFileDownload = 17; 
                         break;
-                    case 17: //State11 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
+                    case 17: //State17 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
                         dataGridView1.DataSource = datatableWordWebCodeResponse;
                         stateCsvFileDownload = 18;
                         break;
-                    case 18: //State12 : Show wordWebCodeResponse[17] to textbox
+                    case 18: //State18 : Show wordWebCodeResponse[17] to textbox
                         textBoxWebCodeResponseSubStringIndex17.Text = wordWebCodeResponse[17];
                         stateCsvFileDownload = 19;
                         break;
-                    case 19: //State13 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
+                    case 19: //State19 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
                         textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Text = wordWebCodeResponse[17].Substring(7, 56);
                         stateCsvFileDownload = 20;
                         break;
-                    case 20: //State14 : Show Parametric URL 1 to textbox
+                    case 20: //State20 : Show Parametric URL 1 to textbox
                         textBoxParametricUrl1.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56);
                         stateCsvFileDownload = 21;
                         break;
-                    case 21: //State15 : Go Parametric URL 1
+                    case 21: //State21 : Go Parametric URL1
                         this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56));
-                        stateCsvFileDownload = 22;
+                        stateCsvFileDownload = 100;
                         break;
-                    case 22: //State16 : End This Function and Resetting variables
+
+                    //Test
+                    //case 22: //StateXX : Go Parametric URL2&3
+
+                    case 100: //State16 : End This Function and Resetting variables
                         switchCsvFileDownload = false;
                         stateCsvFileDownload = 0;
                         break;

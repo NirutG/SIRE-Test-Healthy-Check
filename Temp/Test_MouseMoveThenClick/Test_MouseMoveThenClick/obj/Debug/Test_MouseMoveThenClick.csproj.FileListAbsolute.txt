@@ -1,0 +1,15 @@
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\bin\Debug\Test_MouseMoveThenClick.exe.config
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\bin\Debug\Test_MouseMoveThenClick.exe
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\bin\Debug\Test_MouseMoveThenClick.pdb
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Test_MouseMoveThenClick.csprojAssemblyReference.cache
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Test_MouseMoveThenClick.Form1.resources
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Test_MouseMoveThenClick.Properties.Resources.resources
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Test_MouseMoveThenClick.csproj.GenerateResource.cache
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Test_MouseMoveThenClick.csproj.CoreCompileInputs.cache
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Test_MouseMoveThenClick.exe
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Test_MouseMoveThenClick.pdb
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\bin\Debug\Test_MouseMoveThenClick.exe.manifest
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\bin\Debug\AutoItX3.dll
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Interop.AutoItX3Lib.dll
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Test_MouseMoveThenClick.csproj.ResolveComReference.cache
+C:\NirutG\8)_PRACTICE\2)C#\1)_DESKTOP APPLICATION\Test_MouseMoveThenClick\Test_MouseMoveThenClick\obj\Debug\Test_MouseMoveThenClick.exe.manifest
