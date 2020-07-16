@@ -54,12 +54,13 @@
             this.buttonTestGoParametricUrl1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage0 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -81,7 +82,7 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(36, 47);
+            this.webBrowser1.Location = new System.Drawing.Point(39, 45);
             this.webBrowser1.Margin = new System.Windows.Forms.Padding(2);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser1.Name = "webBrowser1";
@@ -301,6 +302,7 @@
             // 
             // tabPage0
             // 
+            this.tabPage0.Controls.Add(this.textBox1);
             this.tabPage0.Controls.Add(this.button1);
             this.tabPage0.Location = new System.Drawing.Point(4, 22);
             this.tabPage0.Margin = new System.Windows.Forms.Padding(2);
@@ -309,6 +311,16 @@
             this.tabPage0.TabIndex = 3;
             this.tabPage0.Text = "tabPage0";
             this.tabPage0.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(160, 97);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabPage1
             // 
@@ -374,15 +386,12 @@
             this.timerStateCyclic.Interval = 10;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
-            // button1
+            // textBox1
             // 
-            this.button1.Location = new System.Drawing.Point(160, 97);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.textBox1.Location = new System.Drawing.Point(300, 97);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -397,6 +406,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage0.ResumeLayout(false);
+            this.tabPage0.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -439,6 +449,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerStateCyclic;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

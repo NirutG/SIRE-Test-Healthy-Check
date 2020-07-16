@@ -256,7 +256,17 @@ namespace SIRE_Test_Healthy_Check
 
         private void button1_Click(object sender, EventArgs e)
         {
-            autoHand.mouseMoveAndClick("LEFT", 35, 128, 2, 1);
+            autoHand.mouseMoveAndClick("LEFT", 196, 330, 1, 1);
+            autoHand.mouseScroll("DOWN", 1);
+            textBox1.Text = webBrowser1.Left.ToString();
+            textBox1.Left = 0;
+            textBox1.Top = 0;
+            Point p = new Point(0, 0); // Decare point x=0, y=0
+            Location = p; // Assign Location = point p
+            WindowState = FormWindowState.Maximized; //Assign Windows to Maximize
+            //Form1 form = new Form1();
+            //form.StartPosition = 0;
+            //form.Top = 0;
         }
     }
 }
