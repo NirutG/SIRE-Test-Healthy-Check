@@ -8,3 +8,8 @@ C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SI
 C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.csproj.CoreCompileInputs.cache
 C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.exe
 C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.pdb
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\bin\Debug\SIRE-Test_Healthy-Check.exe.manifest
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\bin\Debug\AutoItX3.dll
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\Interop.AutoItX3Lib.dll
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.csproj.ResolveComReference.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check\obj\Debug\SIRE-Test_Healthy-Check.exe.manifest

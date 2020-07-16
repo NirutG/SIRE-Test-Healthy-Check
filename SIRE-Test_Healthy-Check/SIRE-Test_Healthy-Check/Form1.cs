@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SIRE_Test_Healthy_Check
 {
     public partial class Form1 : Form
@@ -24,6 +25,7 @@ namespace SIRE_Test_Healthy_Check
 
 
         DataTable datatableWordWebCodeResponse = new DataTable(); //Decare to use Class DataTable to help checking
+        AutoHand autoHand = new AutoHand();//Decare to use DLL File of AutoItX3
 
         //##### End : Decare variable in Form1 #####
 
@@ -79,7 +81,7 @@ namespace SIRE_Test_Healthy_Check
                 {
                     case 0: //Initial Variables
                         fgWebBrowser1_Navigated = false;
-                        stateCsvFileDownload = 1;
+                        stateCsvFileDownload = 0;//Temp
                         break;
                     case 1: //State1 : Go URL, Index Page
                         this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/index.jsp");
@@ -252,5 +254,9 @@ namespace SIRE_Test_Healthy_Check
             csvFile_Download(); //Auto download CSV File
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            autoHand.mouseMoveAndClick("LEFT", 35, 128, 2, 1);
+        }
     }
 }
