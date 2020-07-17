@@ -54,13 +54,13 @@
             this.buttonTestGoParametricUrl1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage0 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -82,11 +82,11 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(39, 45);
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.Margin = new System.Windows.Forms.Padding(2);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1082, 615);
+            this.webBrowser1.Size = new System.Drawing.Size(1216, 793);
             this.webBrowser1.TabIndex = 1;
             this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
             // 
@@ -96,7 +96,7 @@
             this.textBoxUrlToGo.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUrlToGo.Multiline = true;
             this.textBoxUrlToGo.Name = "textBoxUrlToGo";
-            this.textBoxUrlToGo.Size = new System.Drawing.Size(1244, 19);
+            this.textBoxUrlToGo.Size = new System.Drawing.Size(1171, 19);
             this.textBoxUrlToGo.TabIndex = 2;
             // 
             // textBoxUrlResponse
@@ -105,7 +105,7 @@
             this.textBoxUrlResponse.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUrlResponse.Multiline = true;
             this.textBoxUrlResponse.Name = "textBoxUrlResponse";
-            this.textBoxUrlResponse.Size = new System.Drawing.Size(1244, 110);
+            this.textBoxUrlResponse.Size = new System.Drawing.Size(1171, 110);
             this.textBoxUrlResponse.TabIndex = 3;
             // 
             // textBoxWebCodeResponse
@@ -114,7 +114,7 @@
             this.textBoxWebCodeResponse.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponse.Multiline = true;
             this.textBoxWebCodeResponse.Name = "textBoxWebCodeResponse";
-            this.textBoxWebCodeResponse.Size = new System.Drawing.Size(1244, 441);
+            this.textBoxWebCodeResponse.Size = new System.Drawing.Size(1171, 539);
             this.textBoxWebCodeResponse.TabIndex = 4;
             // 
             // labelUrlToGo
@@ -154,7 +154,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(652, 630);
+            this.dataGridView1.Size = new System.Drawing.Size(511, 726);
             this.dataGridView1.TabIndex = 6;
             // 
             // labelWebCodeResponseStringLength
@@ -208,13 +208,13 @@
             this.textBoxWebCodeResponseLastSubString.Location = new System.Drawing.Point(464, 23);
             this.textBoxWebCodeResponseLastSubString.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseLastSubString.Name = "textBoxWebCodeResponseLastSubString";
-            this.textBoxWebCodeResponseLastSubString.Size = new System.Drawing.Size(311, 20);
+            this.textBoxWebCodeResponseLastSubString.Size = new System.Drawing.Size(735, 20);
             this.textBoxWebCodeResponseLastSubString.TabIndex = 7;
             // 
             // labelWebCodeResponseSubStringIndex17
             // 
             this.labelWebCodeResponseSubStringIndex17.AutoSize = true;
-            this.labelWebCodeResponseSubStringIndex17.Location = new System.Drawing.Point(680, 109);
+            this.labelWebCodeResponseSubStringIndex17.Location = new System.Drawing.Point(536, 109);
             this.labelWebCodeResponseSubStringIndex17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseSubStringIndex17.Name = "labelWebCodeResponseSubStringIndex17";
             this.labelWebCodeResponseSubStringIndex17.Size = new System.Drawing.Size(196, 13);
@@ -223,15 +223,15 @@
             // 
             // textBoxWebCodeResponseSubStringIndex17
             // 
-            this.textBoxWebCodeResponseSubStringIndex17.Location = new System.Drawing.Point(682, 124);
+            this.textBoxWebCodeResponseSubStringIndex17.Location = new System.Drawing.Point(538, 124);
             this.textBoxWebCodeResponseSubStringIndex17.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseSubStringIndex17.Name = "textBoxWebCodeResponseSubStringIndex17";
-            this.textBoxWebCodeResponseSubStringIndex17.Size = new System.Drawing.Size(621, 20);
+            this.textBoxWebCodeResponseSubStringIndex17.Size = new System.Drawing.Size(661, 20);
             this.textBoxWebCodeResponseSubStringIndex17.TabIndex = 7;
             // 
             // buttonTestTrim
             // 
-            this.buttonTestTrim.Location = new System.Drawing.Point(682, 63);
+            this.buttonTestTrim.Location = new System.Drawing.Point(538, 63);
             this.buttonTestTrim.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestTrim.Name = "buttonTestTrim";
             this.buttonTestTrim.Size = new System.Drawing.Size(72, 30);
@@ -243,7 +243,7 @@
             // labelWebCodeResponseAfterTrimmed
             // 
             this.labelWebCodeResponseAfterTrimmed.AutoSize = true;
-            this.labelWebCodeResponseAfterTrimmed.Location = new System.Drawing.Point(679, 155);
+            this.labelWebCodeResponseAfterTrimmed.Location = new System.Drawing.Point(535, 155);
             this.labelWebCodeResponseAfterTrimmed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseAfterTrimmed.Name = "labelWebCodeResponseAfterTrimmed";
             this.labelWebCodeResponseAfterTrimmed.Size = new System.Drawing.Size(261, 26);
@@ -252,16 +252,16 @@
             // 
             // textBoxWebCodeResponseSubStringIndex17AfterTrimmed
             // 
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Location = new System.Drawing.Point(681, 170);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Location = new System.Drawing.Point(537, 170);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Name = "textBoxWebCodeResponseSubStringIndex17AfterTrimmed";
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Size = new System.Drawing.Size(621, 20);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Size = new System.Drawing.Size(662, 20);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.TabIndex = 7;
             // 
             // labelParametricUrl1
             // 
             this.labelParametricUrl1.AutoSize = true;
-            this.labelParametricUrl1.Location = new System.Drawing.Point(678, 203);
+            this.labelParametricUrl1.Location = new System.Drawing.Point(534, 203);
             this.labelParametricUrl1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelParametricUrl1.Name = "labelParametricUrl1";
             this.labelParametricUrl1.Size = new System.Drawing.Size(91, 13);
@@ -270,15 +270,15 @@
             // 
             // textBoxParametricUrl1
             // 
-            this.textBoxParametricUrl1.Location = new System.Drawing.Point(681, 218);
+            this.textBoxParametricUrl1.Location = new System.Drawing.Point(537, 218);
             this.textBoxParametricUrl1.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxParametricUrl1.Name = "textBoxParametricUrl1";
-            this.textBoxParametricUrl1.Size = new System.Drawing.Size(621, 20);
+            this.textBoxParametricUrl1.Size = new System.Drawing.Size(662, 20);
             this.textBoxParametricUrl1.TabIndex = 7;
             // 
             // buttonTestGoParametricUrl1
             // 
-            this.buttonTestGoParametricUrl1.Location = new System.Drawing.Point(681, 331);
+            this.buttonTestGoParametricUrl1.Location = new System.Drawing.Point(537, 331);
             this.buttonTestGoParametricUrl1.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestGoParametricUrl1.Name = "buttonTestGoParametricUrl1";
             this.buttonTestGoParametricUrl1.Size = new System.Drawing.Size(151, 26);
@@ -293,11 +293,11 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(25, 25);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1325, 731);
+            this.tabControl1.Size = new System.Drawing.Size(1280, 980);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage0
@@ -307,10 +307,17 @@
             this.tabPage0.Location = new System.Drawing.Point(4, 22);
             this.tabPage0.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage0.Name = "tabPage0";
-            this.tabPage0.Size = new System.Drawing.Size(1317, 705);
+            this.tabPage0.Size = new System.Drawing.Size(1272, 954);
             this.tabPage0.TabIndex = 3;
             this.tabPage0.Text = "tabPage0";
             this.tabPage0.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(300, 97);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
@@ -335,7 +342,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(1317, 705);
+            this.tabPage1.Size = new System.Drawing.Size(1272, 954);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -347,7 +354,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(1317, 705);
+            this.tabPage2.Size = new System.Drawing.Size(1272, 954);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -372,7 +379,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1317, 705);
+            this.tabPage3.Size = new System.Drawing.Size(1272, 954);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -386,18 +393,11 @@
             this.timerStateCyclic.Interval = 10;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(300, 97);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1426, 839);
+            this.ClientSize = new System.Drawing.Size(1264, 985);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
