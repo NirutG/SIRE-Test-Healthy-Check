@@ -49,11 +49,13 @@
             this.buttonTestTrim = new System.Windows.Forms.Button();
             this.labelWebCodeResponseAfterTrimmed = new System.Windows.Forms.Label();
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed = new System.Windows.Forms.TextBox();
-            this.labelParametricUrl1 = new System.Windows.Forms.Label();
-            this.textBoxParametricUrl1 = new System.Windows.Forms.TextBox();
+            this.labelParametricDataRetrieveProductionDB = new System.Windows.Forms.Label();
+            this.textBoxParametricDataRetrieveProductionDB = new System.Windows.Forms.TextBox();
             this.buttonTestGoParametricUrl1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage0 = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.buttonStepRun = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -89,6 +91,7 @@
             this.webBrowser1.Size = new System.Drawing.Size(1216, 793);
             this.webBrowser1.TabIndex = 1;
             this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
+            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
             // 
             // textBoxUrlToGo
             // 
@@ -258,23 +261,23 @@
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Size = new System.Drawing.Size(662, 20);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.TabIndex = 7;
             // 
-            // labelParametricUrl1
+            // labelParametricDataRetrieveProductionDB
             // 
-            this.labelParametricUrl1.AutoSize = true;
-            this.labelParametricUrl1.Location = new System.Drawing.Point(534, 203);
-            this.labelParametricUrl1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelParametricUrl1.Name = "labelParametricUrl1";
-            this.labelParametricUrl1.Size = new System.Drawing.Size(91, 13);
-            this.labelParametricUrl1.TabIndex = 5;
-            this.labelParametricUrl1.Text = "Parametric URL 1";
+            this.labelParametricDataRetrieveProductionDB.AutoSize = true;
+            this.labelParametricDataRetrieveProductionDB.Location = new System.Drawing.Point(534, 203);
+            this.labelParametricDataRetrieveProductionDB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelParametricDataRetrieveProductionDB.Name = "labelParametricDataRetrieveProductionDB";
+            this.labelParametricDataRetrieveProductionDB.Size = new System.Drawing.Size(204, 13);
+            this.labelParametricDataRetrieveProductionDB.TabIndex = 5;
+            this.labelParametricDataRetrieveProductionDB.Text = "Parametric Data Retrieve (Production DB)";
             // 
-            // textBoxParametricUrl1
+            // textBoxParametricDataRetrieveProductionDB
             // 
-            this.textBoxParametricUrl1.Location = new System.Drawing.Point(537, 218);
-            this.textBoxParametricUrl1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxParametricUrl1.Name = "textBoxParametricUrl1";
-            this.textBoxParametricUrl1.Size = new System.Drawing.Size(662, 20);
-            this.textBoxParametricUrl1.TabIndex = 7;
+            this.textBoxParametricDataRetrieveProductionDB.Location = new System.Drawing.Point(537, 218);
+            this.textBoxParametricDataRetrieveProductionDB.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxParametricDataRetrieveProductionDB.Name = "textBoxParametricDataRetrieveProductionDB";
+            this.textBoxParametricDataRetrieveProductionDB.Size = new System.Drawing.Size(662, 20);
+            this.textBoxParametricDataRetrieveProductionDB.TabIndex = 7;
             // 
             // buttonTestGoParametricUrl1
             // 
@@ -302,6 +305,8 @@
             // 
             // tabPage0
             // 
+            this.tabPage0.Controls.Add(this.textBox2);
+            this.tabPage0.Controls.Add(this.buttonStepRun);
             this.tabPage0.Controls.Add(this.textBox1);
             this.tabPage0.Controls.Add(this.button1);
             this.tabPage0.Location = new System.Drawing.Point(4, 22);
@@ -312,16 +317,32 @@
             this.tabPage0.Text = "tabPage0";
             this.tabPage0.UseVisualStyleBackColor = true;
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(256, 84);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(67, 20);
+            this.textBox2.TabIndex = 3;
+            // 
+            // buttonStepRun
+            // 
+            this.buttonStepRun.Location = new System.Drawing.Point(160, 73);
+            this.buttonStepRun.Name = "buttonStepRun";
+            this.buttonStepRun.Size = new System.Drawing.Size(75, 40);
+            this.buttonStepRun.TabIndex = 2;
+            this.buttonStepRun.Text = "stepRun";
+            this.buttonStepRun.UseVisualStyleBackColor = true;
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(300, 97);
+            this.textBox1.Location = new System.Drawing.Point(300, 218);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(160, 97);
+            this.button1.Location = new System.Drawing.Point(160, 218);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -365,13 +386,13 @@
             this.tabPage3.Controls.Add(this.buttonTestGoParametricUrl1);
             this.tabPage3.Controls.Add(this.labelWebCodeResponseStringLength);
             this.tabPage3.Controls.Add(this.buttonTestTrim);
-            this.tabPage3.Controls.Add(this.textBoxParametricUrl1);
+            this.tabPage3.Controls.Add(this.textBoxParametricDataRetrieveProductionDB);
             this.tabPage3.Controls.Add(this.labelWebCodeResponseSubStringLength);
             this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed);
             this.tabPage3.Controls.Add(this.labelWebCodeResponseLastSubString);
             this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringIndex17);
             this.tabPage3.Controls.Add(this.textBoxWebCodeResponseStringLength);
-            this.tabPage3.Controls.Add(this.labelParametricUrl1);
+            this.tabPage3.Controls.Add(this.labelParametricDataRetrieveProductionDB);
             this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringLength);
             this.tabPage3.Controls.Add(this.labelWebCodeResponseAfterTrimmed);
             this.tabPage3.Controls.Add(this.textBoxWebCodeResponseLastSubString);
@@ -438,8 +459,8 @@
         private System.Windows.Forms.Button buttonTestTrim;
         private System.Windows.Forms.Label labelWebCodeResponseAfterTrimmed;
         private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringIndex17AfterTrimmed;
-        private System.Windows.Forms.Label labelParametricUrl1;
-        private System.Windows.Forms.TextBox textBoxParametricUrl1;
+        private System.Windows.Forms.Label labelParametricDataRetrieveProductionDB;
+        private System.Windows.Forms.TextBox textBoxParametricDataRetrieveProductionDB;
         private System.Windows.Forms.Button buttonTestGoParametricUrl1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -450,6 +471,8 @@
         private System.Windows.Forms.Timer timerStateCyclic;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonStepRun;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 
