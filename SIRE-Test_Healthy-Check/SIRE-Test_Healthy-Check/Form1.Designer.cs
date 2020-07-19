@@ -64,6 +64,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
+            this.textBoxStateDownloadCsvFile = new System.Windows.Forms.TextBox();
+            this.labelStateDownloadCsvFile = new System.Windows.Forms.Label();
+            this.textBoxStateSaveCsvFile = new System.Windows.Forms.TextBox();
+            this.labelStateSaveCsvFile = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -91,7 +95,7 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
             this.webBrowser1.ScrollBarsEnabled = false;
-            this.webBrowser1.Size = new System.Drawing.Size(1216, 950);
+            this.webBrowser1.Size = new System.Drawing.Size(998, 940);
             this.webBrowser1.TabIndex = 1;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
@@ -331,7 +335,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(256, 84);
+            this.textBox2.Location = new System.Drawing.Point(289, 84);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(67, 20);
             this.textBox2.TabIndex = 3;
@@ -382,6 +386,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.labelStateSaveCsvFile);
+            this.tabPage2.Controls.Add(this.labelStateDownloadCsvFile);
+            this.tabPage2.Controls.Add(this.textBoxStateSaveCsvFile);
+            this.tabPage2.Controls.Add(this.textBoxStateDownloadCsvFile);
             this.tabPage2.Controls.Add(this.webBrowser1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
@@ -426,6 +434,38 @@
             this.timerStateCyclic.Interval = 10;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
+            // textBoxStateDownloadCsvFile
+            // 
+            this.textBoxStateDownloadCsvFile.Location = new System.Drawing.Point(1077, 58);
+            this.textBoxStateDownloadCsvFile.Name = "textBoxStateDownloadCsvFile";
+            this.textBoxStateDownloadCsvFile.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStateDownloadCsvFile.TabIndex = 2;
+            // 
+            // labelStateDownloadCsvFile
+            // 
+            this.labelStateDownloadCsvFile.AutoSize = true;
+            this.labelStateDownloadCsvFile.Location = new System.Drawing.Point(1077, 39);
+            this.labelStateDownloadCsvFile.Name = "labelStateDownloadCsvFile";
+            this.labelStateDownloadCsvFile.Size = new System.Drawing.Size(114, 13);
+            this.labelStateDownloadCsvFile.TabIndex = 3;
+            this.labelStateDownloadCsvFile.Text = "StateDownloadCsvFile";
+            // 
+            // textBoxStateSaveCsvFile
+            // 
+            this.textBoxStateSaveCsvFile.Location = new System.Drawing.Point(1077, 119);
+            this.textBoxStateSaveCsvFile.Name = "textBoxStateSaveCsvFile";
+            this.textBoxStateSaveCsvFile.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStateSaveCsvFile.TabIndex = 2;
+            // 
+            // labelStateSaveCsvFile
+            // 
+            this.labelStateSaveCsvFile.AutoSize = true;
+            this.labelStateSaveCsvFile.Location = new System.Drawing.Point(1077, 100);
+            this.labelStateSaveCsvFile.Name = "labelStateSaveCsvFile";
+            this.labelStateSaveCsvFile.Size = new System.Drawing.Size(91, 13);
+            this.labelStateSaveCsvFile.TabIndex = 3;
+            this.labelStateSaveCsvFile.Text = "StateSaveCsvFile";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,6 +483,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -486,6 +527,10 @@
         private System.Windows.Forms.Button buttonStepRun;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label labelStateSaveCsvFile;
+        private System.Windows.Forms.Label labelStateDownloadCsvFile;
+        private System.Windows.Forms.TextBox textBoxStateSaveCsvFile;
+        private System.Windows.Forms.TextBox textBoxStateDownloadCsvFile;
     }
 }
 

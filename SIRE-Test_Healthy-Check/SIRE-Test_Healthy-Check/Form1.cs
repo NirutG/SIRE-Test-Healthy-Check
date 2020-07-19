@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,7 @@ namespace SIRE_Test_Healthy_Check
         int indexWordWebCodeResponse = 0; //Decare to check Index of string array, wordWebCodeResponse
         bool statusState_Delay = false; //Decare for check Function state_Delay is done?
         byte functionState = 0; //Initial State of Function state_Delay at state0
-        double stateDownloadCsvFile = 0; //Initial State of Function download_CsvFile at state0
+        
         double testShow = 10.0;
         int test = 0;
         bool switchStepRun = false; //Decare to test function by STEP Run
@@ -27,6 +28,9 @@ namespace SIRE_Test_Healthy_Check
         bool switchReadCsvFile = false; //Decare for ON function read_CsvFile
         bool switchSearchDataInCsvFile = false; //Decare for ON function search_DataInCsvFile
 
+        double stateDownloadCsvFile = 0; //Initial State of Function download_CsvFile at state0
+        double stateSaveCsvFile = 0; //Initial State of Function save_CsvFile at state0
+
         bool statusWebBrowser1DocumentCompleted = false; //Decare for check when webBrowser1_DocumentCompleted
 
 
@@ -34,6 +38,7 @@ namespace SIRE_Test_Healthy_Check
         AutoHand autoHand = new AutoHand();//Decare to use DLL File of AutoItX3
         //Point point = new Point(0, 0); //Decare point x=0, y=0
         Point point = new Point(0, 0); //Decare point x=0, y=0
+        WebClient webClient1 = new WebClient();
         
         
 
@@ -224,8 +229,20 @@ namespace SIRE_Test_Healthy_Check
                         Location = point; //Assign Form1 Location = point(0, 0)
                         stateDownloadCsvFile = 28;
                         break;
-                    case 28: //State27 : Test RetrieveParam
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
+                    case 28: //State28 : Test RetrieveParam
+                        //Save to Disk
+                        //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
+                        //View ON Web
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=web&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
+                        stateDownloadCsvFile = 28.1;
+
+
+                        //webClient1.DownloadFileAsync(new Uri("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on"), @"C\param.csv");
+                        //stateDownloadCsvFile = 100;
+
+                        break;
+                    case 28.1: //State28.1 : ON function SaveCsvFile
+                        //switchSaveCsvFile = true;
                         stateDownloadCsvFile = 29;
                         break;
                     case 29: //State28 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
@@ -241,7 +258,6 @@ namespace SIRE_Test_Healthy_Check
                         break;
                     case 100: //State16 : End This Function and Resetting variables
                         switchDownloadCsvFile = false;
-                        switchSaveCsvFile = true;
                         stateDownloadCsvFile = 0;
                         break;
                     default:
@@ -251,7 +267,47 @@ namespace SIRE_Test_Healthy_Check
         }
         //##### End : download_CsvFile
 
-        
+        //##### Begin : save_CsvFile
+        private void save_CsvFile()
+        {
+            if (switchSaveCsvFile)
+            {
+                switch (stateSaveCsvFile)
+                {
+                    case 0: //Initial Variables
+                        statusWebBrowser1DocumentCompleted = false;
+                        stateSaveCsvFile = 1;//Temp
+                        break;
+                    case 1:// State1 : Delay a little bit
+                        if (state_Delay(1000))
+                        {
+                            stateSaveCsvFile = 2;
+                        }
+                        break;
+                    case 2:// State2 : Auto mouse move to click Save Button
+                        autoHand.mouseMoveAndClick("LEFT", 1014, 546, 1, 1); //Move to Click at Save Button
+                        stateSaveCsvFile = 3;
+                        break;
+                    case 3:// State3 : Delay a little bit
+                        if (state_Delay(1000))
+                        {
+                            stateSaveCsvFile = 4;
+                        }
+                        break;
+                    case 4:// State4 : Click at path
+                        autoHand.mouseMoveAndClick("LEFT", 1055, 274, 1, 1); //Move to Click at Path to save
+                        stateSaveCsvFile = 100;
+                        break;
+                    case 100:// State End
+                        switchSaveCsvFile = false;
+                        stateSaveCsvFile = 0;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        //##### End : save_CsvFile
         //##### End : My function Area #####
 
         private void Form1_Load(object sender, EventArgs e)
@@ -295,7 +351,10 @@ namespace SIRE_Test_Healthy_Check
         private void timerStateCyclic_Tick(object sender, EventArgs e)
         {
             download_CsvFile(); //Auto download CSV File
+            save_CsvFile(); //Auto save CSV File
             textBox2.Text = stateDownloadCsvFile.ToString();
+            textBoxStateDownloadCsvFile.Text = stateDownloadCsvFile.ToString();
+            textBoxStateSaveCsvFile.Text = stateSaveCsvFile.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
