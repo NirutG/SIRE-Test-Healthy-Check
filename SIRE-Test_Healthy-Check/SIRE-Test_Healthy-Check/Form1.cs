@@ -18,7 +18,8 @@ namespace SIRE_Test_Healthy_Check
         int indexWordWebCodeResponse = 0; //Decare to check Index of string array, wordWebCodeResponse
         bool statusState_Delay = false; //Decare for check Function state_Delay is done?
         byte functionState = 0; //Initial State of Function state_Delay at state0
-        byte stateDownloadCsvFile = 0; //Initial State of Function download_CsvFile at state0
+        double stateDownloadCsvFile = 0; //Initial State of Function download_CsvFile at state0
+        double testShow = 10.0;
         int test = 0;
         bool switchStepRun = false; //Decare to test function by STEP Run
         bool switchDownloadCsvFile = false; //Decare for ON function download_CsvFile
@@ -26,11 +27,15 @@ namespace SIRE_Test_Healthy_Check
         bool readCsvFile = false; //Decare for ON function read_CsvFile
         bool searchDataInCsvFile = false; //Decare for ON function search_DataInCsvFile
 
-        bool statusWebBrowser1_Navigated = false; //Decare for check when webBrowser1_Navigated
+        bool statusWebBrowser1DocumentCompleted = false; //Decare for check when webBrowser1_DocumentCompleted
 
 
         DataTable datatableWordWebCodeResponse = new DataTable(); //Decare to use Class DataTable to help checking
         AutoHand autoHand = new AutoHand();//Decare to use DLL File of AutoItX3
+        //Point point = new Point(0, 0); //Decare point x=0, y=0
+        Point point = new Point(0, 0); //Decare point x=0, y=0
+        
+        
 
         //##### End : Decare variable in Form1 #####
 
@@ -38,6 +43,7 @@ namespace SIRE_Test_Healthy_Check
         {
             InitializeComponent();
             timerStateCyclic.Enabled = true;
+            //textBox3.Text = testShow.ToString();
         }
 
         //##### Begin : My function Area #####
@@ -78,22 +84,22 @@ namespace SIRE_Test_Healthy_Check
         //##### End : state_Delay
 
         //##### Begin : download_CsvFile
-        private void download_CsvFile()
+        private void download_CsvFile()  
         {
             if(switchDownloadCsvFile) 
             {
                 switch(stateDownloadCsvFile)
                 {
                     case 0: //Initial Variables
-                        statusWebBrowser1_Navigated = false;
+                        statusWebBrowser1DocumentCompleted = false;
                         stateDownloadCsvFile = 1;//Temp
                         break;
                     case 1: //State1 : Go URL, Index Page
                         this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/index.jsp");
                         stateDownloadCsvFile = 2;
                         break;
-                    case 2: //State2 : After webBrowser1_Navigated, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1_Navigated)
+                    case 2: //State2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                        if (statusWebBrowser1DocumentCompleted)
                         {
                             textBoxUrlResponse.Text = "" + webBrowser1.Url;
                             stateDownloadCsvFile = 3;
@@ -107,8 +113,8 @@ namespace SIRE_Test_Healthy_Check
                         this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login");
                         stateDownloadCsvFile = 5;
                         break;
-                    case 5: //State5 : After webBrowser1_Navigated, Show URL Response from Server of Login Page
-                        if (statusWebBrowser1_Navigated)
+                    case 5: //State5 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Login Page
+                        if (statusWebBrowser1DocumentCompleted)
                         {
                             textBoxUrlResponse.Text = "" + webBrowser1.Url;
                             stateDownloadCsvFile = 6;
@@ -122,8 +128,8 @@ namespace SIRE_Test_Healthy_Check
                         this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login.jsp/j_security_check?j_username=woravit&j_password=123456&Logon=Log%20On");
                         stateDownloadCsvFile = 8;
                         break;
-                    case 8: //State8 : After webBrowser1_Navigated, Show URL Response from Server of Entering Loging by Send Login UserName + Password
-                        if (statusWebBrowser1_Navigated)
+                    case 8: //State8 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Entering Loging by Send Login UserName + Password
+                        if (statusWebBrowser1DocumentCompleted)
                         {
                             textBoxUrlResponse.Text = "" + webBrowser1.Url;
                             stateDownloadCsvFile = 9;
@@ -183,17 +189,97 @@ namespace SIRE_Test_Healthy_Check
                         textBoxParametricDataRetrieveProductionDB.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56);
                         stateDownloadCsvFile = 21;
                         break;
-                    case 21: //State21 : Go ParametricDataRetrieveProductionDB Page
+                    case 21: //State21 : Open tabPage2
+                        tabControl1.SelectedTab = tabPage2;
+                        stateDownloadCsvFile = 22;
+                        break;
+                    case 22: //State22 : Clear Cookie and Cathe
+                        //webBrowser1.Document.Cookie = "";
+                        //webBrowser1.Document.Cookie.Remove(0);
+                        //webBrowser1.Refresh(WebBrowserRefreshOption.Completely); // Test load with cacheless
+                        stateDownloadCsvFile = 22.1;
+                        break;
+                    case 22.1: //State22 : Go ParametricDataRetrieveProductionDB Page
                         this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56));
+                        stateDownloadCsvFile = 23;
+                        break;
+                    case 23: //State23 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                        if (statusWebBrowser1DocumentCompleted)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 24;
+                        }
+                        break;
+                    case 24: //State24 : Show WebCode Response from Server of Index Page
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateDownloadCsvFile = 25;
+                        break;
+                    case 25: //State25 : Set Window to Maximize
+                        Location = point; //Assign Form1 Location = point(0, 0)
+                        WindowState = FormWindowState.Maximized; //Assign Form1 Windows to Maximize
                         stateDownloadCsvFile = 100;
                         break;
-
-                    //Test
-                    //case 22: //StateXX : Go Parametric URL2&3
-
+                    case 26: //State26 : Test Clear Cache and Cookies
+                                                
+                        stateDownloadCsvFile = 26.1;
+                        break;
+                    case 26.1: //State26.1 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                        if (statusWebBrowser1DocumentCompleted)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 26.2;
+                        }
+                        break;
+                    case 26.2: //State26.2 : Show WebCode Response from Server of Index Page
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateDownloadCsvFile = 26.3;
+                        break;
+                    case 26.3: //State26.3 : Delay a little bit
+                        if (state_Delay(2000))
+                        {
+                            stateDownloadCsvFile = 27;
+                        }
+                        break;
+                    case 27: //State27 : Select parameters in Parametric Data Retrieve(Production DB) Page
+                        autoHand.mouseMoveAndClick("LEFT", 532, 167, 1, 10); //Move to Click at Tab, Standard Mode
+                        autoHand.mouseMoveAndClick("LEFT", 472, 231, 1, 10); //Move to Click at M/T
+                        stateDownloadCsvFile = 27.1;
+                        break;
+                    case 27.1: //State27.1 : Delay a little bit
+                        if (state_Delay(1000))
+                        {
+                            stateDownloadCsvFile = 27.2;
+                        }
+                        break;
+                    case 27.2: //State27.2 : Select parameters in Parametric Data Retrieve(Production DB) Page, Continue
+                        autoHand.mouseDrag("LEFT", 472, 280, 472, 567, 5); //Drag to see PCM%
+                        autoHand.mouseMoveAndClick("LEFT", 431, 449, 1, 5); //Move to Click at PCM%
+                        autoHand.mouseMoveAndClick("LEFT", 834, 230, 1, 5); //Move to Click at Filter
+                        stateDownloadCsvFile = 28;
+                        break;
+                    case 28: //State28 : Select parameters in Parametric Data Retrieve(Production DB) Page, continue
+                        if (state_Delay(500))
+                        {
+                            autoHand.mouseMoveAndClick("LEFT", 577, 247, 1, 5); //Move to Click at PCM-ALL
+                            stateDownloadCsvFile = 100;
+                        }
+                        break;
+                    case 29: //State29 : Click at Retrieve Button
+                        autoHand.mouseMoveAndClick("LEFT", 273, 760, 1, 5); //Move to Click at Retrieve Button
+                        stateDownloadCsvFile = 30;
+                        break;
+                    case 30: //State30 : Delay a little bit
+                        if (state_Delay(500))
+                        {
+                            stateDownloadCsvFile = 100;
+                        }
+                        break;
                     case 100: //State16 : End This Function and Resetting variables
                         switchDownloadCsvFile = false;
                         stateDownloadCsvFile = 0;
+
+                        
+
                         break;
                     default:
                         break;
@@ -216,13 +302,18 @@ namespace SIRE_Test_Healthy_Check
         }
         private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
-            statusWebBrowser1_Navigated = false; //OFF Flag after webBrowser1_Navigated
+            statusWebBrowser1DocumentCompleted = false; //Set status = false
         }
 
         public void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
-            statusWebBrowser1_Navigated = true; //ON Flag after webBrowser1_Navigated
         }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            statusWebBrowser1DocumentCompleted = true; //Set status = true
+        }
+
 
         private void buttonTestTrim_Click(object sender, EventArgs e) //Must Do After Login completed
         {
@@ -238,22 +329,20 @@ namespace SIRE_Test_Healthy_Check
 
         private void timerStateCyclic_Tick(object sender, EventArgs e)
         {
-                download_CsvFile(); //Auto download CSV File
+            download_CsvFile(); //Auto download CSV File
+            textBox2.Text = stateDownloadCsvFile.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            autoHand.mouseMoveAndClick("LEFT", 196, 330, 1, 1);
-            autoHand.mouseScroll("DOWN", 1);
-            textBox1.Text = webBrowser1.Left.ToString();
-            textBox1.Left = 0;
-            textBox1.Top = 0;
-            Point p = new Point(0, 0); // Decare point x=0, y=0
-            Location = p; // Assign Location = point p
-            WindowState = FormWindowState.Maximized; //Assign Windows to Maximize
-            //Form1 form = new Form1();
-            //form.StartPosition = 0;
-            //form.Top = 0;
+            //autoHand.mouseMoveAndClick("LEFT", 196, 330, 1, 1);
+            //autoHand.mouseScroll("DOWN", 1);
+            //textBox1.Text = webBrowser1.Left.ToString();
+            //textBox1.Left = 0;
+            //textBox1.Top = 0;
+            //Point p = new Point(0, 0); // Decare point x=0, y=0
+            //Location = p; // Assign Location = point p
+            //WindowState = FormWindowState.Maximized; //Assign Windows to Maximize
         }
 
     }
