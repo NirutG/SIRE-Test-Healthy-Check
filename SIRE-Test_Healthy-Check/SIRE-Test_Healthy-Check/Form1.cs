@@ -189,90 +189,21 @@ namespace SIRE_Test_Healthy_Check
                         textBoxParametricDataRetrieveProductionDB.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56);
                         stateDownloadCsvFile = 21;
                         break;
-                    case 21: //State21 : Open tabPage2
+                    case 21: //State22 : Test Open tabPage2 THEN Go ParametricDataRetrieveProductionDB Page
                         tabControl1.SelectedTab = tabPage2;
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56));
                         stateDownloadCsvFile = 22;
                         break;
-                    case 22: //State22 : Clear Cookie and Cathe
-                        //webBrowser1.Document.Cookie = "";
-                        //webBrowser1.Document.Cookie.Remove(0);
-                        //webBrowser1.Refresh(WebBrowserRefreshOption.Completely); // Test load with cacheless
-                        stateDownloadCsvFile = 22.1;
-                        break;
-                    case 22.1: //State22 : Go ParametricDataRetrieveProductionDB Page
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56));
-                        stateDownloadCsvFile = 23;
-                        break;
-                    case 23: //State23 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                    case 22: //State23 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
                         if (statusWebBrowser1DocumentCompleted)
                         {
                             textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 24;
+                            stateDownloadCsvFile = 23;
                         }
                         break;
-                    case 24: //State24 : Show WebCode Response from Server of Index Page
+                    case 23: //State24 : Show WebCode Response from Server of Index Page
                         textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 25;
-                        break;
-                    case 25: //State25 : Set Window to Maximize
-                        Location = point; //Assign Form1 Location = point(0, 0)
-                        WindowState = FormWindowState.Maximized; //Assign Form1 Windows to Maximize
-                        stateDownloadCsvFile = 100;
-                        break;
-                    case 26: //State26 : Test Clear Cache and Cookies
-                                                
-                        stateDownloadCsvFile = 26.1;
-                        break;
-                    case 26.1: //State26.1 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 26.2;
-                        }
-                        break;
-                    case 26.2: //State26.2 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 26.3;
-                        break;
-                    case 26.3: //State26.3 : Delay a little bit
-                        if (state_Delay(2000))
-                        {
-                            stateDownloadCsvFile = 27;
-                        }
-                        break;
-                    case 27: //State27 : Select parameters in Parametric Data Retrieve(Production DB) Page
-                        autoHand.mouseMoveAndClick("LEFT", 532, 167, 1, 10); //Move to Click at Tab, Standard Mode
-                        autoHand.mouseMoveAndClick("LEFT", 472, 231, 1, 10); //Move to Click at M/T
-                        stateDownloadCsvFile = 27.1;
-                        break;
-                    case 27.1: //State27.1 : Delay a little bit
-                        if (state_Delay(1000))
-                        {
-                            stateDownloadCsvFile = 27.2;
-                        }
-                        break;
-                    case 27.2: //State27.2 : Select parameters in Parametric Data Retrieve(Production DB) Page, Continue
-                        autoHand.mouseDrag("LEFT", 472, 280, 472, 567, 5); //Drag to see PCM%
-                        autoHand.mouseMoveAndClick("LEFT", 431, 449, 1, 5); //Move to Click at PCM%
-                        autoHand.mouseMoveAndClick("LEFT", 834, 230, 1, 5); //Move to Click at Filter
-                        stateDownloadCsvFile = 28;
-                        break;
-                    case 28: //State28 : Select parameters in Parametric Data Retrieve(Production DB) Page, continue
-                        if (state_Delay(500))
-                        {
-                            autoHand.mouseMoveAndClick("LEFT", 577, 247, 1, 5); //Move to Click at PCM-ALL
-                            stateDownloadCsvFile = 100;
-                        }
-                        break;
-                    case 29: //State29 : Click at Retrieve Button
-                        autoHand.mouseMoveAndClick("LEFT", 273, 760, 1, 5); //Move to Click at Retrieve Button
-                        stateDownloadCsvFile = 30;
-                        break;
-                    case 30: //State30 : Delay a little bit
-                        if (state_Delay(500))
-                        {
-                            stateDownloadCsvFile = 100;
-                        }
+                        stateDownloadCsvFile = 24;
                         break;
                     case 100: //State16 : End This Function and Resetting variables
                         switchDownloadCsvFile = false;
@@ -347,3 +278,79 @@ namespace SIRE_Test_Healthy_Check
 
     }
 }
+
+
+/* ##### Begin : Backup Code ######
+ * 
+ *                     case 25: //State25 : Set Window to Maximize
+                        Location = point; //Assign Form1 Location = point(0, 0)
+                        WindowState = FormWindowState.Maximized; //Assign Form1 Windows to Maximize
+                        stateDownloadCsvFile = 100;
+                        break;
+                    case 26: //State26 : Test Clear Cache and Cookies
+                                                
+                        stateDownloadCsvFile = 26.1;
+                        break;
+                    case 26.1: //State26.1 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                        if (statusWebBrowser1DocumentCompleted)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 26.2;
+                        }
+                        break;
+                    case 26.2: //State26.2 : Show WebCode Response from Server of Index Page
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateDownloadCsvFile = 26.3;
+                        break;
+                    case 26.3: //State26.3 : Delay a little bit
+                        if (state_Delay(2000))
+                        {
+                            stateDownloadCsvFile = 27;
+                        }
+                        break;
+                    case 27: //State27 : Select parameters in Parametric Data Retrieve(Production DB) Page
+                        autoHand.mouseMoveAndClick("LEFT", 532, 167, 1, 10); //Move to Click at Tab, Standard Mode
+                        autoHand.mouseMoveAndClick("LEFT", 472, 231, 1, 10); //Move to Click at M/T
+                        stateDownloadCsvFile = 27.1;
+                        break;
+                    case 27.1: //State27.1 : Delay a little bit
+                        if (state_Delay(1000))
+                        {
+                            stateDownloadCsvFile = 27.2;
+                        }
+                        break;
+                    case 27.2: //State27.2 : Select parameters in Parametric Data Retrieve(Production DB) Page, Continue
+                        autoHand.mouseDrag("LEFT", 472, 280, 472, 567, 5); //Drag to see PCM%
+                        autoHand.mouseMoveAndClick("LEFT", 431, 449, 1, 5); //Move to Click at PCM%
+                        autoHand.mouseMoveAndClick("LEFT", 834, 230, 1, 5); //Move to Click at Filter
+                        stateDownloadCsvFile = 28;
+                        break;
+                    case 28: //State28 : Select parameters in Parametric Data Retrieve(Production DB) Page, continue
+                        if (state_Delay(500))
+                        {
+                            autoHand.mouseMoveAndClick("LEFT", 577, 247, 1, 5); //Move to Click at PCM-ALL
+                            stateDownloadCsvFile = 100;
+                        }
+                        break;
+                    case 29: //State29 : Click at Retrieve Button
+                        autoHand.mouseMoveAndClick("LEFT", 273, 760, 1, 5); //Move to Click at Retrieve Button
+                        stateDownloadCsvFile = 30;
+                        break;
+                    case 30: //State30 : Delay a little bit
+                        if (state_Delay(500))
+                        {
+                            stateDownloadCsvFile = 100;
+                        }
+                        break;
+                    case 100: //State16 : End This Function and Resetting variables
+                        switchDownloadCsvFile = false;
+                        stateDownloadCsvFile = 0;
+
+                        
+
+                        break;
+                    default:
+                        break;
+    ##### End : Backup Code ######
+
+    */
