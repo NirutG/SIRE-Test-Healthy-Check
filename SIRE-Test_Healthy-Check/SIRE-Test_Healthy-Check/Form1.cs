@@ -15,11 +15,14 @@ namespace SIRE_Test_Healthy_Check
     public partial class Form1 : Form
     {
         //##### Begin : Decare variable in Form1 #####
-        string[] wordWebCodeResponse; //Decare String Array to check Word in textBoxWebCodeResponse
-        int indexWordWebCodeResponse = 0; //Decare to check Index of string array, wordWebCodeResponse
-        bool statusState_Delay = false; //Decare for check Function state_Delay is done?
-        byte functionState = 0; //Initial State of Function state_Delay at state0
-        
+        string[] wordWebCodeResponse; //Check Word in textBoxWebCodeResponse
+        int indexWordWebCodeResponse = 0; //Index of string array, wordWebCodeResponse
+        bool statusDelay = false; //Check Function delay_State is done?
+        bool statusAddWordInRowTable = false; //Check Function addword_InRowTable is done?
+        byte stateDelay = 0; //Initial State of Function delay at state0
+        byte stateAddWordInRowTable = 0; //Initial State of Function addword_InRowTable
+
+
         double testShow = 10.0;
         int test = 0;
         bool switchStepRun = false; //Decare to test function by STEP Run
@@ -52,41 +55,99 @@ namespace SIRE_Test_Healthy_Check
         }
 
         //##### Begin : My function Area #####
-        //##### Begin : state_Delay
-        public bool state_Delay(int intervalValue) //Delay function
+        //##### Begin : delay_State
+        public bool delay_State(int intervalValue) //Delay function
         {
-            switch(functionState)
+            switch(stateDelay)
             {
                 case 0: //Initial variable
-                    statusState_Delay = false;
-                    functionState = 1;
+                    statusDelay = false;
+                    stateDelay = 1;
                     break;
                 case 1: //Set Interval and Enable timer1
                     timer1.Interval = intervalValue;
                     timer1.Enabled = true;
-                    functionState = 2;
+                    stateDelay = 2;
                     break;
                 case 2: //Wait until timer1 will Tick
-                    if(statusState_Delay == true)
+                    if(statusDelay == true)
                     {
-                        functionState = 0;
+                        stateDelay = 0;
                     }
                     else
                     {
-                        functionState = 2;
+                        stateDelay = 2;
                     }
                     break;
                 default:
                     break;
             }
-            return statusState_Delay;
+            return statusDelay;
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            statusState_Delay = true;
+            statusDelay = true;
             timer1.Enabled = false;
         }
-        //##### End : state_Delay
+        //##### End : delay_State
+
+        //##### Begin : addWordInRow_Table1
+        private bool addword_InRowTable()
+        {
+            switch (stateAddWordInRowTable)
+            {
+                case 0: //Initial Variables
+                    statusAddWordInRowTable = false;
+                    stateAddWordInRowTable = 1;
+                    break;
+                case 1: //State1 : Show WebCode Response String Length from Server
+                    textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString();
+                    stateAddWordInRowTable = 2;
+                    break;
+                case 2: //State2 : Make SubString by Remove no need characters from Web Code Response
+                    wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(null); //SubState2.1 : Split null
+                    wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); //SubState2.2
+                    wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //SubState2.3 (InnerState2.1 to 2.3 = Remove no need characters)
+                    stateAddWordInRowTable = 3;
+                    break;
+                case 3: //State3 : Show WebCode Response SubString Length
+                    textBoxWebCodeResponseSubStringLength.Text = wordWebCodeResponse.Length.ToString();
+                    stateAddWordInRowTable = 4;
+                    break;
+                case 4://State4 : Show WebCode Response Last SubString 
+                    textBoxWebCodeResponseLastSubString.Text = wordWebCodeResponse.Last();
+                    stateAddWordInRowTable = 5;
+                    break;
+                case 5: //State5 : Clear all data in datatable
+                    datatableWordWebCodeResponse.Clear();
+                    stateAddWordInRowTable = 6;
+                    break;
+                case 6: //State6 : Initial indexWordWebCodeResponse = 0
+                    indexWordWebCodeResponse = 0;
+                    stateAddWordInRowTable = 7;
+                    break;
+                case 7: //State7 : Looping until last word in String Array wordWebCodeResponse
+                    foreach (var word in wordWebCodeResponse)
+                    {
+                        datatableWordWebCodeResponse.Rows.Add(indexWordWebCodeResponse.ToString(), wordWebCodeResponse[indexWordWebCodeResponse]); //Add Data to new Row in Table
+                        indexWordWebCodeResponse++;
+                    }
+                    stateAddWordInRowTable = 8;
+                    break;
+                case 8: //State8 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
+                    dataGridView1.DataSource = datatableWordWebCodeResponse;
+                    stateAddWordInRowTable = 9;
+                    break;
+                case 9: //State9 : Clear Variable
+                    stateAddWordInRowTable = 0;
+                    statusAddWordInRowTable = true;
+                    break;
+                default:
+                    break;
+            }
+            return statusAddWordInRowTable;
+        }
+        //##### End : addWordInRow_Table1
 
         //##### Begin : download_CsvFile
         private void download_CsvFile()  
@@ -229,30 +290,35 @@ namespace SIRE_Test_Healthy_Check
                         stateDownloadCsvFile = 25;
                         break;
                     case 25: //State25 : Test RetrieveProcess
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveProcess&location=0&mtype=PCM%25&modelid=PCM-ALL&datekey=test&enddate0=20200720&endtime0=000000&enddate1=20200720&endtime1=235959&scanmode=all&scanmodesub=found&process=1800&snlist=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&locid=&locid=&locid=&locid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&testerid=&testerid=&testerid=&testerid=&testerid=&testerid=&cellid=&cellid=&cellid=&cellid=&cellid=&cellid=&testertype=&testertype=&testertype=&testertype=&testcode=&testcode=&testcode=&testcode=&partid_spdl=&partid_disk=&partid_hsa=&partid_card=&partid_hgau=&partid_hgad=&partid_sldu=&partid_sldd=&lineid=&lineid=&lineid=&teamid=&teamid=&teamid=&cycle=&disposition=&disposition=&disposition=&disposition=&key1=diskpn&key1val=&key1val=&key1val=&key1val=&key2=hsapn&key2val=&key2val=&key2val=&key2val=&key3=hgapn&key3val=&key3val=&key3val=&key3val=&key4=sliderec&key4val=&key4val=&key4val=&key4val=");
-                        stateDownloadCsvFile = 26;
+                        if (addword_InRowTable())
+                        {
+                            stateDownloadCsvFile = 100;
+                        }
+                        //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveProcess&location=0&mtype=PCM%25&modelid=PCM-ALL&datekey=test&enddate0=20200720&endtime0=000000&enddate1=20200720&endtime1=235959&scanmode=all&scanmodesub=found&process=1800&snlist=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&locid=&locid=&locid=&locid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&testerid=&testerid=&testerid=&testerid=&testerid=&testerid=&cellid=&cellid=&cellid=&cellid=&cellid=&cellid=&testertype=&testertype=&testertype=&testertype=&testcode=&testcode=&testcode=&testcode=&partid_spdl=&partid_disk=&partid_hsa=&partid_card=&partid_hgau=&partid_hgad=&partid_sldu=&partid_sldd=&lineid=&lineid=&lineid=&teamid=&teamid=&teamid=&cycle=&disposition=&disposition=&disposition=&disposition=&key1=diskpn&key1val=&key1val=&key1val=&key1val=&key2=hsapn&key2val=&key2val=&key2val=&key2val=&key3=hgapn&key3val=&key3val=&key3val=&key3val=&key4=sliderec&key4val=&key4val=&key4val=&key4val=");
+                        //stateDownloadCsvFile = 26;
                         break;
                     case 26: //State26 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 27;
-                        }
+                        //if (statusWebBrowser1DocumentCompleted)
+                        //{
+                        //    textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                        //    stateDownloadCsvFile = 27;
+                        //}
                         break;
                     case 27: //State27 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 28;
+                        //textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        //stateDownloadCsvFile = 28;
                         break;
                     case 28: //State28 : Prepare for Auto Mouse move
-                        Location = point; //Assign Form1 Location = point(0, 0)
-                        stateDownloadCsvFile = 100;
+                        //Location = point; //Assign Form1 Location = point(0, 0)
+                        //stateDownloadCsvFile = 100;
                         break;
                     case 29: //State29 : Test RetrieveParam
                         //Save to Disk
                         //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
+                        
                         //View ON Web
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=web&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
-                        stateDownloadCsvFile = 29.1;
+                        //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=web&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
+                        //stateDownloadCsvFile = 29.1;
 
 
                         //webClient1.DownloadFileAsync(new Uri("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on"), @"C\param.csv");
@@ -261,18 +327,18 @@ namespace SIRE_Test_Healthy_Check
                         break;
                     case 29.1: //State29.1 : ON function SaveCsvFile
                         //switchSaveCsvFile = true;
-                        stateDownloadCsvFile = 30;
+                        //stateDownloadCsvFile = 30;
                         break;
                     case 30: //State30 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 31;
-                        }
+                        //if (statusWebBrowser1DocumentCompleted)
+                        //{
+                        //    textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                        //    stateDownloadCsvFile = 31;
+                        //}
                         break;
                     case 31: //State31 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 100;
+                        //textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        //stateDownloadCsvFile = 100;
                         break;
                     case 100: //State100 : End This Function and Resetting variables
                         switchDownloadCsvFile = false;
@@ -297,7 +363,7 @@ namespace SIRE_Test_Healthy_Check
                         stateSaveCsvFile = 1;//Temp
                         break;
                     case 1:// State1 : Delay a little bit
-                        if (state_Delay(1000))
+                        if (delay_State(1000))
                         {
                             stateSaveCsvFile = 2;
                         }
@@ -307,7 +373,7 @@ namespace SIRE_Test_Healthy_Check
                         stateSaveCsvFile = 3;
                         break;
                     case 3:// State3 : Delay a little bit
-                        if (state_Delay(1000))
+                        if (delay_State(1000))
                         {
                             stateSaveCsvFile = 4;
                         }
@@ -369,7 +435,7 @@ namespace SIRE_Test_Healthy_Check
         private void timerStateCyclic_Tick(object sender, EventArgs e)
         {
             download_CsvFile(); //Auto download CSV File
-            save_CsvFile(); //Auto save CSV File
+            //save_CsvFile(); //Auto save CSV File
             textBox2.Text = stateDownloadCsvFile.ToString();
             textBoxStateDownloadCsvFile.Text = stateDownloadCsvFile.ToString();
             textBoxStateSaveCsvFile.Text = stateSaveCsvFile.ToString();
@@ -414,7 +480,7 @@ namespace SIRE_Test_Healthy_Check
                         stateDownloadCsvFile = 26.3;
                         break;
                     case 26.3: //State26.3 : Delay a little bit
-                        if (state_Delay(2000))
+                        if (delay_State(2000))
                         {
                             stateDownloadCsvFile = 27;
                         }
@@ -425,7 +491,7 @@ namespace SIRE_Test_Healthy_Check
                         stateDownloadCsvFile = 27.1;
                         break;
                     case 27.1: //State27.1 : Delay a little bit
-                        if (state_Delay(1000))
+                        if (delay_State(1000))
                         {
                             stateDownloadCsvFile = 27.2;
                         }
@@ -437,7 +503,7 @@ namespace SIRE_Test_Healthy_Check
                         stateDownloadCsvFile = 28;
                         break;
                     case 28: //State28 : Select parameters in Parametric Data Retrieve(Production DB) Page, continue
-                        if (state_Delay(500))
+                        if (delay_State(500))
                         {
                             autoHand.mouseMoveAndClick("LEFT", 577, 247, 1, 5); //Move to Click at PCM-ALL
                             stateDownloadCsvFile = 100;
@@ -448,7 +514,7 @@ namespace SIRE_Test_Healthy_Check
                         stateDownloadCsvFile = 30;
                         break;
                     case 30: //State30 : Delay a little bit
-                        if (state_Delay(500))
+                        if (delay_State(500))
                         {
                             stateDownloadCsvFile = 100;
                         }
@@ -462,6 +528,77 @@ namespace SIRE_Test_Healthy_Check
                         break;
                     default:
                         break;
+
+
+    // Before Create function : addword_InRowTable()
+
+    case 25: //State25 : Test RetrieveProcess
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveProcess&location=0&mtype=PCM%25&modelid=PCM-ALL&datekey=test&enddate0=20200720&endtime0=000000&enddate1=20200720&endtime1=235959&scanmode=all&scanmodesub=found&process=1800&snlist=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&locid=&locid=&locid=&locid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&testerid=&testerid=&testerid=&testerid=&testerid=&testerid=&cellid=&cellid=&cellid=&cellid=&cellid=&cellid=&testertype=&testertype=&testertype=&testertype=&testcode=&testcode=&testcode=&testcode=&partid_spdl=&partid_disk=&partid_hsa=&partid_card=&partid_hgau=&partid_hgad=&partid_sldu=&partid_sldd=&lineid=&lineid=&lineid=&teamid=&teamid=&teamid=&cycle=&disposition=&disposition=&disposition=&disposition=&key1=diskpn&key1val=&key1val=&key1val=&key1val=&key2=hsapn&key2val=&key2val=&key2val=&key2val=&key3=hgapn&key3val=&key3val=&key3val=&key3val=&key4=sliderec&key4val=&key4val=&key4val=&key4val=");
+                        stateDownloadCsvFile = 26;
+                        break;
+                    case 26: //State26 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                        if (statusWebBrowser1DocumentCompleted)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 27;
+                        }
+                        break;
+                    case 27: //State27 : Show WebCode Response from Server of Index Page
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateDownloadCsvFile = 28;
+                        break;
+                    case 28: //State28 : Prepare for Auto Mouse move
+                        Location = point; //Assign Form1 Location = point(0, 0)
+                        stateDownloadCsvFile = 100;
+                        break;
+                    case 29: //State29 : Test RetrieveParam
+                        //Save to Disk
+                        //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
+                        //View ON Web
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=web&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
+                        stateDownloadCsvFile = 29.1;
+
+
+                        //webClient1.DownloadFileAsync(new Uri("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on"), @"C\param.csv");
+                        //stateDownloadCsvFile = 100;
+
+                        break;
+                    case 29.1: //State29.1 : ON function SaveCsvFile
+                        //switchSaveCsvFile = true;
+                        stateDownloadCsvFile = 30;
+                        break;
+                    case 30: //State30 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                        if (statusWebBrowser1DocumentCompleted)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 31;
+                        }
+                        break;
+                    case 31: //State31 : Show WebCode Response from Server of Index Page
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateDownloadCsvFile = 100;
+                        break;
+                    case 100: //State100 : End This Function and Resetting variables
+                        switchDownloadCsvFile = false;
+                        stateDownloadCsvFile = 0;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        //##### End : download_CsvFile
+
+
+
+
+
+
+
+
+
+
+
     ##### End : Backup Code ######
 
     */
