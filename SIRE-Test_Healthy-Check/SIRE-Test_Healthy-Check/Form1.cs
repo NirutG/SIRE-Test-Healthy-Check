@@ -19,9 +19,13 @@ namespace SIRE_Test_Healthy_Check
         int indexWordWebCodeResponse = 0; //Index of string array, wordWebCodeResponse
         bool statusDelay = false; //Check Function delay_State is done?
         bool statusAddWordInRowTable = false; //Check Function addword_InRowTable is done?
+        bool statusGoUrl = false; //Check Function go_Url is done?
+        bool statusShowUrlRetrieveProcess = false; //Check Function show_UrlRetrieveProcess
+
         byte stateDelay = 0; //Initial State of Function delay at state0
         byte stateAddWordInRowTable = 0; //Initial State of Function addword_InRowTable
-
+        byte stateGoUrl = 0; //Initial State of Function go_Url
+        byte stateShowUrlRetrieveProcess = 0; //Initial State of Function show_UrlRetrieveProcess
 
         double testShow = 10.0;
         int test = 0;
@@ -91,6 +95,41 @@ namespace SIRE_Test_Healthy_Check
         }
         //##### End : delay_State
 
+        //##### Begin : go_Url
+        private bool go_Url(string url)
+        {
+            switch (stateGoUrl)
+            {
+                case 0: //State0 : Initial Variables
+                    statusGoUrl = false;
+                    stateGoUrl = 1;
+                    break;
+                case 1: //State1 : Go URL
+                    this.webBrowser1.Navigate(url);
+                    stateGoUrl = 2;
+                    break;
+                case 2: //State2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                    if (statusWebBrowser1DocumentCompleted)
+                    {
+                        textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                        stateGoUrl = 3;
+                    }
+                    break;
+                case 3: //State3 : Show WebCode Response from Server of Index Page
+                    textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                    stateGoUrl = 4;
+                    break;
+                case 4: //State4 : Clear Variables
+                    statusGoUrl = true;
+                    stateGoUrl = 0;
+                    break;
+                default:
+                    break;
+            }
+        return statusGoUrl;
+        }
+        //##### End : go_Url
+
         //##### Begin : addWordInRow_Table1
         private bool addword_InRowTable()
         {
@@ -149,6 +188,39 @@ namespace SIRE_Test_Healthy_Check
         }
         //##### End : addWordInRow_Table1
 
+        //##### Begin : show_UrlRetrieveProcess
+        private bool show_UrlRetrieveProcess()
+        {
+            switch (stateShowUrlRetrieveProcess)
+            {
+                case 0: //Initial Variable
+                    statusShowUrlRetrieveProcess = false;
+                    stateShowUrlRetrieveProcess = 1;
+                    break;
+                case 1: //State1 : Show wordWebCodeResponse[17] to textbox
+                    textBoxWebCodeResponseSubStringIndex17.Text = wordWebCodeResponse[17];
+                    stateShowUrlRetrieveProcess = 2;
+                    break;
+                case 2: //State2 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
+                    textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Text = wordWebCodeResponse[17].Substring(7, 56);
+                    stateShowUrlRetrieveProcess = 3;
+                    break;
+                case 3: //State3 : Show ParametricDataRetrieveProductionDB URL to textbox
+                    textBoxParametricDataRetrieveProductionDB.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56);
+                    stateShowUrlRetrieveProcess = 4;
+                    break;
+                case 4: //State4 : Clear Variable
+                    statusShowUrlRetrieveProcess = true;
+                    stateShowUrlRetrieveProcess = 0;
+                    break;
+                default:
+                    break;
+            }
+            return statusShowUrlRetrieveProcess;
+        }
+        //##### End : show_UrlRetrieveProcess
+
+
         //##### Begin : download_CsvFile
         private void download_CsvFile()  
         {
@@ -156,189 +228,58 @@ namespace SIRE_Test_Healthy_Check
             {
                 switch(stateDownloadCsvFile)
                 {
-                    case 0: //State0 : Initial Variables
+                    case 0: //State0 : Initial Variables 
                         statusWebBrowser1DocumentCompleted = false;
-                        stateDownloadCsvFile = 0.1;
+                        stateDownloadCsvFile = 1;
+                        tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
                         break;
-                    case 0.1: //State0.1 : Initial Entering Web VnusQ by Logoff
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/logoff.jsp");
-                        stateDownloadCsvFile = 0.2;
-                        break;
-                    case 0.2: //State0.2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
+                    case 1: //State1 : Initial Entering Web VnusQ by Logoff
+                        if(go_Url("http://dwhweb.prb.hgst.com/dwh/logoff.jsp"))
                         {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 0.3;
+                            stateDownloadCsvFile = 2;
                         }
                         break;
-                    case 0.3: //State0.3 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 1;
-                        break;
-                    case 1: //State1 : Go URL, Index Page
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/index.jsp");
-                        stateDownloadCsvFile = 2;
-                        break;
-                    case 2: //State2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
+                    case 2: //State2 : Go URL, Index Page
+                        if (go_Url("http://dwhweb.prb.hgst.com/dwh/index.jsp"))
                         {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
                             stateDownloadCsvFile = 3;
                         }
                         break;
-                    case 3: //State3 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 4;
-                        break;
-                    case 4: //State4 : Go URL, Login Page
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login");
-                        stateDownloadCsvFile = 5;
-                        break;
-                    case 5: //State5 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Login Page
-                        if (statusWebBrowser1DocumentCompleted)
+                    case 3: //State3 : Go URL, Login Page
+                        if (go_Url("http://dwhweb.prb.hgst.com/dwh/login"))
                         {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 4;
+                        }
+                        break;
+                    case 4: //State4 : Go URL, Entering Loging by Send Login UserName + Password
+                        if (go_Url("http://dwhweb.prb.hgst.com/dwh/login.jsp/j_security_check?j_username=woravit&j_password=123456&Logon=Log%20On"))
+                        {
+                            stateDownloadCsvFile = 5;
+                        }
+                        break;
+                    case 5: //State5 : Show WebCode Response String Length from Server
+                        if (addword_InRowTable())
+                        {
                             stateDownloadCsvFile = 6;
                         }
                         break;
-                    case 6: //State6 : Show WebCode Response from Server of Login Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 7;
-                        break;
-                    case 7: //State7 : Go URL, Entering Loging by Send Login UserName + Password
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login.jsp/j_security_check?j_username=woravit&j_password=123456&Logon=Log%20On");
-                        stateDownloadCsvFile = 8;
-                        break;
-                    case 8: //State8 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Entering Loging by Send Login UserName + Password
-                        if (statusWebBrowser1DocumentCompleted)
+                    case 6: //State6 : Show URL of RetrieveProcess
+                        if (show_UrlRetrieveProcess())
                         {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 9;
+                            stateDownloadCsvFile = 7;
                         }
                         break;
-                    case 9: //State9 : Show WebCode Response from Server of Entering Loging by Send Login UserName + Password
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 10;
-                        break;
-                    case 10: //State10 : Show WebCode Response String Length from Server
-                        textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString();
-                        stateDownloadCsvFile = 11;
-                        break;
-                    case 11: //State11 : Make SubString by Remove no need characters from Web Code Response
-                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(null); //SubState5.1 : Split null
-                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); //SubState5.2
-                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //SubState5.3 (InnerState5.1 to 5.3 = Remove no need characters)
-                        stateDownloadCsvFile = 12;
-                        break;
-                    case 12: //State12 : Show WebCode Response SubString Length
-                        textBoxWebCodeResponseSubStringLength.Text = wordWebCodeResponse.Length.ToString();
-                        stateDownloadCsvFile = 13;
-                        break;
-                    case 13://State13 : Show WebCode Response Last SubString 
-                        textBoxWebCodeResponseLastSubString.Text = wordWebCodeResponse.Last();
-                        stateDownloadCsvFile = 14;
-                        break;
-                    case 14: //State14 : Clear all data in datatable
-                        datatableWordWebCodeResponse.Clear();
-                        stateDownloadCsvFile = 15;
-                        break;
-                    case 15: //State15 : Initial indexWordWebCodeResponse = 0
-                        indexWordWebCodeResponse = 0;
-                        stateDownloadCsvFile = 16;
-                        break;
-                    case 16: //State16 : Looping until last word in String Array wordWebCodeResponse
-                        foreach (var word in wordWebCodeResponse) 
+                    case 7: //State7 : Go ParametricDataRetrieveProductionDB Page
+                        if (go_Url("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56)))
                         {
-                            datatableWordWebCodeResponse.Rows.Add(indexWordWebCodeResponse.ToString(), wordWebCodeResponse[indexWordWebCodeResponse]); //Add Data to new Row in Table
-                            indexWordWebCodeResponse++;
-                        }
-                        stateDownloadCsvFile = 17; 
-                        break;
-                    case 17: //State17 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
-                        dataGridView1.DataSource = datatableWordWebCodeResponse;
-                        stateDownloadCsvFile = 18;
-                        break;
-                    case 18: //State18 : Show wordWebCodeResponse[17] to textbox
-                        textBoxWebCodeResponseSubStringIndex17.Text = wordWebCodeResponse[17];
-                        stateDownloadCsvFile = 19;
-                        break;
-                    case 19: //State19 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
-                        textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Text = wordWebCodeResponse[17].Substring(7, 56);
-                        stateDownloadCsvFile = 20;
-                        break;
-                    case 20: //State20 : Show ParametricDataRetrieveProductionDB URL to textbox
-                        textBoxParametricDataRetrieveProductionDB.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56);
-                        stateDownloadCsvFile = 21;
-                        break;
-                    case 21: //State21 : Open tabPage2
-                        tabControl1.SelectedTab = tabPage2;
-                        stateDownloadCsvFile = 22;
-                        break;
-                    case 22: //State22 : Go ParametricDataRetrieveProductionDB Page
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56));
-                        stateDownloadCsvFile = 23;
-                        break;
-                    case 23: //State23 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 24;
+                            stateDownloadCsvFile = 8;
                         }
                         break;
-                    case 24: //State24 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 25;
-                        break;
-                    case 25: //State25 : Test RetrieveProcess
+                    case 8: //State8 : Test RetrieveProcess
                         if (addword_InRowTable())
                         {
                             stateDownloadCsvFile = 100;
                         }
-                        //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveProcess&location=0&mtype=PCM%25&modelid=PCM-ALL&datekey=test&enddate0=20200720&endtime0=000000&enddate1=20200720&endtime1=235959&scanmode=all&scanmodesub=found&process=1800&snlist=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&locid=&locid=&locid=&locid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&testerid=&testerid=&testerid=&testerid=&testerid=&testerid=&cellid=&cellid=&cellid=&cellid=&cellid=&cellid=&testertype=&testertype=&testertype=&testertype=&testcode=&testcode=&testcode=&testcode=&partid_spdl=&partid_disk=&partid_hsa=&partid_card=&partid_hgau=&partid_hgad=&partid_sldu=&partid_sldd=&lineid=&lineid=&lineid=&teamid=&teamid=&teamid=&cycle=&disposition=&disposition=&disposition=&disposition=&key1=diskpn&key1val=&key1val=&key1val=&key1val=&key2=hsapn&key2val=&key2val=&key2val=&key2val=&key3=hgapn&key3val=&key3val=&key3val=&key3val=&key4=sliderec&key4val=&key4val=&key4val=&key4val=");
-                        //stateDownloadCsvFile = 26;
-                        break;
-                    case 26: //State26 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        //if (statusWebBrowser1DocumentCompleted)
-                        //{
-                        //    textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                        //    stateDownloadCsvFile = 27;
-                        //}
-                        break;
-                    case 27: //State27 : Show WebCode Response from Server of Index Page
-                        //textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        //stateDownloadCsvFile = 28;
-                        break;
-                    case 28: //State28 : Prepare for Auto Mouse move
-                        //Location = point; //Assign Form1 Location = point(0, 0)
-                        //stateDownloadCsvFile = 100;
-                        break;
-                    case 29: //State29 : Test RetrieveParam
-                        //Save to Disk
-                        //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
-                        
-                        //View ON Web
-                        //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=web&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
-                        //stateDownloadCsvFile = 29.1;
-
-
-                        //webClient1.DownloadFileAsync(new Uri("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on"), @"C\param.csv");
-                        //stateDownloadCsvFile = 100;
-
-                        break;
-                    case 29.1: //State29.1 : ON function SaveCsvFile
-                        //switchSaveCsvFile = true;
-                        //stateDownloadCsvFile = 30;
-                        break;
-                    case 30: //State30 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        //if (statusWebBrowser1DocumentCompleted)
-                        //{
-                        //    textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                        //    stateDownloadCsvFile = 31;
-                        //}
-                        break;
-                    case 31: //State31 : Show WebCode Response from Server of Index Page
-                        //textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        //stateDownloadCsvFile = 100;
                         break;
                     case 100: //State100 : End This Function and Resetting variables
                         switchDownloadCsvFile = false;
@@ -459,7 +400,8 @@ namespace SIRE_Test_Healthy_Check
 
 /* ##### Begin : Backup Code ######
  * 
- *                     case 25: //State25 : Set Window to Maximize
+ *                  
+ *                  case 25: //State25 : Set Window to Maximize
                         Location = point; //Assign Form1 Location = point(0, 0)
                         WindowState = FormWindowState.Maximized; //Assign Form1 Windows to Maximize
                         stateDownloadCsvFile = 100;
@@ -531,6 +473,109 @@ namespace SIRE_Test_Healthy_Check
 
 
     // Before Create function : addword_InRowTable()
+
+    case 0.1: //State0.1 : Initial Entering Web VnusQ by Logoff
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/logoff.jsp");
+                        stateDownloadCsvFile = 0.2;
+                        break;
+                    case 0.2: //State0.2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                        if (statusWebBrowser1DocumentCompleted)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 0.3;
+                        }
+                        break;
+                    case 0.3: //State0.3 : Show WebCode Response from Server of Index Page
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateDownloadCsvFile = 1;
+                        break;
+                    case 1: //State1 : Go URL, Index Page
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/index.jsp");
+                        stateDownloadCsvFile = 2;
+                        break;
+                    case 2: //State2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
+                        if (statusWebBrowser1DocumentCompleted)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 3;
+                        }
+                        break;
+                    case 3: //State3 : Show WebCode Response from Server of Index Page
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateDownloadCsvFile = 4;
+                        break;
+                    case 4: //State4 : Go URL, Login Page
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login");
+                        stateDownloadCsvFile = 5;
+                        break;
+                    case 5: //State5 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Login Page
+                        if (statusWebBrowser1DocumentCompleted)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 6;
+                        }
+                        break;
+                    case 6: //State6 : Show WebCode Response from Server of Login Page
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateDownloadCsvFile = 7;
+                        break;
+                    case 7: //State7 : Go URL, Entering Loging by Send Login UserName + Password
+                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login.jsp/j_security_check?j_username=woravit&j_password=123456&Logon=Log%20On");
+                        stateDownloadCsvFile = 8;
+                        break;
+                    case 8: //State8 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Entering Loging by Send Login UserName + Password
+                        if (statusWebBrowser1DocumentCompleted)
+                        {
+                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
+                            stateDownloadCsvFile = 9;
+                        }
+                        break;
+                    case 9: //State9 : Show WebCode Response from Server of Entering Loging by Send Login UserName + Password
+                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
+                        stateDownloadCsvFile = 10;
+                        break;
+
+    case 10: //State10 : Show WebCode Response String Length from Server
+                        textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString();
+                        stateDownloadCsvFile = 11;
+                        break;
+                    case 11: //State11 : Make SubString by Remove no need characters from Web Code Response
+                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(null); //SubState5.1 : Split null
+                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); //SubState5.2
+                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //SubState5.3 (InnerState5.1 to 5.3 = Remove no need characters)
+                        stateDownloadCsvFile = 12;
+                        break;
+                    case 12: //State12 : Show WebCode Response SubString Length
+                        textBoxWebCodeResponseSubStringLength.Text = wordWebCodeResponse.Length.ToString();
+                        stateDownloadCsvFile = 13;
+                        break;
+                    case 13://State13 : Show WebCode Response Last SubString 
+                        textBoxWebCodeResponseLastSubString.Text = wordWebCodeResponse.Last();
+                        stateDownloadCsvFile = 14;
+                        break;
+                    case 14: //State14 : Clear all data in datatable
+                        datatableWordWebCodeResponse.Clear();
+                        stateDownloadCsvFile = 15;
+                        break;
+                    case 15: //State15 : Initial indexWordWebCodeResponse = 0
+                        indexWordWebCodeResponse = 0;
+                        stateDownloadCsvFile = 16;
+                        break;
+                    case 16: //State16 : Looping until last word in String Array wordWebCodeResponse
+                        foreach (var word in wordWebCodeResponse) 
+                        {
+                            datatableWordWebCodeResponse.Rows.Add(indexWordWebCodeResponse.ToString(), wordWebCodeResponse[indexWordWebCodeResponse]); //Add Data to new Row in Table
+                            indexWordWebCodeResponse++;
+                        }
+                        stateDownloadCsvFile = 17; 
+                        break;
+                    case 17: //State17 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
+                        dataGridView1.DataSource = datatableWordWebCodeResponse;
+                        stateDownloadCsvFile = 18;
+                        break;
+
+
+
 
     case 25: //State25 : Test RetrieveProcess
                         this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveProcess&location=0&mtype=PCM%25&modelid=PCM-ALL&datekey=test&enddate0=20200720&endtime0=000000&enddate1=20200720&endtime1=235959&scanmode=all&scanmodesub=found&process=1800&snlist=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&locid=&locid=&locid=&locid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&testerid=&testerid=&testerid=&testerid=&testerid=&testerid=&cellid=&cellid=&cellid=&cellid=&cellid=&cellid=&testertype=&testertype=&testertype=&testertype=&testcode=&testcode=&testcode=&testcode=&partid_spdl=&partid_disk=&partid_hsa=&partid_card=&partid_hgau=&partid_hgad=&partid_sldu=&partid_sldd=&lineid=&lineid=&lineid=&teamid=&teamid=&teamid=&cycle=&disposition=&disposition=&disposition=&disposition=&key1=diskpn&key1val=&key1val=&key1val=&key1val=&key2=hsapn&key2val=&key2val=&key2val=&key2val=&key3=hgapn&key3val=&key3val=&key3val=&key3val=&key4=sliderec&key4val=&key4val=&key4val=&key4val=");
