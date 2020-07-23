@@ -1,0 +1,10 @@
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\bin\Debug\Test_TrimStart+TrimEnd.exe.config
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\bin\Debug\Test_TrimStart+TrimEnd.exe
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\bin\Debug\Test_TrimStart+TrimEnd.pdb
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\obj\Debug\Test_TrimStart+TrimEnd.csprojAssemblyReference.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\obj\Debug\Test_TrimStart_TrimEnd.Form1.resources
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\obj\Debug\Test_TrimStart_TrimEnd.Properties.Resources.resources
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\obj\Debug\Test_TrimStart+TrimEnd.csproj.GenerateResource.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\obj\Debug\Test_TrimStart+TrimEnd.csproj.CoreCompileInputs.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\obj\Debug\Test_TrimStart+TrimEnd.exe
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_TrimStart+TrimEnd\Test_TrimStart+TrimEnd\obj\Debug\Test_TrimStart+TrimEnd.pdb

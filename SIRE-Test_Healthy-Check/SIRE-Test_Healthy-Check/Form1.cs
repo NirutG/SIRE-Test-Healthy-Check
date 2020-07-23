@@ -17,15 +17,22 @@ namespace SIRE_Test_Healthy_Check
         //##### Begin : Decare variable in Form1 #####
         string[] wordWebCodeResponse; //Check Word in textBoxWebCodeResponse
         int indexWordWebCodeResponse = 0; //Index of string array, wordWebCodeResponse
+
+        bool statusWebBrowser1DocumentCompleted = false; //Decare for check when webBrowser1_DocumentCompleted
         bool statusDelay = false; //Check Function delay_State is done?
         bool statusAddWordInRowTable = false; //Check Function addword_InRowTable is done?
         bool statusGoUrl = false; //Check Function go_Url is done?
-        bool statusShowUrlRetrieveProcess = false; //Check Function show_UrlRetrieveProcess
+        bool statusShowUrlToRetrieveProcess = false; //Check Function show_UrlToRetrieveProcess
+        bool statusShowUrlToRetrieveParam = false; //Check Function show_UrlToRetrieveParam
 
         byte stateDelay = 0; //Initial State of Function delay at state0
         byte stateAddWordInRowTable = 0; //Initial State of Function addword_InRowTable
         byte stateGoUrl = 0; //Initial State of Function go_Url
-        byte stateShowUrlRetrieveProcess = 0; //Initial State of Function show_UrlRetrieveProcess
+        byte stateShowUrlToRetrieveProcess = 0; //Initial State of Function show_UrlToRetrieveProcess
+        byte stateShowUrlToRetrieveParam = 0; //Initial State of Function show_UrlToRetrieveParam
+
+        string[] wordSplit; //Decare String array to use in Function split_Text()
+        string urlToRetrieveParam = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Initial urlToRetrieveParam
 
         double testShow = 10.0;
         int test = 0;
@@ -38,7 +45,6 @@ namespace SIRE_Test_Healthy_Check
         double stateDownloadCsvFile = 0; //Initial State of Function download_CsvFile at state0
         double stateSaveCsvFile = 0; //Initial State of Function save_CsvFile at state0
 
-        bool statusWebBrowser1DocumentCompleted = false; //Decare for check when webBrowser1_DocumentCompleted
 
 
         DataTable datatableWordWebCodeResponse = new DataTable(); //Decare to use Class DataTable to help checking
@@ -59,6 +65,7 @@ namespace SIRE_Test_Healthy_Check
         }
 
         //##### Begin : My function Area #####
+
         //##### Begin : delay_State
         public bool delay_State(int intervalValue) //Delay function
         {
@@ -188,37 +195,91 @@ namespace SIRE_Test_Healthy_Check
         }
         //##### End : addWordInRow_Table1
 
-        //##### Begin : show_UrlRetrieveProcess
-        private bool show_UrlRetrieveProcess()
+        //##### Begin : show_UrlToRetrieveProcess
+        private bool show_UrlToRetrieveProcess()
         {
-            switch (stateShowUrlRetrieveProcess)
+            switch (stateShowUrlToRetrieveProcess)
             {
                 case 0: //Initial Variable
-                    statusShowUrlRetrieveProcess = false;
-                    stateShowUrlRetrieveProcess = 1;
+                    statusShowUrlToRetrieveProcess = false;
+                    stateShowUrlToRetrieveProcess = 1;
                     break;
                 case 1: //State1 : Show wordWebCodeResponse[17] to textbox
                     textBoxWebCodeResponseSubStringIndex17.Text = wordWebCodeResponse[17];
-                    stateShowUrlRetrieveProcess = 2;
+                    stateShowUrlToRetrieveProcess = 2;
                     break;
                 case 2: //State2 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
                     textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Text = wordWebCodeResponse[17].Substring(7, 56);
-                    stateShowUrlRetrieveProcess = 3;
+                    stateShowUrlToRetrieveProcess = 3;
                     break;
                 case 3: //State3 : Show ParametricDataRetrieveProductionDB URL to textbox
                     textBoxParametricDataRetrieveProductionDB.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56);
-                    stateShowUrlRetrieveProcess = 4;
+                    stateShowUrlToRetrieveProcess = 4;
                     break;
                 case 4: //State4 : Clear Variable
-                    statusShowUrlRetrieveProcess = true;
-                    stateShowUrlRetrieveProcess = 0;
+                    statusShowUrlToRetrieveProcess = true;
+                    stateShowUrlToRetrieveProcess = 0;
                     break;
                 default:
                     break;
             }
-            return statusShowUrlRetrieveProcess;
+            return statusShowUrlToRetrieveProcess;
         }
-        //##### End : show_UrlRetrieveProcess
+        //##### End : show_UrlToRetrieveProcess
+
+        //##### Begin : split_Text
+        private string split_Text(string textInput)
+        {
+            if(textInput == wordWebCodeResponse[2582])
+            {
+                wordSplit = textInput.Split('<','>');
+                return wordSplit[2];
+            }
+            else
+            {
+                wordSplit = textInput.Split('\'');
+                return wordSplit[1];
+            }
+        }
+        //##### End : split_Text
+
+        //##### Begin : show_UrlToRetrieveParam
+        private bool show_UrlToRetrieveParam()
+        {
+            switch (stateShowUrlToRetrieveParam)
+            {
+                case 0: //Initial Variable
+                    statusShowUrlToRetrieveParam = false;
+                    stateShowUrlToRetrieveParam = 1;
+                    break;
+                case 1: //State1 : Show URL to RetrieveParam
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1037]) + "="; //Item1
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1038]) + "&"; //Item2
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1151]) + "="; //Item3
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1153]) + "&"; //Item4
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1160]) + "="; //Item5
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1513]) + "&"; //Item6
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1632]) + "="; //Item7
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2582]) + "&"; //Item8
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2935]) + "="; //Item9
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2936]) + "&"; //Item10
+
+
+
+                    textBoxUrlToRetrieveParam.Text = urlToRetrieveParam;
+
+                    stateShowUrlToRetrieveParam = 2;
+                    break;
+                case 2: //State2 : Clear Variable
+                    statusShowUrlToRetrieveParam = true;
+                    stateShowUrlToRetrieveParam = 0;
+                    break;
+                default:
+                    break;
+            }
+            return statusShowUrlToRetrieveParam;
+        }
+        //##### End : show_UrlToRetrieveParam
 
 
         //##### Begin : download_CsvFile
@@ -257,26 +318,32 @@ namespace SIRE_Test_Healthy_Check
                             stateDownloadCsvFile = 5;
                         }
                         break;
-                    case 5: //State5 : Show WebCode Response String Length from Server
+                    case 5: //State5 : Show WebCode Response String from Server
                         if (addword_InRowTable())
                         {
                             stateDownloadCsvFile = 6;
                         }
                         break;
-                    case 6: //State6 : Show URL of RetrieveProcess
-                        if (show_UrlRetrieveProcess())
+                    case 6: //State6 : Show URL to RetrieveProcess
+                        if (show_UrlToRetrieveProcess())
                         {
                             stateDownloadCsvFile = 7;
                         }
                         break;
-                    case 7: //State7 : Go ParametricDataRetrieveProductionDB Page
+                    case 7: //State7 : Go RetrieveProcess Page
                         if (go_Url("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56)))
                         {
                             stateDownloadCsvFile = 8;
                         }
                         break;
-                    case 8: //State8 : Test RetrieveProcess
+                    case 8: //State8 : Show WebCode Response String from Server
                         if (addword_InRowTable())
+                        {
+                            stateDownloadCsvFile = 9;
+                        }
+                        break;
+                    case 9: //State9 : Show URL to RetrieveParam
+                        if (show_UrlToRetrieveParam())
                         {
                             stateDownloadCsvFile = 100;
                         }
@@ -333,6 +400,7 @@ namespace SIRE_Test_Healthy_Check
             }
         }
         //##### End : save_CsvFile
+
         //##### End : My function Area #####
 
         private void Form1_Load(object sender, EventArgs e)
