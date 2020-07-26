@@ -258,7 +258,8 @@ namespace SIRE_Test_Healthy_Check
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[1151]) + "="; //Item3
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[1153]) + "&"; //Item4
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[1160]) + "="; //Item5
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1513]) + "&"; //Item6
+                    //urlToRetrieveParam += split_Text(wordWebCodeResponse[1513]) + "&"; //Item6
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1513]) + "25" + "&"; //Item6
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[1632]) + "="; //Item7
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[2582]) + "&"; //Item8
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[2935]) + "="; //Item9
@@ -273,8 +274,135 @@ namespace SIRE_Test_Healthy_Check
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[4036]) + "&"; //Item18
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[4054]) + "="; //Item19
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[4055]) + "&"; //Item20
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4080]) + "="; //Item21
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4081]) + "&"; //Item22
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4161]) + "="; //Item23
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4250]) + "&"; //Item24
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4539]) + "=" + "&"; //Item25
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4551]) + "=" + "&"; //Item26
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4556]) + "=" + "&"; //Item27
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4561]) + "=" + "&"; //Item28
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4566]) + "=" + "&"; //Item29
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4571]) + "=" + "&"; //Item30
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4576]) + "=" + "&"; //Item31
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4581]) + "=" + "&"; //Item32
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4586]) + "=" + "&"; //Item33
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4595]) + "=" + "&"; //Item34
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4600]) + "=" + "&"; //Item35
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4605]) + "=" + "&"; //Item36
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4610]) + "=" + "&"; //Item37
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4615]) + "=" + "&"; //Item38
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4620]) + "=" + "&"; //Item39
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4625]) + "=" + "&"; //Item40
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4630]) + "=" + "&"; //Item41
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4664]) + "=" + "&"; //Item42
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4669]) + "=" + "&"; //Item43
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4674]) + "=" + "&"; //Item44
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4679]) + "=" + "&"; //Item45
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4684]) + "=" + "&"; //Item46
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4689]) + "=" + "&"; //Item47
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4694]) + "=" + "&"; //Item48
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4699]) + "=" + "&"; //Item49
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4708]) + "=" + "&"; //Item50
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4713]) + "=" + "&"; //Item51
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4718]) + "=" + "&"; //Item52
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4723]) + "=" + "&"; //Item53
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4728]) + "=" + "&"; //Item54
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4733]) + "=" + "&"; //Item55
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4738]) + "=" + "&"; //Item56
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4743]) + "=" + "&"; //Item57
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4757]) + "=" + "&"; //Item58
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4762]) + "=" + "&"; //Item59
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4767]) + "=" + "&"; //Item60
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4772]) + "=" + "&"; //Item61
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4777]) + "=" + "&"; //Item62
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4782]) + "=" + "&"; //Item63
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4787]) + "=" + "&"; //Item64
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4792]) + "=" + "&"; //Item65
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4801]) + "=" + "&"; //Item66
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4806]) + "=" + "&"; //Item67
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4811]) + "=" + "&"; //Item68
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4816]) + "=" + "&"; //Item69
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4821]) + "=" + "&"; //Item70
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4826]) + "=" + "&"; //Item71
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4831]) + "=" + "&"; //Item72
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4836]) + "=" + "&"; //Item73
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4929]) + "=" + "&"; //Item74
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4940]) + "=" + "&"; //Item75
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4947]) + "=" + "&"; //Item76
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4954]) + "=" + "&"; //Item77
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4971]) + "=" + "&"; //Item78
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4976]) + "=" + "&"; //Item79
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4981]) + "=" + "&"; //Item80
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4986]) + "=" + "&"; //Item81
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4991]) + "=" + "&"; //Item82
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4996]) + "=" + "&"; //Item83
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5013]) + "=" + "&"; //Item84
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5018]) + "=" + "&"; //Item85
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5023]) + "=" + "&"; //Item86
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5028]) + "=" + "&"; //Item87
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5033]) + "=" + "&"; //Item88
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5038]) + "=" + "&"; //Item89
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5052]) + "=" + "&"; //Item90
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5057]) + "=" + "&"; //Item91
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5062]) + "=" + "&"; //Item92
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5067]) + "=" + "&"; //Item93
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5072]) + "=" + "&"; //Item94
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5077]) + "=" + "&"; //Item95
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5091]) + "=" + "&"; //Item96
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5096]) + "=" + "&"; //Item97
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5101]) + "=" + "&"; //Item98
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5106]) + "=" + "&"; //Item99
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5120]) + "=" + "&"; //Item100
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5125]) + "=" + "&"; //Item101
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5130]) + "=" + "&"; //Item102
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5135]) + "=" + "&"; //Item103
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5158]) + "=" + "&"; //Item104
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5165]) + "=" + "&"; //Item105
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5172]) + "=" + "&"; //Item106
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5179]) + "=" + "&"; //Item107
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5189]) + "=" + "&"; //Item108
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5196]) + "=" + "&"; //Item109
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5203]) + "=" + "&"; //Item110
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5210]) + "=" + "&"; //Item111
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5222]) + "=" + "&"; //Item112
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5227]) + "=" + "&"; //Item113
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5232]) + "=" + "&"; //Item114
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5239]) + "=" + "&"; //Item115
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5244]) + "=" + "&"; //Item116
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5249]) + "=" + "&"; //Item117
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5258]) + "=" + "&"; //Item118
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5266]) + "=" + "&"; //Item119
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5271]) + "=" + "&"; //Item120
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5276]) + "=" + "&"; //Item121
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5281]) + "=" + "&"; //Item122
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5292]) + "="; //Item123
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5303]) + "&"; //Item124
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5440]) + "=" + "&"; //Item125
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5445]) + "=" + "&"; //Item126
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5450]) + "=" + "&"; //Item127
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5455]) + "=" + "&"; //Item128
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5463]) + "="; //Item129
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5563]) + "&"; //Item130
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5611]) + "=" + "&"; //Item131
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5616]) + "=" + "&"; //Item132
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5621]) + "=" + "&"; //Item133
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5626]) + "=" + "&"; //Item134
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5634]) + "="; //Item135
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5740]) + "&"; //Item136
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5782]) + "=" + "&"; //Item137
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5787]) + "=" + "&"; //Item138
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5792]) + "=" + "&"; //Item139
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5797]) + "=" + "&"; //Item140
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5805]) + "="; //Item141
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5914]) + "&"; //Item142
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5953]) + "=" + "&"; //Item143
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5958]) + "=" + "&"; //Item144
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5963]) + "=" + "&"; //Item145
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5968]) + "="; //Item146
 
                     textBoxUrlToRetrieveParam.Text = urlToRetrieveParam;
+
 
                     stateShowUrlToRetrieveParam = 2;
                     break;
@@ -352,6 +480,15 @@ namespace SIRE_Test_Healthy_Check
                         break;
                     case 9: //State9 : Show URL to RetrieveParam
                         if (show_UrlToRetrieveParam())
+                        {
+                            stateDownloadCsvFile = 10;
+                        }
+                        break;
+                    case 10: //State10 : Go RetrieveParam Page
+                        /*
+                        if(go_Url("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveProcess&location=0&mtype=PCM%25&modelid=PCM-ALL&datekey=test&enddate0=20200726&endtime0=000000&enddate1=20200726&endtime1=235959&scanmode=all&scanmodesub=found&process=1800&snlist=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&locid=&locid=&locid=&locid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&testerid=&testerid=&testerid=&testerid=&testerid=&testerid=&cellid=&cellid=&cellid=&cellid=&cellid=&cellid=&testertype=&testertype=&testertype=&testertype=&testcode=&testcode=&testcode=&testcode=&partid_spdl=&partid_disk=&partid_hsa=&partid_card=&partid_hgau=&partid_hgad=&partid_sldu=&partid_sldd=&lineid=&lineid=&lineid=&teamid=&teamid=&teamid=&cycle=&disposition=&disposition=&disposition=&disposition=&key1=diskpn&key1val=&key1val=&key1val=&key1val=&key2=hsapn&key2val=&key2val=&key2val=&key2val=&key3=hgapn&key3val=&key3val=&key3val=&key3val=&key4=sliderec&key4val=&key4val=&key4val=&key4val="))
+                        */
+                        if(go_Url(urlToRetrieveParam))
                         {
                             stateDownloadCsvFile = 100;
                         }
