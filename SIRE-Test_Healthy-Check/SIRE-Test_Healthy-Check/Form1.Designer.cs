@@ -66,10 +66,10 @@
             this.textBoxStateSaveCsvFile = new System.Windows.Forms.TextBox();
             this.textBoxStateDownloadCsvFile = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBoxUrlToRetrieveParam = new System.Windows.Forms.TextBox();
+            this.labelUrlToRetrieveParam = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
-            this.labelUrlToRetrieveParam = new System.Windows.Forms.Label();
-            this.textBoxUrlToRetrieveParam = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -461,14 +461,13 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // timer1
+            // textBoxUrlToRetrieveParam
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timerStateCyclic
-            // 
-            this.timerStateCyclic.Interval = 10;
-            this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
+            this.textBoxUrlToRetrieveParam.Location = new System.Drawing.Point(539, 324);
+            this.textBoxUrlToRetrieveParam.Multiline = true;
+            this.textBoxUrlToRetrieveParam.Name = "textBoxUrlToRetrieveParam";
+            this.textBoxUrlToRetrieveParam.Size = new System.Drawing.Size(709, 308);
+            this.textBoxUrlToRetrieveParam.TabIndex = 11;
             // 
             // labelUrlToRetrieveParam
             // 
@@ -479,13 +478,14 @@
             this.labelUrlToRetrieveParam.TabIndex = 10;
             this.labelUrlToRetrieveParam.Text = "URL to RetrieveParam";
             // 
-            // textBoxUrlToRetrieveParam
+            // timer1
             // 
-            this.textBoxUrlToRetrieveParam.Location = new System.Drawing.Point(539, 324);
-            this.textBoxUrlToRetrieveParam.Multiline = true;
-            this.textBoxUrlToRetrieveParam.Name = "textBoxUrlToRetrieveParam";
-            this.textBoxUrlToRetrieveParam.Size = new System.Drawing.Size(709, 20);
-            this.textBoxUrlToRetrieveParam.TabIndex = 11;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerStateCyclic
+            // 
+            this.timerStateCyclic.Interval = 10;
+            this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
             // Form1
             // 

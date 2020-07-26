@@ -263,8 +263,16 @@ namespace SIRE_Test_Healthy_Check
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[2582]) + "&"; //Item8
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[2935]) + "="; //Item9
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[2936]) + "&"; //Item10
-
-
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2993]) + "="; //Item11
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2995]) + "&"; //Item12
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[3510]) + "="; //Item13
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[3511]) + "&"; //Item14
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[3517]) + "="; //Item15
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[3520]) + "&"; //Item16
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4035]) + "="; //Item17
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4036]) + "&"; //Item18
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4054]) + "="; //Item19
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4055]) + "&"; //Item20
 
                     textBoxUrlToRetrieveParam.Text = urlToRetrieveParam;
 
