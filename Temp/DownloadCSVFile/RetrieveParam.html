@@ -1,0 +1,11257 @@
+0	
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+
+	1	<title>VENUS-Q
+	2	Data
+	3	Warehouse</title>
+
+
+	4	<link
+	5	rel='stylesheet'
+	6	type='text/css'
+	7	href='/dwh/css/dwh.css'>
+
+
+
+	8	<script
+	9	type='text/javascript'>
+
+	10	<!--
+
+	11	function
+	12	setTargetWindow(form)
+	13	{
+
+	14	for
+	15	(i
+	16	=
+	17	0;
+	18	i
+	19	<
+	20	form.device.length;
+	21	i++)
+	22	{
+
+	23	if
+	24	(form.device[i].checked)
+	25	{
+
+	26	form.target
+	27	=
+	28	(form.device[i].value
+	29	==
+	30	'disk')
+	31	?
+	32	'_top'
+	33	:
+	34	'_blank';
+
+	35	break;
+
+	36	}
+
+	37	}
+
+	38	return
+	39	true;
+
+	40	}
+
+
+	41	function
+	42	getCookieValue(name)
+	43	{
+
+	44	var
+	45	value
+	46	=
+	47	"";
+
+	48	var
+	49	cookie
+	50	=
+	51	document.cookie
+	52	+
+	53	";";
+
+	54	var
+	55	index
+	56	=
+	57	cookie.indexOf(name);
+
+	58	if
+	59	(index
+	60	!=
+	61	-1)
+	62	{
+
+	63	var
+	64	beginIndex
+	65	=
+	66	cookie.indexOf("=",
+	67	index);
+
+	68	var
+	69	endIndex
+	70	=
+	71	cookie.indexOf(";",
+	72	index);
+
+	73	if
+	74	(beginIndex
+	75	!=
+	76	-1
+	77	&&
+	78	endIndex
+	79	!=
+	80	-1
+	81	&&
+	82	beginIndex
+	83	<
+	84	endIndex)
+	85	{
+
+	86	value
+	87	=
+	88	cookie.substring(beginIndex
+	89	+
+	90	1,
+	91	endIndex);
+	92	//
+	93	must
+	94	not
+	95	decode
+	96	because
+	97	JavaScript
+	98	does
+	99	not
+	100	have
+	101	the
+	102	compatible
+	103	method
+	104	with
+	105	Java
+
+	106	}
+
+	107	}
+
+	108	return
+	109	value;
+
+	110	}
+
+	111	//-->
+
+	112	</script>
+</head>
+
+
+<body
+	113	onLoad='detLocationChanged();spindleLocationChanged()'>
+
+
+
+<script
+	114	type='text/javascript'
+	115	src='/dwh/js/site-check.js'></script>
+
+<div
+	116	id='frame_menu'>
+
+<div
+	117	class='boldtitle'
+	118	style='cursor:pointer'
+	119	onClick='location.href="/dwh/login"'>Data
+	120	Warehouse</div>
+<div
+	121	class='menu'>
+
+
+<p>
+<b>Data
+	122	Query</b><br>
+
+
+<br>
+<a
+	123	href='/dwh/retrieve/comParam?action=showForm&time=1595775260853'>Parametric
+	124	(Prod)</a><br>
+<a
+	125	href='/dwh/retrieve/comParamArchive?action=showForm&time=1595775260853'>Parametric
+	126	(Archive)</a><br>
+
+
+
+
+
+
+<script
+	127	type='text/javascript'>
+
+
+</script>
+
+
+<br>
+
+
+<a
+	128	href='/dwh/retrieve/paramTrend?action=showForm&time=1595775260853'>Parametric
+	129	Trend</a><br>
+<a
+	130	href='/dwh/retrieve/anlzTrend?action=processForm&time=1595775260853'
+	131	style='color:#996666'>Parametric
+	132	Trend
+	133	(old)</a><br>
+
+<br>
+
+
+<a
+	134	href='/dwh/retrieve/rawDataFile?action=showRetrieveForm&time=1595775260853'>Raw
+	135	Binary
+	136	(Prod)</a><br>
+<a
+	137	href='/dwh/retrieve/rawDataArchive?action=showRetrieveForm&time=1595775260853'>Raw
+	138	Binary
+	139	(Archive)</a><br>
+
+<br>
+
+<a
+	140	href='/dwh/retrieve/lsssHist?action=hddForm&time=1595775260853'>History
+	141	(HDD)</a><br>
+<a
+	142	href='/dwh/retrieve/lsssHist?action=hsaForm&time=1595775260853'>History
+	143	(HSA)</a><br>
+<a
+	144	href='/dwh/retrieve/lsssHist?action=spindleForm&time=1595775260853'>History
+	145	(Spindle)</a><br>
+<a
+	146	href='/dwh/retrieve/lsssHist?action=cardForm&time=1595775260853'>History
+	147	(Card)</a><br>
+
+
+
+<br>
+
+
+<a
+	148	href='/dwh/retrieve/comParts?action=showSerialForm&type=slider&time=1595775260853'>Slider
+	149	ID</a><br>
+
+<br>
+
+
+
+<a
+	150	href='/dwh/retrieve/comParts?action=showSerialForm&type=disk&time=1595775260853'>Part
+	151	ID
+	152	(Disk)</a><br>
+
+
+
+
+
+<a
+	153	href='/dwh/retrieve/comParts?action=showSerialForm&type=spindle&time=1595775260853'>Part
+	154	ID
+	155	(Spindle)</a><br>
+<a
+	156	href='/dwh/retrieve/comParts?action=showSerialForm&type=card&time=1595775260853'>Part
+	157	ID
+	158	(Card)</a><br>
+
+<!--
+<a
+	159	href='/dwh/retrieve/spdbParts?action=showPartsStdForm&type=spindle'>Part
+	160	ID
+	161	(Spindle)</a><br>
+<a
+	162	href='/dwh/retrieve/spdbParts?action=showPartsStdForm&type=card'>Part
+	163	ID
+	164	(Card)</a><br>
+-->
+
+<script
+	165	type='text/javascript'>
+if
+	166	(site
+	167	==
+	168	'FUJ'
+	169	||
+	170	site
+	171	==
+	172	'FUJ(CMA)')
+	173	{
+
+	174	document.writeln("<br>");
+
+	175	document.writeln("<a
+	176	href='/dwh/retrieve/vintage?action=showForm&time=1595775260853'>Vintage
+	177	(HDD)</a><br>");
+//
+	178	document.writeln("<br>");
+//
+	179	document.writeln("<a
+	180	href='/dwh/retrieve/exif?action=form-sj'>Wafer/Slider
+	181	(SJ)</a><br>");
+}
+//if
+	182	(site
+	183	==
+	184	'FUJ'
+	185	||
+	186	site
+	187	==
+	188	'PRB'
+	189	||
+	190	site
+	191	==
+	192	'GSP')
+	193	{
+//
+	194	document.writeln("<a
+	195	href='/dwh/retrieve/detParam?action=showForm'>Vintage
+	196	(HSPC
+	197	HGA)</a><br>");
+//}
+if
+	198	(site
+	199	==
+	200	'FUJ'
+	201	||
+	202	site
+	203	==
+	204	'FUJ(CMA)')
+	205	{
+
+	206	document.writeln("<a
+	207	href='/dwh/retrieve/diskHist?action=form&time=1595775260853'>Vintage
+	208	(SJ/SZ
+	209	Disk)</a><br>");
+
+	210	document.writeln("<a
+	211	href='/dwh/retrieve/spindleParam?action=showForm&time=1595775260853'>Vintage
+	212	(Nidec
+	213	Spindle)</a><br>");
+}
+</script>
+
+</p>
+
+<p>
+<b>Reference</b><br>
+<a
+	214	href='/dwh/ref/spdbParam?action=showParamForm&time=1595775260853'>HDD/HSA
+	215	Parameter</a><br>
+
+<a
+	216	href='/dwh/ref/spdbParam?action=showHeadMapForm&time=1595775260853'>HDD/HSA
+	217	Head
+	218	Map</a><br>
+
+<a
+	219	href='/dwh/ref/spdbParam?action=showHeadSideForm&time=1595775260853'>HDD/HSA
+	220	Head
+	221	Side</a><br>
+
+<br>
+<a
+	222	href='/dwh/ref/yieldModel?action=showModelForm&time=1595775260853'>HDD/HSA
+	223	Model</a><br>
+<br>
+<a
+	224	href='/dwh/ref/comParam?action=showHddErrorCodeForm&time=1595775260853'>HDD
+	225	Error
+	226	Code</a><br>
+<a
+	227	href='/dwh/ref/comParam?action=showHsaErrorCodeForm&time=1595775260853'>HSA
+	228	Error
+	229	Code</a><br>
+<a
+	230	href='/dwh/retrieve/lsssMeta?action=showReworkDispositionForm&time=1595775260853'>HDD
+	231	Disposition</a><br>
+<a
+	232	href='/dwh/retrieve/lsssMeta?action=showReworkActionList&time=1595775260853'>HDD
+	233	Disposition
+	234	Code</a><br>
+<a
+	235	href='/dwh/retrieve/lsssMeta?action=showCardSortingForm&time=1595775260853'>Card
+	236	Disposition</a><br>
+<a
+	237	href='/dwh/retrieve/lsssMeta?action=showCardDispositionList&time=1595775260853'>Card
+	238	Disposition
+	239	Code</a><br>
+<a
+	240	href='/dwh/retrieve/lsssMeta?action=showFilterProgramForm&time=1595775260853'>LSFILTER
+	241	Program</a><br>
+
+</p>
+
+
+
+
+
+
+<p>
+<b>Document</b><br>
+
+<a
+	242	href='/dwh/doc/OS-DWH-07_VQDWH_UsersGuide_DWHWeb.pdf'
+	243	target='_blank'>Users'
+	244	Guide</a><br>
+
+<a
+	245	href='/dwh/doc/OS-GWS-01_VENUS-Q_2.0_DataFormatSpecification.pdf'
+	246	target='_blank'>Raw
+	247	Binary
+	248	Spec</a><br>
+<a
+	249	href='/dwh/doc/HDD%20MFG%20Data%20Store%20Apps%20Basic%2020140825_01.pdf'
+	250	target='_blank'>Data
+	251	Store
+	252	Apps
+	253	Basic</a><br>
+
+</p>
+
+
+<script
+	254	type='text/javascript'>
+if
+	255	(site
+	256	==
+	257	'FUJ'
+	258	||
+	259	site
+	260	==
+	261	'PRB'
+	262	||
+	263	site
+	264	==
+	265	'UTC'
+	266	||
+	267	site
+	268	==
+	269	'GSP'
+	270	||
+	271	site
+	272	==
+	273	'SGP'
+	274	||
+	275	site
+	276	==
+	277	'FUJ(CMA)'
+	278	||
+	279	site
+	280	==
+	281	'GSP(CMA)')
+	282	{
+
+	283	document.writeln("<p>");
+
+	284	document.writeln("<b>Links</b><br>");
+
+	285	document.writeln("<a
+	286	href='/dwh/link.jsp'>VENUS-Q
+	287	Eng
+	288	Support</a><br>");
+
+	289	document.writeln("</p>");
+}
+</script>
+
+
+
+</div>
+
+<br>
+
+<center>
+
+<form
+	290	method='POST'
+	291	action='/dwh/logoff.jsp'>
+<input
+	292	class='short'
+	293	type='submit'
+	294	value='Log
+	295	Off'>
+</form>
+
+Powered
+	296	By<br>
+<b>VENUS-Q</b>
+
+<br><br><br>
+
+</center>
+
+</div>
+
+<div
+	297	id="frame_contents">
+
+
+
+<div
+	298	class='title'>Parametric
+	299	Data
+	300	Retrieve
+	301	Result</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script
+	302	type="text/javascript"
+	303	src="/dwh/js/prototype.js"></script>
+
+<script
+	304	type='text/javascript'>
+<!--
+
+	305	function
+	306	selectAllParameters(form,
+	307	procId)
+	308	{
+
+	309	var
+	310	selectall;
+
+	311	var
+	312	headParam;
+
+	313	var
+	314	unitParam;
+
+	315	if
+	316	(procId
+	317	==
+	318	"")
+	319	{
+
+	320	//
+	321	dummy
+
+
+	322	}
+	323	else
+	324	if
+	325	(procId
+	326	==
+	327	"0950")
+	328	{
+
+	329	headParam
+	330	=
+	331	form.param_0950_head;
+
+	332	unitParam
+	333	=
+	334	form.param_0950_unit;
+
+	335	selectall
+	336	=
+	337	document.getElementById("selectall_0950");
+
+	338	}
+	339	else
+	340	if
+	341	(procId
+	342	==
+	343	"0950_head")
+	344	{
+
+	345	headParam
+	346	=
+	347	form.param_0950_head;
+
+	348	selectall
+	349	=
+	350	form.selectall_0950_head;
+
+	351	}
+	352	else
+	353	if
+	354	(procId
+	355	==
+	356	"0950_unit")
+	357	{
+
+	358	unitParam
+	359	=
+	360	form.param_0950_unit;
+
+	361	selectall
+	362	=
+	363	form.selectall_0950_unit;
+
+
+	364	}
+	365	else
+	366	if
+	367	(procId
+	368	==
+	369	"0960")
+	370	{
+
+	371	headParam
+	372	=
+	373	form.param_0960_head;
+
+	374	unitParam
+	375	=
+	376	form.param_0960_unit;
+
+	377	selectall
+	378	=
+	379	document.getElementById("selectall_0960");
+
+	380	}
+	381	else
+	382	if
+	383	(procId
+	384	==
+	385	"0960_head")
+	386	{
+
+	387	headParam
+	388	=
+	389	form.param_0960_head;
+
+	390	selectall
+	391	=
+	392	form.selectall_0960_head;
+
+	393	}
+	394	else
+	395	if
+	396	(procId
+	397	==
+	398	"0960_unit")
+	399	{
+
+	400	unitParam
+	401	=
+	402	form.param_0960_unit;
+
+	403	selectall
+	404	=
+	405	form.selectall_0960_unit;
+
+
+	406	}
+	407	else
+	408	if
+	409	(procId
+	410	==
+	411	"1010")
+	412	{
+
+	413	headParam
+	414	=
+	415	form.param_1010_head;
+
+	416	unitParam
+	417	=
+	418	form.param_1010_unit;
+
+	419	selectall
+	420	=
+	421	document.getElementById("selectall_1010");
+
+	422	}
+	423	else
+	424	if
+	425	(procId
+	426	==
+	427	"1010_head")
+	428	{
+
+	429	headParam
+	430	=
+	431	form.param_1010_head;
+
+	432	selectall
+	433	=
+	434	form.selectall_1010_head;
+
+	435	}
+	436	else
+	437	if
+	438	(procId
+	439	==
+	440	"1010_unit")
+	441	{
+
+	442	unitParam
+	443	=
+	444	form.param_1010_unit;
+
+	445	selectall
+	446	=
+	447	form.selectall_1010_unit;
+
+
+	448	}
+	449	else
+	450	if
+	451	(procId
+	452	==
+	453	"1025")
+	454	{
+
+	455	headParam
+	456	=
+	457	form.param_1025_head;
+
+	458	unitParam
+	459	=
+	460	form.param_1025_unit;
+
+	461	selectall
+	462	=
+	463	document.getElementById("selectall_1025");
+
+	464	}
+	465	else
+	466	if
+	467	(procId
+	468	==
+	469	"1025_head")
+	470	{
+
+	471	headParam
+	472	=
+	473	form.param_1025_head;
+
+	474	selectall
+	475	=
+	476	form.selectall_1025_head;
+
+	477	}
+	478	else
+	479	if
+	480	(procId
+	481	==
+	482	"1025_unit")
+	483	{
+
+	484	unitParam
+	485	=
+	486	form.param_1025_unit;
+
+	487	selectall
+	488	=
+	489	form.selectall_1025_unit;
+
+
+	490	}
+	491	else
+	492	if
+	493	(procId
+	494	==
+	495	"1320")
+	496	{
+
+	497	headParam
+	498	=
+	499	form.param_1320_head;
+
+	500	unitParam
+	501	=
+	502	form.param_1320_unit;
+
+	503	selectall
+	504	=
+	505	document.getElementById("selectall_1320");
+
+	506	}
+	507	else
+	508	if
+	509	(procId
+	510	==
+	511	"1320_head")
+	512	{
+
+	513	headParam
+	514	=
+	515	form.param_1320_head;
+
+	516	selectall
+	517	=
+	518	form.selectall_1320_head;
+
+	519	}
+	520	else
+	521	if
+	522	(procId
+	523	==
+	524	"1320_unit")
+	525	{
+
+	526	unitParam
+	527	=
+	528	form.param_1320_unit;
+
+	529	selectall
+	530	=
+	531	form.selectall_1320_unit;
+
+
+	532	}
+	533	else
+	534	if
+	535	(procId
+	536	==
+	537	"1400")
+	538	{
+
+	539	headParam
+	540	=
+	541	form.param_1400_head;
+
+	542	unitParam
+	543	=
+	544	form.param_1400_unit;
+
+	545	selectall
+	546	=
+	547	document.getElementById("selectall_1400");
+
+	548	}
+	549	else
+	550	if
+	551	(procId
+	552	==
+	553	"1400_head")
+	554	{
+
+	555	headParam
+	556	=
+	557	form.param_1400_head;
+
+	558	selectall
+	559	=
+	560	form.selectall_1400_head;
+
+	561	}
+	562	else
+	563	if
+	564	(procId
+	565	==
+	566	"1400_unit")
+	567	{
+
+	568	unitParam
+	569	=
+	570	form.param_1400_unit;
+
+	571	selectall
+	572	=
+	573	form.selectall_1400_unit;
+
+
+	574	}
+	575	else
+	576	if
+	577	(procId
+	578	==
+	579	"1500")
+	580	{
+
+	581	headParam
+	582	=
+	583	form.param_1500_head;
+
+	584	unitParam
+	585	=
+	586	form.param_1500_unit;
+
+	587	selectall
+	588	=
+	589	document.getElementById("selectall_1500");
+
+	590	}
+	591	else
+	592	if
+	593	(procId
+	594	==
+	595	"1500_head")
+	596	{
+
+	597	headParam
+	598	=
+	599	form.param_1500_head;
+
+	600	selectall
+	601	=
+	602	form.selectall_1500_head;
+
+	603	}
+	604	else
+	605	if
+	606	(procId
+	607	==
+	608	"1500_unit")
+	609	{
+
+	610	unitParam
+	611	=
+	612	form.param_1500_unit;
+
+	613	selectall
+	614	=
+	615	form.selectall_1500_unit;
+
+
+	616	}
+	617	else
+	618	if
+	619	(procId
+	620	==
+	621	"1520")
+	622	{
+
+	623	headParam
+	624	=
+	625	form.param_1520_head;
+
+	626	unitParam
+	627	=
+	628	form.param_1520_unit;
+
+	629	selectall
+	630	=
+	631	document.getElementById("selectall_1520");
+
+	632	}
+	633	else
+	634	if
+	635	(procId
+	636	==
+	637	"1520_head")
+	638	{
+
+	639	headParam
+	640	=
+	641	form.param_1520_head;
+
+	642	selectall
+	643	=
+	644	form.selectall_1520_head;
+
+	645	}
+	646	else
+	647	if
+	648	(procId
+	649	==
+	650	"1520_unit")
+	651	{
+
+	652	unitParam
+	653	=
+	654	form.param_1520_unit;
+
+	655	selectall
+	656	=
+	657	form.selectall_1520_unit;
+
+
+	658	}
+	659	else
+	660	if
+	661	(procId
+	662	==
+	663	"1560")
+	664	{
+
+	665	headParam
+	666	=
+	667	form.param_1560_head;
+
+	668	unitParam
+	669	=
+	670	form.param_1560_unit;
+
+	671	selectall
+	672	=
+	673	document.getElementById("selectall_1560");
+
+	674	}
+	675	else
+	676	if
+	677	(procId
+	678	==
+	679	"1560_head")
+	680	{
+
+	681	headParam
+	682	=
+	683	form.param_1560_head;
+
+	684	selectall
+	685	=
+	686	form.selectall_1560_head;
+
+	687	}
+	688	else
+	689	if
+	690	(procId
+	691	==
+	692	"1560_unit")
+	693	{
+
+	694	unitParam
+	695	=
+	696	form.param_1560_unit;
+
+	697	selectall
+	698	=
+	699	form.selectall_1560_unit;
+
+
+	700	}
+	701	else
+	702	if
+	703	(procId
+	704	==
+	705	"1570")
+	706	{
+
+	707	headParam
+	708	=
+	709	form.param_1570_head;
+
+	710	unitParam
+	711	=
+	712	form.param_1570_unit;
+
+	713	selectall
+	714	=
+	715	document.getElementById("selectall_1570");
+
+	716	}
+	717	else
+	718	if
+	719	(procId
+	720	==
+	721	"1570_head")
+	722	{
+
+	723	headParam
+	724	=
+	725	form.param_1570_head;
+
+	726	selectall
+	727	=
+	728	form.selectall_1570_head;
+
+	729	}
+	730	else
+	731	if
+	732	(procId
+	733	==
+	734	"1570_unit")
+	735	{
+
+	736	unitParam
+	737	=
+	738	form.param_1570_unit;
+
+	739	selectall
+	740	=
+	741	form.selectall_1570_unit;
+
+
+	742	}
+	743	else
+	744	if
+	745	(procId
+	746	==
+	747	"1580")
+	748	{
+
+	749	headParam
+	750	=
+	751	form.param_1580_head;
+
+	752	unitParam
+	753	=
+	754	form.param_1580_unit;
+
+	755	selectall
+	756	=
+	757	document.getElementById("selectall_1580");
+
+	758	}
+	759	else
+	760	if
+	761	(procId
+	762	==
+	763	"1580_head")
+	764	{
+
+	765	headParam
+	766	=
+	767	form.param_1580_head;
+
+	768	selectall
+	769	=
+	770	form.selectall_1580_head;
+
+	771	}
+	772	else
+	773	if
+	774	(procId
+	775	==
+	776	"1580_unit")
+	777	{
+
+	778	unitParam
+	779	=
+	780	form.param_1580_unit;
+
+	781	selectall
+	782	=
+	783	form.selectall_1580_unit;
+
+
+	784	}
+	785	else
+	786	if
+	787	(procId
+	788	==
+	789	"1583")
+	790	{
+
+	791	headParam
+	792	=
+	793	form.param_1583_head;
+
+	794	unitParam
+	795	=
+	796	form.param_1583_unit;
+
+	797	selectall
+	798	=
+	799	document.getElementById("selectall_1583");
+
+	800	}
+	801	else
+	802	if
+	803	(procId
+	804	==
+	805	"1583_head")
+	806	{
+
+	807	headParam
+	808	=
+	809	form.param_1583_head;
+
+	810	selectall
+	811	=
+	812	form.selectall_1583_head;
+
+	813	}
+	814	else
+	815	if
+	816	(procId
+	817	==
+	818	"1583_unit")
+	819	{
+
+	820	unitParam
+	821	=
+	822	form.param_1583_unit;
+
+	823	selectall
+	824	=
+	825	form.selectall_1583_unit;
+
+
+	826	}
+	827	else
+	828	if
+	829	(procId
+	830	==
+	831	"1586")
+	832	{
+
+	833	headParam
+	834	=
+	835	form.param_1586_head;
+
+	836	unitParam
+	837	=
+	838	form.param_1586_unit;
+
+	839	selectall
+	840	=
+	841	document.getElementById("selectall_1586");
+
+	842	}
+	843	else
+	844	if
+	845	(procId
+	846	==
+	847	"1586_head")
+	848	{
+
+	849	headParam
+	850	=
+	851	form.param_1586_head;
+
+	852	selectall
+	853	=
+	854	form.selectall_1586_head;
+
+	855	}
+	856	else
+	857	if
+	858	(procId
+	859	==
+	860	"1586_unit")
+	861	{
+
+	862	unitParam
+	863	=
+	864	form.param_1586_unit;
+
+	865	selectall
+	866	=
+	867	form.selectall_1586_unit;
+
+
+	868	}
+	869	else
+	870	if
+	871	(procId
+	872	==
+	873	"1587")
+	874	{
+
+	875	headParam
+	876	=
+	877	form.param_1587_head;
+
+	878	unitParam
+	879	=
+	880	form.param_1587_unit;
+
+	881	selectall
+	882	=
+	883	document.getElementById("selectall_1587");
+
+	884	}
+	885	else
+	886	if
+	887	(procId
+	888	==
+	889	"1587_head")
+	890	{
+
+	891	headParam
+	892	=
+	893	form.param_1587_head;
+
+	894	selectall
+	895	=
+	896	form.selectall_1587_head;
+
+	897	}
+	898	else
+	899	if
+	900	(procId
+	901	==
+	902	"1587_unit")
+	903	{
+
+	904	unitParam
+	905	=
+	906	form.param_1587_unit;
+
+	907	selectall
+	908	=
+	909	form.selectall_1587_unit;
+
+
+	910	}
+	911	else
+	912	if
+	913	(procId
+	914	==
+	915	"1589")
+	916	{
+
+	917	headParam
+	918	=
+	919	form.param_1589_head;
+
+	920	unitParam
+	921	=
+	922	form.param_1589_unit;
+
+	923	selectall
+	924	=
+	925	document.getElementById("selectall_1589");
+
+	926	}
+	927	else
+	928	if
+	929	(procId
+	930	==
+	931	"1589_head")
+	932	{
+
+	933	headParam
+	934	=
+	935	form.param_1589_head;
+
+	936	selectall
+	937	=
+	938	form.selectall_1589_head;
+
+	939	}
+	940	else
+	941	if
+	942	(procId
+	943	==
+	944	"1589_unit")
+	945	{
+
+	946	unitParam
+	947	=
+	948	form.param_1589_unit;
+
+	949	selectall
+	950	=
+	951	form.selectall_1589_unit;
+
+
+	952	}
+	953	else
+	954	if
+	955	(procId
+	956	==
+	957	"1595")
+	958	{
+
+	959	headParam
+	960	=
+	961	form.param_1595_head;
+
+	962	unitParam
+	963	=
+	964	form.param_1595_unit;
+
+	965	selectall
+	966	=
+	967	document.getElementById("selectall_1595");
+
+	968	}
+	969	else
+	970	if
+	971	(procId
+	972	==
+	973	"1595_head")
+	974	{
+
+	975	headParam
+	976	=
+	977	form.param_1595_head;
+
+	978	selectall
+	979	=
+	980	form.selectall_1595_head;
+
+	981	}
+	982	else
+	983	if
+	984	(procId
+	985	==
+	986	"1595_unit")
+	987	{
+
+	988	unitParam
+	989	=
+	990	form.param_1595_unit;
+
+	991	selectall
+	992	=
+	993	form.selectall_1595_unit;
+
+
+	994	}
+	995	else
+	996	if
+	997	(procId
+	998	==
+	999	"1596")
+	1000	{
+
+	1001	headParam
+	1002	=
+	1003	form.param_1596_head;
+
+	1004	unitParam
+	1005	=
+	1006	form.param_1596_unit;
+
+	1007	selectall
+	1008	=
+	1009	document.getElementById("selectall_1596");
+
+	1010	}
+	1011	else
+	1012	if
+	1013	(procId
+	1014	==
+	1015	"1596_head")
+	1016	{
+
+	1017	headParam
+	1018	=
+	1019	form.param_1596_head;
+
+	1020	selectall
+	1021	=
+	1022	form.selectall_1596_head;
+
+	1023	}
+	1024	else
+	1025	if
+	1026	(procId
+	1027	==
+	1028	"1596_unit")
+	1029	{
+
+	1030	unitParam
+	1031	=
+	1032	form.param_1596_unit;
+
+	1033	selectall
+	1034	=
+	1035	form.selectall_1596_unit;
+
+
+	1036	}
+	1037	else
+	1038	if
+	1039	(procId
+	1040	==
+	1041	"1600")
+	1042	{
+
+	1043	headParam
+	1044	=
+	1045	form.param_1600_head;
+
+	1046	unitParam
+	1047	=
+	1048	form.param_1600_unit;
+
+	1049	selectall
+	1050	=
+	1051	document.getElementById("selectall_1600");
+
+	1052	}
+	1053	else
+	1054	if
+	1055	(procId
+	1056	==
+	1057	"1600_head")
+	1058	{
+
+	1059	headParam
+	1060	=
+	1061	form.param_1600_head;
+
+	1062	selectall
+	1063	=
+	1064	form.selectall_1600_head;
+
+	1065	}
+	1066	else
+	1067	if
+	1068	(procId
+	1069	==
+	1070	"1600_unit")
+	1071	{
+
+	1072	unitParam
+	1073	=
+	1074	form.param_1600_unit;
+
+	1075	selectall
+	1076	=
+	1077	form.selectall_1600_unit;
+
+
+	1078	}
+	1079	else
+	1080	if
+	1081	(procId
+	1082	==
+	1083	"1670")
+	1084	{
+
+	1085	headParam
+	1086	=
+	1087	form.param_1670_head;
+
+	1088	unitParam
+	1089	=
+	1090	form.param_1670_unit;
+
+	1091	selectall
+	1092	=
+	1093	document.getElementById("selectall_1670");
+
+	1094	}
+	1095	else
+	1096	if
+	1097	(procId
+	1098	==
+	1099	"1670_head")
+	1100	{
+
+	1101	headParam
+	1102	=
+	1103	form.param_1670_head;
+
+	1104	selectall
+	1105	=
+	1106	form.selectall_1670_head;
+
+	1107	}
+	1108	else
+	1109	if
+	1110	(procId
+	1111	==
+	1112	"1670_unit")
+	1113	{
+
+	1114	unitParam
+	1115	=
+	1116	form.param_1670_unit;
+
+	1117	selectall
+	1118	=
+	1119	form.selectall_1670_unit;
+
+
+	1120	}
+	1121	else
+	1122	if
+	1123	(procId
+	1124	==
+	1125	"1700")
+	1126	{
+
+	1127	headParam
+	1128	=
+	1129	form.param_1700_head;
+
+	1130	unitParam
+	1131	=
+	1132	form.param_1700_unit;
+
+	1133	selectall
+	1134	=
+	1135	document.getElementById("selectall_1700");
+
+	1136	}
+	1137	else
+	1138	if
+	1139	(procId
+	1140	==
+	1141	"1700_head")
+	1142	{
+
+	1143	headParam
+	1144	=
+	1145	form.param_1700_head;
+
+	1146	selectall
+	1147	=
+	1148	form.selectall_1700_head;
+
+	1149	}
+	1150	else
+	1151	if
+	1152	(procId
+	1153	==
+	1154	"1700_unit")
+	1155	{
+
+	1156	unitParam
+	1157	=
+	1158	form.param_1700_unit;
+
+	1159	selectall
+	1160	=
+	1161	form.selectall_1700_unit;
+
+
+	1162	}
+	1163	else
+	1164	if
+	1165	(procId
+	1166	==
+	1167	"1770")
+	1168	{
+
+	1169	headParam
+	1170	=
+	1171	form.param_1770_head;
+
+	1172	unitParam
+	1173	=
+	1174	form.param_1770_unit;
+
+	1175	selectall
+	1176	=
+	1177	document.getElementById("selectall_1770");
+
+	1178	}
+	1179	else
+	1180	if
+	1181	(procId
+	1182	==
+	1183	"1770_head")
+	1184	{
+
+	1185	headParam
+	1186	=
+	1187	form.param_1770_head;
+
+	1188	selectall
+	1189	=
+	1190	form.selectall_1770_head;
+
+	1191	}
+	1192	else
+	1193	if
+	1194	(procId
+	1195	==
+	1196	"1770_unit")
+	1197	{
+
+	1198	unitParam
+	1199	=
+	1200	form.param_1770_unit;
+
+	1201	selectall
+	1202	=
+	1203	form.selectall_1770_unit;
+
+
+	1204	}
+	1205	else
+	1206	if
+	1207	(procId
+	1208	==
+	1209	"1780")
+	1210	{
+
+	1211	headParam
+	1212	=
+	1213	form.param_1780_head;
+
+	1214	unitParam
+	1215	=
+	1216	form.param_1780_unit;
+
+	1217	selectall
+	1218	=
+	1219	document.getElementById("selectall_1780");
+
+	1220	}
+	1221	else
+	1222	if
+	1223	(procId
+	1224	==
+	1225	"1780_head")
+	1226	{
+
+	1227	headParam
+	1228	=
+	1229	form.param_1780_head;
+
+	1230	selectall
+	1231	=
+	1232	form.selectall_1780_head;
+
+	1233	}
+	1234	else
+	1235	if
+	1236	(procId
+	1237	==
+	1238	"1780_unit")
+	1239	{
+
+	1240	unitParam
+	1241	=
+	1242	form.param_1780_unit;
+
+	1243	selectall
+	1244	=
+	1245	form.selectall_1780_unit;
+
+
+	1246	}
+	1247	else
+	1248	if
+	1249	(procId
+	1250	==
+	1251	"1800")
+	1252	{
+
+	1253	headParam
+	1254	=
+	1255	form.param_1800_head;
+
+	1256	unitParam
+	1257	=
+	1258	form.param_1800_unit;
+
+	1259	selectall
+	1260	=
+	1261	document.getElementById("selectall_1800");
+
+	1262	}
+	1263	else
+	1264	if
+	1265	(procId
+	1266	==
+	1267	"1800_head")
+	1268	{
+
+	1269	headParam
+	1270	=
+	1271	form.param_1800_head;
+
+	1272	selectall
+	1273	=
+	1274	form.selectall_1800_head;
+
+	1275	}
+	1276	else
+	1277	if
+	1278	(procId
+	1279	==
+	1280	"1800_unit")
+	1281	{
+
+	1282	unitParam
+	1283	=
+	1284	form.param_1800_unit;
+
+	1285	selectall
+	1286	=
+	1287	form.selectall_1800_unit;
+
+
+	1288	}
+	1289	else
+	1290	if
+	1291	(procId
+	1292	==
+	1293	"1920")
+	1294	{
+
+	1295	headParam
+	1296	=
+	1297	form.param_1920_head;
+
+	1298	unitParam
+	1299	=
+	1300	form.param_1920_unit;
+
+	1301	selectall
+	1302	=
+	1303	document.getElementById("selectall_1920");
+
+	1304	}
+	1305	else
+	1306	if
+	1307	(procId
+	1308	==
+	1309	"1920_head")
+	1310	{
+
+	1311	headParam
+	1312	=
+	1313	form.param_1920_head;
+
+	1314	selectall
+	1315	=
+	1316	form.selectall_1920_head;
+
+	1317	}
+	1318	else
+	1319	if
+	1320	(procId
+	1321	==
+	1322	"1920_unit")
+	1323	{
+
+	1324	unitParam
+	1325	=
+	1326	form.param_1920_unit;
+
+	1327	selectall
+	1328	=
+	1329	form.selectall_1920_unit;
+
+
+	1330	}
+	1331	else
+	1332	if
+	1333	(procId
+	1334	==
+	1335	"1930")
+	1336	{
+
+	1337	headParam
+	1338	=
+	1339	form.param_1930_head;
+
+	1340	unitParam
+	1341	=
+	1342	form.param_1930_unit;
+
+	1343	selectall
+	1344	=
+	1345	document.getElementById("selectall_1930");
+
+	1346	}
+	1347	else
+	1348	if
+	1349	(procId
+	1350	==
+	1351	"1930_head")
+	1352	{
+
+	1353	headParam
+	1354	=
+	1355	form.param_1930_head;
+
+	1356	selectall
+	1357	=
+	1358	form.selectall_1930_head;
+
+	1359	}
+	1360	else
+	1361	if
+	1362	(procId
+	1363	==
+	1364	"1930_unit")
+	1365	{
+
+	1366	unitParam
+	1367	=
+	1368	form.param_1930_unit;
+
+	1369	selectall
+	1370	=
+	1371	form.selectall_1930_unit;
+
+
+	1372	}
+	1373	else
+	1374	if
+	1375	(procId
+	1376	==
+	1377	"1940")
+	1378	{
+
+	1379	headParam
+	1380	=
+	1381	form.param_1940_head;
+
+	1382	unitParam
+	1383	=
+	1384	form.param_1940_unit;
+
+	1385	selectall
+	1386	=
+	1387	document.getElementById("selectall_1940");
+
+	1388	}
+	1389	else
+	1390	if
+	1391	(procId
+	1392	==
+	1393	"1940_head")
+	1394	{
+
+	1395	headParam
+	1396	=
+	1397	form.param_1940_head;
+
+	1398	selectall
+	1399	=
+	1400	form.selectall_1940_head;
+
+	1401	}
+	1402	else
+	1403	if
+	1404	(procId
+	1405	==
+	1406	"1940_unit")
+	1407	{
+
+	1408	unitParam
+	1409	=
+	1410	form.param_1940_unit;
+
+	1411	selectall
+	1412	=
+	1413	form.selectall_1940_unit;
+
+
+	1414	}
+	1415	else
+	1416	if
+	1417	(procId
+	1418	==
+	1419	"1955")
+	1420	{
+
+	1421	headParam
+	1422	=
+	1423	form.param_1955_head;
+
+	1424	unitParam
+	1425	=
+	1426	form.param_1955_unit;
+
+	1427	selectall
+	1428	=
+	1429	document.getElementById("selectall_1955");
+
+	1430	}
+	1431	else
+	1432	if
+	1433	(procId
+	1434	==
+	1435	"1955_head")
+	1436	{
+
+	1437	headParam
+	1438	=
+	1439	form.param_1955_head;
+
+	1440	selectall
+	1441	=
+	1442	form.selectall_1955_head;
+
+	1443	}
+	1444	else
+	1445	if
+	1446	(procId
+	1447	==
+	1448	"1955_unit")
+	1449	{
+
+	1450	unitParam
+	1451	=
+	1452	form.param_1955_unit;
+
+	1453	selectall
+	1454	=
+	1455	form.selectall_1955_unit;
+
+
+	1456	}
+	1457	else
+	1458	if
+	1459	(procId
+	1460	==
+	1461	"1960")
+	1462	{
+
+	1463	headParam
+	1464	=
+	1465	form.param_1960_head;
+
+	1466	unitParam
+	1467	=
+	1468	form.param_1960_unit;
+
+	1469	selectall
+	1470	=
+	1471	document.getElementById("selectall_1960");
+
+	1472	}
+	1473	else
+	1474	if
+	1475	(procId
+	1476	==
+	1477	"1960_head")
+	1478	{
+
+	1479	headParam
+	1480	=
+	1481	form.param_1960_head;
+
+	1482	selectall
+	1483	=
+	1484	form.selectall_1960_head;
+
+	1485	}
+	1486	else
+	1487	if
+	1488	(procId
+	1489	==
+	1490	"1960_unit")
+	1491	{
+
+	1492	unitParam
+	1493	=
+	1494	form.param_1960_unit;
+
+	1495	selectall
+	1496	=
+	1497	form.selectall_1960_unit;
+
+
+	1498	}
+	1499	else
+	1500	if
+	1501	(procId
+	1502	==
+	1503	"1970")
+	1504	{
+
+	1505	headParam
+	1506	=
+	1507	form.param_1970_head;
+
+	1508	unitParam
+	1509	=
+	1510	form.param_1970_unit;
+
+	1511	selectall
+	1512	=
+	1513	document.getElementById("selectall_1970");
+
+	1514	}
+	1515	else
+	1516	if
+	1517	(procId
+	1518	==
+	1519	"1970_head")
+	1520	{
+
+	1521	headParam
+	1522	=
+	1523	form.param_1970_head;
+
+	1524	selectall
+	1525	=
+	1526	form.selectall_1970_head;
+
+	1527	}
+	1528	else
+	1529	if
+	1530	(procId
+	1531	==
+	1532	"1970_unit")
+	1533	{
+
+	1534	unitParam
+	1535	=
+	1536	form.param_1970_unit;
+
+	1537	selectall
+	1538	=
+	1539	form.selectall_1970_unit;
+
+
+	1540	}
+	1541	else
+	1542	if
+	1543	(procId
+	1544	==
+	1545	"1980")
+	1546	{
+
+	1547	headParam
+	1548	=
+	1549	form.param_1980_head;
+
+	1550	unitParam
+	1551	=
+	1552	form.param_1980_unit;
+
+	1553	selectall
+	1554	=
+	1555	document.getElementById("selectall_1980");
+
+	1556	}
+	1557	else
+	1558	if
+	1559	(procId
+	1560	==
+	1561	"1980_head")
+	1562	{
+
+	1563	headParam
+	1564	=
+	1565	form.param_1980_head;
+
+	1566	selectall
+	1567	=
+	1568	form.selectall_1980_head;
+
+	1569	}
+	1570	else
+	1571	if
+	1572	(procId
+	1573	==
+	1574	"1980_unit")
+	1575	{
+
+	1576	unitParam
+	1577	=
+	1578	form.param_1980_unit;
+
+	1579	selectall
+	1580	=
+	1581	form.selectall_1980_unit;
+
+
+	1582	}
+	1583	else
+	1584	if
+	1585	(procId
+	1586	==
+	1587	"1984")
+	1588	{
+
+	1589	headParam
+	1590	=
+	1591	form.param_1984_head;
+
+	1592	unitParam
+	1593	=
+	1594	form.param_1984_unit;
+
+	1595	selectall
+	1596	=
+	1597	document.getElementById("selectall_1984");
+
+	1598	}
+	1599	else
+	1600	if
+	1601	(procId
+	1602	==
+	1603	"1984_head")
+	1604	{
+
+	1605	headParam
+	1606	=
+	1607	form.param_1984_head;
+
+	1608	selectall
+	1609	=
+	1610	form.selectall_1984_head;
+
+	1611	}
+	1612	else
+	1613	if
+	1614	(procId
+	1615	==
+	1616	"1984_unit")
+	1617	{
+
+	1618	unitParam
+	1619	=
+	1620	form.param_1984_unit;
+
+	1621	selectall
+	1622	=
+	1623	form.selectall_1984_unit;
+
+
+	1624	}
+	1625	else
+	1626	if
+	1627	(procId
+	1628	==
+	1629	"1985")
+	1630	{
+
+	1631	headParam
+	1632	=
+	1633	form.param_1985_head;
+
+	1634	unitParam
+	1635	=
+	1636	form.param_1985_unit;
+
+	1637	selectall
+	1638	=
+	1639	document.getElementById("selectall_1985");
+
+	1640	}
+	1641	else
+	1642	if
+	1643	(procId
+	1644	==
+	1645	"1985_head")
+	1646	{
+
+	1647	headParam
+	1648	=
+	1649	form.param_1985_head;
+
+	1650	selectall
+	1651	=
+	1652	form.selectall_1985_head;
+
+	1653	}
+	1654	else
+	1655	if
+	1656	(procId
+	1657	==
+	1658	"1985_unit")
+	1659	{
+
+	1660	unitParam
+	1661	=
+	1662	form.param_1985_unit;
+
+	1663	selectall
+	1664	=
+	1665	form.selectall_1985_unit;
+
+
+	1666	}
+	1667	else
+	1668	if
+	1669	(procId
+	1670	==
+	1671	"2000")
+	1672	{
+
+	1673	headParam
+	1674	=
+	1675	form.param_2000_head;
+
+	1676	unitParam
+	1677	=
+	1678	form.param_2000_unit;
+
+	1679	selectall
+	1680	=
+	1681	document.getElementById("selectall_2000");
+
+	1682	}
+	1683	else
+	1684	if
+	1685	(procId
+	1686	==
+	1687	"2000_head")
+	1688	{
+
+	1689	headParam
+	1690	=
+	1691	form.param_2000_head;
+
+	1692	selectall
+	1693	=
+	1694	form.selectall_2000_head;
+
+	1695	}
+	1696	else
+	1697	if
+	1698	(procId
+	1699	==
+	1700	"2000_unit")
+	1701	{
+
+	1702	unitParam
+	1703	=
+	1704	form.param_2000_unit;
+
+	1705	selectall
+	1706	=
+	1707	form.selectall_2000_unit;
+
+
+	1708	}
+	1709	else
+	1710	if
+	1711	(procId
+	1712	==
+	1713	"2800")
+	1714	{
+
+	1715	headParam
+	1716	=
+	1717	form.param_2800_head;
+
+	1718	unitParam
+	1719	=
+	1720	form.param_2800_unit;
+
+	1721	selectall
+	1722	=
+	1723	document.getElementById("selectall_2800");
+
+	1724	}
+	1725	else
+	1726	if
+	1727	(procId
+	1728	==
+	1729	"2800_head")
+	1730	{
+
+	1731	headParam
+	1732	=
+	1733	form.param_2800_head;
+
+	1734	selectall
+	1735	=
+	1736	form.selectall_2800_head;
+
+	1737	}
+	1738	else
+	1739	if
+	1740	(procId
+	1741	==
+	1742	"2800_unit")
+	1743	{
+
+	1744	unitParam
+	1745	=
+	1746	form.param_2800_unit;
+
+	1747	selectall
+	1748	=
+	1749	form.selectall_2800_unit;
+
+
+	1750	}
+	1751	else
+	1752	if
+	1753	(procId
+	1754	==
+	1755	"2810")
+	1756	{
+
+	1757	headParam
+	1758	=
+	1759	form.param_2810_head;
+
+	1760	unitParam
+	1761	=
+	1762	form.param_2810_unit;
+
+	1763	selectall
+	1764	=
+	1765	document.getElementById("selectall_2810");
+
+	1766	}
+	1767	else
+	1768	if
+	1769	(procId
+	1770	==
+	1771	"2810_head")
+	1772	{
+
+	1773	headParam
+	1774	=
+	1775	form.param_2810_head;
+
+	1776	selectall
+	1777	=
+	1778	form.selectall_2810_head;
+
+	1779	}
+	1780	else
+	1781	if
+	1782	(procId
+	1783	==
+	1784	"2810_unit")
+	1785	{
+
+	1786	unitParam
+	1787	=
+	1788	form.param_2810_unit;
+
+	1789	selectall
+	1790	=
+	1791	form.selectall_2810_unit;
+
+
+	1792	}
+	1793	else
+	1794	if
+	1795	(procId
+	1796	==
+	1797	"3040")
+	1798	{
+
+	1799	headParam
+	1800	=
+	1801	form.param_3040_head;
+
+	1802	unitParam
+	1803	=
+	1804	form.param_3040_unit;
+
+	1805	selectall
+	1806	=
+	1807	document.getElementById("selectall_3040");
+
+	1808	}
+	1809	else
+	1810	if
+	1811	(procId
+	1812	==
+	1813	"3040_head")
+	1814	{
+
+	1815	headParam
+	1816	=
+	1817	form.param_3040_head;
+
+	1818	selectall
+	1819	=
+	1820	form.selectall_3040_head;
+
+	1821	}
+	1822	else
+	1823	if
+	1824	(procId
+	1825	==
+	1826	"3040_unit")
+	1827	{
+
+	1828	unitParam
+	1829	=
+	1830	form.param_3040_unit;
+
+	1831	selectall
+	1832	=
+	1833	form.selectall_3040_unit;
+
+
+	1834	}
+	1835	else
+	1836	if
+	1837	(procId
+	1838	==
+	1839	"3050")
+	1840	{
+
+	1841	headParam
+	1842	=
+	1843	form.param_3050_head;
+
+	1844	unitParam
+	1845	=
+	1846	form.param_3050_unit;
+
+	1847	selectall
+	1848	=
+	1849	document.getElementById("selectall_3050");
+
+	1850	}
+	1851	else
+	1852	if
+	1853	(procId
+	1854	==
+	1855	"3050_head")
+	1856	{
+
+	1857	headParam
+	1858	=
+	1859	form.param_3050_head;
+
+	1860	selectall
+	1861	=
+	1862	form.selectall_3050_head;
+
+	1863	}
+	1864	else
+	1865	if
+	1866	(procId
+	1867	==
+	1868	"3050_unit")
+	1869	{
+
+	1870	unitParam
+	1871	=
+	1872	form.param_3050_unit;
+
+	1873	selectall
+	1874	=
+	1875	form.selectall_3050_unit;
+
+
+	1876	}
+	1877	else
+	1878	if
+	1879	(procId
+	1880	==
+	1881	"3100")
+	1882	{
+
+	1883	headParam
+	1884	=
+	1885	form.param_3100_head;
+
+	1886	unitParam
+	1887	=
+	1888	form.param_3100_unit;
+
+	1889	selectall
+	1890	=
+	1891	document.getElementById("selectall_3100");
+
+	1892	}
+	1893	else
+	1894	if
+	1895	(procId
+	1896	==
+	1897	"3100_head")
+	1898	{
+
+	1899	headParam
+	1900	=
+	1901	form.param_3100_head;
+
+	1902	selectall
+	1903	=
+	1904	form.selectall_3100_head;
+
+	1905	}
+	1906	else
+	1907	if
+	1908	(procId
+	1909	==
+	1910	"3100_unit")
+	1911	{
+
+	1912	unitParam
+	1913	=
+	1914	form.param_3100_unit;
+
+	1915	selectall
+	1916	=
+	1917	form.selectall_3100_unit;
+
+
+	1918	}
+	1919	else
+	1920	if
+	1921	(procId
+	1922	==
+	1923	"3180")
+	1924	{
+
+	1925	headParam
+	1926	=
+	1927	form.param_3180_head;
+
+	1928	unitParam
+	1929	=
+	1930	form.param_3180_unit;
+
+	1931	selectall
+	1932	=
+	1933	document.getElementById("selectall_3180");
+
+	1934	}
+	1935	else
+	1936	if
+	1937	(procId
+	1938	==
+	1939	"3180_head")
+	1940	{
+
+	1941	headParam
+	1942	=
+	1943	form.param_3180_head;
+
+	1944	selectall
+	1945	=
+	1946	form.selectall_3180_head;
+
+	1947	}
+	1948	else
+	1949	if
+	1950	(procId
+	1951	==
+	1952	"3180_unit")
+	1953	{
+
+	1954	unitParam
+	1955	=
+	1956	form.param_3180_unit;
+
+	1957	selectall
+	1958	=
+	1959	form.selectall_3180_unit;
+
+
+	1960	}
+	1961	else
+	1962	if
+	1963	(procId
+	1964	==
+	1965	"3200")
+	1966	{
+
+	1967	headParam
+	1968	=
+	1969	form.param_3200_head;
+
+	1970	unitParam
+	1971	=
+	1972	form.param_3200_unit;
+
+	1973	selectall
+	1974	=
+	1975	document.getElementById("selectall_3200");
+
+	1976	}
+	1977	else
+	1978	if
+	1979	(procId
+	1980	==
+	1981	"3200_head")
+	1982	{
+
+	1983	headParam
+	1984	=
+	1985	form.param_3200_head;
+
+	1986	selectall
+	1987	=
+	1988	form.selectall_3200_head;
+
+	1989	}
+	1990	else
+	1991	if
+	1992	(procId
+	1993	==
+	1994	"3200_unit")
+	1995	{
+
+	1996	unitParam
+	1997	=
+	1998	form.param_3200_unit;
+
+	1999	selectall
+	2000	=
+	2001	form.selectall_3200_unit;
+
+
+	2002	}
+	2003	else
+	2004	if
+	2005	(procId
+	2006	==
+	2007	"3250")
+	2008	{
+
+	2009	headParam
+	2010	=
+	2011	form.param_3250_head;
+
+	2012	unitParam
+	2013	=
+	2014	form.param_3250_unit;
+
+	2015	selectall
+	2016	=
+	2017	document.getElementById("selectall_3250");
+
+	2018	}
+	2019	else
+	2020	if
+	2021	(procId
+	2022	==
+	2023	"3250_head")
+	2024	{
+
+	2025	headParam
+	2026	=
+	2027	form.param_3250_head;
+
+	2028	selectall
+	2029	=
+	2030	form.selectall_3250_head;
+
+	2031	}
+	2032	else
+	2033	if
+	2034	(procId
+	2035	==
+	2036	"3250_unit")
+	2037	{
+
+	2038	unitParam
+	2039	=
+	2040	form.param_3250_unit;
+
+	2041	selectall
+	2042	=
+	2043	form.selectall_3250_unit;
+
+
+	2044	}
+	2045	else
+	2046	if
+	2047	(procId
+	2048	==
+	2049	"3300")
+	2050	{
+
+	2051	headParam
+	2052	=
+	2053	form.param_3300_head;
+
+	2054	unitParam
+	2055	=
+	2056	form.param_3300_unit;
+
+	2057	selectall
+	2058	=
+	2059	document.getElementById("selectall_3300");
+
+	2060	}
+	2061	else
+	2062	if
+	2063	(procId
+	2064	==
+	2065	"3300_head")
+	2066	{
+
+	2067	headParam
+	2068	=
+	2069	form.param_3300_head;
+
+	2070	selectall
+	2071	=
+	2072	form.selectall_3300_head;
+
+	2073	}
+	2074	else
+	2075	if
+	2076	(procId
+	2077	==
+	2078	"3300_unit")
+	2079	{
+
+	2080	unitParam
+	2081	=
+	2082	form.param_3300_unit;
+
+	2083	selectall
+	2084	=
+	2085	form.selectall_3300_unit;
+
+
+	2086	}
+	2087	else
+	2088	if
+	2089	(procId
+	2090	==
+	2091	"MAFD")
+	2092	{
+
+	2093	headParam
+	2094	=
+	2095	form.param_MAFD_head;
+
+	2096	unitParam
+	2097	=
+	2098	form.param_MAFD_unit;
+
+	2099	selectall
+	2100	=
+	2101	document.getElementById("selectall_MAFD");
+
+	2102	}
+	2103	else
+	2104	if
+	2105	(procId
+	2106	==
+	2107	"MAFD_head")
+	2108	{
+
+	2109	headParam
+	2110	=
+	2111	form.param_MAFD_head;
+
+	2112	selectall
+	2113	=
+	2114	form.selectall_MAFD_head;
+
+	2115	}
+	2116	else
+	2117	if
+	2118	(procId
+	2119	==
+	2120	"MAFD_unit")
+	2121	{
+
+	2122	unitParam
+	2123	=
+	2124	form.param_MAFD_unit;
+
+	2125	selectall
+	2126	=
+	2127	form.selectall_MAFD_unit;
+
+
+	2128	}
+	2129	else
+	2130	if
+	2131	(procId
+	2132	==
+	2133	"3540")
+	2134	{
+
+	2135	headParam
+	2136	=
+	2137	form.param_3540_head;
+
+	2138	unitParam
+	2139	=
+	2140	form.param_3540_unit;
+
+	2141	selectall
+	2142	=
+	2143	document.getElementById("selectall_3540");
+
+	2144	}
+	2145	else
+	2146	if
+	2147	(procId
+	2148	==
+	2149	"3540_head")
+	2150	{
+
+	2151	headParam
+	2152	=
+	2153	form.param_3540_head;
+
+	2154	selectall
+	2155	=
+	2156	form.selectall_3540_head;
+
+	2157	}
+	2158	else
+	2159	if
+	2160	(procId
+	2161	==
+	2162	"3540_unit")
+	2163	{
+
+	2164	unitParam
+	2165	=
+	2166	form.param_3540_unit;
+
+	2167	selectall
+	2168	=
+	2169	form.selectall_3540_unit;
+
+
+	2170	}
+	2171	else
+	2172	if
+	2173	(procId
+	2174	==
+	2175	"3545")
+	2176	{
+
+	2177	headParam
+	2178	=
+	2179	form.param_3545_head;
+
+	2180	unitParam
+	2181	=
+	2182	form.param_3545_unit;
+
+	2183	selectall
+	2184	=
+	2185	document.getElementById("selectall_3545");
+
+	2186	}
+	2187	else
+	2188	if
+	2189	(procId
+	2190	==
+	2191	"3545_head")
+	2192	{
+
+	2193	headParam
+	2194	=
+	2195	form.param_3545_head;
+
+	2196	selectall
+	2197	=
+	2198	form.selectall_3545_head;
+
+	2199	}
+	2200	else
+	2201	if
+	2202	(procId
+	2203	==
+	2204	"3545_unit")
+	2205	{
+
+	2206	unitParam
+	2207	=
+	2208	form.param_3545_unit;
+
+	2209	selectall
+	2210	=
+	2211	form.selectall_3545_unit;
+
+
+	2212	}
+	2213	else
+	2214	if
+	2215	(procId
+	2216	==
+	2217	"3600")
+	2218	{
+
+	2219	headParam
+	2220	=
+	2221	form.param_3600_head;
+
+	2222	unitParam
+	2223	=
+	2224	form.param_3600_unit;
+
+	2225	selectall
+	2226	=
+	2227	document.getElementById("selectall_3600");
+
+	2228	}
+	2229	else
+	2230	if
+	2231	(procId
+	2232	==
+	2233	"3600_head")
+	2234	{
+
+	2235	headParam
+	2236	=
+	2237	form.param_3600_head;
+
+	2238	selectall
+	2239	=
+	2240	form.selectall_3600_head;
+
+	2241	}
+	2242	else
+	2243	if
+	2244	(procId
+	2245	==
+	2246	"3600_unit")
+	2247	{
+
+	2248	unitParam
+	2249	=
+	2250	form.param_3600_unit;
+
+	2251	selectall
+	2252	=
+	2253	form.selectall_3600_unit;
+
+
+	2254	}
+	2255	else
+	2256	if
+	2257	(procId
+	2258	==
+	2259	"3700")
+	2260	{
+
+	2261	headParam
+	2262	=
+	2263	form.param_3700_head;
+
+	2264	unitParam
+	2265	=
+	2266	form.param_3700_unit;
+
+	2267	selectall
+	2268	=
+	2269	document.getElementById("selectall_3700");
+
+	2270	}
+	2271	else
+	2272	if
+	2273	(procId
+	2274	==
+	2275	"3700_head")
+	2276	{
+
+	2277	headParam
+	2278	=
+	2279	form.param_3700_head;
+
+	2280	selectall
+	2281	=
+	2282	form.selectall_3700_head;
+
+	2283	}
+	2284	else
+	2285	if
+	2286	(procId
+	2287	==
+	2288	"3700_unit")
+	2289	{
+
+	2290	unitParam
+	2291	=
+	2292	form.param_3700_unit;
+
+	2293	selectall
+	2294	=
+	2295	form.selectall_3700_unit;
+
+
+	2296	}
+	2297	else
+	2298	if
+	2299	(procId
+	2300	==
+	2301	"3820")
+	2302	{
+
+	2303	headParam
+	2304	=
+	2305	form.param_3820_head;
+
+	2306	unitParam
+	2307	=
+	2308	form.param_3820_unit;
+
+	2309	selectall
+	2310	=
+	2311	document.getElementById("selectall_3820");
+
+	2312	}
+	2313	else
+	2314	if
+	2315	(procId
+	2316	==
+	2317	"3820_head")
+	2318	{
+
+	2319	headParam
+	2320	=
+	2321	form.param_3820_head;
+
+	2322	selectall
+	2323	=
+	2324	form.selectall_3820_head;
+
+	2325	}
+	2326	else
+	2327	if
+	2328	(procId
+	2329	==
+	2330	"3820_unit")
+	2331	{
+
+	2332	unitParam
+	2333	=
+	2334	form.param_3820_unit;
+
+	2335	selectall
+	2336	=
+	2337	form.selectall_3820_unit;
+
+
+	2338	}
+	2339	else
+	2340	if
+	2341	(procId
+	2342	==
+	2343	"3830")
+	2344	{
+
+	2345	headParam
+	2346	=
+	2347	form.param_3830_head;
+
+	2348	unitParam
+	2349	=
+	2350	form.param_3830_unit;
+
+	2351	selectall
+	2352	=
+	2353	document.getElementById("selectall_3830");
+
+	2354	}
+	2355	else
+	2356	if
+	2357	(procId
+	2358	==
+	2359	"3830_head")
+	2360	{
+
+	2361	headParam
+	2362	=
+	2363	form.param_3830_head;
+
+	2364	selectall
+	2365	=
+	2366	form.selectall_3830_head;
+
+	2367	}
+	2368	else
+	2369	if
+	2370	(procId
+	2371	==
+	2372	"3830_unit")
+	2373	{
+
+	2374	unitParam
+	2375	=
+	2376	form.param_3830_unit;
+
+	2377	selectall
+	2378	=
+	2379	form.selectall_3830_unit;
+
+
+	2380	}
+	2381	else
+	2382	if
+	2383	(procId
+	2384	==
+	2385	"3850")
+	2386	{
+
+	2387	headParam
+	2388	=
+	2389	form.param_3850_head;
+
+	2390	unitParam
+	2391	=
+	2392	form.param_3850_unit;
+
+	2393	selectall
+	2394	=
+	2395	document.getElementById("selectall_3850");
+
+	2396	}
+	2397	else
+	2398	if
+	2399	(procId
+	2400	==
+	2401	"3850_head")
+	2402	{
+
+	2403	headParam
+	2404	=
+	2405	form.param_3850_head;
+
+	2406	selectall
+	2407	=
+	2408	form.selectall_3850_head;
+
+	2409	}
+	2410	else
+	2411	if
+	2412	(procId
+	2413	==
+	2414	"3850_unit")
+	2415	{
+
+	2416	unitParam
+	2417	=
+	2418	form.param_3850_unit;
+
+	2419	selectall
+	2420	=
+	2421	form.selectall_3850_unit;
+
+
+	2422	}
+	2423	else
+	2424	if
+	2425	(procId
+	2426	==
+	2427	"3870")
+	2428	{
+
+	2429	headParam
+	2430	=
+	2431	form.param_3870_head;
+
+	2432	unitParam
+	2433	=
+	2434	form.param_3870_unit;
+
+	2435	selectall
+	2436	=
+	2437	document.getElementById("selectall_3870");
+
+	2438	}
+	2439	else
+	2440	if
+	2441	(procId
+	2442	==
+	2443	"3870_head")
+	2444	{
+
+	2445	headParam
+	2446	=
+	2447	form.param_3870_head;
+
+	2448	selectall
+	2449	=
+	2450	form.selectall_3870_head;
+
+	2451	}
+	2452	else
+	2453	if
+	2454	(procId
+	2455	==
+	2456	"3870_unit")
+	2457	{
+
+	2458	unitParam
+	2459	=
+	2460	form.param_3870_unit;
+
+	2461	selectall
+	2462	=
+	2463	form.selectall_3870_unit;
+
+
+	2464	}
+	2465	else
+	2466	if
+	2467	(procId
+	2468	==
+	2469	"3880")
+	2470	{
+
+	2471	headParam
+	2472	=
+	2473	form.param_3880_head;
+
+	2474	unitParam
+	2475	=
+	2476	form.param_3880_unit;
+
+	2477	selectall
+	2478	=
+	2479	document.getElementById("selectall_3880");
+
+	2480	}
+	2481	else
+	2482	if
+	2483	(procId
+	2484	==
+	2485	"3880_head")
+	2486	{
+
+	2487	headParam
+	2488	=
+	2489	form.param_3880_head;
+
+	2490	selectall
+	2491	=
+	2492	form.selectall_3880_head;
+
+	2493	}
+	2494	else
+	2495	if
+	2496	(procId
+	2497	==
+	2498	"3880_unit")
+	2499	{
+
+	2500	unitParam
+	2501	=
+	2502	form.param_3880_unit;
+
+	2503	selectall
+	2504	=
+	2505	form.selectall_3880_unit;
+
+
+	2506	}
+	2507	else
+	2508	if
+	2509	(procId
+	2510	==
+	2511	"5100")
+	2512	{
+
+	2513	headParam
+	2514	=
+	2515	form.param_5100_head;
+
+	2516	unitParam
+	2517	=
+	2518	form.param_5100_unit;
+
+	2519	selectall
+	2520	=
+	2521	document.getElementById("selectall_5100");
+
+	2522	}
+	2523	else
+	2524	if
+	2525	(procId
+	2526	==
+	2527	"5100_head")
+	2528	{
+
+	2529	headParam
+	2530	=
+	2531	form.param_5100_head;
+
+	2532	selectall
+	2533	=
+	2534	form.selectall_5100_head;
+
+	2535	}
+	2536	else
+	2537	if
+	2538	(procId
+	2539	==
+	2540	"5100_unit")
+	2541	{
+
+	2542	unitParam
+	2543	=
+	2544	form.param_5100_unit;
+
+	2545	selectall
+	2546	=
+	2547	form.selectall_5100_unit;
+
+
+	2548	}
+	2549	else
+	2550	if
+	2551	(procId
+	2552	==
+	2553	"6300")
+	2554	{
+
+	2555	headParam
+	2556	=
+	2557	form.param_6300_head;
+
+	2558	unitParam
+	2559	=
+	2560	form.param_6300_unit;
+
+	2561	selectall
+	2562	=
+	2563	document.getElementById("selectall_6300");
+
+	2564	}
+	2565	else
+	2566	if
+	2567	(procId
+	2568	==
+	2569	"6300_head")
+	2570	{
+
+	2571	headParam
+	2572	=
+	2573	form.param_6300_head;
+
+	2574	selectall
+	2575	=
+	2576	form.selectall_6300_head;
+
+	2577	}
+	2578	else
+	2579	if
+	2580	(procId
+	2581	==
+	2582	"6300_unit")
+	2583	{
+
+	2584	unitParam
+	2585	=
+	2586	form.param_6300_unit;
+
+	2587	selectall
+	2588	=
+	2589	form.selectall_6300_unit;
+
+
+	2590	}
+	2591	else
+	2592	if
+	2593	(procId
+	2594	==
+	2595	"6330")
+	2596	{
+
+	2597	headParam
+	2598	=
+	2599	form.param_6330_head;
+
+	2600	unitParam
+	2601	=
+	2602	form.param_6330_unit;
+
+	2603	selectall
+	2604	=
+	2605	document.getElementById("selectall_6330");
+
+	2606	}
+	2607	else
+	2608	if
+	2609	(procId
+	2610	==
+	2611	"6330_head")
+	2612	{
+
+	2613	headParam
+	2614	=
+	2615	form.param_6330_head;
+
+	2616	selectall
+	2617	=
+	2618	form.selectall_6330_head;
+
+	2619	}
+	2620	else
+	2621	if
+	2622	(procId
+	2623	==
+	2624	"6330_unit")
+	2625	{
+
+	2626	unitParam
+	2627	=
+	2628	form.param_6330_unit;
+
+	2629	selectall
+	2630	=
+	2631	form.selectall_6330_unit;
+
+
+	2632	}
+	2633	else
+	2634	if
+	2635	(procId
+	2636	==
+	2637	"6340")
+	2638	{
+
+	2639	headParam
+	2640	=
+	2641	form.param_6340_head;
+
+	2642	unitParam
+	2643	=
+	2644	form.param_6340_unit;
+
+	2645	selectall
+	2646	=
+	2647	document.getElementById("selectall_6340");
+
+	2648	}
+	2649	else
+	2650	if
+	2651	(procId
+	2652	==
+	2653	"6340_head")
+	2654	{
+
+	2655	headParam
+	2656	=
+	2657	form.param_6340_head;
+
+	2658	selectall
+	2659	=
+	2660	form.selectall_6340_head;
+
+	2661	}
+	2662	else
+	2663	if
+	2664	(procId
+	2665	==
+	2666	"6340_unit")
+	2667	{
+
+	2668	unitParam
+	2669	=
+	2670	form.param_6340_unit;
+
+	2671	selectall
+	2672	=
+	2673	form.selectall_6340_unit;
+
+
+	2674	}
+	2675	else
+	2676	if
+	2677	(procId
+	2678	==
+	2679	"6350")
+	2680	{
+
+	2681	headParam
+	2682	=
+	2683	form.param_6350_head;
+
+	2684	unitParam
+	2685	=
+	2686	form.param_6350_unit;
+
+	2687	selectall
+	2688	=
+	2689	document.getElementById("selectall_6350");
+
+	2690	}
+	2691	else
+	2692	if
+	2693	(procId
+	2694	==
+	2695	"6350_head")
+	2696	{
+
+	2697	headParam
+	2698	=
+	2699	form.param_6350_head;
+
+	2700	selectall
+	2701	=
+	2702	form.selectall_6350_head;
+
+	2703	}
+	2704	else
+	2705	if
+	2706	(procId
+	2707	==
+	2708	"6350_unit")
+	2709	{
+
+	2710	unitParam
+	2711	=
+	2712	form.param_6350_unit;
+
+	2713	selectall
+	2714	=
+	2715	form.selectall_6350_unit;
+
+
+	2716	}
+	2717	else
+	2718	if
+	2719	(procId
+	2720	==
+	2721	"6360")
+	2722	{
+
+	2723	headParam
+	2724	=
+	2725	form.param_6360_head;
+
+	2726	unitParam
+	2727	=
+	2728	form.param_6360_unit;
+
+	2729	selectall
+	2730	=
+	2731	document.getElementById("selectall_6360");
+
+	2732	}
+	2733	else
+	2734	if
+	2735	(procId
+	2736	==
+	2737	"6360_head")
+	2738	{
+
+	2739	headParam
+	2740	=
+	2741	form.param_6360_head;
+
+	2742	selectall
+	2743	=
+	2744	form.selectall_6360_head;
+
+	2745	}
+	2746	else
+	2747	if
+	2748	(procId
+	2749	==
+	2750	"6360_unit")
+	2751	{
+
+	2752	unitParam
+	2753	=
+	2754	form.param_6360_unit;
+
+	2755	selectall
+	2756	=
+	2757	form.selectall_6360_unit;
+
+
+	2758	}
+	2759	else
+	2760	if
+	2761	(procId
+	2762	==
+	2763	"6370")
+	2764	{
+
+	2765	headParam
+	2766	=
+	2767	form.param_6370_head;
+
+	2768	unitParam
+	2769	=
+	2770	form.param_6370_unit;
+
+	2771	selectall
+	2772	=
+	2773	document.getElementById("selectall_6370");
+
+	2774	}
+	2775	else
+	2776	if
+	2777	(procId
+	2778	==
+	2779	"6370_head")
+	2780	{
+
+	2781	headParam
+	2782	=
+	2783	form.param_6370_head;
+
+	2784	selectall
+	2785	=
+	2786	form.selectall_6370_head;
+
+	2787	}
+	2788	else
+	2789	if
+	2790	(procId
+	2791	==
+	2792	"6370_unit")
+	2793	{
+
+	2794	unitParam
+	2795	=
+	2796	form.param_6370_unit;
+
+	2797	selectall
+	2798	=
+	2799	form.selectall_6370_unit;
+
+
+	2800	}
+	2801	else
+	2802	if
+	2803	(procId
+	2804	==
+	2805	"6380")
+	2806	{
+
+	2807	headParam
+	2808	=
+	2809	form.param_6380_head;
+
+	2810	unitParam
+	2811	=
+	2812	form.param_6380_unit;
+
+	2813	selectall
+	2814	=
+	2815	document.getElementById("selectall_6380");
+
+	2816	}
+	2817	else
+	2818	if
+	2819	(procId
+	2820	==
+	2821	"6380_head")
+	2822	{
+
+	2823	headParam
+	2824	=
+	2825	form.param_6380_head;
+
+	2826	selectall
+	2827	=
+	2828	form.selectall_6380_head;
+
+	2829	}
+	2830	else
+	2831	if
+	2832	(procId
+	2833	==
+	2834	"6380_unit")
+	2835	{
+
+	2836	unitParam
+	2837	=
+	2838	form.param_6380_unit;
+
+	2839	selectall
+	2840	=
+	2841	form.selectall_6380_unit;
+
+
+	2842	}
+	2843	else
+	2844	if
+	2845	(procId
+	2846	==
+	2847	"6400")
+	2848	{
+
+	2849	headParam
+	2850	=
+	2851	form.param_6400_head;
+
+	2852	unitParam
+	2853	=
+	2854	form.param_6400_unit;
+
+	2855	selectall
+	2856	=
+	2857	document.getElementById("selectall_6400");
+
+	2858	}
+	2859	else
+	2860	if
+	2861	(procId
+	2862	==
+	2863	"6400_head")
+	2864	{
+
+	2865	headParam
+	2866	=
+	2867	form.param_6400_head;
+
+	2868	selectall
+	2869	=
+	2870	form.selectall_6400_head;
+
+	2871	}
+	2872	else
+	2873	if
+	2874	(procId
+	2875	==
+	2876	"6400_unit")
+	2877	{
+
+	2878	unitParam
+	2879	=
+	2880	form.param_6400_unit;
+
+	2881	selectall
+	2882	=
+	2883	form.selectall_6400_unit;
+
+
+	2884	}
+	2885	else
+	2886	if
+	2887	(procId
+	2888	==
+	2889	"6600")
+	2890	{
+
+	2891	headParam
+	2892	=
+	2893	form.param_6600_head;
+
+	2894	unitParam
+	2895	=
+	2896	form.param_6600_unit;
+
+	2897	selectall
+	2898	=
+	2899	document.getElementById("selectall_6600");
+
+	2900	}
+	2901	else
+	2902	if
+	2903	(procId
+	2904	==
+	2905	"6600_head")
+	2906	{
+
+	2907	headParam
+	2908	=
+	2909	form.param_6600_head;
+
+	2910	selectall
+	2911	=
+	2912	form.selectall_6600_head;
+
+	2913	}
+	2914	else
+	2915	if
+	2916	(procId
+	2917	==
+	2918	"6600_unit")
+	2919	{
+
+	2920	unitParam
+	2921	=
+	2922	form.param_6600_unit;
+
+	2923	selectall
+	2924	=
+	2925	form.selectall_6600_unit;
+
+
+	2926	}
+	2927	else
+	2928	if
+	2929	(procId
+	2930	==
+	2931	"6645")
+	2932	{
+
+	2933	headParam
+	2934	=
+	2935	form.param_6645_head;
+
+	2936	unitParam
+	2937	=
+	2938	form.param_6645_unit;
+
+	2939	selectall
+	2940	=
+	2941	document.getElementById("selectall_6645");
+
+	2942	}
+	2943	else
+	2944	if
+	2945	(procId
+	2946	==
+	2947	"6645_head")
+	2948	{
+
+	2949	headParam
+	2950	=
+	2951	form.param_6645_head;
+
+	2952	selectall
+	2953	=
+	2954	form.selectall_6645_head;
+
+	2955	}
+	2956	else
+	2957	if
+	2958	(procId
+	2959	==
+	2960	"6645_unit")
+	2961	{
+
+	2962	unitParam
+	2963	=
+	2964	form.param_6645_unit;
+
+	2965	selectall
+	2966	=
+	2967	form.selectall_6645_unit;
+
+
+	2968	}
+	2969	else
+	2970	if
+	2971	(procId
+	2972	==
+	2973	"6700")
+	2974	{
+
+	2975	headParam
+	2976	=
+	2977	form.param_6700_head;
+
+	2978	unitParam
+	2979	=
+	2980	form.param_6700_unit;
+
+	2981	selectall
+	2982	=
+	2983	document.getElementById("selectall_6700");
+
+	2984	}
+	2985	else
+	2986	if
+	2987	(procId
+	2988	==
+	2989	"6700_head")
+	2990	{
+
+	2991	headParam
+	2992	=
+	2993	form.param_6700_head;
+
+	2994	selectall
+	2995	=
+	2996	form.selectall_6700_head;
+
+	2997	}
+	2998	else
+	2999	if
+	3000	(procId
+	3001	==
+	3002	"6700_unit")
+	3003	{
+
+	3004	unitParam
+	3005	=
+	3006	form.param_6700_unit;
+
+	3007	selectall
+	3008	=
+	3009	form.selectall_6700_unit;
+
+
+	3010	}
+	3011	else
+	3012	if
+	3013	(procId
+	3014	==
+	3015	"6750")
+	3016	{
+
+	3017	headParam
+	3018	=
+	3019	form.param_6750_head;
+
+	3020	unitParam
+	3021	=
+	3022	form.param_6750_unit;
+
+	3023	selectall
+	3024	=
+	3025	document.getElementById("selectall_6750");
+
+	3026	}
+	3027	else
+	3028	if
+	3029	(procId
+	3030	==
+	3031	"6750_head")
+	3032	{
+
+	3033	headParam
+	3034	=
+	3035	form.param_6750_head;
+
+	3036	selectall
+	3037	=
+	3038	form.selectall_6750_head;
+
+	3039	}
+	3040	else
+	3041	if
+	3042	(procId
+	3043	==
+	3044	"6750_unit")
+	3045	{
+
+	3046	unitParam
+	3047	=
+	3048	form.param_6750_unit;
+
+	3049	selectall
+	3050	=
+	3051	form.selectall_6750_unit;
+
+
+	3052	}
+	3053	else
+	3054	if
+	3055	(procId
+	3056	==
+	3057	"6800")
+	3058	{
+
+	3059	headParam
+	3060	=
+	3061	form.param_6800_head;
+
+	3062	unitParam
+	3063	=
+	3064	form.param_6800_unit;
+
+	3065	selectall
+	3066	=
+	3067	document.getElementById("selectall_6800");
+
+	3068	}
+	3069	else
+	3070	if
+	3071	(procId
+	3072	==
+	3073	"6800_head")
+	3074	{
+
+	3075	headParam
+	3076	=
+	3077	form.param_6800_head;
+
+	3078	selectall
+	3079	=
+	3080	form.selectall_6800_head;
+
+	3081	}
+	3082	else
+	3083	if
+	3084	(procId
+	3085	==
+	3086	"6800_unit")
+	3087	{
+
+	3088	unitParam
+	3089	=
+	3090	form.param_6800_unit;
+
+	3091	selectall
+	3092	=
+	3093	form.selectall_6800_unit;
+
+
+	3094	}
+	3095	else
+	3096	if
+	3097	(procId
+	3098	==
+	3099	"6846")
+	3100	{
+
+	3101	headParam
+	3102	=
+	3103	form.param_6846_head;
+
+	3104	unitParam
+	3105	=
+	3106	form.param_6846_unit;
+
+	3107	selectall
+	3108	=
+	3109	document.getElementById("selectall_6846");
+
+	3110	}
+	3111	else
+	3112	if
+	3113	(procId
+	3114	==
+	3115	"6846_head")
+	3116	{
+
+	3117	headParam
+	3118	=
+	3119	form.param_6846_head;
+
+	3120	selectall
+	3121	=
+	3122	form.selectall_6846_head;
+
+	3123	}
+	3124	else
+	3125	if
+	3126	(procId
+	3127	==
+	3128	"6846_unit")
+	3129	{
+
+	3130	unitParam
+	3131	=
+	3132	form.param_6846_unit;
+
+	3133	selectall
+	3134	=
+	3135	form.selectall_6846_unit;
+
+
+	3136	}
+	3137	else
+	3138	if
+	3139	(procId
+	3140	==
+	3141	"6852")
+	3142	{
+
+	3143	headParam
+	3144	=
+	3145	form.param_6852_head;
+
+	3146	unitParam
+	3147	=
+	3148	form.param_6852_unit;
+
+	3149	selectall
+	3150	=
+	3151	document.getElementById("selectall_6852");
+
+	3152	}
+	3153	else
+	3154	if
+	3155	(procId
+	3156	==
+	3157	"6852_head")
+	3158	{
+
+	3159	headParam
+	3160	=
+	3161	form.param_6852_head;
+
+	3162	selectall
+	3163	=
+	3164	form.selectall_6852_head;
+
+	3165	}
+	3166	else
+	3167	if
+	3168	(procId
+	3169	==
+	3170	"6852_unit")
+	3171	{
+
+	3172	unitParam
+	3173	=
+	3174	form.param_6852_unit;
+
+	3175	selectall
+	3176	=
+	3177	form.selectall_6852_unit;
+
+
+	3178	}
+	3179	else
+	3180	if
+	3181	(procId
+	3182	==
+	3183	"6853")
+	3184	{
+
+	3185	headParam
+	3186	=
+	3187	form.param_6853_head;
+
+	3188	unitParam
+	3189	=
+	3190	form.param_6853_unit;
+
+	3191	selectall
+	3192	=
+	3193	document.getElementById("selectall_6853");
+
+	3194	}
+	3195	else
+	3196	if
+	3197	(procId
+	3198	==
+	3199	"6853_head")
+	3200	{
+
+	3201	headParam
+	3202	=
+	3203	form.param_6853_head;
+
+	3204	selectall
+	3205	=
+	3206	form.selectall_6853_head;
+
+	3207	}
+	3208	else
+	3209	if
+	3210	(procId
+	3211	==
+	3212	"6853_unit")
+	3213	{
+
+	3214	unitParam
+	3215	=
+	3216	form.param_6853_unit;
+
+	3217	selectall
+	3218	=
+	3219	form.selectall_6853_unit;
+
+
+	3220	}
+	3221	else
+	3222	if
+	3223	(procId
+	3224	==
+	3225	"6854")
+	3226	{
+
+	3227	headParam
+	3228	=
+	3229	form.param_6854_head;
+
+	3230	unitParam
+	3231	=
+	3232	form.param_6854_unit;
+
+	3233	selectall
+	3234	=
+	3235	document.getElementById("selectall_6854");
+
+	3236	}
+	3237	else
+	3238	if
+	3239	(procId
+	3240	==
+	3241	"6854_head")
+	3242	{
+
+	3243	headParam
+	3244	=
+	3245	form.param_6854_head;
+
+	3246	selectall
+	3247	=
+	3248	form.selectall_6854_head;
+
+	3249	}
+	3250	else
+	3251	if
+	3252	(procId
+	3253	==
+	3254	"6854_unit")
+	3255	{
+
+	3256	unitParam
+	3257	=
+	3258	form.param_6854_unit;
+
+	3259	selectall
+	3260	=
+	3261	form.selectall_6854_unit;
+
+
+	3262	}
+	3263	else
+	3264	if
+	3265	(procId
+	3266	==
+	3267	"6856")
+	3268	{
+
+	3269	headParam
+	3270	=
+	3271	form.param_6856_head;
+
+	3272	unitParam
+	3273	=
+	3274	form.param_6856_unit;
+
+	3275	selectall
+	3276	=
+	3277	document.getElementById("selectall_6856");
+
+	3278	}
+	3279	else
+	3280	if
+	3281	(procId
+	3282	==
+	3283	"6856_head")
+	3284	{
+
+	3285	headParam
+	3286	=
+	3287	form.param_6856_head;
+
+	3288	selectall
+	3289	=
+	3290	form.selectall_6856_head;
+
+	3291	}
+	3292	else
+	3293	if
+	3294	(procId
+	3295	==
+	3296	"6856_unit")
+	3297	{
+
+	3298	unitParam
+	3299	=
+	3300	form.param_6856_unit;
+
+	3301	selectall
+	3302	=
+	3303	form.selectall_6856_unit;
+
+
+	3304	}
+	3305	else
+	3306	if
+	3307	(procId
+	3308	==
+	3309	"6860")
+	3310	{
+
+	3311	headParam
+	3312	=
+	3313	form.param_6860_head;
+
+	3314	unitParam
+	3315	=
+	3316	form.param_6860_unit;
+
+	3317	selectall
+	3318	=
+	3319	document.getElementById("selectall_6860");
+
+	3320	}
+	3321	else
+	3322	if
+	3323	(procId
+	3324	==
+	3325	"6860_head")
+	3326	{
+
+	3327	headParam
+	3328	=
+	3329	form.param_6860_head;
+
+	3330	selectall
+	3331	=
+	3332	form.selectall_6860_head;
+
+	3333	}
+	3334	else
+	3335	if
+	3336	(procId
+	3337	==
+	3338	"6860_unit")
+	3339	{
+
+	3340	unitParam
+	3341	=
+	3342	form.param_6860_unit;
+
+	3343	selectall
+	3344	=
+	3345	form.selectall_6860_unit;
+
+
+	3346	}
+	3347	else
+	3348	if
+	3349	(procId
+	3350	==
+	3351	"6900")
+	3352	{
+
+	3353	headParam
+	3354	=
+	3355	form.param_6900_head;
+
+	3356	unitParam
+	3357	=
+	3358	form.param_6900_unit;
+
+	3359	selectall
+	3360	=
+	3361	document.getElementById("selectall_6900");
+
+	3362	}
+	3363	else
+	3364	if
+	3365	(procId
+	3366	==
+	3367	"6900_head")
+	3368	{
+
+	3369	headParam
+	3370	=
+	3371	form.param_6900_head;
+
+	3372	selectall
+	3373	=
+	3374	form.selectall_6900_head;
+
+	3375	}
+	3376	else
+	3377	if
+	3378	(procId
+	3379	==
+	3380	"6900_unit")
+	3381	{
+
+	3382	unitParam
+	3383	=
+	3384	form.param_6900_unit;
+
+	3385	selectall
+	3386	=
+	3387	form.selectall_6900_unit;
+
+
+	3388	}
+	3389	else
+	3390	if
+	3391	(procId
+	3392	==
+	3393	"6950")
+	3394	{
+
+	3395	headParam
+	3396	=
+	3397	form.param_6950_head;
+
+	3398	unitParam
+	3399	=
+	3400	form.param_6950_unit;
+
+	3401	selectall
+	3402	=
+	3403	document.getElementById("selectall_6950");
+
+	3404	}
+	3405	else
+	3406	if
+	3407	(procId
+	3408	==
+	3409	"6950_head")
+	3410	{
+
+	3411	headParam
+	3412	=
+	3413	form.param_6950_head;
+
+	3414	selectall
+	3415	=
+	3416	form.selectall_6950_head;
+
+	3417	}
+	3418	else
+	3419	if
+	3420	(procId
+	3421	==
+	3422	"6950_unit")
+	3423	{
+
+	3424	unitParam
+	3425	=
+	3426	form.param_6950_unit;
+
+	3427	selectall
+	3428	=
+	3429	form.selectall_6950_unit;
+
+
+	3430	}
+	3431	else
+	3432	if
+	3433	(procId
+	3434	==
+	3435	"8500")
+	3436	{
+
+	3437	headParam
+	3438	=
+	3439	form.param_8500_head;
+
+	3440	unitParam
+	3441	=
+	3442	form.param_8500_unit;
+
+	3443	selectall
+	3444	=
+	3445	document.getElementById("selectall_8500");
+
+	3446	}
+	3447	else
+	3448	if
+	3449	(procId
+	3450	==
+	3451	"8500_head")
+	3452	{
+
+	3453	headParam
+	3454	=
+	3455	form.param_8500_head;
+
+	3456	selectall
+	3457	=
+	3458	form.selectall_8500_head;
+
+	3459	}
+	3460	else
+	3461	if
+	3462	(procId
+	3463	==
+	3464	"8500_unit")
+	3465	{
+
+	3466	unitParam
+	3467	=
+	3468	form.param_8500_unit;
+
+	3469	selectall
+	3470	=
+	3471	form.selectall_8500_unit;
+
+
+	3472	}
+	3473	else
+	3474	if
+	3475	(procId
+	3476	==
+	3477	"8516")
+	3478	{
+
+	3479	headParam
+	3480	=
+	3481	form.param_8516_head;
+
+	3482	unitParam
+	3483	=
+	3484	form.param_8516_unit;
+
+	3485	selectall
+	3486	=
+	3487	document.getElementById("selectall_8516");
+
+	3488	}
+	3489	else
+	3490	if
+	3491	(procId
+	3492	==
+	3493	"8516_head")
+	3494	{
+
+	3495	headParam
+	3496	=
+	3497	form.param_8516_head;
+
+	3498	selectall
+	3499	=
+	3500	form.selectall_8516_head;
+
+	3501	}
+	3502	else
+	3503	if
+	3504	(procId
+	3505	==
+	3506	"8516_unit")
+	3507	{
+
+	3508	unitParam
+	3509	=
+	3510	form.param_8516_unit;
+
+	3511	selectall
+	3512	=
+	3513	form.selectall_8516_unit;
+
+
+	3514	}
+	3515	else
+	3516	if
+	3517	(procId
+	3518	==
+	3519	"8960")
+	3520	{
+
+	3521	headParam
+	3522	=
+	3523	form.param_8960_head;
+
+	3524	unitParam
+	3525	=
+	3526	form.param_8960_unit;
+
+	3527	selectall
+	3528	=
+	3529	document.getElementById("selectall_8960");
+
+	3530	}
+	3531	else
+	3532	if
+	3533	(procId
+	3534	==
+	3535	"8960_head")
+	3536	{
+
+	3537	headParam
+	3538	=
+	3539	form.param_8960_head;
+
+	3540	selectall
+	3541	=
+	3542	form.selectall_8960_head;
+
+	3543	}
+	3544	else
+	3545	if
+	3546	(procId
+	3547	==
+	3548	"8960_unit")
+	3549	{
+
+	3550	unitParam
+	3551	=
+	3552	form.param_8960_unit;
+
+	3553	selectall
+	3554	=
+	3555	form.selectall_8960_unit;
+
+
+	3556	}
+	3557	else
+	3558	if
+	3559	(procId
+	3560	==
+	3561	"8987")
+	3562	{
+
+	3563	headParam
+	3564	=
+	3565	form.param_8987_head;
+
+	3566	unitParam
+	3567	=
+	3568	form.param_8987_unit;
+
+	3569	selectall
+	3570	=
+	3571	document.getElementById("selectall_8987");
+
+	3572	}
+	3573	else
+	3574	if
+	3575	(procId
+	3576	==
+	3577	"8987_head")
+	3578	{
+
+	3579	headParam
+	3580	=
+	3581	form.param_8987_head;
+
+	3582	selectall
+	3583	=
+	3584	form.selectall_8987_head;
+
+	3585	}
+	3586	else
+	3587	if
+	3588	(procId
+	3589	==
+	3590	"8987_unit")
+	3591	{
+
+	3592	unitParam
+	3593	=
+	3594	form.param_8987_unit;
+
+	3595	selectall
+	3596	=
+	3597	form.selectall_8987_unit;
+
+
+	3598	}
+	3599	else
+	3600	if
+	3601	(procId
+	3602	==
+	3603	"9000")
+	3604	{
+
+	3605	headParam
+	3606	=
+	3607	form.param_9000_head;
+
+	3608	unitParam
+	3609	=
+	3610	form.param_9000_unit;
+
+	3611	selectall
+	3612	=
+	3613	document.getElementById("selectall_9000");
+
+	3614	}
+	3615	else
+	3616	if
+	3617	(procId
+	3618	==
+	3619	"9000_head")
+	3620	{
+
+	3621	headParam
+	3622	=
+	3623	form.param_9000_head;
+
+	3624	selectall
+	3625	=
+	3626	form.selectall_9000_head;
+
+	3627	}
+	3628	else
+	3629	if
+	3630	(procId
+	3631	==
+	3632	"9000_unit")
+	3633	{
+
+	3634	unitParam
+	3635	=
+	3636	form.param_9000_unit;
+
+	3637	selectall
+	3638	=
+	3639	form.selectall_9000_unit;
+
+
+	3640	}
+	3641	else
+	3642	if
+	3643	(procId
+	3644	==
+	3645	"9011")
+	3646	{
+
+	3647	headParam
+	3648	=
+	3649	form.param_9011_head;
+
+	3650	unitParam
+	3651	=
+	3652	form.param_9011_unit;
+
+	3653	selectall
+	3654	=
+	3655	document.getElementById("selectall_9011");
+
+	3656	}
+	3657	else
+	3658	if
+	3659	(procId
+	3660	==
+	3661	"9011_head")
+	3662	{
+
+	3663	headParam
+	3664	=
+	3665	form.param_9011_head;
+
+	3666	selectall
+	3667	=
+	3668	form.selectall_9011_head;
+
+	3669	}
+	3670	else
+	3671	if
+	3672	(procId
+	3673	==
+	3674	"9011_unit")
+	3675	{
+
+	3676	unitParam
+	3677	=
+	3678	form.param_9011_unit;
+
+	3679	selectall
+	3680	=
+	3681	form.selectall_9011_unit;
+
+
+	3682	}
+	3683	else
+	3684	if
+	3685	(procId
+	3686	==
+	3687	"9013")
+	3688	{
+
+	3689	headParam
+	3690	=
+	3691	form.param_9013_head;
+
+	3692	unitParam
+	3693	=
+	3694	form.param_9013_unit;
+
+	3695	selectall
+	3696	=
+	3697	document.getElementById("selectall_9013");
+
+	3698	}
+	3699	else
+	3700	if
+	3701	(procId
+	3702	==
+	3703	"9013_head")
+	3704	{
+
+	3705	headParam
+	3706	=
+	3707	form.param_9013_head;
+
+	3708	selectall
+	3709	=
+	3710	form.selectall_9013_head;
+
+	3711	}
+	3712	else
+	3713	if
+	3714	(procId
+	3715	==
+	3716	"9013_unit")
+	3717	{
+
+	3718	unitParam
+	3719	=
+	3720	form.param_9013_unit;
+
+	3721	selectall
+	3722	=
+	3723	form.selectall_9013_unit;
+
+
+	3724	}
+	3725	else
+	3726	if
+	3727	(procId
+	3728	==
+	3729	"9016")
+	3730	{
+
+	3731	headParam
+	3732	=
+	3733	form.param_9016_head;
+
+	3734	unitParam
+	3735	=
+	3736	form.param_9016_unit;
+
+	3737	selectall
+	3738	=
+	3739	document.getElementById("selectall_9016");
+
+	3740	}
+	3741	else
+	3742	if
+	3743	(procId
+	3744	==
+	3745	"9016_head")
+	3746	{
+
+	3747	headParam
+	3748	=
+	3749	form.param_9016_head;
+
+	3750	selectall
+	3751	=
+	3752	form.selectall_9016_head;
+
+	3753	}
+	3754	else
+	3755	if
+	3756	(procId
+	3757	==
+	3758	"9016_unit")
+	3759	{
+
+	3760	unitParam
+	3761	=
+	3762	form.param_9016_unit;
+
+	3763	selectall
+	3764	=
+	3765	form.selectall_9016_unit;
+
+
+	3766	}
+	3767	else
+	3768	if
+	3769	(procId
+	3770	==
+	3771	"9180")
+	3772	{
+
+	3773	headParam
+	3774	=
+	3775	form.param_9180_head;
+
+	3776	unitParam
+	3777	=
+	3778	form.param_9180_unit;
+
+	3779	selectall
+	3780	=
+	3781	document.getElementById("selectall_9180");
+
+	3782	}
+	3783	else
+	3784	if
+	3785	(procId
+	3786	==
+	3787	"9180_head")
+	3788	{
+
+	3789	headParam
+	3790	=
+	3791	form.param_9180_head;
+
+	3792	selectall
+	3793	=
+	3794	form.selectall_9180_head;
+
+	3795	}
+	3796	else
+	3797	if
+	3798	(procId
+	3799	==
+	3800	"9180_unit")
+	3801	{
+
+	3802	unitParam
+	3803	=
+	3804	form.param_9180_unit;
+
+	3805	selectall
+	3806	=
+	3807	form.selectall_9180_unit;
+
+
+	3808	}
+	3809	else
+	3810	if
+	3811	(procId
+	3812	==
+	3813	"9185")
+	3814	{
+
+	3815	headParam
+	3816	=
+	3817	form.param_9185_head;
+
+	3818	unitParam
+	3819	=
+	3820	form.param_9185_unit;
+
+	3821	selectall
+	3822	=
+	3823	document.getElementById("selectall_9185");
+
+	3824	}
+	3825	else
+	3826	if
+	3827	(procId
+	3828	==
+	3829	"9185_head")
+	3830	{
+
+	3831	headParam
+	3832	=
+	3833	form.param_9185_head;
+
+	3834	selectall
+	3835	=
+	3836	form.selectall_9185_head;
+
+	3837	}
+	3838	else
+	3839	if
+	3840	(procId
+	3841	==
+	3842	"9185_unit")
+	3843	{
+
+	3844	unitParam
+	3845	=
+	3846	form.param_9185_unit;
+
+	3847	selectall
+	3848	=
+	3849	form.selectall_9185_unit;
+
+
+	3850	}
+	3851	else
+	3852	if
+	3853	(procId
+	3854	==
+	3855	"9187")
+	3856	{
+
+	3857	headParam
+	3858	=
+	3859	form.param_9187_head;
+
+	3860	unitParam
+	3861	=
+	3862	form.param_9187_unit;
+
+	3863	selectall
+	3864	=
+	3865	document.getElementById("selectall_9187");
+
+	3866	}
+	3867	else
+	3868	if
+	3869	(procId
+	3870	==
+	3871	"9187_head")
+	3872	{
+
+	3873	headParam
+	3874	=
+	3875	form.param_9187_head;
+
+	3876	selectall
+	3877	=
+	3878	form.selectall_9187_head;
+
+	3879	}
+	3880	else
+	3881	if
+	3882	(procId
+	3883	==
+	3884	"9187_unit")
+	3885	{
+
+	3886	unitParam
+	3887	=
+	3888	form.param_9187_unit;
+
+	3889	selectall
+	3890	=
+	3891	form.selectall_9187_unit;
+
+
+	3892	}
+	3893	else
+	3894	if
+	3895	(procId
+	3896	==
+	3897	"9188")
+	3898	{
+
+	3899	headParam
+	3900	=
+	3901	form.param_9188_head;
+
+	3902	unitParam
+	3903	=
+	3904	form.param_9188_unit;
+
+	3905	selectall
+	3906	=
+	3907	document.getElementById("selectall_9188");
+
+	3908	}
+	3909	else
+	3910	if
+	3911	(procId
+	3912	==
+	3913	"9188_head")
+	3914	{
+
+	3915	headParam
+	3916	=
+	3917	form.param_9188_head;
+
+	3918	selectall
+	3919	=
+	3920	form.selectall_9188_head;
+
+	3921	}
+	3922	else
+	3923	if
+	3924	(procId
+	3925	==
+	3926	"9188_unit")
+	3927	{
+
+	3928	unitParam
+	3929	=
+	3930	form.param_9188_unit;
+
+	3931	selectall
+	3932	=
+	3933	form.selectall_9188_unit;
+
+
+	3934	}
+	3935	else
+	3936	if
+	3937	(procId
+	3938	==
+	3939	"9189")
+	3940	{
+
+	3941	headParam
+	3942	=
+	3943	form.param_9189_head;
+
+	3944	unitParam
+	3945	=
+	3946	form.param_9189_unit;
+
+	3947	selectall
+	3948	=
+	3949	document.getElementById("selectall_9189");
+
+	3950	}
+	3951	else
+	3952	if
+	3953	(procId
+	3954	==
+	3955	"9189_head")
+	3956	{
+
+	3957	headParam
+	3958	=
+	3959	form.param_9189_head;
+
+	3960	selectall
+	3961	=
+	3962	form.selectall_9189_head;
+
+	3963	}
+	3964	else
+	3965	if
+	3966	(procId
+	3967	==
+	3968	"9189_unit")
+	3969	{
+
+	3970	unitParam
+	3971	=
+	3972	form.param_9189_unit;
+
+	3973	selectall
+	3974	=
+	3975	form.selectall_9189_unit;
+
+
+	3976	}
+	3977	else
+	3978	if
+	3979	(procId
+	3980	==
+	3981	"9900")
+	3982	{
+
+	3983	headParam
+	3984	=
+	3985	form.param_9900_head;
+
+	3986	unitParam
+	3987	=
+	3988	form.param_9900_unit;
+
+	3989	selectall
+	3990	=
+	3991	document.getElementById("selectall_9900");
+
+	3992	}
+	3993	else
+	3994	if
+	3995	(procId
+	3996	==
+	3997	"9900_head")
+	3998	{
+
+	3999	headParam
+	4000	=
+	4001	form.param_9900_head;
+
+	4002	selectall
+	4003	=
+	4004	form.selectall_9900_head;
+
+	4005	}
+	4006	else
+	4007	if
+	4008	(procId
+	4009	==
+	4010	"9900_unit")
+	4011	{
+
+	4012	unitParam
+	4013	=
+	4014	form.param_9900_unit;
+
+	4015	selectall
+	4016	=
+	4017	form.selectall_9900_unit;
+
+
+	4018	}
+
+	4019	var
+	4020	b
+	4021	=
+	4022	selectall.checked;
+
+	4023	if
+	4024	(headParam
+	4025	!=
+	4026	null
+	4027	&&
+	4028	headParam.options
+	4029	!=
+	4030	null)
+	4031	{
+
+	4032	for
+	4033	(var
+	4034	i
+	4035	=
+	4036	0;
+	4037	i
+	4038	<
+	4039	headParam.options.length;
+	4040	i++)
+	4041	{
+
+	4042	headParam.options[i].selected
+	4043	=
+	4044	b;
+
+	4045	}
+
+	4046	}
+
+	4047	if
+	4048	(unitParam
+	4049	!=
+	4050	null
+	4051	&&
+	4052	unitParam.options
+	4053	!=
+	4054	null)
+	4055	{
+
+	4056	for
+	4057	(var
+	4058	i
+	4059	=
+	4060	0;
+	4061	i
+	4062	<
+	4063	unitParam.options.length;
+	4064	i++)
+	4065	{
+
+	4066	unitParam.options[i].selected
+	4067	=
+	4068	b;
+
+	4069	}
+
+	4070	}
+
+	4071	return
+	4072	true;
+
+	4073	}
+
+
+	4074	function
+	4075	toggleDisplay(className)
+	4076	{
+
+	4077	var
+	4078	list
+	4079	=
+	4080	document.getElementsByTagName("div");
+
+	4081	if
+	4082	(list)
+	4083	{
+
+	4084	if
+	4085	(list.length)
+	4086	{
+
+	4087	for
+	4088	(var
+	4089	i
+	4090	=
+	4091	0;
+	4092	i
+	4093	<
+	4094	list.length;
+	4095	i++)
+	4096	{
+
+	4097	if
+	4098	(list.item(i).className
+	4099	==
+	4100	className)
+	4101	{
+
+	4102	var
+	4103	style
+	4104	=
+	4105	list.item(i).style;
+
+	4106	style.display
+	4107	=
+	4108	(style.display
+	4109	==
+	4110	'block')
+	4111	?
+	4112	'none'
+	4113	:
+	4114	'block';
+
+	4115	}
+
+	4116	}
+
+	4117	}
+
+	4118	}
+
+	4119	list
+	4120	=
+	4121	document.getElementsByTagName("span");
+
+	4122	if
+	4123	(list)
+	4124	{
+
+	4125	if
+	4126	(list.length)
+	4127	{
+
+	4128	for
+	4129	(var
+	4130	i
+	4131	=
+	4132	0;
+	4133	i
+	4134	<
+	4135	list.length;
+	4136	i++)
+	4137	{
+
+	4138	if
+	4139	(list.item(i).className
+	4140	==
+	4141	className)
+	4142	{
+
+	4143	var
+	4144	style
+	4145	=
+	4146	list.item(i).style;
+
+	4147	style.display
+	4148	=
+	4149	(style.display
+	4150	==
+	4151	'inline')
+	4152	?
+	4153	'none'
+	4154	:
+	4155	'inline';
+
+	4156	}
+
+	4157	}
+
+	4158	}
+
+	4159	}
+
+	4160	}
+
+
+	4161	function
+	4162	spssFormatSelected()
+	4163	{
+
+	4164	if
+	4165	(!document.main.device[1].checked)
+	4166	{
+
+	4167	alert("Output
+	4168	Device
+	4169	is
+	4170	changed
+	4171	to
+	4172	'Save
+	4173	to
+	4174	Disk'.");
+
+	4175	document.main.device[1].checked
+	4176	=
+	4177	true;
+
+	4178	}
+
+	4179	}
+
+	4180	
+
+	4181	function
+	4182	showPopup(idName)
+	4183	{
+
+	4184	target
+	4185	=
+	4186	document.getElementById(idName);
+
+	4187	target.style.visibility
+	4188	=
+	4189	"visible";
+
+	4190	}
+
+	4191	function
+	4192	hidePopup(idName)
+	4193	{
+
+	4194	target
+	4195	=
+	4196	document.getElementById(idName);
+
+	4197	target.style.visibility
+	4198	=
+	4199	"hidden";
+
+	4200	}
+//-->
+</script>
+
+<div
+	4201	id='processing'>
+<h4>Now
+	4202	Processing...</h4>
+<img
+	4203	src='/dwh/image/ajax-loader.gif'
+	4204	align='middle'>
+&nbsp;
+	4205	Elapsed
+	4206	Time:
+<span
+	4207	id='elapsedTime'>0:00</span>
+<script
+	4208	type='text/javascript'>
+<!--
+
+	4209	var
+	4210	processing
+	4211	=
+	4212	true;
+
+	4213	var
+	4214	i
+	4215	=
+	4216	0;
+
+	4217	function
+	4218	showElapsedTime()
+	4219	{
+
+	4220	var
+	4221	min
+	4222	=
+	4223	Math.floor(i
+	4224	/
+	4225	60);
+
+	4226	var
+	4227	sec
+	4228	=
+	4229	Math.floor(i
+	4230	%
+	4231	60);
+
+	4232	document.getElementById('elapsedTime').innerHTML
+	4233	=
+	4234	min
+	4235	+
+	4236	':'
+	4237	+
+	4238	(sec
+	4239	<
+	4240	10
+	4241	?
+	4242	'0'
+	4243	:
+	4244	'')
+	4245	+
+	4246	sec;
+
+	4247	i++;
+
+	4248	if
+	4249	(processing)
+	4250	{
+
+	4251	setTimeout("showElapsedTime()",
+	4252	1000);
+
+	4253	}
+
+	4254	}
+
+	4255	showElapsedTime();
+//-->
+</script>
+<br><br>
+Click
+	4256	to
+	4257	cancel
+	4258	your
+	4259	retrieve.
+<input
+	4260	type='button'
+	4261	value='Cancel'
+	4262	onClick='history.back()'>
+</div>
+
+
+
+	4263	
+
+<script
+	4264	type='text/javascript'>
+<!--
+
+	4265	processing
+	4266	=
+	4267	false;
+
+	4268	document.getElementById("processing").style.display
+	4269	=
+	4270	"none";
+//-->
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+Found
+	4271	<b>15233</b>
+	4272	serial(s)
+	4273	(Pass:<b>14603</b>,
+	4274	Fail:<b>630</b>).
+</p>
+
+
+
+
+Choose
+	4275	parameters,
+	4276	and
+	4277	then
+	4278	push
+	4279	'Retrieve'
+	4280	button.<br>
+Click
+	4281	or
+	4282	drag
+	4283	checkboxes
+	4284	to
+	4285	choose
+	4286	all
+	4287	parameters
+	4288	of
+	4289	the
+	4290	processes.<br>
+<br>
+
+<form
+	4291	method='POST'
+	4292	name='main'
+	4293	action='/dwh/retrieve/comParam'>
+<input
+	4294	type='hidden'
+	4295	name='action'
+	4296	value='retrieveParam'>
+<input
+	4297	type='hidden'
+	4298	name='id'
+	4299	value='1595775260851'>
+<input
+	4300	type='hidden'
+	4301	name='location'
+	4302	value='0'>
+<input
+	4303	type='hidden'
+	4304	name='baseprocess'
+	4305	value='1800'>
+<input
+	4306	type='hidden'
+	4307	name='mtype'
+	4308	value='PCM%'>
+
+
+<table
+	4309	border='1'
+	4310	cellpadding='5'
+	4311	cellspacing='0'>
+
+<tr>
+<th>Output
+	4312	Device:</th>
+<td>
+<input
+	4313	type='radio'
+	4314	name='device'
+	4315	value='web'
+	4316	checked
+	4317	id='web'><label
+	4318	for='web'>View
+	4319	on
+	4320	Web</label>
+<input
+	4321	type='radio'
+	4322	name='device'
+	4323	value='disk'
+	4324	id='disk'><label
+	4325	for='disk'>Save
+	4326	to
+	4327	Disk</label>
+</td>
+</tr>
+
+<tr>
+<th>Output
+	4328	Format:</th>
+<td>
+<input
+	4329	type='radio'
+	4330	name='format'
+	4331	value='plain'
+	4332	checked
+	4333	id='plain'><label
+	4334	for='plain'>Fixed
+	4335	Length</label>
+<input
+	4336	type='radio'
+	4337	name='format'
+	4338	value='csv'
+	4339	id='csv'><label
+	4340	for='csv'>CSV</label>
+<input
+	4341	type='radio'
+	4342	name='format'
+	4343	value='spss'
+	4344	id='spss'
+	4345	onClick='spssFormatSelected()'><label
+	4346	for='spss'>SPSS(sav)</label><img
+	4347	src='/dwh/image/info.png'
+	4348	style='vertical-align:middle'
+	4349	onMouseOver='showPopup("help_spss")'
+	4350	onMouseOut='hidePopup("help_spss")'>
+
+<div
+	4351	id='help_spss'
+	4352	style='position:absolute;
+	4353	z-index:10;
+	4354	visibility:hidden;
+	4355	background-color:#fbff96;'>
+What&#39;s
+	4356	This?<br>
+SPSS
+	4357	format
+	4358	which
+	4359	can
+	4360	preserve
+	4361	each
+	4362	column
+	4363	data
+	4364	type
+	4365	(string,
+	4366	integer,
+	4367	floating
+	4368	number)<br>
+<div
+	4369	style="font-size:50%"><br></div>
+Best
+	4370	Use
+	4371	Case:<br>
+Import
+	4372	the
+	4373	downloaded
+	4374	data
+	4375	to
+	4376	SPSS
+	4377	Modeler
+	4378	directly
+	4379	with
+	4380	data
+	4381	column
+	4382	type
+	4383	preservation.<br>
+<div
+	4384	style="font-size:50%"><br></div>
+Data
+	4385	Import
+	4386	Steps:<br>
+1)
+	4387	Run
+	4388	SPSS
+	4389	Modeler
+	4390	as
+	4391	local
+	4392	mode.<br>
+2)
+	4393	Add
+	4394	'Statistics
+	4395	File'
+	4396	node
+	4397	from
+	4398	Source
+	4399	pane.<br>
+3)
+	4400	Enable
+	4401	'Use
+	4402	field
+	4403	format
+	4404	information
+	4405	to
+	4406	determine
+	4407	storage'
+	4408	check
+	4409	box.<br>
+</div>
+
+<br>
+<input
+	4410	type='checkbox'
+	4411	name='combined'
+	4412	value='true'
+	4413	id='combined'><label
+	4414	for='combined'>Combine
+	4415	by-head
+	4416	parameters
+	4417	into
+	4418	single
+	4419	line</label><img
+	4420	src='/dwh/image/info.png'
+	4421	style='vertical-align:middle'
+	4422	onMouseOver='showPopup("help_combined")'
+	4423	onMouseOut='hidePopup("help_combined")'>
+
+<div
+	4424	id='help_combined'
+	4425	style='position:absolute;
+	4426	z-index:10;
+	4427	visibility:hidden;
+	4428	background-color:#fbff96;'>
+What&#39;s
+	4429	This?<br>
+The
+	4430	option
+	4431	to
+	4432	output
+	4433	by-head
+	4434	parametric
+	4435	data
+	4436	of
+	4437	all
+	4438	heads
+	4439	in
+	4440	single
+	4441	line<br>
+<div
+	4442	style="font-size:50%"><br></div>
+Best
+	4443	Use
+	4444	Case:<br>
+Get
+	4445	parametric
+	4446	data
+	4447	as
+	4448	single
+	4449	line
+	4450	for
+	4451	each
+	4452	HDD/HSA.<br>
+</div>
+
+
+</td>
+</tr>
+
+<tr>
+<th>
+Output
+	4453	Option:
+</th>
+<td>
+
+<table
+	4454	cellpadding='1'
+	4455	cellspacing='1'>
+<tr>
+
+	4456	<td>Sampling
+	4457	Ratio:</td>
+
+	4458	<td>
+
+	4459	&nbsp;
+
+	4460	Pass
+<select
+	4461	name='samplerate_pass'>
+<option
+	4462	value='100'>100</option>
+<option
+	4463	value='95'>95</option>
+<option
+	4464	value='90'>90</option>
+<option
+	4465	value='85'>85</option>
+<option
+	4466	value='80'>80</option>
+<option
+	4467	value='75'>75</option>
+<option
+	4468	value='70'>70</option>
+<option
+	4469	value='65'>65</option>
+<option
+	4470	value='60'>60</option>
+<option
+	4471	value='55'>55</option>
+<option
+	4472	value='50'>50</option>
+<option
+	4473	value='45'>45</option>
+<option
+	4474	value='40'>40</option>
+<option
+	4475	value='35'>35</option>
+<option
+	4476	value='30'>30</option>
+<option
+	4477	value='25'>25</option>
+<option
+	4478	value='20'>20</option>
+<option
+	4479	value='15'>15</option>
+<option
+	4480	value='10'>10</option>
+<option
+	4481	value='5'>5</option>
+<option
+	4482	value='0'>0</option>
+</select>
+[%]
+
+	4483	</td>
+
+	4484	<td>
+
+	4485	&nbsp;
+
+	4486	Fail
+<select
+	4487	name='samplerate_fail'>
+<option
+	4488	value='100'>100</option>
+<option
+	4489	value='95'>95</option>
+<option
+	4490	value='90'>90</option>
+<option
+	4491	value='85'>85</option>
+<option
+	4492	value='80'>80</option>
+<option
+	4493	value='75'>75</option>
+<option
+	4494	value='70'>70</option>
+<option
+	4495	value='65'>65</option>
+<option
+	4496	value='60'>60</option>
+<option
+	4497	value='55'>55</option>
+<option
+	4498	value='50'>50</option>
+<option
+	4499	value='45'>45</option>
+<option
+	4500	value='40'>40</option>
+<option
+	4501	value='35'>35</option>
+<option
+	4502	value='30'>30</option>
+<option
+	4503	value='25'>25</option>
+<option
+	4504	value='20'>20</option>
+<option
+	4505	value='15'>15</option>
+<option
+	4506	value='10'>10</option>
+<option
+	4507	value='5'>5</option>
+<option
+	4508	value='0'>0</option>
+</select>
+[%]
+
+	4509	</td>
+</tr>
+
+<tr>
+
+	4510	<td>Number
+	4511	of
+	4512	Serials:</td>
+
+	4513	<td>
+
+	4514	&nbsp;
+
+	4515	Pass
+
+	4516	<input
+	4517	type='text'
+	4518	name='maxcount_pass'
+	4519	value='14603'
+	4520	size='7'>
+
+	4521	<input
+	4522	type='hidden'
+	4523	name='foundcount_pass'
+	4524	value='14603'>
+
+	4525	</td>
+
+	4526	<td>
+
+	4527	&nbsp;
+
+	4528	Fail
+
+	4529	<input
+	4530	type='text'
+	4531	name='maxcount_fail'
+	4532	value='630'
+	4533	size='7'>
+
+	4534	<input
+	4535	type='hidden'
+	4536	name='foundcount_fail'
+	4537	value='630'>
+
+	4538	</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+<tr>
+<th>Parameter:</th>
+<td>
+
+
+
+<div>
+<input
+	4539	type='checkbox'
+	4540	name='process'
+	4541	value='1800'
+	4542	id='selectall_1800'
+	4543	onClick='selectAllParameters(this.form,
+	4544	"1800");'
+	4545	style='vertical-align:middle'>
+
+
+<!--
+	4546	parameter
+	4547	list
+	4548	(closed)
+	4549	-->
+<span
+	4550	class='param_1800'
+	4551	style='cursor:pointer;
+	4552	display:none'
+	4553	onClick='toggleDisplay("param_1800")'>
+<img
+	4554	class='drag-check'
+	4555	id='c1-selectall_1800'
+	4556	src='/dwh/image/closed.png'
+	4557	border='0'
+	4558	style='vertical-align:middle'>
+<span
+	4559	class='drag-check'
+	4560	id='c2-selectall_1800'
+	4561	style='vertical-align:middle'>1800:
+	4562	Quasi</span>
+</span>
+
+<!--
+	4563	parameter
+	4564	list
+	4565	(opened)
+	4566	-->
+<span
+	4567	class='param_1800'
+	4568	style='cursor:pointer;
+	4569	display:inline'
+	4570	onClick='toggleDisplay("param_1800")'>
+<img
+	4571	class='drag-check'
+	4572	id='o1-selectall_1800'
+	4573	src='/dwh/image/opened.png'
+	4574	border='0'
+	4575	style='vertical-align:middle'>
+<span
+	4576	class='drag-check'
+	4577	id='o2-selectall_1800'
+	4578	style='vertical-align:middle'>1800:
+	4579	Quasi</span>
+</span>
+
+<div
+	4580	class='param_1800'
+	4581	style='display:block'>
+<table
+	4582	cellspacing='0'
+	4583	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	4584	type='checkbox'
+	4585	name='selectall_1800_head'
+	4586	id='selectall_1800_head'
+	4587	onClick='selectAllParameters(this.form,
+	4588	"1800_head");'><label
+	4589	for='selectall_1800_head'
+	4590	class='drag-check'>By-Head</label>
+<br>
+<select
+	4591	name='param_1800_head'
+	4592	size='12'
+	4593	multiple>
+<option
+	4594	value='1:MR_RES:4:0'>1
+	4595	MR_RES
+<option
+	4596	value='2:READV:4:0'>2
+	4597	READV
+<option
+	4598	value='3:MR_RES2:4:0'>3
+	4599	MR_RES2
+<option
+	4600	value='4:READV2:4:0'>4
+	4601	READV2
+<option
+	4602	value='5:TFC_RES:4:0'>5
+	4603	TFC_RES
+<option
+	4604	value='6:ECS_RES:4:0'>6
+	4605	ECS_RES
+<option
+	4606	value='7:PMR_PLS_RES:4:0'>7
+	4607	PMR_PLS_RES
+<option
+	4608	value='8:WR_RES:4:0'>8
+	4609	WR_RES
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	4610	type='checkbox'
+	4611	name='selectall_1800_unit'
+	4612	id='selectall_1800_unit'
+	4613	onClick='selectAllParameters(this.form,
+	4614	"1800_unit");'><label
+	4615	for='selectall_1800_unit'
+	4616	class='drag-check'>By-Unit</label>
+<br>
+<select
+	4617	name='param_1800_unit'
+	4618	size='12'
+	4619	multiple>
+<option
+	4620	value='1:VCM_RES:4:0'>1
+	4621	VCM_RES
+<option
+	4622	value='2:PIEZO:4:0'>2
+	4623	PIEZO
+<option
+	4624	value='3:HMA_PLS:4:0'>3
+	4625	HMA_PLS
+<option
+	4626	value='4:HMA_MNS:4:0'>4
+	4627	HMA_MNS
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	4628	type='checkbox'
+	4629	name='process'
+	4630	value='1780'
+	4631	id='selectall_1780'
+	4632	onClick='selectAllParameters(this.form,
+	4633	"1780");'
+	4634	style='vertical-align:middle'>
+
+
+<!--
+	4635	parameter
+	4636	list
+	4637	(closed)
+	4638	-->
+<span
+	4639	class='param_1780'
+	4640	style='cursor:pointer;
+	4641	display:inline'
+	4642	onClick='toggleDisplay("param_1780")'>
+<img
+	4643	class='drag-check'
+	4644	id='c1-selectall_1780'
+	4645	src='/dwh/image/closed.png'
+	4646	border='0'
+	4647	style='vertical-align:middle'>
+<span
+	4648	class='drag-check'
+	4649	id='c2-selectall_1780'
+	4650	style='vertical-align:middle'>1780:
+	4651	Final
+	4652	Inspection</span>
+</span>
+
+<!--
+	4653	parameter
+	4654	list
+	4655	(opened)
+	4656	-->
+<span
+	4657	class='param_1780'
+	4658	style='cursor:pointer;
+	4659	display:none'
+	4660	onClick='toggleDisplay("param_1780")'>
+<img
+	4661	class='drag-check'
+	4662	id='o1-selectall_1780'
+	4663	src='/dwh/image/opened.png'
+	4664	border='0'
+	4665	style='vertical-align:middle'>
+<span
+	4666	class='drag-check'
+	4667	id='o2-selectall_1780'
+	4668	style='vertical-align:middle'>1780:
+	4669	Final
+	4670	Inspection</span>
+</span>
+
+<div
+	4671	class='param_1780'
+	4672	style='display:none'>
+<table
+	4673	cellspacing='0'
+	4674	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	4675	type='checkbox'
+	4676	name='selectall_1780_head'
+	4677	id='selectall_1780_head'
+	4678	onClick='selectAllParameters(this.form,
+	4679	"1780_head");'><label
+	4680	for='selectall_1780_head'
+	4681	class='drag-check'>By-Head</label>
+<br>
+<select
+	4682	name='param_1780_head'
+	4683	size='12'
+	4684	multiple>
+<option
+	4685	value='1:DEFECT1:12:16'>1
+	4686	DEFECT1
+<option
+	4687	value='2:DEFECT2:12:16'>2
+	4688	DEFECT2
+<option
+	4689	value='3:DEFECT3:12:16'>3
+	4690	DEFECT3
+<option
+	4691	value='4:DEFECT4:12:16'>4
+	4692	DEFECT4
+<option
+	4693	value='5:DEFECT5:12:16'>5
+	4694	DEFECT5
+<option
+	4695	value='6:DEFECT6:12:16'>6
+	4696	DEFECT6
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	4697	type='checkbox'
+	4698	name='selectall_1780_unit'
+	4699	id='selectall_1780_unit'
+	4700	onClick='selectAllParameters(this.form,
+	4701	"1780_unit");'><label
+	4702	for='selectall_1780_unit'
+	4703	class='drag-check'>By-Unit</label>
+<br>
+<select
+	4704	name='param_1780_unit'
+	4705	size='12'
+	4706	multiple>
+<option
+	4707	value='1:BADPART:1:6'>1
+	4708	BADPART
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	4709	type='checkbox'
+	4710	name='process'
+	4711	value='1770'
+	4712	id='selectall_1770'
+	4713	onClick='selectAllParameters(this.form,
+	4714	"1770");'
+	4715	style='vertical-align:middle'>
+
+
+<!--
+	4716	parameter
+	4717	list
+	4718	(closed)
+	4719	-->
+<span
+	4720	class='param_1770'
+	4721	style='cursor:pointer;
+	4722	display:inline'
+	4723	onClick='toggleDisplay("param_1770")'>
+<img
+	4724	class='drag-check'
+	4725	id='c1-selectall_1770'
+	4726	src='/dwh/image/closed.png'
+	4727	border='0'
+	4728	style='vertical-align:middle'>
+<span
+	4729	class='drag-check'
+	4730	id='c2-selectall_1770'
+	4731	style='vertical-align:middle'>1770:
+	4732	PSA/RSA
+	4733	Combo</span>
+</span>
+
+<!--
+	4734	parameter
+	4735	list
+	4736	(opened)
+	4737	-->
+<span
+	4738	class='param_1770'
+	4739	style='cursor:pointer;
+	4740	display:none'
+	4741	onClick='toggleDisplay("param_1770")'>
+<img
+	4742	class='drag-check'
+	4743	id='o1-selectall_1770'
+	4744	src='/dwh/image/opened.png'
+	4745	border='0'
+	4746	style='vertical-align:middle'>
+<span
+	4747	class='drag-check'
+	4748	id='o2-selectall_1770'
+	4749	style='vertical-align:middle'>1770:
+	4750	PSA/RSA
+	4751	Combo</span>
+</span>
+
+<div
+	4752	class='param_1770'
+	4753	style='display:none'>
+<table
+	4754	cellspacing='0'
+	4755	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	4756	type='checkbox'
+	4757	name='selectall_1770_head'
+	4758	id='selectall_1770_head'
+	4759	onClick='selectAllParameters(this.form,
+	4760	"1770_head");'><label
+	4761	for='selectall_1770_head'
+	4762	class='drag-check'>By-Head</label>
+<br>
+<select
+	4763	name='param_1770_head'
+	4764	size='12'
+	4765	multiple>
+<option
+	4766	value='1:ALIGNMENT:8:53'>1
+	4767	ALIGNMENT
+<option
+	4768	value='2:GRAMLOAD:8:53'>2
+	4769	GRAMLOAD
+<option
+	4770	value='3:PSA:8:53'>3
+	4771	PSA
+<option
+	4772	value='4:RSA:8:53'>4
+	4773	RSA
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	4774	type='checkbox'
+	4775	name='process'
+	4776	value='1700'
+	4777	id='selectall_1700'
+	4778	onClick='selectAllParameters(this.form,
+	4779	"1700");'
+	4780	style='vertical-align:middle'>
+
+
+<!--
+	4781	parameter
+	4782	list
+	4783	(closed)
+	4784	-->
+<span
+	4785	class='param_1700'
+	4786	style='cursor:pointer;
+	4787	display:inline'
+	4788	onClick='toggleDisplay("param_1700")'>
+<img
+	4789	class='drag-check'
+	4790	id='c1-selectall_1700'
+	4791	src='/dwh/image/closed.png'
+	4792	border='0'
+	4793	style='vertical-align:middle'>
+<span
+	4794	class='drag-check'
+	4795	id='c2-selectall_1700'
+	4796	style='vertical-align:middle'>1700:
+	4797	Gram
+	4798	Load</span>
+</span>
+
+<!--
+	4799	parameter
+	4800	list
+	4801	(opened)
+	4802	-->
+<span
+	4803	class='param_1700'
+	4804	style='cursor:pointer;
+	4805	display:none'
+	4806	onClick='toggleDisplay("param_1700")'>
+<img
+	4807	class='drag-check'
+	4808	id='o1-selectall_1700'
+	4809	src='/dwh/image/opened.png'
+	4810	border='0'
+	4811	style='vertical-align:middle'>
+<span
+	4812	class='drag-check'
+	4813	id='o2-selectall_1700'
+	4814	style='vertical-align:middle'>1700:
+	4815	Gram
+	4816	Load</span>
+</span>
+
+<div
+	4817	class='param_1700'
+	4818	style='display:none'>
+<table
+	4819	cellspacing='0'
+	4820	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	4821	type='checkbox'
+	4822	name='selectall_1700_head'
+	4823	id='selectall_1700_head'
+	4824	onClick='selectAllParameters(this.form,
+	4825	"1700_head");'><label
+	4826	for='selectall_1700_head'
+	4827	class='drag-check'>By-Head</label>
+<br>
+<select
+	4828	name='param_1700_head'
+	4829	size='12'
+	4830	multiple>
+<option
+	4831	value='1:GRAMLOAD:8:53'>1
+	4832	GRAMLOAD
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	4833	type='checkbox'
+	4834	name='process'
+	4835	value='1670'
+	4836	id='selectall_1670'
+	4837	onClick='selectAllParameters(this.form,
+	4838	"1670");'
+	4839	style='vertical-align:middle'>
+
+
+<!--
+	4840	parameter
+	4841	list
+	4842	(closed)
+	4843	-->
+<span
+	4844	class='param_1670'
+	4845	style='cursor:pointer;
+	4846	display:inline'
+	4847	onClick='toggleDisplay("param_1670")'>
+<img
+	4848	class='drag-check'
+	4849	id='c1-selectall_1670'
+	4850	src='/dwh/image/closed.png'
+	4851	border='0'
+	4852	style='vertical-align:middle'>
+<span
+	4853	class='drag-check'
+	4854	id='c2-selectall_1670'
+	4855	style='vertical-align:middle'>1670:
+	4856	PSA/RSA
+	4857	Measure</span>
+</span>
+
+<!--
+	4858	parameter
+	4859	list
+	4860	(opened)
+	4861	-->
+<span
+	4862	class='param_1670'
+	4863	style='cursor:pointer;
+	4864	display:none'
+	4865	onClick='toggleDisplay("param_1670")'>
+<img
+	4866	class='drag-check'
+	4867	id='o1-selectall_1670'
+	4868	src='/dwh/image/opened.png'
+	4869	border='0'
+	4870	style='vertical-align:middle'>
+<span
+	4871	class='drag-check'
+	4872	id='o2-selectall_1670'
+	4873	style='vertical-align:middle'>1670:
+	4874	PSA/RSA
+	4875	Measure</span>
+</span>
+
+<div
+	4876	class='param_1670'
+	4877	style='display:none'>
+<table
+	4878	cellspacing='0'
+	4879	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	4880	type='checkbox'
+	4881	name='selectall_1670_head'
+	4882	id='selectall_1670_head'
+	4883	onClick='selectAllParameters(this.form,
+	4884	"1670_head");'><label
+	4885	for='selectall_1670_head'
+	4886	class='drag-check'>By-Head</label>
+<br>
+<select
+	4887	name='param_1670_head'
+	4888	size='12'
+	4889	multiple>
+<option
+	4890	value='1:PSA:8:53'>1
+	4891	PSA
+<option
+	4892	value='2:RSA:8:53'>2
+	4893	RSA
+<option
+	4894	value='3:ALIGNMENT:8:53'>3
+	4895	ALIGNMENT
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	4896	type='checkbox'
+	4897	name='process'
+	4898	value='1600'
+	4899	id='selectall_1600'
+	4900	onClick='selectAllParameters(this.form,
+	4901	"1600");'
+	4902	style='vertical-align:middle'>
+
+
+<!--
+	4903	parameter
+	4904	list
+	4905	(closed)
+	4906	-->
+<span
+	4907	class='param_1600'
+	4908	style='cursor:pointer;
+	4909	display:inline'
+	4910	onClick='toggleDisplay("param_1600")'>
+<img
+	4911	class='drag-check'
+	4912	id='c1-selectall_1600'
+	4913	src='/dwh/image/closed.png'
+	4914	border='0'
+	4915	style='vertical-align:middle'>
+<span
+	4916	class='drag-check'
+	4917	id='c2-selectall_1600'
+	4918	style='vertical-align:middle'>1600:
+	4919	Alignment</span>
+</span>
+
+<!--
+	4920	parameter
+	4921	list
+	4922	(opened)
+	4923	-->
+<span
+	4924	class='param_1600'
+	4925	style='cursor:pointer;
+	4926	display:none'
+	4927	onClick='toggleDisplay("param_1600")'>
+<img
+	4928	class='drag-check'
+	4929	id='o1-selectall_1600'
+	4930	src='/dwh/image/opened.png'
+	4931	border='0'
+	4932	style='vertical-align:middle'>
+<span
+	4933	class='drag-check'
+	4934	id='o2-selectall_1600'
+	4935	style='vertical-align:middle'>1600:
+	4936	Alignment</span>
+</span>
+
+<div
+	4937	class='param_1600'
+	4938	style='display:none'>
+<table
+	4939	cellspacing='0'
+	4940	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	4941	type='checkbox'
+	4942	name='selectall_1600_head'
+	4943	id='selectall_1600_head'
+	4944	onClick='selectAllParameters(this.form,
+	4945	"1600_head");'><label
+	4946	for='selectall_1600_head'
+	4947	class='drag-check'>By-Head</label>
+<br>
+<select
+	4948	name='param_1600_head'
+	4949	size='12'
+	4950	multiple>
+<option
+	4951	value='1:ALIGNMENT:8:53'>1
+	4952	ALIGNMENT
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	4953	type='checkbox'
+	4954	name='process'
+	4955	value='1596'
+	4956	id='selectall_1596'
+	4957	onClick='selectAllParameters(this.form,
+	4958	"1596");'
+	4959	style='vertical-align:middle'>
+
+
+<!--
+	4960	parameter
+	4961	list
+	4962	(closed)
+	4963	-->
+<span
+	4964	class='param_1596'
+	4965	style='cursor:pointer;
+	4966	display:inline'
+	4967	onClick='toggleDisplay("param_1596")'>
+<img
+	4968	class='drag-check'
+	4969	id='c1-selectall_1596'
+	4970	src='/dwh/image/closed.png'
+	4971	border='0'
+	4972	style='vertical-align:middle'>
+<span
+	4973	class='drag-check'
+	4974	id='c2-selectall_1596'
+	4975	style='vertical-align:middle'>1596:
+	4976	UV
+	4977	Cure</span>
+</span>
+
+<!--
+	4978	parameter
+	4979	list
+	4980	(opened)
+	4981	-->
+<span
+	4982	class='param_1596'
+	4983	style='cursor:pointer;
+	4984	display:none'
+	4985	onClick='toggleDisplay("param_1596")'>
+<img
+	4986	class='drag-check'
+	4987	id='o1-selectall_1596'
+	4988	src='/dwh/image/opened.png'
+	4989	border='0'
+	4990	style='vertical-align:middle'>
+<span
+	4991	class='drag-check'
+	4992	id='o2-selectall_1596'
+	4993	style='vertical-align:middle'>1596:
+	4994	UV
+	4995	Cure</span>
+</span>
+
+<div
+	4996	class='param_1596'
+	4997	style='display:none'>
+<table
+	4998	cellspacing='0'
+	4999	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5000	type='checkbox'
+	5001	name='selectall_1596_unit'
+	5002	id='selectall_1596_unit'
+	5003	onClick='selectAllParameters(this.form,
+	5004	"1596_unit");'><label
+	5005	for='selectall_1596_unit'
+	5006	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5007	name='param_1596_unit'
+	5008	size='12'
+	5009	multiple>
+<option
+	5010	value='1:GD_Z2_UV_TIME:4:10'>1
+	5011	GD_Z2_UV_TIME
+<option
+	5012	value='2:GD_Z2_UV_CNT:4:10'>2
+	5013	GD_Z2_UV_CNT
+<option
+	5014	value='3:GD_Z2_UV_HR:4:10'>3
+	5015	GD_Z2_UV_HR
+<option
+	5016	value='4:GD_Z4_UV_TIME:4:10'>4
+	5017	GD_Z4_UV_TIME
+<option
+	5018	value='5:GD_Z4_UV_CNT:4:10'>5
+	5019	GD_Z4_UV_CNT
+<option
+	5020	value='6:GD_Z4_UV_HR:4:10'>6
+	5021	GD_Z4_UV_HR
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5022	type='checkbox'
+	5023	name='process'
+	5024	value='1595'
+	5025	id='selectall_1595'
+	5026	onClick='selectAllParameters(this.form,
+	5027	"1595");'
+	5028	style='vertical-align:middle'>
+
+
+<!--
+	5029	parameter
+	5030	list
+	5031	(closed)
+	5032	-->
+<span
+	5033	class='param_1595'
+	5034	style='cursor:pointer;
+	5035	display:inline'
+	5036	onClick='toggleDisplay("param_1595")'>
+<img
+	5037	class='drag-check'
+	5038	id='c1-selectall_1595'
+	5039	src='/dwh/image/closed.png'
+	5040	border='0'
+	5041	style='vertical-align:middle'>
+<span
+	5042	class='drag-check'
+	5043	id='c2-selectall_1595'
+	5044	style='vertical-align:middle'>1595:
+	5045	Glue
+	5046	Dot</span>
+</span>
+
+<!--
+	5047	parameter
+	5048	list
+	5049	(opened)
+	5050	-->
+<span
+	5051	class='param_1595'
+	5052	style='cursor:pointer;
+	5053	display:none'
+	5054	onClick='toggleDisplay("param_1595")'>
+<img
+	5055	class='drag-check'
+	5056	id='o1-selectall_1595'
+	5057	src='/dwh/image/opened.png'
+	5058	border='0'
+	5059	style='vertical-align:middle'>
+<span
+	5060	class='drag-check'
+	5061	id='o2-selectall_1595'
+	5062	style='vertical-align:middle'>1595:
+	5063	Glue
+	5064	Dot</span>
+</span>
+
+<div
+	5065	class='param_1595'
+	5066	style='display:none'>
+<table
+	5067	cellspacing='0'
+	5068	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5069	type='checkbox'
+	5070	name='selectall_1595_unit'
+	5071	id='selectall_1595_unit'
+	5072	onClick='selectAllParameters(this.form,
+	5073	"1595_unit");'><label
+	5074	for='selectall_1595_unit'
+	5075	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5076	name='param_1595_unit'
+	5077	size='12'
+	5078	multiple>
+<option
+	5079	value='1:GD_Z3_VIS_X:4:10'>1
+	5080	GD_Z3_VIS_X
+<option
+	5081	value='2:GD_Z3_VIS_Y_A00:4:10'>2
+	5082	GD_Z3_VIS_Y_A00
+<option
+	5083	value='3:GD_Z3_VIS_Y_A01:4:10'>3
+	5084	GD_Z3_VIS_Y_A01
+<option
+	5085	value='4:GD_Z3_VIS_Y_A02:4:10'>4
+	5086	GD_Z3_VIS_Y_A02
+<option
+	5087	value='5:GD_Z3_VIS_Y_A03:4:10'>5
+	5088	GD_Z3_VIS_Y_A03
+<option
+	5089	value='6:GD_Z3_VIS_Y_A04:4:10'>6
+	5090	GD_Z3_VIS_Y_A04
+<option
+	5091	value='7:GD_Z3_VIS_Y_A05:4:10'>7
+	5092	GD_Z3_VIS_Y_A05
+<option
+	5093	value='8:GD_Z3_VIS_Y_A06:4:10'>8
+	5094	GD_Z3_VIS_Y_A06
+<option
+	5095	value='9:GD_Z3_VIS_Y_A07:4:10'>9
+	5096	GD_Z3_VIS_Y_A07
+<option
+	5097	value='10:GD_Z3_VIS_Y_A08:4:10'>10
+	5098	GD_Z3_VIS_Y_A08
+<option
+	5099	value='11:GD_Z3_VIS_Y_A09:4:10'>11
+	5100	GD_Z3_VIS_Y_A09
+<option
+	5101	value='12:GD_Z3_VIS_Y_A10:4:10'>12
+	5102	GD_Z3_VIS_Y_A10
+<option
+	5103	value='13:GD_Z3_DOT:4:10'>13
+	5104	GD_Z3_DOT
+<option
+	5105	value='14:GD_Z3_SYR_ID:1:17'>14
+	5106	GD_Z3_SYR_ID
+<option
+	5107	value='15:GD_Z3_EPO_ID:1:17'>15
+	5108	GD_Z3_EPO_ID
+<option
+	5109	value='16:GD_Z5_VIS_X:4:10'>16
+	5110	GD_Z5_VIS_X
+<option
+	5111	value='17:GD_Z5_VIS_Y_A00:4:10'>17
+	5112	GD_Z5_VIS_Y_A00
+<option
+	5113	value='18:GD_Z5_VIS_Y_A01:4:10'>18
+	5114	GD_Z5_VIS_Y_A01
+<option
+	5115	value='19:GD_Z5_VIS_Y_A02:4:10'>19
+	5116	GD_Z5_VIS_Y_A02
+<option
+	5117	value='20:GD_Z5_VIS_Y_A03:4:10'>20
+	5118	GD_Z5_VIS_Y_A03
+<option
+	5119	value='21:GD_Z5_VIS_Y_A04:4:10'>21
+	5120	GD_Z5_VIS_Y_A04
+<option
+	5121	value='22:GD_Z5_VIS_Y_A05:4:10'>22
+	5122	GD_Z5_VIS_Y_A05
+<option
+	5123	value='23:GD_Z5_VIS_Y_A06:4:10'>23
+	5124	GD_Z5_VIS_Y_A06
+<option
+	5125	value='24:GD_Z5_VIS_Y_A07:4:10'>24
+	5126	GD_Z5_VIS_Y_A07
+<option
+	5127	value='25:GD_Z5_VIS_Y_A08:4:10'>25
+	5128	GD_Z5_VIS_Y_A08
+<option
+	5129	value='26:GD_Z5_VIS_Y_A09:4:10'>26
+	5130	GD_Z5_VIS_Y_A09
+<option
+	5131	value='27:GD_Z5_VIS_Y_A10:4:10'>27
+	5132	GD_Z5_VIS_Y_A10
+<option
+	5133	value='28:GD_Z5_DOT:4:10'>28
+	5134	GD_Z5_DOT
+<option
+	5135	value='29:GD_Z5_SYR_ID:1:17'>29
+	5136	GD_Z5_SYR_ID
+<option
+	5137	value='30:GD_Z5_EPO_ID:1:17'>30
+	5138	GD_Z5_EPO_ID
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5139	type='checkbox'
+	5140	name='process'
+	5141	value='1589'
+	5142	id='selectall_1589'
+	5143	onClick='selectAllParameters(this.form,
+	5144	"1589");'
+	5145	style='vertical-align:middle'>
+
+
+<!--
+	5146	parameter
+	5147	list
+	5148	(closed)
+	5149	-->
+<span
+	5150	class='param_1589'
+	5151	style='cursor:pointer;
+	5152	display:inline'
+	5153	onClick='toggleDisplay("param_1589")'>
+<img
+	5154	class='drag-check'
+	5155	id='c1-selectall_1589'
+	5156	src='/dwh/image/closed.png'
+	5157	border='0'
+	5158	style='vertical-align:middle'>
+<span
+	5159	class='drag-check'
+	5160	id='c2-selectall_1589'
+	5161	style='vertical-align:middle'>1589:
+	5162	Solder
+	5163	Inspection</span>
+</span>
+
+<!--
+	5164	parameter
+	5165	list
+	5166	(opened)
+	5167	-->
+<span
+	5168	class='param_1589'
+	5169	style='cursor:pointer;
+	5170	display:none'
+	5171	onClick='toggleDisplay("param_1589")'>
+<img
+	5172	class='drag-check'
+	5173	id='o1-selectall_1589'
+	5174	src='/dwh/image/opened.png'
+	5175	border='0'
+	5176	style='vertical-align:middle'>
+<span
+	5177	class='drag-check'
+	5178	id='o2-selectall_1589'
+	5179	style='vertical-align:middle'>1589:
+	5180	Solder
+	5181	Inspection</span>
+</span>
+
+<div
+	5182	class='param_1589'
+	5183	style='display:none'>
+<table
+	5184	cellspacing='0'
+	5185	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	5186	type='checkbox'
+	5187	name='selectall_1589_head'
+	5188	id='selectall_1589_head'
+	5189	onClick='selectAllParameters(this.form,
+	5190	"1589_head");'><label
+	5191	for='selectall_1589_head'
+	5192	class='drag-check'>By-Head</label>
+<br>
+<select
+	5193	name='param_1589_head'
+	5194	size='12'
+	5195	multiple>
+<option
+	5196	value='1:ASI_H_P01:4:10'>1
+	5197	ASI_H_P01
+<option
+	5198	value='2:ASI_H_P02:4:10'>2
+	5199	ASI_H_P02
+<option
+	5200	value='3:ASI_H_P03:4:10'>3
+	5201	ASI_H_P03
+<option
+	5202	value='4:ASI_H_P04:4:10'>4
+	5203	ASI_H_P04
+<option
+	5204	value='5:ASI_H_P05:4:10'>5
+	5205	ASI_H_P05
+<option
+	5206	value='6:ASI_H_P06:4:10'>6
+	5207	ASI_H_P06
+<option
+	5208	value='7:ASI_H_P07:4:10'>7
+	5209	ASI_H_P07
+<option
+	5210	value='8:ASI_H_P08:4:10'>8
+	5211	ASI_H_P08
+<option
+	5212	value='9:ASI_H_P09:4:10'>9
+	5213	ASI_H_P09
+<option
+	5214	value='10:ASI_H_P10:4:10'>10
+	5215	ASI_H_P10
+<option
+	5216	value='11:ASI_H_P11:4:10'>11
+	5217	ASI_H_P11
+<option
+	5218	value='12:ASI_H_P12:4:10'>12
+	5219	ASI_H_P12
+<option
+	5220	value='13:ASI_H_P13:4:10'>13
+	5221	ASI_H_P13
+<option
+	5222	value='14:ASI_H_P14:4:10'>14
+	5223	ASI_H_P14
+<option
+	5224	value='15:ASI_H_P15:4:10'>15
+	5225	ASI_H_P15
+<option
+	5226	value='16:ASI_H_P16:4:10'>16
+	5227	ASI_H_P16
+<option
+	5228	value='17:ASI_H_P17:4:10'>17
+	5229	ASI_H_P17
+<option
+	5230	value='18:ASI_H_P18:4:10'>18
+	5231	ASI_H_P18
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5232	type='checkbox'
+	5233	name='process'
+	5234	value='1587'
+	5235	id='selectall_1587'
+	5236	onClick='selectAllParameters(this.form,
+	5237	"1587");'
+	5238	style='vertical-align:middle'>
+
+
+<!--
+	5239	parameter
+	5240	list
+	5241	(closed)
+	5242	-->
+<span
+	5243	class='param_1587'
+	5244	style='cursor:pointer;
+	5245	display:inline'
+	5246	onClick='toggleDisplay("param_1587")'>
+<img
+	5247	class='drag-check'
+	5248	id='c1-selectall_1587'
+	5249	src='/dwh/image/closed.png'
+	5250	border='0'
+	5251	style='vertical-align:middle'>
+<span
+	5252	class='drag-check'
+	5253	id='c2-selectall_1587'
+	5254	style='vertical-align:middle'>1587:
+	5255	Beam
+	5256	Solder</span>
+</span>
+
+<!--
+	5257	parameter
+	5258	list
+	5259	(opened)
+	5260	-->
+<span
+	5261	class='param_1587'
+	5262	style='cursor:pointer;
+	5263	display:none'
+	5264	onClick='toggleDisplay("param_1587")'>
+<img
+	5265	class='drag-check'
+	5266	id='o1-selectall_1587'
+	5267	src='/dwh/image/opened.png'
+	5268	border='0'
+	5269	style='vertical-align:middle'>
+<span
+	5270	class='drag-check'
+	5271	id='o2-selectall_1587'
+	5272	style='vertical-align:middle'>1587:
+	5273	Beam
+	5274	Solder</span>
+</span>
+
+<div
+	5275	class='param_1587'
+	5276	style='display:none'>
+<table
+	5277	cellspacing='0'
+	5278	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	5279	type='checkbox'
+	5280	name='selectall_1587_head'
+	5281	id='selectall_1587_head'
+	5282	onClick='selectAllParameters(this.form,
+	5283	"1587_head");'><label
+	5284	for='selectall_1587_head'
+	5285	class='drag-check'>By-Head</label>
+<br>
+<select
+	5286	name='param_1587_head'
+	5287	size='12'
+	5288	multiple>
+<option
+	5289	value='1:L_POWER:4:10'>1
+	5290	L_POWER
+<option
+	5291	value='2:L_AHC_TEMP:4:10'>2
+	5292	L_AHC_TEMP
+<option
+	5293	value='3:L_AHC_TIME:4:10'>3
+	5294	L_AHC_TIME
+<option
+	5295	value='4:L_PEAK_TEMP:4:10'>4
+	5296	L_PEAK_TEMP
+<option
+	5297	value='5:L_LASER_TIME:4:10'>5
+	5298	L_LASER_TIME
+<option
+	5299	value='6:L_POSI_X:4:10'>6
+	5300	L_POSI_X
+<option
+	5301	value='7:L_POSI_Y:4:10'>7
+	5302	L_POSI_Y
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5303	type='checkbox'
+	5304	name='selectall_1587_unit'
+	5305	id='selectall_1587_unit'
+	5306	onClick='selectAllParameters(this.form,
+	5307	"1587_unit");'><label
+	5308	for='selectall_1587_unit'
+	5309	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5310	name='param_1587_unit'
+	5311	size='12'
+	5312	multiple>
+<option
+	5313	value='1:SCH:4:10'>1
+	5314	SCH
+<option
+	5315	value='2:MODEL:4:10'>2
+	5316	MODEL
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5317	type='checkbox'
+	5318	name='process'
+	5319	value='1586'
+	5320	id='selectall_1586'
+	5321	onClick='selectAllParameters(this.form,
+	5322	"1586");'
+	5323	style='vertical-align:middle'>
+
+
+<!--
+	5324	parameter
+	5325	list
+	5326	(closed)
+	5327	-->
+<span
+	5328	class='param_1586'
+	5329	style='cursor:pointer;
+	5330	display:inline'
+	5331	onClick='toggleDisplay("param_1586")'>
+<img
+	5332	class='drag-check'
+	5333	id='c1-selectall_1586'
+	5334	src='/dwh/image/closed.png'
+	5335	border='0'
+	5336	style='vertical-align:middle'>
+<span
+	5337	class='drag-check'
+	5338	id='c2-selectall_1586'
+	5339	style='vertical-align:middle'>1586:
+	5340	TS
+	5341	Insertion</span>
+</span>
+
+<!--
+	5342	parameter
+	5343	list
+	5344	(opened)
+	5345	-->
+<span
+	5346	class='param_1586'
+	5347	style='cursor:pointer;
+	5348	display:none'
+	5349	onClick='toggleDisplay("param_1586")'>
+<img
+	5350	class='drag-check'
+	5351	id='o1-selectall_1586'
+	5352	src='/dwh/image/opened.png'
+	5353	border='0'
+	5354	style='vertical-align:middle'>
+<span
+	5355	class='drag-check'
+	5356	id='o2-selectall_1586'
+	5357	style='vertical-align:middle'>1586:
+	5358	TS
+	5359	Insertion</span>
+</span>
+
+<div
+	5360	class='param_1586'
+	5361	style='display:none'>
+<table
+	5362	cellspacing='0'
+	5363	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5364	type='checkbox'
+	5365	name='selectall_1586_unit'
+	5366	id='selectall_1586_unit'
+	5367	onClick='selectAllParameters(this.form,
+	5368	"1586_unit");'><label
+	5369	for='selectall_1586_unit'
+	5370	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5371	name='param_1586_unit'
+	5372	size='12'
+	5373	multiple>
+<option
+	5374	value='1:TS_POF:4:10'>1
+	5375	TS_POF
+<option
+	5376	value='2:TS_ABT:4:10'>2
+	5377	TS_ABT
+<option
+	5378	value='3:TS_AFR:4:10'>3
+	5379	TS_AFR
+<option
+	5380	value='4:TS_ANGLE:4:10'>4
+	5381	TS_ANGLE
+<option
+	5382	value='5:TS_XPOS1:4:10'>5
+	5383	TS_XPOS1
+<option
+	5384	value='6:TS_XPOS2:4:10'>6
+	5385	TS_XPOS2
+<option
+	5386	value='7:HSA_XPOS1:4:10'>7
+	5387	HSA_XPOS1
+<option
+	5388	value='8:HSA_XPOS2:4:10'>8
+	5389	HSA_XPOS2
+<option
+	5390	value='9:TS_LT:4:10'>9
+	5391	TS_LT
+<option
+	5392	value='10:TS_ULT:4:10'>10
+	5393	TS_ULT
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5394	type='checkbox'
+	5395	name='process'
+	5396	value='1583'
+	5397	id='selectall_1583'
+	5398	onClick='selectAllParameters(this.form,
+	5399	"1583");'
+	5400	style='vertical-align:middle'>
+
+
+<!--
+	5401	parameter
+	5402	list
+	5403	(closed)
+	5404	-->
+<span
+	5405	class='param_1583'
+	5406	style='cursor:pointer;
+	5407	display:inline'
+	5408	onClick='toggleDisplay("param_1583")'>
+<img
+	5409	class='drag-check'
+	5410	id='c1-selectall_1583'
+	5411	src='/dwh/image/closed.png'
+	5412	border='0'
+	5413	style='vertical-align:middle'>
+<span
+	5414	class='drag-check'
+	5415	id='c2-selectall_1583'
+	5416	style='vertical-align:middle'>1583:
+	5417	Auto
+	5418	Flux</span>
+</span>
+
+<!--
+	5419	parameter
+	5420	list
+	5421	(opened)
+	5422	-->
+<span
+	5423	class='param_1583'
+	5424	style='cursor:pointer;
+	5425	display:none'
+	5426	onClick='toggleDisplay("param_1583")'>
+<img
+	5427	class='drag-check'
+	5428	id='o1-selectall_1583'
+	5429	src='/dwh/image/opened.png'
+	5430	border='0'
+	5431	style='vertical-align:middle'>
+<span
+	5432	class='drag-check'
+	5433	id='o2-selectall_1583'
+	5434	style='vertical-align:middle'>1583:
+	5435	Auto
+	5436	Flux</span>
+</span>
+
+<div
+	5437	class='param_1583'
+	5438	style='display:none'>
+<table
+	5439	cellspacing='0'
+	5440	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	5441	type='checkbox'
+	5442	name='selectall_1583_head'
+	5443	id='selectall_1583_head'
+	5444	onClick='selectAllParameters(this.form,
+	5445	"1583_head");'><label
+	5446	for='selectall_1583_head'
+	5447	class='drag-check'>By-Head</label>
+<br>
+<select
+	5448	name='param_1583_head'
+	5449	size='12'
+	5450	multiple>
+<option
+	5451	value='1:FLX_AMT:4:10'>1
+	5452	FLX_AMT
+<option
+	5453	value='2:FLX_TIME:4:10'>2
+	5454	FLX_TIME
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5455	type='checkbox'
+	5456	name='selectall_1583_unit'
+	5457	id='selectall_1583_unit'
+	5458	onClick='selectAllParameters(this.form,
+	5459	"1583_unit");'><label
+	5460	for='selectall_1583_unit'
+	5461	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5462	name='param_1583_unit'
+	5463	size='12'
+	5464	multiple>
+<option
+	5465	value='1:MODEL:4:10'>1
+	5466	MODEL
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5467	type='checkbox'
+	5468	name='process'
+	5469	value='1580'
+	5470	id='selectall_1580'
+	5471	onClick='selectAllParameters(this.form,
+	5472	"1580");'
+	5473	style='vertical-align:middle'>
+
+
+<!--
+	5474	parameter
+	5475	list
+	5476	(closed)
+	5477	-->
+<span
+	5478	class='param_1580'
+	5479	style='cursor:pointer;
+	5480	display:inline'
+	5481	onClick='toggleDisplay("param_1580")'>
+<img
+	5482	class='drag-check'
+	5483	id='c1-selectall_1580'
+	5484	src='/dwh/image/closed.png'
+	5485	border='0'
+	5486	style='vertical-align:middle'>
+<span
+	5487	class='drag-check'
+	5488	id='c2-selectall_1580'
+	5489	style='vertical-align:middle'>1580:
+	5490	Swage</span>
+</span>
+
+<!--
+	5491	parameter
+	5492	list
+	5493	(opened)
+	5494	-->
+<span
+	5495	class='param_1580'
+	5496	style='cursor:pointer;
+	5497	display:none'
+	5498	onClick='toggleDisplay("param_1580")'>
+<img
+	5499	class='drag-check'
+	5500	id='o1-selectall_1580'
+	5501	src='/dwh/image/opened.png'
+	5502	border='0'
+	5503	style='vertical-align:middle'>
+<span
+	5504	class='drag-check'
+	5505	id='o2-selectall_1580'
+	5506	style='vertical-align:middle'>1580:
+	5507	Swage</span>
+</span>
+
+<div
+	5508	class='param_1580'
+	5509	style='display:none'>
+<table
+	5510	cellspacing='0'
+	5511	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5512	type='checkbox'
+	5513	name='selectall_1580_unit'
+	5514	id='selectall_1580_unit'
+	5515	onClick='selectAllParameters(this.form,
+	5516	"1580_unit");'><label
+	5517	for='selectall_1580_unit'
+	5518	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5519	name='param_1580_unit'
+	5520	size='12'
+	5521	multiple>
+<option
+	5522	value='1:SWAGEPGM:4:10'>1
+	5523	SWAGEPGM
+<option
+	5524	value='2:SWAGELOAD0:8:53'>2
+	5525	SWAGELOAD0
+<option
+	5526	value='3:SWAGELOAD1:8:53'>3
+	5527	SWAGELOAD1
+<option
+	5528	value='4:SWAGELOAD2:8:53'>4
+	5529	SWAGELOAD2
+<option
+	5530	value='5:SWAGELOAD3:8:53'>5
+	5531	SWAGELOAD3
+<option
+	5532	value='6:SWAGELOAD4:8:53'>6
+	5533	SWAGELOAD4
+<option
+	5534	value='7:SWAGELOAD5:8:53'>7
+	5535	SWAGELOAD5
+<option
+	5536	value='8:SWAGELOAD6:8:53'>8
+	5537	SWAGELOAD6
+<option
+	5538	value='9:SWAGELOAD7:8:53'>9
+	5539	SWAGELOAD7
+<option
+	5540	value='10:SWAGELOAD8:8:53'>10
+	5541	SWAGELOAD8
+<option
+	5542	value='11:SWAGELOAD9:8:53'>11
+	5543	SWAGELOAD9
+<option
+	5544	value='12:SWAGELOAD10:8:53'>12
+	5545	SWAGELOAD10
+<option
+	5546	value='13:SWAGELOAD11:8:53'>13
+	5547	SWAGELOAD11
+<option
+	5548	value='14:SWAGELOAD12:8:53'>14
+	5549	SWAGELOAD12
+<option
+	5550	value='15:SWAGELOAD13:8:53'>15
+	5551	SWAGELOAD13
+<option
+	5552	value='16:SWAGELOAD14:8:53'>16
+	5553	SWAGELOAD14
+<option
+	5554	value='17:SWAGELOAD15:8:53'>17
+	5555	SWAGELOAD15
+<option
+	5556	value='18:SWAGELOAD16:8:53'>18
+	5557	SWAGELOAD16
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5558	type='checkbox'
+	5559	name='process'
+	5560	value='1570'
+	5561	id='selectall_1570'
+	5562	onClick='selectAllParameters(this.form,
+	5563	"1570");'
+	5564	style='vertical-align:middle'>
+
+
+<!--
+	5565	parameter
+	5566	list
+	5567	(closed)
+	5568	-->
+<span
+	5569	class='param_1570'
+	5570	style='cursor:pointer;
+	5571	display:inline'
+	5572	onClick='toggleDisplay("param_1570")'>
+<img
+	5573	class='drag-check'
+	5574	id='c1-selectall_1570'
+	5575	src='/dwh/image/closed.png'
+	5576	border='0'
+	5577	style='vertical-align:middle'>
+<span
+	5578	class='drag-check'
+	5579	id='c2-selectall_1570'
+	5580	style='vertical-align:middle'>1570:
+	5581	Stack</span>
+</span>
+
+<!--
+	5582	parameter
+	5583	list
+	5584	(opened)
+	5585	-->
+<span
+	5586	class='param_1570'
+	5587	style='cursor:pointer;
+	5588	display:none'
+	5589	onClick='toggleDisplay("param_1570")'>
+<img
+	5590	class='drag-check'
+	5591	id='o1-selectall_1570'
+	5592	src='/dwh/image/opened.png'
+	5593	border='0'
+	5594	style='vertical-align:middle'>
+<span
+	5595	class='drag-check'
+	5596	id='o2-selectall_1570'
+	5597	style='vertical-align:middle'>1570:
+	5598	Stack</span>
+</span>
+
+<div
+	5599	class='param_1570'
+	5600	style='display:none'>
+<table
+	5601	cellspacing='0'
+	5602	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5603	type='checkbox'
+	5604	name='selectall_1570_unit'
+	5605	id='selectall_1570_unit'
+	5606	onClick='selectAllParameters(this.form,
+	5607	"1570_unit");'><label
+	5608	for='selectall_1570_unit'
+	5609	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5610	name='param_1570_unit'
+	5611	size='12'
+	5612	multiple>
+<option
+	5613	value='1:OPERATORID:1:8'>1
+	5614	OPERATORID
+<option
+	5615	value='2:STACKTOOLID:1:8'>2
+	5616	STACKTOOLID
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5617	type='checkbox'
+	5618	name='process'
+	5619	value='1560'
+	5620	id='selectall_1560'
+	5621	onClick='selectAllParameters(this.form,
+	5622	"1560");'
+	5623	style='vertical-align:middle'>
+
+
+<!--
+	5624	parameter
+	5625	list
+	5626	(closed)
+	5627	-->
+<span
+	5628	class='param_1560'
+	5629	style='cursor:pointer;
+	5630	display:inline'
+	5631	onClick='toggleDisplay("param_1560")'>
+<img
+	5632	class='drag-check'
+	5633	id='c1-selectall_1560'
+	5634	src='/dwh/image/closed.png'
+	5635	border='0'
+	5636	style='vertical-align:middle'>
+<span
+	5637	class='drag-check'
+	5638	id='c2-selectall_1560'
+	5639	style='vertical-align:middle'>1560:
+	5640	Carriage
+	5641	Setting</span>
+</span>
+
+<!--
+	5642	parameter
+	5643	list
+	5644	(opened)
+	5645	-->
+<span
+	5646	class='param_1560'
+	5647	style='cursor:pointer;
+	5648	display:none'
+	5649	onClick='toggleDisplay("param_1560")'>
+<img
+	5650	class='drag-check'
+	5651	id='o1-selectall_1560'
+	5652	src='/dwh/image/opened.png'
+	5653	border='0'
+	5654	style='vertical-align:middle'>
+<span
+	5655	class='drag-check'
+	5656	id='o2-selectall_1560'
+	5657	style='vertical-align:middle'>1560:
+	5658	Carriage
+	5659	Setting</span>
+</span>
+
+<div
+	5660	class='param_1560'
+	5661	style='display:none'>
+<table
+	5662	cellspacing='0'
+	5663	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5664	type='checkbox'
+	5665	name='selectall_1560_unit'
+	5666	id='selectall_1560_unit'
+	5667	onClick='selectAllParameters(this.form,
+	5668	"1560_unit");'><label
+	5669	for='selectall_1560_unit'
+	5670	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5671	name='param_1560_unit'
+	5672	size='12'
+	5673	multiple>
+<option
+	5674	value='1:FIXTUREID:12:8'>1
+	5675	FIXTUREID
+<option
+	5676	value='2:TAILGUIDEIDUP:1:3'>2
+	5677	TAILGUIDEIDUP
+<option
+	5678	value='3:TAILGUIDEIDDN:1:3'>3
+	5679	TAILGUIDEIDDN
+<option
+	5680	value='4:NESTIDUP:1:2'>4
+	5681	NESTIDUP
+<option
+	5682	value='5:NESTIDDN:1:2'>5
+	5683	NESTIDDN
+<option
+	5684	value='6:MACHINEIDUP:1:4'>6
+	5685	MACHINEIDUP
+<option
+	5686	value='7:MACHINEIDDN:1:4'>7
+	5687	MACHINEIDDN
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5688	type='checkbox'
+	5689	name='process'
+	5690	value='1520'
+	5691	id='selectall_1520'
+	5692	onClick='selectAllParameters(this.form,
+	5693	"1520");'
+	5694	style='vertical-align:middle'>
+
+
+<!--
+	5695	parameter
+	5696	list
+	5697	(closed)
+	5698	-->
+<span
+	5699	class='param_1520'
+	5700	style='cursor:pointer;
+	5701	display:inline'
+	5702	onClick='toggleDisplay("param_1520")'>
+<img
+	5703	class='drag-check'
+	5704	id='c1-selectall_1520'
+	5705	src='/dwh/image/closed.png'
+	5706	border='0'
+	5707	style='vertical-align:middle'>
+<span
+	5708	class='drag-check'
+	5709	id='c2-selectall_1520'
+	5710	style='vertical-align:middle'>1520:
+	5711	Piezo
+	5712	Check</span>
+</span>
+
+<!--
+	5713	parameter
+	5714	list
+	5715	(opened)
+	5716	-->
+<span
+	5717	class='param_1520'
+	5718	style='cursor:pointer;
+	5719	display:none'
+	5720	onClick='toggleDisplay("param_1520")'>
+<img
+	5721	class='drag-check'
+	5722	id='o1-selectall_1520'
+	5723	src='/dwh/image/opened.png'
+	5724	border='0'
+	5725	style='vertical-align:middle'>
+<span
+	5726	class='drag-check'
+	5727	id='o2-selectall_1520'
+	5728	style='vertical-align:middle'>1520:
+	5729	Piezo
+	5730	Check</span>
+</span>
+
+<div
+	5731	class='param_1520'
+	5732	style='display:none'>
+<table
+	5733	cellspacing='0'
+	5734	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	5735	type='checkbox'
+	5736	name='selectall_1520_head'
+	5737	id='selectall_1520_head'
+	5738	onClick='selectAllParameters(this.form,
+	5739	"1520_head");'><label
+	5740	for='selectall_1520_head'
+	5741	class='drag-check'>By-Head</label>
+<br>
+<select
+	5742	name='param_1520_head'
+	5743	size='12'
+	5744	multiple>
+<option
+	5745	value='1:PZT_STROKE:4:10'>1
+	5746	PZT_STROKE
+<option
+	5747	value='2:PZT_D1:4:10'>2
+	5748	PZT_D1
+<option
+	5749	value='3:PZT_D2:4:10'>3
+	5750	PZT_D2
+<option
+	5751	value='4:PZT_STROKE2:4:10'>4
+	5752	PZT_STROKE2
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5753	type='checkbox'
+	5754	name='selectall_1520_unit'
+	5755	id='selectall_1520_unit'
+	5756	onClick='selectAllParameters(this.form,
+	5757	"1520_unit");'><label
+	5758	for='selectall_1520_unit'
+	5759	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5760	name='param_1520_unit'
+	5761	size='12'
+	5762	multiple>
+<option
+	5763	value='1:PZT_FREQ:4:10'>1
+	5764	PZT_FREQ
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5765	type='checkbox'
+	5766	name='process'
+	5767	value='1500'
+	5768	id='selectall_1500'
+	5769	onClick='selectAllParameters(this.form,
+	5770	"1500");'
+	5771	style='vertical-align:middle'>
+
+
+<!--
+	5772	parameter
+	5773	list
+	5774	(closed)
+	5775	-->
+<span
+	5776	class='param_1500'
+	5777	style='cursor:pointer;
+	5778	display:inline'
+	5779	onClick='toggleDisplay("param_1500")'>
+<img
+	5780	class='drag-check'
+	5781	id='c1-selectall_1500'
+	5782	src='/dwh/image/closed.png'
+	5783	border='0'
+	5784	style='vertical-align:middle'>
+<span
+	5785	class='drag-check'
+	5786	id='c2-selectall_1500'
+	5787	style='vertical-align:middle'>1500:
+	5788	Quasi
+	5789	(Incoming)</span>
+</span>
+
+<!--
+	5790	parameter
+	5791	list
+	5792	(opened)
+	5793	-->
+<span
+	5794	class='param_1500'
+	5795	style='cursor:pointer;
+	5796	display:none'
+	5797	onClick='toggleDisplay("param_1500")'>
+<img
+	5798	class='drag-check'
+	5799	id='o1-selectall_1500'
+	5800	src='/dwh/image/opened.png'
+	5801	border='0'
+	5802	style='vertical-align:middle'>
+<span
+	5803	class='drag-check'
+	5804	id='o2-selectall_1500'
+	5805	style='vertical-align:middle'>1500:
+	5806	Quasi
+	5807	(Incoming)</span>
+</span>
+
+<div
+	5808	class='param_1500'
+	5809	style='display:none'>
+<table
+	5810	cellspacing='0'
+	5811	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	5812	type='checkbox'
+	5813	name='selectall_1500_head'
+	5814	id='selectall_1500_head'
+	5815	onClick='selectAllParameters(this.form,
+	5816	"1500_head");'><label
+	5817	for='selectall_1500_head'
+	5818	class='drag-check'>By-Head</label>
+<br>
+<select
+	5819	name='param_1500_head'
+	5820	size='12'
+	5821	multiple>
+<option
+	5822	value='1:MR_RES:4:0'>1
+	5823	MR_RES
+<option
+	5824	value='2:READV:4:0'>2
+	5825	READV
+<option
+	5826	value='3:MR_RES2:4:0'>3
+	5827	MR_RES2
+<option
+	5828	value='4:READV2:4:0'>4
+	5829	READV2
+<option
+	5830	value='5:TFC_RES:4:0'>5
+	5831	TFC_RES
+<option
+	5832	value='6:ECS_RES:4:0'>6
+	5833	ECS_RES
+<option
+	5834	value='7:PMR_PLS_RES:4:0'>7
+	5835	PMR_PLS_RES
+<option
+	5836	value='8:WR_RES:4:0'>8
+	5837	WR_RES
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5838	type='checkbox'
+	5839	name='selectall_1500_unit'
+	5840	id='selectall_1500_unit'
+	5841	onClick='selectAllParameters(this.form,
+	5842	"1500_unit");'><label
+	5843	for='selectall_1500_unit'
+	5844	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5845	name='param_1500_unit'
+	5846	size='12'
+	5847	multiple>
+<option
+	5848	value='1:VCM_RES:4:0'>1
+	5849	VCM_RES
+<option
+	5850	value='2:PIEZO:4:0'>2
+	5851	PIEZO
+<option
+	5852	value='3:HMA_PLS:4:0'>3
+	5853	HMA_PLS
+<option
+	5854	value='4:HMA_MNS:4:0'>4
+	5855	HMA_MNS
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5856	type='checkbox'
+	5857	name='process'
+	5858	value='1400'
+	5859	id='selectall_1400'
+	5860	onClick='selectAllParameters(this.form,
+	5861	"1400");'
+	5862	style='vertical-align:middle'>
+
+
+<!--
+	5863	parameter
+	5864	list
+	5865	(closed)
+	5866	-->
+<span
+	5867	class='param_1400'
+	5868	style='cursor:pointer;
+	5869	display:inline'
+	5870	onClick='toggleDisplay("param_1400")'>
+<img
+	5871	class='drag-check'
+	5872	id='c1-selectall_1400'
+	5873	src='/dwh/image/closed.png'
+	5874	border='0'
+	5875	style='vertical-align:middle'>
+<span
+	5876	class='drag-check'
+	5877	id='c2-selectall_1400'
+	5878	style='vertical-align:middle'>1400:
+	5879	Gram
+	5880	Load
+	5881	(Incoming)</span>
+</span>
+
+<!--
+	5882	parameter
+	5883	list
+	5884	(opened)
+	5885	-->
+<span
+	5886	class='param_1400'
+	5887	style='cursor:pointer;
+	5888	display:none'
+	5889	onClick='toggleDisplay("param_1400")'>
+<img
+	5890	class='drag-check'
+	5891	id='o1-selectall_1400'
+	5892	src='/dwh/image/opened.png'
+	5893	border='0'
+	5894	style='vertical-align:middle'>
+<span
+	5895	class='drag-check'
+	5896	id='o2-selectall_1400'
+	5897	style='vertical-align:middle'>1400:
+	5898	Gram
+	5899	Load
+	5900	(Incoming)</span>
+</span>
+
+<div
+	5901	class='param_1400'
+	5902	style='display:none'>
+<table
+	5903	cellspacing='0'
+	5904	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	5905	type='checkbox'
+	5906	name='selectall_1400_head'
+	5907	id='selectall_1400_head'
+	5908	onClick='selectAllParameters(this.form,
+	5909	"1400_head");'><label
+	5910	for='selectall_1400_head'
+	5911	class='drag-check'>By-Head</label>
+<br>
+<select
+	5912	name='param_1400_head'
+	5913	size='12'
+	5914	multiple>
+<option
+	5915	value='1:GRAMLOAD:8:53'>1
+	5916	GRAMLOAD
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5917	type='checkbox'
+	5918	name='process'
+	5919	value='1320'
+	5920	id='selectall_1320'
+	5921	onClick='selectAllParameters(this.form,
+	5922	"1320");'
+	5923	style='vertical-align:middle'>
+
+
+<!--
+	5924	parameter
+	5925	list
+	5926	(closed)
+	5927	-->
+<span
+	5928	class='param_1320'
+	5929	style='cursor:pointer;
+	5930	display:inline'
+	5931	onClick='toggleDisplay("param_1320")'>
+<img
+	5932	class='drag-check'
+	5933	id='c1-selectall_1320'
+	5934	src='/dwh/image/closed.png'
+	5935	border='0'
+	5936	style='vertical-align:middle'>
+<span
+	5937	class='drag-check'
+	5938	id='c2-selectall_1320'
+	5939	style='vertical-align:middle'>1320:
+	5940	Piezo
+	5941	Check
+	5942	(Incoming)</span>
+</span>
+
+<!--
+	5943	parameter
+	5944	list
+	5945	(opened)
+	5946	-->
+<span
+	5947	class='param_1320'
+	5948	style='cursor:pointer;
+	5949	display:none'
+	5950	onClick='toggleDisplay("param_1320")'>
+<img
+	5951	class='drag-check'
+	5952	id='o1-selectall_1320'
+	5953	src='/dwh/image/opened.png'
+	5954	border='0'
+	5955	style='vertical-align:middle'>
+<span
+	5956	class='drag-check'
+	5957	id='o2-selectall_1320'
+	5958	style='vertical-align:middle'>1320:
+	5959	Piezo
+	5960	Check
+	5961	(Incoming)</span>
+</span>
+
+<div
+	5962	class='param_1320'
+	5963	style='display:none'>
+<table
+	5964	cellspacing='0'
+	5965	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	5966	type='checkbox'
+	5967	name='selectall_1320_head'
+	5968	id='selectall_1320_head'
+	5969	onClick='selectAllParameters(this.form,
+	5970	"1320_head");'><label
+	5971	for='selectall_1320_head'
+	5972	class='drag-check'>By-Head</label>
+<br>
+<select
+	5973	name='param_1320_head'
+	5974	size='12'
+	5975	multiple>
+<option
+	5976	value='1:PZT_STROKE:4:10'>1
+	5977	PZT_STROKE
+<option
+	5978	value='2:PZT_D1:4:10'>2
+	5979	PZT_D1
+<option
+	5980	value='3:PZT_D2:4:10'>3
+	5981	PZT_D2
+<option
+	5982	value='4:PZT_STROKE2:4:10'>4
+	5983	PZT_STROKE2
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	5984	type='checkbox'
+	5985	name='selectall_1320_unit'
+	5986	id='selectall_1320_unit'
+	5987	onClick='selectAllParameters(this.form,
+	5988	"1320_unit");'><label
+	5989	for='selectall_1320_unit'
+	5990	class='drag-check'>By-Unit</label>
+<br>
+<select
+	5991	name='param_1320_unit'
+	5992	size='12'
+	5993	multiple>
+<option
+	5994	value='1:PZT_FREQ:4:10'>1
+	5995	PZT_FREQ
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	5996	type='checkbox'
+	5997	name='process'
+	5998	value='1025'
+	5999	id='selectall_1025'
+	6000	onClick='selectAllParameters(this.form,
+	6001	"1025");'
+	6002	style='vertical-align:middle'>
+
+
+<!--
+	6003	parameter
+	6004	list
+	6005	(closed)
+	6006	-->
+<span
+	6007	class='param_1025'
+	6008	style='cursor:pointer;
+	6009	display:inline'
+	6010	onClick='toggleDisplay("param_1025")'>
+<img
+	6011	class='drag-check'
+	6012	id='c1-selectall_1025'
+	6013	src='/dwh/image/closed.png'
+	6014	border='0'
+	6015	style='vertical-align:middle'>
+<span
+	6016	class='drag-check'
+	6017	id='c2-selectall_1025'
+	6018	style='vertical-align:middle'>1025:
+	6019	PSA/RSA
+	6020	Adjust</span>
+</span>
+
+<!--
+	6021	parameter
+	6022	list
+	6023	(opened)
+	6024	-->
+<span
+	6025	class='param_1025'
+	6026	style='cursor:pointer;
+	6027	display:none'
+	6028	onClick='toggleDisplay("param_1025")'>
+<img
+	6029	class='drag-check'
+	6030	id='o1-selectall_1025'
+	6031	src='/dwh/image/opened.png'
+	6032	border='0'
+	6033	style='vertical-align:middle'>
+<span
+	6034	class='drag-check'
+	6035	id='o2-selectall_1025'
+	6036	style='vertical-align:middle'>1025:
+	6037	PSA/RSA
+	6038	Adjust</span>
+</span>
+
+<div
+	6039	class='param_1025'
+	6040	style='display:none'>
+<table
+	6041	cellspacing='0'
+	6042	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	6043	type='checkbox'
+	6044	name='selectall_1025_head'
+	6045	id='selectall_1025_head'
+	6046	onClick='selectAllParameters(this.form,
+	6047	"1025_head");'><label
+	6048	for='selectall_1025_head'
+	6049	class='drag-check'>By-Head</label>
+<br>
+<select
+	6050	name='param_1025_head'
+	6051	size='12'
+	6052	multiple>
+<option
+	6053	value='1:PSA_BEFORE:8:53'>1
+	6054	PSA_BEFORE
+<option
+	6055	value='2:RSA_BEFORE:8:53'>2
+	6056	RSA_BEFORE
+<option
+	6057	value='3:PSA_AFTER:8:53'>3
+	6058	PSA_AFTER
+<option
+	6059	value='4:RSA_AFTER:8:53'>4
+	6060	RSA_AFTER
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	6061	type='checkbox'
+	6062	name='process'
+	6063	value='1010'
+	6064	id='selectall_1010'
+	6065	onClick='selectAllParameters(this.form,
+	6066	"1010");'
+	6067	style='vertical-align:middle'>
+
+
+<!--
+	6068	parameter
+	6069	list
+	6070	(closed)
+	6071	-->
+<span
+	6072	class='param_1010'
+	6073	style='cursor:pointer;
+	6074	display:inline'
+	6075	onClick='toggleDisplay("param_1010")'>
+<img
+	6076	class='drag-check'
+	6077	id='c1-selectall_1010'
+	6078	src='/dwh/image/closed.png'
+	6079	border='0'
+	6080	style='vertical-align:middle'>
+<span
+	6081	class='drag-check'
+	6082	id='c2-selectall_1010'
+	6083	style='vertical-align:middle'>1010:
+	6084	HSA
+	6085	Wipe</span>
+</span>
+
+<!--
+	6086	parameter
+	6087	list
+	6088	(opened)
+	6089	-->
+<span
+	6090	class='param_1010'
+	6091	style='cursor:pointer;
+	6092	display:none'
+	6093	onClick='toggleDisplay("param_1010")'>
+<img
+	6094	class='drag-check'
+	6095	id='o1-selectall_1010'
+	6096	src='/dwh/image/opened.png'
+	6097	border='0'
+	6098	style='vertical-align:middle'>
+<span
+	6099	class='drag-check'
+	6100	id='o2-selectall_1010'
+	6101	style='vertical-align:middle'>1010:
+	6102	HSA
+	6103	Wipe</span>
+</span>
+
+<div
+	6104	class='param_1010'
+	6105	style='display:none'>
+<table
+	6106	cellspacing='0'
+	6107	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+<input
+	6108	type='checkbox'
+	6109	name='selectall_1010_head'
+	6110	id='selectall_1010_head'
+	6111	onClick='selectAllParameters(this.form,
+	6112	"1010_head");'><label
+	6113	for='selectall_1010_head'
+	6114	class='drag-check'>By-Head</label>
+<br>
+<select
+	6115	name='param_1010_head'
+	6116	size='12'
+	6117	multiple>
+<option
+	6118	value='1:HSA_ENABLE:4:10'>1
+	6119	HSA_ENABLE
+<option
+	6120	value='2:HEAD_PAIR_POS_Z:4:10'>2
+	6121	HEAD_PAIR_POS_Z
+<option
+	6122	value='3:HD_RESULT:4:10'>3
+	6123	HD_RESULT
+
+</select>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	6124	type='checkbox'
+	6125	name='selectall_1010_unit'
+	6126	id='selectall_1010_unit'
+	6127	onClick='selectAllParameters(this.form,
+	6128	"1010_unit");'><label
+	6129	for='selectall_1010_unit'
+	6130	class='drag-check'>By-Unit</label>
+<br>
+<select
+	6131	name='param_1010_unit'
+	6132	size='12'
+	6133	multiple>
+<option
+	6134	value='1:ABS_DISTANCE:4:10'>1
+	6135	ABS_DISTANCE
+<option
+	6136	value='2:FIRST_UP_ABS_HEIGHT:4:10'>2
+	6137	FIRST_UP_ABS_HEIGHT
+<option
+	6138	value='3:PITCH:4:10'>3
+	6139	PITCH
+<option
+	6140	value='4:HSA_SET_POS_X:4:10'>4
+	6141	HSA_SET_POS_X
+<option
+	6142	value='5:HSA_SET_POS_Y:4:10'>5
+	6143	HSA_SET_POS_Y
+<option
+	6144	value='6:HSA_SET_POS_Z:4:10'>6
+	6145	HSA_SET_POS_Z
+<option
+	6146	value='7:CAM1_POS_X:4:10'>7
+	6147	CAM1_POS_X
+<option
+	6148	value='8:CAM1_POS_Y:4:10'>8
+	6149	CAM1_POS_Y
+<option
+	6150	value='9:CAM1_POS_Z:4:10'>9
+	6151	CAM1_POS_Z
+<option
+	6152	value='10:WIPE_START_POS_X:4:10'>10
+	6153	WIPE_START_POS_X
+<option
+	6154	value='11:WIPE_START_POS_Y:4:10'>11
+	6155	WIPE_START_POS_Y
+<option
+	6156	value='12:WIPE_START_POS_Z:4:10'>12
+	6157	WIPE_START_POS_Z
+<option
+	6158	value='13:CAM2_POS_X:4:10'>13
+	6159	CAM2_POS_X
+<option
+	6160	value='14:CAM2_POS_Y:4:10'>14
+	6161	CAM2_POS_Y
+<option
+	6162	value='15:CAM2_POS_Z:4:10'>15
+	6163	CAM2_POS_Z
+<option
+	6164	value='16:UP_OFFSET:4:10'>16
+	6165	UP_OFFSET
+<option
+	6166	value='17:DN_OFFSET:4:10'>17
+	6167	DN_OFFSET
+<option
+	6168	value='18:HSA_PAIR_OFFSET:4:10'>18
+	6169	HSA_PAIR_OFFSET
+<option
+	6170	value='19:HSA_SET_POS_MIN_X:4:10'>19
+	6171	HSA_SET_POS_MIN_X
+<option
+	6172	value='20:HSA_SET_POS_MIN_Y:4:10'>20
+	6173	HSA_SET_POS_MIN_Y
+<option
+	6174	value='21:HSA_SET_POS_MIN_Z:4:10'>21
+	6175	HSA_SET_POS_MIN_Z
+<option
+	6176	value='22:HSA_SET_POS_MAX_X:4:10'>22
+	6177	HSA_SET_POS_MAX_X
+<option
+	6178	value='23:HSA_SET_POS_MAX_Y:4:10'>23
+	6179	HSA_SET_POS_MAX_Y
+<option
+	6180	value='24:HSA_SET_POS_MAX_Z:4:10'>24
+	6181	HSA_SET_POS_MAX_Z
+<option
+	6182	value='25:CAM_POS_MIN_X:4:10'>25
+	6183	CAM_POS_MIN_X
+<option
+	6184	value='26:CAM_POS_MIN_Y:4:10'>26
+	6185	CAM_POS_MIN_Y
+<option
+	6186	value='27:CAM_POS_MIN_Z:4:10'>27
+	6187	CAM_POS_MIN_Z
+<option
+	6188	value='28:CAM_POS_MAX_X:4:10'>28
+	6189	CAM_POS_MAX_X
+<option
+	6190	value='29:CAM_POS_MAX_Y:4:10'>29
+	6191	CAM_POS_MAX_Y
+<option
+	6192	value='30:CAM_POS_MAX_Z:4:10'>30
+	6193	CAM_POS_MAX_Z
+<option
+	6194	value='31:WIPE_START_POS_MIN_X:4:10'>31
+	6195	WIPE_START_POS_MIN_X
+<option
+	6196	value='32:WIPE_START_POS_MIN_Y:4:10'>32
+	6197	WIPE_START_POS_MIN_Y
+<option
+	6198	value='33:WIPE_START_POS_MIN_Z:4:10'>33
+	6199	WIPE_START_POS_MIN_Z
+<option
+	6200	value='34:WIPE_START_POS_MAX_X:4:10'>34
+	6201	WIPE_START_POS_MAX_X
+<option
+	6202	value='35:WIPE_START_POS_MAX_Y:4:10'>35
+	6203	WIPE_START_POS_MAX_Y
+<option
+	6204	value='36:WIPE_START_POS_MAX_Z:4:10'>36
+	6205	WIPE_START_POS_MAX_Z
+<option
+	6206	value='37:OFFSET_LIMITS_MIN:4:10'>37
+	6207	OFFSET_LIMITS_MIN
+<option
+	6208	value='38:OFFSET_LIMITS_MAX:4:10'>38
+	6209	OFFSET_LIMITS_MAX
+<option
+	6210	value='39:Z_UP_OFFSET_MIN:4:10'>39
+	6211	Z_UP_OFFSET_MIN
+<option
+	6212	value='40:Z_UP_OFFSET_MAX:4:10'>40
+	6213	Z_UP_OFFSET_MAX
+<option
+	6214	value='41:Z_DN_OFFSET_MIN:4:10'>41
+	6215	Z_DN_OFFSET_MIN
+<option
+	6216	value='42:Z_DN_OFFSET_MAX:4:10'>42
+	6217	Z_DN_OFFSET_MAX
+<option
+	6218	value='43:HD01_LOWER_LIMIT:4:10'>43
+	6219	HD01_LOWER_LIMIT
+<option
+	6220	value='44:HD01_UPPER_LIMIT:4:10'>44
+	6221	HD01_UPPER_LIMIT
+<option
+	6222	value='45:TOUCH_POINT_CURRENT:4:10'>45
+	6223	TOUCH_POINT_CURRENT
+<option
+	6224	value='46:TOUCH_POINT_MASTER:4:10'>46
+	6225	TOUCH_POINT_MASTER
+<option
+	6226	value='47:DELTA:4:10'>47
+	6227	DELTA
+<option
+	6228	value='48:FIXTURE_OFFSET:4:10'>48
+	6229	FIXTURE_OFFSET
+<option
+	6230	value='49:VISION_RESULT_LOC:1:7'>49
+	6231	VISION_RESULT_LOC
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	6232	type='checkbox'
+	6233	name='process'
+	6234	value='0960'
+	6235	id='selectall_0960'
+	6236	onClick='selectAllParameters(this.form,
+	6237	"0960");'
+	6238	style='vertical-align:middle'>
+
+
+<!--
+	6239	parameter
+	6240	list
+	6241	(closed)
+	6242	-->
+<span
+	6243	class='param_0960'
+	6244	style='cursor:pointer;
+	6245	display:inline'
+	6246	onClick='toggleDisplay("param_0960")'>
+<img
+	6247	class='drag-check'
+	6248	id='c1-selectall_0960'
+	6249	src='/dwh/image/closed.png'
+	6250	border='0'
+	6251	style='vertical-align:middle'>
+<span
+	6252	class='drag-check'
+	6253	id='c2-selectall_0960'
+	6254	style='vertical-align:middle'>0960:
+	6255	Pivot
+	6256	Measure</span>
+</span>
+
+<!--
+	6257	parameter
+	6258	list
+	6259	(opened)
+	6260	-->
+<span
+	6261	class='param_0960'
+	6262	style='cursor:pointer;
+	6263	display:none'
+	6264	onClick='toggleDisplay("param_0960")'>
+<img
+	6265	class='drag-check'
+	6266	id='o1-selectall_0960'
+	6267	src='/dwh/image/opened.png'
+	6268	border='0'
+	6269	style='vertical-align:middle'>
+<span
+	6270	class='drag-check'
+	6271	id='o2-selectall_0960'
+	6272	style='vertical-align:middle'>0960:
+	6273	Pivot
+	6274	Measure</span>
+</span>
+
+<div
+	6275	class='param_0960'
+	6276	style='display:none'>
+<table
+	6277	cellspacing='0'
+	6278	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	6279	type='checkbox'
+	6280	name='selectall_0960_unit'
+	6281	id='selectall_0960_unit'
+	6282	onClick='selectAllParameters(this.form,
+	6283	"0960_unit");'><label
+	6284	for='selectall_0960_unit'
+	6285	class='drag-check'>By-Unit</label>
+<br>
+<select
+	6286	name='param_0960_unit'
+	6287	size='12'
+	6288	multiple>
+<option
+	6289	value='1:HEIGHT:8:53'>1
+	6290	HEIGHT
+<option
+	6291	value='2:ARMTIP:8:53'>2
+	6292	ARMTIP
+<option
+	6293	value='3:PITCH:8:53'>3
+	6294	PITCH
+<option
+	6295	value='4:ROLL:8:53'>4
+	6296	ROLL
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+<div>
+<input
+	6297	type='checkbox'
+	6298	name='process'
+	6299	value='0950'
+	6300	id='selectall_0950'
+	6301	onClick='selectAllParameters(this.form,
+	6302	"0950");'
+	6303	style='vertical-align:middle'>
+
+
+<!--
+	6304	parameter
+	6305	list
+	6306	(closed)
+	6307	-->
+<span
+	6308	class='param_0950'
+	6309	style='cursor:pointer;
+	6310	display:inline'
+	6311	onClick='toggleDisplay("param_0950")'>
+<img
+	6312	class='drag-check'
+	6313	id='c1-selectall_0950'
+	6314	src='/dwh/image/closed.png'
+	6315	border='0'
+	6316	style='vertical-align:middle'>
+<span
+	6317	class='drag-check'
+	6318	id='c2-selectall_0950'
+	6319	style='vertical-align:middle'>0950:
+	6320	Flex
+	6321	Attach</span>
+</span>
+
+<!--
+	6322	parameter
+	6323	list
+	6324	(opened)
+	6325	-->
+<span
+	6326	class='param_0950'
+	6327	style='cursor:pointer;
+	6328	display:none'
+	6329	onClick='toggleDisplay("param_0950")'>
+<img
+	6330	class='drag-check'
+	6331	id='o1-selectall_0950'
+	6332	src='/dwh/image/opened.png'
+	6333	border='0'
+	6334	style='vertical-align:middle'>
+<span
+	6335	class='drag-check'
+	6336	id='o2-selectall_0950'
+	6337	style='vertical-align:middle'>0950:
+	6338	Flex
+	6339	Attach</span>
+</span>
+
+<div
+	6340	class='param_0950'
+	6341	style='display:none'>
+<table
+	6342	cellspacing='0'
+	6343	cellpadding='0'>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;</td>
+<td>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+<input
+	6344	type='checkbox'
+	6345	name='selectall_0950_unit'
+	6346	id='selectall_0950_unit'
+	6347	onClick='selectAllParameters(this.form,
+	6348	"0950_unit");'><label
+	6349	for='selectall_0950_unit'
+	6350	class='drag-check'>By-Unit</label>
+<br>
+<select
+	6351	name='param_0950_unit'
+	6352	size='12'
+	6353	multiple>
+<option
+	6354	value='1:X_ALIGN:8:53'>1
+	6355	X_ALIGN
+<option
+	6356	value='2:Y_ALIGN:8:53'>2
+	6357	Y_ALIGN
+<option
+	6358	value='3:VISION_VERSION:12:10'>3
+	6359	VISION_VERSION
+<option
+	6360	value='4:XY_ADJ_NUMBER:4:10'>4
+	6361	XY_ADJ_NUMBER
+<option
+	6362	value='5:R_ADJ_NUMBER:4:10'>5
+	6363	R_ADJ_NUMBER
+<option
+	6364	value='6:HSA_X_BEF_ADJ:4:10'>6
+	6365	HSA_X_BEF_ADJ
+<option
+	6366	value='7:HSA_Y_BEF_ADJ:4:10'>7
+	6367	HSA_Y_BEF_ADJ
+<option
+	6368	value='8:HSA_R_BEF_ADJ:4:10'>8
+	6369	HSA_R_BEF_ADJ
+<option
+	6370	value='9:HSA_Y_HD00_BEF_ADJ:4:10'>9
+	6371	HSA_Y_HD00_BEF_ADJ
+<option
+	6372	value='10:HSA_Y_HD15_BEF_ADJ:4:10'>10
+	6373	HSA_Y_HD15_BEF_ADJ
+<option
+	6374	value='11:SLIT_X_BEF_ADJ:4:10'>11
+	6375	SLIT_X_BEF_ADJ
+<option
+	6376	value='12:TMARK_X_BEF_ADJ:4:10'>12
+	6377	TMARK_X_BEF_ADJ
+<option
+	6378	value='13:TMARK_Y_BEF_ADJ:4:10'>13
+	6379	TMARK_Y_BEF_ADJ
+<option
+	6380	value='14:TMARK_R_BEF_ADJ:4:10'>14
+	6381	TMARK_R_BEF_ADJ
+<option
+	6382	value='15:FIX_P1_X_BEF_ADJ:4:10'>15
+	6383	FIX_P1_X_BEF_ADJ
+<option
+	6384	value='16:FIX_P1_Y_BEF_ADJ:4:10'>16
+	6385	FIX_P1_Y_BEF_ADJ
+<option
+	6386	value='17:FIX_P1_R_BEF_ADJ:4:10'>17
+	6387	FIX_P1_R_BEF_ADJ
+<option
+	6388	value='18:FIX_P2_X_BEF_ADJ:4:10'>18
+	6389	FIX_P2_X_BEF_ADJ
+<option
+	6390	value='19:FIX_P2_Y_BEF_ADJ:4:10'>19
+	6391	FIX_P2_Y_BEF_ADJ
+<option
+	6392	value='20:FIX_P2_R_BEF_ADJ:4:10'>20
+	6393	FIX_P2_R_BEF_ADJ
+<option
+	6394	value='21:FIX_P12_R_BEF_ADJ:4:10'>21
+	6395	FIX_P12_R_BEF_ADJ
+<option
+	6396	value='22:HSA_X_AFT_ADJ:4:10'>22
+	6397	HSA_X_AFT_ADJ
+<option
+	6398	value='23:HSA_Y_AFT_ADJ:4:10'>23
+	6399	HSA_Y_AFT_ADJ
+<option
+	6400	value='24:HSA_R_AFT_ADJ:4:10'>24
+	6401	HSA_R_AFT_ADJ
+<option
+	6402	value='25:HSA_Y_HD00_AFT_ADJ:4:10'>25
+	6403	HSA_Y_HD00_AFT_ADJ
+<option
+	6404	value='26:HSA_Y_HD15_AFT_ADJ:4:10'>26
+	6405	HSA_Y_HD15_AFT_ADJ
+<option
+	6406	value='27:SLIT_X_AFT_ADJ:4:10'>27
+	6407	SLIT_X_AFT_ADJ
+<option
+	6408	value='28:TMARK_X_AFT_ADJ:4:10'>28
+	6409	TMARK_X_AFT_ADJ
+<option
+	6410	value='29:TMARK_Y_AFT_ADJ:4:10'>29
+	6411	TMARK_Y_AFT_ADJ
+<option
+	6412	value='30:TMARK_R_AFT_ADJ:4:10'>30
+	6413	TMARK_R_AFT_ADJ
+<option
+	6414	value='31:FIX_P1_X_AFT_ADJ:4:10'>31
+	6415	FIX_P1_X_AFT_ADJ
+<option
+	6416	value='32:FIX_P1_Y_AFT_ADJ:4:10'>32
+	6417	FIX_P1_Y_AFT_ADJ
+<option
+	6418	value='33:FIX_P1_R_AFT_ADJ:4:10'>33
+	6419	FIX_P1_R_AFT_ADJ
+<option
+	6420	value='34:FIX_P2_X_AFT_ADJ:4:10'>34
+	6421	FIX_P2_X_AFT_ADJ
+<option
+	6422	value='35:FIX_P2_Y_AFT_ADJ:4:10'>35
+	6423	FIX_P2_Y_AFT_ADJ
+<option
+	6424	value='36:FIX_P2_R_AFT_ADJ:4:10'>36
+	6425	FIX_P2_R_AFT_ADJ
+<option
+	6426	value='37:FIX_P12_R_AFT_ADJ:4:10'>37
+	6427	FIX_P12_R_AFT_ADJ
+<option
+	6428	value='38:HSA_X_AFT_SCR:4:10'>38
+	6429	HSA_X_AFT_SCR
+<option
+	6430	value='39:HSA_Y_AFT_SCR:4:10'>39
+	6431	HSA_Y_AFT_SCR
+<option
+	6432	value='40:HSA_R_AFT_SCR:4:10'>40
+	6433	HSA_R_AFT_SCR
+<option
+	6434	value='41:HSA_Y_HD00_AFT_SCR:4:10'>41
+	6435	HSA_Y_HD00_AFT_SCR
+<option
+	6436	value='42:HSA_Y_HD15_AFT_SCR:4:10'>42
+	6437	HSA_Y_HD15_AFT_SCR
+<option
+	6438	value='43:SLIT_X_AFT_SCR:4:10'>43
+	6439	SLIT_X_AFT_SCR
+<option
+	6440	value='44:TMARK_X_AFT_SCR:4:10'>44
+	6441	TMARK_X_AFT_SCR
+<option
+	6442	value='45:TMARK_Y_AFT_SCR:4:10'>45
+	6443	TMARK_Y_AFT_SCR
+<option
+	6444	value='46:TMARK_R_AFT_SCR:4:10'>46
+	6445	TMARK_R_AFT_SCR
+<option
+	6446	value='47:FIX_P1_X_AFT_SCR:4:10'>47
+	6447	FIX_P1_X_AFT_SCR
+<option
+	6448	value='48:FIX_P1_Y_AFT_SCR:4:10'>48
+	6449	FIX_P1_Y_AFT_SCR
+<option
+	6450	value='49:FIX_P1_R_AFT_SCR:4:10'>49
+	6451	FIX_P1_R_AFT_SCR
+<option
+	6452	value='50:FIX_P2_X_AFT_SCR:4:10'>50
+	6453	FIX_P2_X_AFT_SCR
+<option
+	6454	value='51:FIX_P2_Y_AFT_SCR:4:10'>51
+	6455	FIX_P2_Y_AFT_SCR
+<option
+	6456	value='52:FIX_P2_R_AFT_SCR:4:10'>52
+	6457	FIX_P2_R_AFT_SCR
+<option
+	6458	value='53:FIX_P12_R_AFT_SCR:4:10'>53
+	6459	FIX_P12_R_AFT_SCR
+<option
+	6460	value='54:MASTER_X:4:10'>54
+	6461	MASTER_X
+<option
+	6462	value='55:MASTER_Y:4:10'>55
+	6463	MASTER_Y
+<option
+	6464	value='56:MASTER_R:4:10'>56
+	6465	MASTER_R
+<option
+	6466	value='57:MASTER_Y_HD00:4:10'>57
+	6467	MASTER_Y_HD00
+<option
+	6468	value='58:MASTER_Y_HD15:4:10'>58
+	6469	MASTER_Y_HD15
+<option
+	6470	value='59:SCALE:4:10'>59
+	6471	SCALE
+<option
+	6472	value='60:HSA_SPEC_X:4:10'>60
+	6473	HSA_SPEC_X
+<option
+	6474	value='61:HSA_SPEC_Y:4:10'>61
+	6475	HSA_SPEC_Y
+<option
+	6476	value='62:HSA_SPEC_R:4:10'>62
+	6477	HSA_SPEC_R
+<option
+	6478	value='63:FIX_P1_SPEC_X:4:10'>63
+	6479	FIX_P1_SPEC_X
+<option
+	6480	value='64:FIX_P1_SPEC_Y:4:10'>64
+	6481	FIX_P1_SPEC_Y
+<option
+	6482	value='65:FIX_P12_SPEC_R:4:10'>65
+	6483	FIX_P12_SPEC_R
+<option
+	6484	value='66:OFFSET_X:4:10'>66
+	6485	OFFSET_X
+<option
+	6486	value='67:OFFSET_Y:4:10'>67
+	6487	OFFSET_Y
+<option
+	6488	value='68:OFFSET_R:4:10'>68
+	6489	OFFSET_R
+
+</select>
+
+</td>
+</tr>
+</table>
+<br>
+</div>
+
+
+</div>
+
+
+
+	6490	<hr
+	6491	width='100%'>
+
+	6492	
+
+	6493	<input
+	6494	type='checkbox'
+	6495	name='scale'
+	6496	id='scale'><label
+	6497	for='scale'
+	6498	class='drag-check'>Scale
+	6499	Conversion
+	6500	(e.g.
+	6501	2341
+	6502	-&gt;
+	6503	2.341)</label>
+
+	6504	
+
+	6505	<img
+	6506	src='/dwh/image/info.png'
+	6507	style='vertical-align:middle'
+	6508	onMouseOver='showPopup("help_scale")'
+	6509	onMouseOut='hidePopup("help_scale")'>
+
+
+	6510	<div
+	6511	id='help_scale'
+	6512	style='position:absolute;
+	6513	z-index:10;
+	6514	visibility:hidden;
+	6515	background-color:#fbff96;'>
+
+	6516	What&#39;s
+	6517	This?<br>
+
+	6518	The
+	6519	option
+	6520	to
+	6521	output
+	6522	SSW/test
+	6523	processes
+	6524	parametric
+	6525	data
+	6526	as
+	6527	double
+	6528	value
+	6529	according
+	6530	to
+	6531	scale
+	6532	factor<br>
+
+	6533	<div
+	6534	style="font-size:50%"><br></div>
+
+	6535	Best
+	6536	Use
+	6537	Case:<br>
+
+	6538	Get
+	6539	parametric
+	6540	data
+	6541	with
+	6542	predefined
+	6543	scale.<br>
+
+	6544	</div>
+
+	6545	
+
+	6546	<br>
+
+	6547	
+
+	6548	<input
+	6549	type='checkbox'
+	6550	name='add_prior'
+	6551	id='add_prior'
+	6552	checked><label
+	6553	for='add_prior'
+	6554	class='drag-check'>Prior/Subsequent
+	6555	Process
+	6556	Header</label>
+
+
+	6557	<span
+	6558	style='cursor:pointer;
+	6559	color:#cc3333;'
+	6560	onClick='toggleDisplay("desc_prior")'>?</span>
+
+
+	6561	<div
+	6562	class='desc_prior'
+	6563	style='position:absolute;
+	6564	background-color:#ffffcc;
+	6565	display:none'>
+
+	6566	<table
+	6567	border='1'
+	6568	style='font-size:12px'>
+
+	6569	<tr>
+
+	6570	<th
+	6571	style='color:#000000;
+	6572	background-color:#ffffcc'>Column</th>
+
+	6573	<th
+	6574	style='color:#000000;
+	6575	background-color:#ffffcc'>
+
+	6576	<table
+	6577	cellpadding='0'
+	6578	cellspacing='0'
+	6579	style='font-size:12px'>
+
+	6580	<tr>
+
+	6581	<th
+	6582	width='100%'
+	6583	style='color:#000000;
+	6584	background-color:#ffffcc'>Description</th>
+
+	6585	<td
+	6586	align='right'><img
+	6587	src='/dwh/image/close.gif'
+	6588	style='cursor:pointer'
+	6589	onClick='toggleDisplay("desc_prior")'></td>
+
+	6590	</tr>
+
+	6591	</table>
+
+	6592	</th>
+
+	6593	</tr>
+
+	6594	<tr>
+
+	6595	<td>MFGID</td>
+
+	6596	<td>Manufacturing
+	6597	ID</td>
+
+	6598	</tr>
+
+	6599	<tr>
+
+	6600	<td>STARTDATE</td>
+
+	6601	<td>Test
+	6602	Start
+	6603	Date</td>
+
+	6604	</tr>
+
+	6605	<tr>
+
+	6606	<td>ENDDATE</td>
+
+	6607	<td>Test
+	6608	End
+	6609	Date</td>
+
+	6610	</tr>
+
+	6611	<tr>
+
+	6612	<td>PFCD</td>
+
+	6613	<td>Pass/Fail
+	6614	Code
+	6615	(Subsequent
+	6616	only)</td>
+
+	6617	</tr>
+
+	6618	<tr>
+
+	6619	<td>SUBCODE</td>
+
+	6620	<td>Pass/Fail
+	6621	Sub
+	6622	Code
+	6623	(Subsequent
+	6624	only)</td>
+
+	6625	</tr>
+
+	6626	<tr>
+
+	6627	<td>SC</td>
+
+	6628	<td>Pass/Fail
+	6629	Score</td>
+
+	6630	</tr>
+
+	6631	<tr>
+
+	6632	<td>TSTRID</td>
+
+	6633	<td>Tester
+	6634	ID</td>
+
+	6635	</tr>
+
+	6636	<tr>
+
+	6637	<td>CELLID</td>
+
+	6638	<td>Cell
+	6639	ID</td>
+
+	6640	</tr>
+
+	6641	<tr>
+
+	6642	<td>TSTYPE</td>
+
+	6643	<td>Tester
+	6644	Type</td>
+
+	6645	</tr>
+
+	6646	<tr>
+
+	6647	<td>TESTCODE</td>
+
+	6648	<td>Test
+	6649	Program
+	6650	Version</td>
+
+	6651	</tr>
+
+	6652	<tr>
+
+	6653	<td>PCPGMVER</td>
+
+	6654	<td>PC
+	6655	Program
+	6656	Version</td>
+
+	6657	</tr>
+
+	6658	<tr>
+
+	6659	<td>MICROLEVEL</td>
+
+	6660	<td>Micro
+	6661	Code
+	6662	Level</td>
+
+	6663	</tr>
+
+	6664	<tr>
+
+	6665	<td>DP</td>
+
+	6666	<td>Disposition
+	6667	Code
+	6668	(Subsequent
+	6669	only)</td>
+
+	6670	</tr>
+
+	6671	<tr>
+
+	6672	<td>BADHEAD
+	6673	(BADH)</td>
+
+	6674	<td>Bad
+	6675	Head
+	6676	(Subsequent
+	6677	only)</td>
+
+	6678	</tr>
+
+	6679	<tr>
+
+	6680	<td>BADDISK
+	6681	(BADD)</td>
+
+	6682	<td>Bad
+	6683	Disk
+	6684	(Subsequent
+	6685	only)</td>
+
+	6686	</tr>
+
+	6687	</table>
+
+	6688	</div>
+
+	6689	
+</td>
+</tr>
+
+
+<tr>
+<th>Additional
+	6690	Column:</th>
+<td>
+
+<table
+	6691	cellpadding='0'
+	6692	cellspacing='0'>
+
+<tr>
+<td
+	6693	colspan='3'>
+
+
+	6694	<input
+	6695	type='checkbox'
+	6696	disabled><span
+	6697	style='color:silver'
+	6698	title='Available
+	6699	for
+	6700	HDD
+	6701	process'>HDD
+	6702	Assembly</span>
+
+</td>
+<td>&nbsp;</td>
+<td
+	6703	colspan='3'>
+
+
+	6704	<input
+	6705	type='checkbox'
+	6706	name='add_hsaasm'
+	6707	id='add_hsaasm'><label
+	6708	for='add_hsaasm'
+	6709	class='drag-check'>HSA
+	6710	Assembly</label>
+
+	6711	
+
+	6712	<span
+	6713	style='cursor:pointer;
+	6714	color:#cc3333;'
+	6715	onClick='toggleDisplay("desc_hsaasm")'>?</span>
+
+
+	6716	<div
+	6717	class='desc_hsaasm'
+	6718	style='position:absolute;
+	6719	background-color:#ffffcc;
+	6720	display:none'>
+
+	6721	<table
+	6722	border='1'
+	6723	style='font-size:12px'>
+
+	6724	<tr>
+
+	6725	<th
+	6726	style='color:#000000;
+	6727	background-color:#ffffcc'>Column</th>
+
+	6728	<th
+	6729	style='color:#000000;
+	6730	background-color:#ffffcc'>
+
+	6731	<table
+	6732	cellpadding='0'
+	6733	cellspacing='0'
+	6734	style='font-size:12px'>
+
+	6735	<tr>
+
+	6736	<th
+	6737	width='100%'
+	6738	style='color:#000000;
+	6739	background-color:#ffffcc'>Description</th>
+
+	6740	<td
+	6741	align='right'><img
+	6742	src='/dwh/image/close.gif'
+	6743	style='cursor:pointer'
+	6744	onClick='toggleDisplay("desc_hsaasm")'></td>
+
+	6745	</tr>
+
+	6746	</table>
+
+	6747	</th>
+
+	6748	</tr>
+
+	6749	<tr>
+
+	6750	<td>HSAASMSN</td>
+
+	6751	<td>HSA
+	6752	Initail
+	6753	Flex
+	6754	Serial
+	6755	Number</td>
+
+	6756	</tr>
+
+	6757	<tr>
+
+	6758	<td>HSAASMDATE</td>
+
+	6759	<td>HSA
+	6760	Initail
+	6761	Assembly
+	6762	Date</td>
+
+	6763	</tr>
+
+	6764	<tr>
+
+	6765	<td>HSALI</td>
+
+	6766	<td>HSA
+	6767	Initial
+	6768	Assembly
+	6769	Line
+	6770	ID</td>
+
+	6771	</tr>
+
+	6772	<tr>
+
+	6773	<td>HSATI</td>
+
+	6774	<td>HSA
+	6775	Initial
+	6776	Assembly
+	6777	Team
+	6778	ID</td>
+
+	6779	</tr>
+
+	6780	</table>
+
+	6781	</div>
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+
+	6782	<input
+	6783	type='checkbox'
+	6784	disabled><span
+	6785	style='color:silver'
+	6786	title='Available
+	6787	for
+	6788	Final
+	6789	ASM
+	6790	or
+	6791	following
+	6792	HDD
+	6793	process'>Card</span>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	6794	<input
+	6795	type='checkbox'
+	6796	disabled><span
+	6797	style='color:silver'
+	6798	title='Available
+	6799	for
+	6800	HDD
+	6801	process'>Disk</span>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	6802	<input
+	6803	type='checkbox'
+	6804	disabled><span
+	6805	style='color:silver'
+	6806	title='Available
+	6807	for
+	6808	HDD
+	6809	process'>Spindle</span>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	6810	<input
+	6811	type='checkbox'
+	6812	disabled><span
+	6813	style='color:silver'
+	6814	title='Available
+	6815	for
+	6816	Main
+	6817	ASM
+	6818	or
+	6819	following
+	6820	HDD
+	6821	process'>VCM</span>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	6822	<input
+	6823	type='checkbox'
+	6824	disabled><span
+	6825	style='color:silver'
+	6826	title='Available
+	6827	for
+	6828	Top
+	6829	Cover
+	6830	Fastening
+	6831	or
+	6832	following
+	6833	HDD
+	6834	process'>Top
+	6835	Cover</span>
+
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+
+	6836	<input
+	6837	type='checkbox'
+	6838	disabled><span
+	6839	style='color:silver'
+	6840	title='Available
+	6841	for
+	6842	HDD
+	6843	process'>Air
+	6844	Spoiler</span>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	6845	<input
+	6846	type='checkbox'
+	6847	disabled><span
+	6848	style='color:silver'
+	6849	title='Available
+	6850	for
+	6851	HDD
+	6852	process'>Ramp</span>
+
+</td>
+<td>&nbsp;</td>
+<td
+	6853	colspan="3">
+
+
+	6854	<input
+	6855	type='checkbox'
+	6856	disabled><span
+	6857	style='color:silver'
+	6858	title='Available
+	6859	for
+	6860	HDD
+	6861	process'>Damper
+	6862	Plate</span>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td>
+
+
+	6863	<input
+	6864	type='checkbox'
+	6865	disabled><span
+	6866	style='color:silver'
+	6867	title='Available
+	6868	for
+	6869	HDD
+	6870	process'>ODCS</span>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	6871	<input
+	6872	type='checkbox'
+	6873	disabled><span
+	6874	style='color:silver'
+	6875	title='Available
+	6876	for
+	6877	HDD
+	6878	process'>Circular
+	6879	Filter</span>
+
+</td>
+<td>&nbsp;</td>
+<td
+	6880	colspan="3">
+
+
+	6881	<input
+	6882	type='checkbox'
+	6883	disabled><span
+	6884	style='color:silver'
+	6885	title='Available
+	6886	for
+	6887	HDD
+	6888	process'>Breather
+	6889	Filter(S)</span>
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+
+	6890	<input
+	6891	type='checkbox'
+	6892	disabled><span
+	6893	style='color:silver'
+	6894	title='Available
+	6895	for
+	6896	HDD
+	6897	process'>Top
+	6898	Clamp</span>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	6899	<input
+	6900	type='checkbox'
+	6901	disabled><span
+	6902	style='color:silver'
+	6903	title='Available
+	6904	for
+	6905	HDD
+	6906	process'>AB
+	6907	Filter</span>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	6908	<input
+	6909	type='checkbox'
+	6910	disabled><span
+	6911	style='color:silver'
+	6912	title='Available
+	6913	for
+	6914	HDD
+	6915	process'>Spacer
+	6916	Ring</span>
+
+</td>
+
+
+
+<td>&nbsp;</td>
+<td>
+
+
+	6917	<input
+	6918	type='checkbox'
+	6919	disabled><span
+	6920	style='color:silver'
+	6921	title='Available
+	6922	for
+	6923	HDD
+	6924	process'>DSS</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td
+	6925	colspan='3'>
+
+
+	6926	<input
+	6927	type='checkbox'
+	6928	disabled><span
+	6929	style='color:silver'
+	6930	title='Available
+	6931	for
+	6932	HDD
+	6933	process'>Center
+	6934	Plate</span>
+
+</td>
+<td>&nbsp;</td>
+
+</tr>
+
+<tr>
+<td>
+
+
+	6935	<input
+	6936	type='checkbox'
+	6937	name='add_hsa'
+	6938	id='add_hsa'><label
+	6939	for='add_hsa'
+	6940	class='drag-check'>HSA</label>
+
+
+	6941	<span
+	6942	style='cursor:pointer;
+	6943	color:#cc3333;'
+	6944	onClick='toggleDisplay("desc_hsa")'>?</span>
+
+	6945	<div
+	6946	class='desc_hsa'
+	6947	style='position:absolute;
+	6948	background-color:#ffffcc;
+	6949	display:none'>
+
+	6950	<table
+	6951	border='1'
+	6952	style='font-size:12px'>
+
+	6953	<tr>
+
+	6954	<th
+	6955	style='color:#000000;
+	6956	background-color:#ffffcc'>Column</th>
+
+	6957	<th
+	6958	style='color:#000000;
+	6959	background-color:#ffffcc'>
+
+	6960	<table
+	6961	cellpadding='0'
+	6962	cellspacing='0'
+	6963	style='font-size:12px'>
+
+	6964	<tr>
+
+	6965	<th
+	6966	width='100%'
+	6967	style='color:#000000;
+	6968	background-color:#ffffcc'>Description</th>
+
+	6969	<td
+	6970	align='right'><img
+	6971	src='/dwh/image/close.gif'
+	6972	style='cursor:pointer'
+	6973	onClick='toggleDisplay("desc_hsa")'></td>
+
+	6974	</tr>
+
+	6975	</table>
+
+	6976	</th>
+
+	6977	</tr>
+
+	6978	<tr>
+
+	6979	<td>HSAPN</td>
+
+	6980	<td
+	6981	colspan='2'
+	6982	nowrap>HSA
+	6983	Parts
+	6984	Number</td>
+
+	6985	</tr>
+
+	6986	<tr>
+
+	6987	<td>HSALOT</td>
+
+	6988	<td
+	6989	colspan='2'
+	6990	nowrap>HSA
+	6991	Lot</td>
+
+	6992	</tr>
+
+	6993	<tr>
+
+	6994	<td>HSASRC</td>
+
+	6995	<td
+	6996	colspan='2'
+	6997	nowrap>HSA
+	6998	Source</td>
+
+	6999	</tr>
+
+	7000	<tr>
+
+	7001	<td>HSARWK</td>
+
+	7002	<td
+	7003	colspan='2'
+	7004	nowrap>HSA
+	7005	Rework
+	7006	Flag</td>
+
+	7007	</tr>
+
+	7008	<tr>
+
+	7009	<td>HSAOPERATOR</td>
+
+	7010	<td
+	7011	colspan='2'
+	7012	nowrap>HSA
+	7013	Operator
+	7014	ID</td>
+
+	7015	</tr>
+
+	7016	</table>
+
+	7017	</div>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	7018	<input
+	7019	type='checkbox'
+	7020	name='add_hga'
+	7021	id='add_hga'><label
+	7022	for='add_hga'
+	7023	class='drag-check'>HGA</label>
+
+
+	7024	<span
+	7025	style='cursor:pointer;
+	7026	color:#cc3333;'
+	7027	onClick='toggleDisplay("desc_hga")'>?</span>
+
+	7028	<div
+	7029	class='desc_hga'
+	7030	style='position:absolute;
+	7031	background-color:#ffffcc;
+	7032	display:none'>
+
+	7033	<table
+	7034	border='1'
+	7035	style='font-size:12px'>
+
+	7036	<tr>
+
+	7037	<th
+	7038	style='color:#000000;
+	7039	background-color:#ffffcc'>Column</th>
+
+	7040	<th
+	7041	style='color:#000000;
+	7042	background-color:#ffffcc'>
+
+	7043	<table
+	7044	cellpadding='0'
+	7045	cellspacing='0'
+	7046	style='font-size:12px'>
+
+	7047	<tr>
+
+	7048	<th
+	7049	width='100%'
+	7050	style='color:#000000;
+	7051	background-color:#ffffcc'>Description</th>
+
+	7052	<td
+	7053	align='right'><img
+	7054	src='/dwh/image/close.gif'
+	7055	style='cursor:pointer'
+	7056	onClick='toggleDisplay("desc_hga")'></td>
+
+	7057	</tr>
+
+	7058	</table>
+
+	7059	</th>
+
+	7060	</tr>
+
+	7061	<tr>
+
+	7062	<td>HGAPN</td>
+
+	7063	<td
+	7064	colspan='2'
+	7065	nowrap>HGA
+	7066	Parts
+	7067	Number</td>
+
+	7068	</tr>
+
+	7069	<tr>
+
+	7070	<td>HGALOT</td>
+
+	7071	<td
+	7072	colspan='2'
+	7073	nowrap>HGA
+	7074	Lot</td>
+
+	7075	</tr>
+
+	7076	<tr>
+
+	7077	<td>HGASRC</td>
+
+	7078	<td
+	7079	colspan='2'
+	7080	nowrap>HGA
+	7081	Source</td>
+
+	7082	</tr>
+
+	7083	<tr>
+
+	7084	<td>HGARWK</td>
+
+	7085	<td
+	7086	colspan='2'
+	7087	nowrap>HGA
+	7088	Rework
+	7089	Flag</td>
+
+	7090	</tr>
+
+	7091	<tr>
+
+	7092	<td>HGADATECODE</td>
+
+	7093	<td
+	7094	colspan='2'
+	7095	nowrap>HGA
+	7096	Date
+	7097	Code</td>
+
+	7098	</tr>
+
+	7099	</table>
+
+	7100	</div>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	7101	<input
+	7102	type='checkbox'
+	7103	name='add_slider'
+	7104	id='add_slider'><label
+	7105	for='add_slider'
+	7106	class='drag-check'>Slider</label>
+
+
+	7107	<span
+	7108	style='cursor:pointer;
+	7109	color:#cc3333;'
+	7110	onClick='toggleDisplay("desc_slider")'>?</span>
+
+	7111	<div
+	7112	class='desc_slider'
+	7113	style='position:absolute;
+	7114	background-color:#ffffcc;
+	7115	display:none'>
+
+	7116	<table
+	7117	border='1'
+	7118	style='font-size:12px'>
+
+	7119	<tr>
+
+	7120	<th
+	7121	style='color:#000000;
+	7122	background-color:#ffffcc'>Column</th>
+
+	7123	<th
+	7124	style='color:#000000;
+	7125	background-color:#ffffcc'>
+
+	7126	<table
+	7127	cellpadding='0'
+	7128	cellspacing='0'
+	7129	style='font-size:12px'>
+
+	7130	<tr>
+
+	7131	<th
+	7132	width='100%'
+	7133	style='color:#000000;
+	7134	background-color:#ffffcc'>Description</th>
+
+	7135	<td
+	7136	align='right'><img
+	7137	src='/dwh/image/close.gif'
+	7138	style='cursor:pointer'
+	7139	onClick='toggleDisplay("desc_slider")'></td>
+
+	7140	</tr>
+
+	7141	</table>
+
+	7142	</th>
+
+	7143	</tr>
+
+	7144	<tr>
+
+	7145	<td>SLDPN</td>
+
+	7146	<td
+	7147	colspan='2'
+	7148	nowrap>Slider
+	7149	Parts
+	7150	Number</td>
+
+	7151	</tr>
+
+	7152	<tr>
+
+	7153	<td>SLDEC</td>
+
+	7154	<td
+	7155	colspan='2'
+	7156	nowrap>Slider
+	7157	EC</td>
+
+	7158	</tr>
+
+	7159	<tr>
+
+	7160	<td>SLDLOT</td>
+
+	7161	<td
+	7162	colspan='2'
+	7163	nowrap>Slider
+	7164	Lot</td>
+
+	7165	</tr>
+
+	7166	<tr>
+
+	7167	<td>SLDSRC</td>
+
+	7168	<td
+	7169	colspan='2'
+	7170	nowrap>Slider
+	7171	Source</td>
+
+	7172	</tr>
+
+	7173	<tr>
+
+	7174	<td>SLDRWK</td>
+
+	7175	<td
+	7176	colspan='2'
+	7177	nowrap>Slider
+	7178	Rework
+	7179	Flag</td>
+
+	7180	</tr>
+
+	7181	</table>
+
+	7182	</div>
+
+</td>
+<td>&nbsp;</td>
+<td
+	7183	colspan='3'>
+
+
+	7184	<input
+	7185	type='checkbox'
+	7186	name='add_suspension'
+	7187	id='add_suspension'><label
+	7188	for='add_suspension'
+	7189	class='drag-check'>Suspension</label>
+
+
+	7190	<span
+	7191	style='cursor:pointer;
+	7192	color:#cc3333;'
+	7193	onClick='toggleDisplay("desc_suspension")'>?</span>
+
+	7194	<div
+	7195	class='desc_suspension'
+	7196	style='position:absolute;
+	7197	background-color:#ffffcc;
+	7198	display:none'>
+
+	7199	<table
+	7200	border='1'
+	7201	style='font-size:12px'>
+
+	7202	<tr>
+
+	7203	<th
+	7204	style='color:#000000;
+	7205	background-color:#ffffcc'>Column</th>
+
+	7206	<th
+	7207	style='color:#000000;
+	7208	background-color:#ffffcc'>
+
+	7209	<table
+	7210	cellpadding='0'
+	7211	cellspacing='0'
+	7212	style='font-size:12px'>
+
+	7213	<tr>
+
+	7214	<th
+	7215	width='100%'
+	7216	style='color:#000000;
+	7217	background-color:#ffffcc'>Description</th>
+
+	7218	<td
+	7219	align='right'><img
+	7220	src='/dwh/image/close.gif'
+	7221	style='cursor:pointer'
+	7222	onClick='toggleDisplay("desc_suspension")'></td>
+
+	7223	</tr>
+
+	7224	</table>
+
+	7225	</th>
+
+	7226	</tr>
+
+	7227	<tr>
+
+	7228	<td>SUSPPN</td>
+
+	7229	<td
+	7230	colspan='2'
+	7231	nowrap>Suspension
+	7232	Parts
+	7233	Number</td>
+
+	7234	</tr>
+
+	7235	<tr>
+
+	7236	<td>SUSPLOT</td>
+
+	7237	<td
+	7238	colspan='2'
+	7239	nowrap>Suspension
+	7240	Lot</td>
+
+	7241	</tr>
+
+	7242	<tr>
+
+	7243	<td>SUSPSRC</td>
+
+	7244	<td
+	7245	colspan='2'
+	7246	nowrap>Suspension
+	7247	Source</td>
+
+	7248	</tr>
+
+	7249	<tr>
+
+	7250	<td>SUSPRWK</td>
+
+	7251	<td
+	7252	colspan='2'
+	7253	nowrap>Suspension
+	7254	Rework
+	7255	Flag</td>
+
+	7256	</tr>
+
+	7257	<tr>
+
+	7258	<td>SUSPDATECODE</td>
+
+	7259	<td
+	7260	colspan='2'
+	7261	nowrap>Suspension
+	7262	Date
+	7263	Code</td>
+
+	7264	</tr>
+
+	7265	</table>
+
+	7266	</div>
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+
+	7267	<input
+	7268	type='checkbox'
+	7269	name='add_carriage'
+	7270	id='add_carriage'><label
+	7271	for='add_carriage'
+	7272	class='drag-check'>Carriage</label>
+
+
+	7273	<span
+	7274	style='cursor:pointer;
+	7275	color:#cc3333;'
+	7276	onClick='toggleDisplay("desc_carriage")'>?</span>
+
+	7277	<div
+	7278	class='desc_carriage'
+	7279	style='position:absolute;
+	7280	background-color:#ffffcc;
+	7281	display:none'>
+
+	7282	<table
+	7283	border='1'
+	7284	style='font-size:12px'>
+
+	7285	<tr>
+
+	7286	<th
+	7287	style='color:#000000;
+	7288	background-color:#ffffcc'>Column</th>
+
+	7289	<th
+	7290	style='color:#000000;
+	7291	background-color:#ffffcc'>
+
+	7292	<table
+	7293	cellpadding='0'
+	7294	cellspacing='0'
+	7295	style='font-size:12px'>
+
+	7296	<tr>
+
+	7297	<th
+	7298	width='100%'
+	7299	style='color:#000000;
+	7300	background-color:#ffffcc'>Description</th>
+
+	7301	<td
+	7302	align='right'><img
+	7303	src='/dwh/image/close.gif'
+	7304	style='cursor:pointer'
+	7305	onClick='toggleDisplay("desc_carriage")'></td>
+
+	7306	</tr>
+
+	7307	</table>
+
+	7308	</th>
+
+	7309	</tr>
+
+	7310	<tr>
+
+	7311	<td>CRRGPN</td>
+
+	7312	<td
+	7313	colspan='2'
+	7314	nowrap>Carriage
+	7315	Parts
+	7316	Number</td>
+
+	7317	</tr>
+
+	7318	<tr>
+
+	7319	<td>CRRGLOT</td>
+
+	7320	<td
+	7321	colspan='2'
+	7322	nowrap>Carriage
+	7323	Lot</td>
+
+	7324	</tr>
+
+	7325	<tr>
+
+	7326	<td>CRRGSRC</td>
+
+	7327	<td
+	7328	colspan='2'
+	7329	nowrap>Carriage
+	7330	Source</td>
+
+	7331	</tr>
+
+	7332	<tr>
+
+	7333	<td>CRRGRWK</td>
+
+	7334	<td
+	7335	colspan='2'
+	7336	nowrap>Carriage
+	7337	Rework
+	7338	Flag</td>
+
+	7339	</tr>
+
+	7340	<tr>
+
+	7341	<td>CRRGMAXAECH</td>
+
+	7342	<td
+	7343	colspan='2'
+	7344	nowrap>Carriage
+	7345	Max
+	7346	Number
+	7347	of
+	7348	AE
+	7349	Channel</td>
+
+	7350	</tr>
+
+	7351	<tr>
+
+	7352	<td>CRRGDATECODE</td>
+
+	7353	<td
+	7354	colspan='2'
+	7355	nowrap>Carriage
+	7356	Date
+	7357	Code</td>
+
+	7358	</tr>
+
+	7359	</table>
+
+	7360	</div>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	7361	<input
+	7362	type='checkbox'
+	7363	name='add_pivot'
+	7364	id='add_pivot'><label
+	7365	for='add_pivot'
+	7366	class='drag-check'>Pivot</label>
+
+
+	7367	<span
+	7368	style='cursor:pointer;
+	7369	color:#cc3333;'
+	7370	onClick='toggleDisplay("desc_pivot")'>?</span>
+
+	7371	<div
+	7372	class='desc_pivot'
+	7373	style='position:absolute;
+	7374	background-color:#ffffcc;
+	7375	display:none'>
+
+	7376	<table
+	7377	border='1'
+	7378	style='font-size:12px'>
+
+	7379	<tr>
+
+	7380	<th
+	7381	style='color:#000000;
+	7382	background-color:#ffffcc'>Column</th>
+
+	7383	<th
+	7384	style='color:#000000;
+	7385	background-color:#ffffcc'>
+
+	7386	<table
+	7387	cellpadding='0'
+	7388	cellspacing='0'
+	7389	style='font-size:12px'>
+
+	7390	<tr>
+
+	7391	<th
+	7392	width='100%'
+	7393	style='color:#000000;
+	7394	background-color:#ffffcc'>Description</th>
+
+	7395	<td
+	7396	align='right'><img
+	7397	src='/dwh/image/close.gif'
+	7398	style='cursor:pointer'
+	7399	onClick='toggleDisplay("desc_pivot")'></td>
+
+	7400	</tr>
+
+	7401	</table>
+
+	7402	</th>
+
+	7403	</tr>
+
+	7404	<tr>
+
+	7405	<td>PIVOTPN</td>
+
+	7406	<td
+	7407	colspan='2'
+	7408	nowrap>Pivot
+	7409	Parts
+	7410	Number</td>
+
+	7411	</tr>
+
+	7412	<tr>
+
+	7413	<td>PIVOTLOT</td>
+
+	7414	<td
+	7415	colspan='2'
+	7416	nowrap>Pivot
+	7417	Lot</td>
+
+	7418	</tr>
+
+	7419	<tr>
+
+	7420	<td>PIVOTSRC</td>
+
+	7421	<td
+	7422	colspan='2'
+	7423	nowrap>Pivot
+	7424	Source</td>
+
+	7425	</tr>
+
+	7426	<tr>
+
+	7427	<td>PIVOTRWK</td>
+
+	7428	<td
+	7429	colspan='2'
+	7430	nowrap>Pivot
+	7431	Rework
+	7432	Flag</td>
+
+	7433	</tr>
+
+	7434	<tr>
+
+	7435	<td>PIVOTDATECODE</td>
+
+	7436	<td
+	7437	colspan='2'
+	7438	nowrap>Pivot
+	7439	Date
+	7440	Code</td>
+
+	7441	</tr>
+
+	7442	</table>
+
+	7443	</div>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	7444	<input
+	7445	type='checkbox'
+	7446	name='add_flex'
+	7447	id='add_flex'><label
+	7448	for='add_flex'
+	7449	class='drag-check'>Flex</label>
+
+
+	7450	<span
+	7451	style='cursor:pointer;
+	7452	color:#cc3333;'
+	7453	onClick='toggleDisplay("desc_flex")'>?</span>
+
+	7454	<div
+	7455	class='desc_flex'
+	7456	style='position:absolute;
+	7457	background-color:#ffffcc;
+	7458	display:none'>
+
+	7459	<table
+	7460	border='1'
+	7461	style='font-size:12px'>
+
+	7462	<tr>
+
+	7463	<th
+	7464	style='color:#000000;
+	7465	background-color:#ffffcc'>Column</th>
+
+	7466	<th
+	7467	style='color:#000000;
+	7468	background-color:#ffffcc'>
+
+	7469	<table
+	7470	cellpadding='0'
+	7471	cellspacing='0'
+	7472	style='font-size:12px'>
+
+	7473	<tr>
+
+	7474	<th
+	7475	width='100%'
+	7476	style='color:#000000;
+	7477	background-color:#ffffcc'>Description</th>
+
+	7478	<td
+	7479	align='right'><img
+	7480	src='/dwh/image/close.gif'
+	7481	style='cursor:pointer'
+	7482	onClick='toggleDisplay("desc_flex")'></td>
+
+	7483	</tr>
+
+	7484	</table>
+
+	7485	</th>
+
+	7486	</tr>
+
+	7487	<tr>
+
+	7488	<td>FLEXPN</td>
+
+	7489	<td
+	7490	colspan='2'
+	7491	nowrap>Flex
+	7492	Cable
+	7493	Parts
+	7494	Number</td>
+
+	7495	</tr>
+
+	7496	<tr>
+
+	7497	<td>FLEXLOT</td>
+
+	7498	<td
+	7499	colspan='2'
+	7500	nowrap>Flex
+	7501	Cable
+	7502	Lot</td>
+
+	7503	</tr>
+
+	7504	<tr>
+
+	7505	<td>FLEXSRC</td>
+
+	7506	<td
+	7507	colspan='2'
+	7508	nowrap>Flex
+	7509	Cable
+	7510	Source</td>
+
+	7511	</tr>
+
+	7512	<tr>
+
+	7513	<td>FLEXRWK</td>
+
+	7514	<td
+	7515	colspan='2'
+	7516	nowrap>Flex
+	7517	Cable
+	7518	Rework
+	7519	Flag</td>
+
+	7520	</tr>
+
+	7521	<tr>
+
+	7522	<td>FLEXMAXARCH</td>
+
+	7523	<td
+	7524	colspan='2'
+	7525	nowrap>Flex
+	7526	Cable
+	7527	Max
+	7528	Number
+	7529	of
+	7530	AE
+	7531	Channel</td>
+
+	7532	</tr>
+
+	7533	<tr>
+
+	7534	<td>FLEXDATECODE</td>
+
+	7535	<td
+	7536	colspan='2'
+	7537	nowrap>Flex
+	7538	Cable
+	7539	Date
+	7540	Code</td>
+
+	7541	</tr>
+
+	7542	</table>
+
+	7543	</div>
+
+</td>
+<td>&nbsp;</td>
+<td>
+
+
+	7544	<input
+	7545	type='checkbox'
+	7546	name='add_ae'
+	7547	id='add_ae'><label
+	7548	for='add_ae'
+	7549	class='drag-check'>AE</label>
+
+
+	7550	<span
+	7551	style='cursor:pointer;
+	7552	color:#cc3333;'
+	7553	onClick='toggleDisplay("desc_ae")'>?</span>
+
+	7554	<div
+	7555	class='desc_ae'
+	7556	style='position:absolute;
+	7557	background-color:#ffffcc;
+	7558	display:none'>
+
+	7559	<table
+	7560	border='1'
+	7561	style='font-size:12px'>
+
+	7562	<tr>
+
+	7563	<th
+	7564	style='color:#000000;
+	7565	background-color:#ffffcc'>Column</th>
+
+	7566	<th
+	7567	style='color:#000000;
+	7568	background-color:#ffffcc'>
+
+	7569	<table
+	7570	cellpadding='0'
+	7571	cellspacing='0'
+	7572	style='font-size:12px'>
+
+	7573	<tr>
+
+	7574	<th
+	7575	width='100%'
+	7576	style='color:#000000;
+	7577	background-color:#ffffcc'>Description</th>
+
+	7578	<td
+	7579	align='right'><img
+	7580	src='/dwh/image/close.gif'
+	7581	style='cursor:pointer'
+	7582	onClick='toggleDisplay("desc_ae")'></td>
+
+	7583	</tr>
+
+	7584	</table>
+
+	7585	</th>
+
+	7586	</tr>
+
+	7587	<tr>
+
+	7588	<td>AEPN</td>
+
+	7589	<td
+	7590	colspan='2'
+	7591	nowrap>AE
+	7592	Parts
+	7593	Number</td>
+
+	7594	</tr>
+
+	7595	<tr>
+
+	7596	<td>AESRC</td>
+
+	7597	<td
+	7598	colspan='2'
+	7599	nowrap>AE
+	7600	Source</td>
+
+	7601	</tr>
+
+	7602	</table>
+
+	7603	</div>
+
+</td>
+</tr>
+</table>
+
+
+
+	7604	<hr
+	7605	width='100%'>
+
+	7606	
+
+
+	7607	<input
+	7608	type='checkbox'
+	7609	disabled><span
+	7610	style='color:silver'
+	7611	title='Available
+	7612	for
+	7613	Main
+	7614	ASM
+	7615	or
+	7616	following
+	7617	HDD
+	7618	process'>SPA
+	7619	Model</span>
+
+
+
+</td>
+</tr>
+
+</table>
+
+
+<p>
+<input
+	7620	class='submit'
+	7621	type='submit'
+	7622	value='Retrieve'
+	7623	onClick='setTargetWindow(this.form)'>
+<input
+	7624	class='reset'
+	7625	type='reset'
+	7626	value='Clear'>
+</p>
+
+</form>
+
+<br>
+
+
+
+
+<script
+	7627	type='text/javascript'>
+<!--
+
+	7628	if
+	7629	(typeof
+	7630	SELECTION
+	7631	==
+	7632	"undefined")
+	7633	{
+
+	7634	var
+	7635	SELECTION
+	7636	=
+	7637	{};
+
+	7638	}
+
+	7639	SELECTION.isMousedown
+	7640	=
+	7641	false;
+
+	7642	SELECTION.isChecked
+	7643	=
+	7644	false;
+
+	7645	SELECTION.clickedElement
+	7646	=
+	7647	undefined;
+
+	7648	SELECTION.mousedown
+	7649	=
+	7650	function(e)
+	7651	{
+
+	7652	e
+	7653	=
+	7654	e
+	7655	||
+	7656	window.event;
+//
+	7657	SELECTION.clickedElement
+	7658	=
+	7659	e.target
+	7660	||
+	7661	e.srcElement;
+//
+	7662	var
+	7663	target
+	7664	=
+	7665	SELECTION.clickedElement;
+
+	7666	var
+	7667	target
+	7668	=
+	7669	e.target
+	7670	||
+	7671	e.srcElement;
+
+	7672	if
+	7673	(target.className
+	7674	==
+	7675	"drag-check")
+	7676	{
+
+	7677	if
+	7678	(target.htmlFor)
+	7679	{
+
+	7680	target
+	7681	=
+	7682	document.getElementById(target.htmlFor);
+
+	7683	}
+
+	7684	}
+
+	7685	if
+	7686	(target.type
+	7687	==
+	7688	"checkbox")
+	7689	{
+
+	7690	SELECTION.isMousedown
+	7691	=
+	7692	true;
+
+	7693	SELECTION.isChecked
+	7694	=
+	7695	!target.checked;
+
+	7696	SELECTION.clickedElement
+	7697	=
+	7698	target;
+
+	7699	SELECTION.clickedElement.onmouseout
+	7700	=
+	7701	function(){if
+	7702	(SELECTION.isMousedown)
+	7703	{target.click();}}
+
+	7704	}
+
+	7705	};
+
+	7706	SELECTION.mouseup
+	7707	=
+	7708	function(e)
+	7709	{
+
+	7710	SELECTION.isMousedown
+	7711	=
+	7712	false;
+
+	7713	if
+	7714	(SELECTION.clickedElement)
+	7715	{
+
+	7716	SELECTION.clickedElement.onmouseout
+	7717	=
+	7718	null;
+
+	7719	}
+
+	7720	};
+
+	7721	SELECTION.mouseover
+	7722	=
+	7723	function(e)
+	7724	{
+
+	7725	e
+	7726	=
+	7727	e
+	7728	||
+	7729	window.event;
+
+	7730	var
+	7731	target
+	7732	=
+	7733	e.target
+	7734	||
+	7735	e.srcElement;
+
+	7736	if
+	7737	(target.className
+	7738	==
+	7739	"drag-check")
+	7740	{
+
+	7741	if
+	7742	(target.htmlFor)
+	7743	{
+
+	7744	target
+	7745	=
+	7746	document.getElementById(target.htmlFor);
+
+	7747	}
+	7748	else
+	7749	{
+
+	7750	var
+	7751	id
+	7752	=
+	7753	target.id.substring(3);
+
+	7754	target
+	7755	=
+	7756	document.getElementById(id);
+
+	7757	}
+
+	7758	}
+
+	7759	if
+	7760	(SELECTION.isMousedown
+	7761	&&
+	7762	target.type
+	7763	==
+	7764	"checkbox")
+	7765	{
+
+	7766	if
+	7767	((SELECTION.isChecked
+	7768	&&
+	7769	!target.checked)
+	7770	||
+	7771	(!SELECTION.isChecked
+	7772	&&
+	7773	target.checked))
+	7774	{
+
+	7775	target.click();
+
+	7776	}
+
+	7777	}
+
+	7778	};
+
+	7779	Event.observe(document,
+	7780	"mousedown",
+	7781	SELECTION.mousedown);
+
+	7782	Event.observe(document,
+	7783	"mouseup",
+	7784	SELECTION.mouseup);
+
+	7785	Event.observe(document,
+	7786	"mouseover",
+	7787	SELECTION.mouseover);
+//-->
+</script>
+
+
+
+</div>
+</body>
+</html>
+
+
+
+		

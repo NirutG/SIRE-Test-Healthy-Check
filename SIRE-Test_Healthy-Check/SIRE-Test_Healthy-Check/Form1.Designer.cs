@@ -70,6 +70,14 @@
             this.labelUrlToRetrieveParam = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
+            this.textBoxFirstIndex = new System.Windows.Forms.TextBox();
+            this.labelFirstIndex = new System.Windows.Forms.Label();
+            this.textBoxLastIndex = new System.Windows.Forms.TextBox();
+            this.labelLastIndex = new System.Windows.Forms.Label();
+            this.textBoxStringLength = new System.Windows.Forms.TextBox();
+            this.labelStringLength = new System.Windows.Forms.Label();
+            this.textBoxWordFinding = new System.Windows.Forms.TextBox();
+            this.labelWordFinding = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -96,7 +104,6 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.ScrollBarsEnabled = false;
             this.webBrowser1.Size = new System.Drawing.Size(998, 940);
             this.webBrowser1.TabIndex = 1;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
@@ -436,6 +443,14 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.labelWordFinding);
+            this.tabPage3.Controls.Add(this.textBoxWordFinding);
+            this.tabPage3.Controls.Add(this.labelLastIndex);
+            this.tabPage3.Controls.Add(this.textBoxLastIndex);
+            this.tabPage3.Controls.Add(this.labelStringLength);
+            this.tabPage3.Controls.Add(this.labelFirstIndex);
+            this.tabPage3.Controls.Add(this.textBoxStringLength);
+            this.tabPage3.Controls.Add(this.textBoxFirstIndex);
             this.tabPage3.Controls.Add(this.textBoxUrlToRetrieveParam);
             this.tabPage3.Controls.Add(this.labelUrlToRetrieveParam);
             this.tabPage3.Controls.Add(this.dataGridView1);
@@ -466,7 +481,7 @@
             this.textBoxUrlToRetrieveParam.Location = new System.Drawing.Point(539, 324);
             this.textBoxUrlToRetrieveParam.Multiline = true;
             this.textBoxUrlToRetrieveParam.Name = "textBoxUrlToRetrieveParam";
-            this.textBoxUrlToRetrieveParam.Size = new System.Drawing.Size(709, 308);
+            this.textBoxUrlToRetrieveParam.Size = new System.Drawing.Size(709, 226);
             this.textBoxUrlToRetrieveParam.TabIndex = 11;
             // 
             // labelUrlToRetrieveParam
@@ -486,6 +501,71 @@
             // 
             this.timerStateCyclic.Interval = 10;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
+            // 
+            // textBoxFirstIndex
+            // 
+            this.textBoxFirstIndex.Location = new System.Drawing.Point(537, 589);
+            this.textBoxFirstIndex.Name = "textBoxFirstIndex";
+            this.textBoxFirstIndex.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFirstIndex.TabIndex = 12;
+            // 
+            // labelFirstIndex
+            // 
+            this.labelFirstIndex.AutoSize = true;
+            this.labelFirstIndex.Location = new System.Drawing.Point(537, 570);
+            this.labelFirstIndex.Name = "labelFirstIndex";
+            this.labelFirstIndex.Size = new System.Drawing.Size(55, 13);
+            this.labelFirstIndex.TabIndex = 13;
+            this.labelFirstIndex.Text = "First Index";
+            // 
+            // textBoxLastIndex
+            // 
+            this.textBoxLastIndex.Location = new System.Drawing.Point(667, 589);
+            this.textBoxLastIndex.Name = "textBoxLastIndex";
+            this.textBoxLastIndex.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLastIndex.TabIndex = 12;
+            // 
+            // labelLastIndex
+            // 
+            this.labelLastIndex.AutoSize = true;
+            this.labelLastIndex.Location = new System.Drawing.Point(667, 570);
+            this.labelLastIndex.Name = "labelLastIndex";
+            this.labelLastIndex.Size = new System.Drawing.Size(56, 13);
+            this.labelLastIndex.TabIndex = 13;
+            this.labelLastIndex.Text = "Last Index";
+            // 
+            // textBoxStringLength
+            // 
+            this.textBoxStringLength.Location = new System.Drawing.Point(793, 589);
+            this.textBoxStringLength.Name = "textBoxStringLength";
+            this.textBoxStringLength.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStringLength.TabIndex = 12;
+            // 
+            // labelStringLength
+            // 
+            this.labelStringLength.AutoSize = true;
+            this.labelStringLength.Location = new System.Drawing.Point(793, 570);
+            this.labelStringLength.Name = "labelStringLength";
+            this.labelStringLength.Size = new System.Drawing.Size(70, 13);
+            this.labelStringLength.TabIndex = 13;
+            this.labelStringLength.Text = "String Length";
+            // 
+            // textBoxWordFinding
+            // 
+            this.textBoxWordFinding.Location = new System.Drawing.Point(537, 644);
+            this.textBoxWordFinding.Multiline = true;
+            this.textBoxWordFinding.Name = "textBoxWordFinding";
+            this.textBoxWordFinding.Size = new System.Drawing.Size(702, 145);
+            this.textBoxWordFinding.TabIndex = 14;
+            // 
+            // labelWordFinding
+            // 
+            this.labelWordFinding.AutoSize = true;
+            this.labelWordFinding.Location = new System.Drawing.Point(537, 624);
+            this.labelWordFinding.Name = "labelWordFinding";
+            this.labelWordFinding.Size = new System.Drawing.Size(70, 13);
+            this.labelWordFinding.TabIndex = 15;
+            this.labelWordFinding.Text = "Word Finding";
             // 
             // Form1
             // 
@@ -554,6 +634,14 @@
         private System.Windows.Forms.TextBox textBoxStateDownloadCsvFile;
         private System.Windows.Forms.Label labelUrlToRetrieveParam;
         private System.Windows.Forms.TextBox textBoxUrlToRetrieveParam;
+        private System.Windows.Forms.Label labelLastIndex;
+        private System.Windows.Forms.TextBox textBoxLastIndex;
+        private System.Windows.Forms.Label labelFirstIndex;
+        private System.Windows.Forms.TextBox textBoxFirstIndex;
+        private System.Windows.Forms.Label labelStringLength;
+        private System.Windows.Forms.TextBox textBoxStringLength;
+        private System.Windows.Forms.Label labelWordFinding;
+        private System.Windows.Forms.TextBox textBoxWordFinding;
     }
 }
 
