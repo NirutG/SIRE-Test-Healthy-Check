@@ -523,7 +523,7 @@
             // 
             // timerStateCyclic
             // 
-            this.timerStateCyclic.Interval = 10;
+            this.timerStateCyclic.Interval = 1;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
             // Form1

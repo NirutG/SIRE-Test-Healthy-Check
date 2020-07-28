@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,6 +36,7 @@ namespace SIRE_Test_Healthy_Check
 
         string[] wordSplit; //Decare String array to use in Function split_Text()
         string urlToRetrieveParam = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Initial urlToRetrieveParam
+        string wordTarget = ""; //Initial to use with Function fine_Word()
 
         string wordRunning = ""; //Initial to use in Function find_WordIndex
         int indexRunning = 0; //Initial to use in Function find_WordIndex
@@ -155,9 +157,13 @@ namespace SIRE_Test_Healthy_Check
                     stateAddWordInRowTable = 2;
                     break;
                 case 2: //State2 : Make SubString by Remove no need characters from Web Code Response
+                    textBoxWebCodeResponse.Text = Regex.Replace(textBoxWebCodeResponse.Text, "\t|\n|\r", ""); //Test1 = OK
+                    //textBoxWebCodeResponse.Text = Regex.Replace(textBoxWebCodeResponse.Text, @"\\s+", ""); //Test2 = Not OK
+
                     wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(null); //SubState2.1 : Split null
                     wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); //SubState2.2
                     wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //SubState2.3 (InnerState2.1 to 2.3 = Remove no need characters)
+
                     stateAddWordInRowTable = 3;
                     break;
                 case 3: //State3 : Show WebCode Response SubString Length
@@ -253,10 +259,6 @@ namespace SIRE_Test_Healthy_Check
             switch (stateFindWordIndex)
             {
                 case 0: //State0 : Initial Variables
-                    //wordRunning = "";
-                    //textBoxWordRunning.Text = wordRunning; //Check Word Running
-                    //indexRunning = 0;
-                    //textBoxIndexRunning.Text = indexRunning.ToString(); // Check index
                     statusFindWordIndex = false;
                     stateFindWordIndex = 1;
                     break;
@@ -303,11 +305,11 @@ namespace SIRE_Test_Healthy_Check
             {
                 case 0: //Initial Variable
                     statusShowUrlToRetrieveParam = false;
-                    stateShowUrlToRetrieveParam = 1;
+                    //stateShowUrlToRetrieveParam = 1;
+                    stateShowUrlToRetrieveParam = 3;
                     int indexWord = 0;
                     break;
                 case 1: //State1 : Show URL to RetrieveParam
-                        
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[1037]) + "="; //Item1
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[1038]) + "&"; //Item2
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[1151]) + "="; //Item3
@@ -320,30 +322,127 @@ namespace SIRE_Test_Healthy_Check
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[2936]) + "&"; //Item10
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[2993]) + "="; //Item11
                     urlToRetrieveParam += split_Text(wordWebCodeResponse[2995]) + "&"; //Item12
-
                     stateShowUrlToRetrieveParam = 2;
                     break;
                 case 2: //State2 : Show URL to RetrieveParam(Continue)
-                    if(find_WordIndex("name='endtime0'", 2996))
+                    if(find_WordIndex("name='endtime0'", 2996)) 
                     {
                         urlToRetrieveParam += split_Text(wordRunning) + "="; //Item13
-                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item14
                         stateShowUrlToRetrieveParam = 2.1;
                     }
                     break;
                 case 2.1: //State2.1 : Show URL to RetrieveParam(Continue)
-                    if (find_WordIndex("name='enddate1'", (indexRunning + 2)))
+                    if (find_WordIndex("value='000000'", (indexRunning + 1))) 
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item14
+                        stateShowUrlToRetrieveParam = 2.2;
+                    }
+                    break;
+                case 2.2: //State2.2 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='enddate1'", (indexRunning + 1))) 
                     {
                         urlToRetrieveParam += split_Text(wordRunning) + "="; //Item15
                         urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 3]) + "&"; //Item16
+                        indexRunning += 3; // Update value
+                        stateShowUrlToRetrieveParam = 2.3;
+                    }
+                    break;
+                case 2.3: //State2.3 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='endtime1'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item17
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item18
+                        indexRunning += 1; // Update value
+                        stateShowUrlToRetrieveParam = 2.4;
+                    }
+                    break;
+                case 2.4: //State2.4 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='scanmode'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item19
+                        stateShowUrlToRetrieveParam = 2.5;
+                    }
+                    break;
+                case 2.5: //State2.5 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("value='all'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item20
+                        stateShowUrlToRetrieveParam = 2.6;
+                    }
+                    break;
+                case 2.6: //State2.6 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='scanmodesub'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item21
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item22
+                        indexRunning += 1; // Update value
                         stateShowUrlToRetrieveParam = 3;
                     }
                     break;
+                //case 2.7: //State2.7 : 
+                  //  urlToRetrieveParam += split_Text(wordWebCodeResponse[4173]) + "="; //Item23
+                    //stateShowUrlToRetrieveParam = 3;
+                    //break;
+                /*
+                                case 2.7: //State2.7 : Show URL to RetrieveParam(Continue)
+                                    if (find_WordIndex("name='process'>", (indexRunning + 1)))
+                                    {
+                                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item23
+                                        stateShowUrlToRetrieveParam = 3;
+                                    }
+                                    break;
+
+                        case 2.8: //State2.8 : Show URL to RetrieveParam(Continue)
+                            if (find_WordIndex("value='1800'>1800:", (indexRunning + 1)))
+                            {
+                                urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item24
+                                stateShowUrlToRetrieveParam = 3;
+                            }
+                            break;
+                        /*
+                    case 2.6: //State2.6 : Show URL to RetrieveParam(Continue)
+                        if (find_WordIndex("name='process'>", (indexRunning + 2)))
+                        {
+                            urlToRetrieveParam += split_Text(wordRunning) + "="; //Item23
+                            stateShowUrlToRetrieveParam = 2.7;
+                        }
+                        break;
+                    case 2.7: //State2.7 : Show URL to RetrieveParam(Continue)
+                        if (find_WordIndex("value='1800'>1800:>", (indexRunning + 1)))
+                        {
+                            urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item24
+                            stateShowUrlToRetrieveParam = 2.8;
+                        }
+                        break;
+                    case 2.8: //State2.8 : Show URL to RetrieveParam(Continue)
+                        if (find_WordIndex("name='snlist'", (indexRunning + 1)))
+                        {
+                            urlToRetrieveParam += split_Text(wordRunning) + "=" + "&"; //Item25
+                            stateShowUrlToRetrieveParam = 2.9;
+                        }
+                        break;
+                    case 2.9: //State2.9 : Show URL to RetrieveParam(Continue)
+                        if (find_WordIndex("name='pfcode'", (indexRunning + 1)))
+                        {
+                            urlToRetrieveParam += split_Text(wordRunning) + "=" + "&"; //Item26
+                            stateShowUrlToRetrieveParam = 2.11; //Double must use 2.11 than 2.10
+                        }
+                        break;
+                    case 2.11: //State2.11 : Show URL to RetrieveParam(Continue)
+                        if (find_WordIndex("name='pfcode'", (indexRunning + 1)))
+                        {
+                            urlToRetrieveParam += split_Text(wordRunning) + "=" + "&"; //Item27
+                            stateShowUrlToRetrieveParam = 3;
+                        }
+                        break;
+                        */
+
+
                 case 3: //State3 : Show URL to RetrieveParam(Continue)
                     textBoxUrlToRetrieveParam.Text = urlToRetrieveParam;
-                    stateShowUrlToRetrieveParam = 4;
+                    stateShowUrlToRetrieveParam = 10;
                     break;
-                case 4: //State4 : Clear Variable
+                case 10: //State10 : Clear Variable
                     statusShowUrlToRetrieveParam = true;
                     stateShowUrlToRetrieveParam = 0;
                     break;
@@ -413,7 +512,6 @@ namespace SIRE_Test_Healthy_Check
                         if (addword_InRowTable())
                         {
                             stateDownloadCsvFile = 9;
-                            //stateDownloadCsvFile = 100;
                         }
                         break;
                     case 9: //State9 : Show URL to RetrieveParam
