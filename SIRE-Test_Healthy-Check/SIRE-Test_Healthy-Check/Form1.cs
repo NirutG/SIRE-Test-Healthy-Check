@@ -240,7 +240,7 @@ namespace SIRE_Test_Healthy_Check
         //##### Begin : split_Text
         private string split_Text(string textInput)
         {
-            if(textInput == wordWebCodeResponse[2582])
+            if(textInput == wordWebCodeResponse[2576]) // For only Item8, Index[2576] : <option>PCM-ALL</option>
             {
                 wordSplit = textInput.Split('<','>');
                 return wordSplit[2];
@@ -305,84 +305,121 @@ namespace SIRE_Test_Healthy_Check
             {
                 case 0: //Initial Variable
                     statusShowUrlToRetrieveParam = false;
-                    //stateShowUrlToRetrieveParam = 1;
-                    stateShowUrlToRetrieveParam = 3;
+                    stateShowUrlToRetrieveParam = 1;
+                    //stateShowUrlToRetrieveParam = 3;
                     int indexWord = 0;
                     break;
                 case 1: //State1 : Show URL to RetrieveParam
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1037]) + "="; //Item1
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1038]) + "&"; //Item2
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1151]) + "="; //Item3
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1153]) + "&"; //Item4
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1160]) + "="; //Item5
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1513]) + "25" + "&"; //Item6
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1632]) + "="; //Item7
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2582]) + "&"; //Item8
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2935]) + "="; //Item9
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2936]) + "&"; //Item10
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2993]) + "="; //Item11
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2995]) + "&"; //Item12
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1031]) + "="; //Item1 : name='action'
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1032]) + "&"; //Item2 : value='retrieveProcess'><div
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1145]) + "="; //Item3 : name='location'>
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1147]) + "&"; //Item4 : value='0'>PRB</option>
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1154]) + "="; //Item5 : name='mtype'
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1507]) + "25" + "&"; //Item6 : value='PCM%'>PCM%</option>
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1626]) + "="; //Item7 : name='modelid'>
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2576]) + "&"; //Item8 : <option>PCM-ALL</option>
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2927]) + "="; //Item9 : name='datekey'
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2928]) + "&"; //Item10 : value='test'
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2983]) + "="; //Item11 : name='enddate0'>
+                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2985]) + "&"; //Item12 : value='20200728'>2020-07-28
                     stateShowUrlToRetrieveParam = 2;
                     break;
                 case 2: //State2 : Show URL to RetrieveParam(Continue)
-                    if(find_WordIndex("name='endtime0'", 2996)) 
+                    if(find_WordIndex("name='endtime0'", 2986)) 
                     {
-                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item13
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item13 : name='endtime0'
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item14 : value='000000'
+                        indexRunning += 1; // Update value
                         stateShowUrlToRetrieveParam = 2.1;
                     }
                     break;
                 case 2.1: //State2.1 : Show URL to RetrieveParam(Continue)
-                    if (find_WordIndex("value='000000'", (indexRunning + 1))) 
+                    if (find_WordIndex("name='enddate1'", (indexRunning + 1))) 
                     {
-                        urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item14
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item15 : name='enddate1'
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 3]) + "&"; //Item16 : value='20200728'>2020-07-28
+                        indexRunning += 3; // Update value
                         stateShowUrlToRetrieveParam = 2.2;
                     }
                     break;
                 case 2.2: //State2.2 : Show URL to RetrieveParam(Continue)
-                    if (find_WordIndex("name='enddate1'", (indexRunning + 1))) 
+                    if (find_WordIndex("name='endtime1'", (indexRunning + 1)))
                     {
-                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item15
-                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 3]) + "&"; //Item16
-                        indexRunning += 3; // Update value
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item17 : name='endtime1'
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item18 : value='235959'
+                        indexRunning += 1; // Update value
                         stateShowUrlToRetrieveParam = 2.3;
                     }
                     break;
                 case 2.3: //State2.3 : Show URL to RetrieveParam(Continue)
-                    if (find_WordIndex("name='endtime1'", (indexRunning + 1)))
+                    if (find_WordIndex("name='scanmode'", (indexRunning + 1)))
                     {
-                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item17
-                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item18
-                        indexRunning += 1; // Update value
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item19 : name='scanmode'
                         stateShowUrlToRetrieveParam = 2.4;
                     }
                     break;
                 case 2.4: //State2.4 : Show URL to RetrieveParam(Continue)
-                    if (find_WordIndex("name='scanmode'", (indexRunning + 1)))
+                    if (find_WordIndex("value='all'", (indexRunning + 1)))
                     {
-                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item19
+                        urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item20 : value='all'
                         stateShowUrlToRetrieveParam = 2.5;
                     }
                     break;
                 case 2.5: //State2.5 : Show URL to RetrieveParam(Continue)
-                    if (find_WordIndex("value='all'", (indexRunning + 1)))
+                    if (find_WordIndex("name='scanmodesub'", (indexRunning + 1)))
                     {
-                        urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item20
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item21 : name='scanmodesub'
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item22 : value='found'
+                        indexRunning += 1; // Update value
                         stateShowUrlToRetrieveParam = 2.6;
                     }
                     break;
                 case 2.6: //State2.6 : Show URL to RetrieveParam(Continue)
-                    if (find_WordIndex("name='scanmodesub'", (indexRunning + 1)))
+                    if (find_WordIndex("name='process'>", (indexRunning + 1)))
                     {
-                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item21
-                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item22
-                        indexRunning += 1; // Update value
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item23 : name='process'>
+                        stateShowUrlToRetrieveParam = 2.7;
+                    }
+                    break;
+                case 2.7: //State2.7 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("value='1800'>1800:", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item24 : value='1800'>1800:
+                        stateShowUrlToRetrieveParam = 2.8;
+                    }
+                    break;
+                case 2.8: //State2.8 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='snlist'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "=" + "&"; //Item25 : name='snlist'
+                        stateShowUrlToRetrieveParam = 2.9;
+                    }
+                    break;
+                case 2.9: //State2.9 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='pfcode'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "=" + "&"; //Item26 : name='pfcode'
+                        stateShowUrlToRetrieveParam = 2.11;
+                    }
+                    break;
+                case 2.11: //State2.11 : Show URL to RetrieveParam(Continue) // Variable Double 2.1 will equal 2.10
+                    if (find_WordIndex("name='pfcode'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "=" + "&"; //Item27 : name='pfcode'
+                        stateShowUrlToRetrieveParam = 2.12;
+                    }
+                    break;
+                case 2.12: //State2.12 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='pfcode'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "=" + "&"; //Item28 : name='pfcode'
                         stateShowUrlToRetrieveParam = 3;
                     }
                     break;
                 //case 2.7: //State2.7 : 
-                  //  urlToRetrieveParam += split_Text(wordWebCodeResponse[4173]) + "="; //Item23
-                    //stateShowUrlToRetrieveParam = 3;
-                    //break;
+                //  urlToRetrieveParam += split_Text(wordWebCodeResponse[4173]) + "="; //Item23
+                //stateShowUrlToRetrieveParam = 3;
+                //break;
                 /*
                                 case 2.7: //State2.7 : Show URL to RetrieveParam(Continue)
                                     if (find_WordIndex("name='process'>", (indexRunning + 1)))
