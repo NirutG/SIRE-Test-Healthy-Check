@@ -240,7 +240,7 @@ namespace SIRE_Test_Healthy_Check
         //##### Begin : split_Text
         private string split_Text(string textInput)
         {
-            if(textInput == wordWebCodeResponse[2576]) // For only Item8, Index[2576] : <option>PCM-ALL</option>
+            if(textInput == "<option>PCM-ALL</option>") // For only Item8 : <option>PCM-ALL</option>
             {
                 wordSplit = textInput.Split('<','>');
                 return wordSplit[2];
@@ -305,27 +305,82 @@ namespace SIRE_Test_Healthy_Check
             {
                 case 0: //Initial Variable
                     statusShowUrlToRetrieveParam = false;
+                    indexRunning = 0;
                     stateShowUrlToRetrieveParam = 1;
-                    //stateShowUrlToRetrieveParam = 3;
-                    int indexWord = 0;
                     break;
                 case 1: //State1 : Show URL to RetrieveParam
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1031]) + "="; //Item1 : name='action'
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1032]) + "&"; //Item2 : value='retrieveProcess'><div
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1145]) + "="; //Item3 : name='location'>
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1147]) + "&"; //Item4 : value='0'>PRB</option>
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1154]) + "="; //Item5 : name='mtype'
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1507]) + "25" + "&"; //Item6 : value='PCM%'>PCM%</option>
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1626]) + "="; //Item7 : name='modelid'>
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2576]) + "&"; //Item8 : <option>PCM-ALL</option>
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2927]) + "="; //Item9 : name='datekey'
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2928]) + "&"; //Item10 : value='test'
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2983]) + "="; //Item11 : name='enddate0'>
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2985]) + "&"; //Item12 : value='20200728'>2020-07-28
-                    stateShowUrlToRetrieveParam = 2;
+                    if (find_WordIndex("name='action'", indexRunning))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item1 : name='action'
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item2 : value='retrieveProcess'><div
+                        indexRunning += 1; // Update value
+                        stateShowUrlToRetrieveParam = 1.1;
+                    }
                     break;
+                case 1.1: //State1.1 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='location'>", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item3 : name='location'>
+                        stateShowUrlToRetrieveParam = 1.2;
+                    }
+                    break;
+                case 1.2: //State1.2 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("value='0'>PRB</option>", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item4 : value='0'>PRB</option>
+                        stateShowUrlToRetrieveParam = 1.3;
+                    }
+                    break;
+                case 1.3: //State1.3 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='mtype'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item5 : name='mtype'
+                        stateShowUrlToRetrieveParam = 1.4;
+                    }
+                    break;
+                case 1.4: //State1.4 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("value='PCM%'>PCM%</option>", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "25" + "&"; //Item6 : value='PCM%'>PCM%</option>
+                        stateShowUrlToRetrieveParam = 1.5;
+                    }
+                    break;
+                case 1.5: //State1.5 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='modelid'>", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item7 : name='modelid'>
+                        stateShowUrlToRetrieveParam = 1.6;
+                    }
+                    break;
+                case 1.6: //State1.6 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("<option>PCM-ALL</option>", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "&"; //Item8 : <option>PCM-ALL</option>
+                        stateShowUrlToRetrieveParam = 1.7;
+                    }
+                    break;
+                case 1.7: //State1.7 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='datekey'", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item9 : name='datekey'
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item10 : value='test'
+                        indexRunning += 1; // Update value
+                        stateShowUrlToRetrieveParam = 1.8;
+                    }
+                    break;
+                case 1.8: //State1.8 : Show URL to RetrieveParam(Continue)
+                    if (find_WordIndex("name='enddate0'>", (indexRunning + 1)))
+                    {
+                        urlToRetrieveParam += split_Text(wordRunning) + "="; //Item11 : name='enddate0'>
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 2]) + "&"; //Item12 : value= current date
+                        indexRunning += 2; // Update value
+                        stateShowUrlToRetrieveParam = 2;
+                    }
+                    break;
+
+
                 case 2: //State2 : Show URL to RetrieveParam(Continue)
-                    if(find_WordIndex("name='endtime0'", 2986)) 
+                    if(find_WordIndex("name='endtime0'", (indexRunning + 1))) 
                     {
                         urlToRetrieveParam += split_Text(wordRunning) + "="; //Item13 : name='endtime0'
                         urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item14 : value='000000'
@@ -337,7 +392,7 @@ namespace SIRE_Test_Healthy_Check
                     if (find_WordIndex("name='enddate1'", (indexRunning + 1))) 
                     {
                         urlToRetrieveParam += split_Text(wordRunning) + "="; //Item15 : name='enddate1'
-                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 3]) + "&"; //Item16 : value='20200728'>2020-07-28
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 3]) + "&"; //Item16 : value= current date
                         indexRunning += 3; // Update value
                         stateShowUrlToRetrieveParam = 2.2;
                     }
@@ -1318,13 +1373,13 @@ namespace SIRE_Test_Healthy_Check
                         if (addword_InRowTable())
                         {
                             stateDownloadCsvFile = 9;
+                            //stateDownloadCsvFile = 100;
                         }
                         break;
                     case 9: //State9 : Show URL to RetrieveParam
                         if (show_UrlToRetrieveParam())
                         {
                             stateDownloadCsvFile = 10;
-                            //stateDownloadCsvFile = 100;
                         }
                         break;
                     case 10: //State10 : Go RetrieveParam Page
