@@ -1373,7 +1373,6 @@ namespace SIRE_Test_Healthy_Check
                         if (addword_InRowTable())
                         {
                             stateDownloadCsvFile = 9;
-                            //stateDownloadCsvFile = 100;
                         }
                         break;
                     case 9: //State9 : Show URL to RetrieveParam
@@ -1391,8 +1390,25 @@ namespace SIRE_Test_Healthy_Check
                     case 11: //State11 : Show WebCode Response String from Server
                         if (addword_InRowTable())
                         {
+                            //stateDownloadCsvFile = 12;
                             stateDownloadCsvFile = 100;
                         }
+                        break;
+                    case 12: //State12 : Show URL to get csv data
+                        /*
+                        if (show_UrlToGetCsvData())
+                        {
+                            stateDownloadCsvFile = 13;
+                        }
+                        */
+                        break;
+                    case 13: //State13 : Go csv Page
+                        /*
+                        if (go_Url(urlToGetCsvData))
+                        {
+                            stateDownloadCsvFile = 100;
+                        }
+                        */
                         break;
                     case 100: //State100 : End This Function and Resetting variables
                         switchDownloadCsvFile = false;
