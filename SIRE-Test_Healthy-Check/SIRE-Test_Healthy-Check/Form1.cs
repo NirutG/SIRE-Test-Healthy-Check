@@ -26,6 +26,7 @@ namespace SIRE_Test_Healthy_Check
         bool statusGoUrl = false; //Check Function go_Url is done?
         bool statusShowUrlToRetrieveProcess = false; //Check Function show_UrlToRetrieveProcess
         bool statusShowUrlToRetrieveParam = false; //Check Function show_UrlToRetrieveParam
+        bool statusShow_UrlToGetCsvData = false; //Check Function show_UrlToGetCsvData
 
         byte stateDelay = 0; //Initial State of Function delay at state0
         byte stateAddWordInRowTable = 0; //Initial State of Function addword_InRowTable
@@ -33,13 +34,19 @@ namespace SIRE_Test_Healthy_Check
         byte stateGoUrl = 0; //Initial State of Function go_Url
         byte stateShowUrlToRetrieveProcess = 0; //Initial State of Function show_UrlToRetrieveProcess
         double stateShowUrlToRetrieveParam = 0; //Initial State of Function show_UrlToRetrieveParam
+        double stateShow_UrlToGetCsvData = 0; //Initial State of Function show_UrlToGetCsvData
 
         string[] wordSplit; //Decare String array to use in Function split_Text()
         string urlToRetrieveParam = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Initial urlToRetrieveParam
+        string urlToGetCsvData = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Initial urlToRetrieveParam
         string wordTarget = ""; //Initial to use with Function fine_Word()
 
         string wordRunning = ""; //Initial to use in Function find_WordIndex
         int indexRunning = 0; //Initial to use in Function find_WordIndex
+        int indexParam1800Head = 0; //Initial to use in Function show_UrlToGetCsvData()
+        int indexParam1800Unit = 0; //Initial to use in Function show_UrlToGetCsvData()
+        int indexParam1800HeadValue = 0; //Initial to use in Function show_UrlToGetCsvData()
+        int indexParam1800UnitValue = 0; //Initial to use in Function show_UrlToGetCsvData()
         double testShow = 10.0;
         int test = 0;
         bool switchStepRun = false; //Decare to test function by STEP Run
@@ -305,6 +312,7 @@ namespace SIRE_Test_Healthy_Check
             {
                 case 0: //Initial Variable
                     statusShowUrlToRetrieveParam = false;
+                    urlToRetrieveParam = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Added new
                     indexRunning = 0;
                     stateShowUrlToRetrieveParam = 1;
                     break;
@@ -1314,6 +1322,369 @@ namespace SIRE_Test_Healthy_Check
         }
         //##### End : show_UrlToRetrieveParam
 
+        //##### Begin : show_UrlToGetCsvData
+        private bool show_UrlToGetCsvData()
+        {
+            switch (stateShow_UrlToGetCsvData)
+            {
+                case 0: //Initial Variable
+                    statusShow_UrlToGetCsvData = false;
+                    urlToGetCsvData = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?";
+                    indexRunning = 0;
+                    indexParam1800Head = 0;
+                    indexParam1800Unit = 0;
+                    indexParam1800HeadValue = 0;
+                    indexParam1800UnitValue = 0;
+                    stateShow_UrlToGetCsvData = 1;
+                    break;
+                case 1: //State1 : Show URL to GetCsvData
+                    if (find_WordIndex("name='action'", indexRunning))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item1 : name='action'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item2 : value='retrieveParam'><div
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.1;
+                    }
+                    break;
+                case 1.1: //State1.1 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='id'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item3 : name='id'>
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item4 : value='1596113827884'><input
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.2;
+                    }
+                    break;
+                case 1.2: //State1.2 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='location'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item5 : name='location'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item6 : value='0'><input
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.3;
+                    }
+                    break;
+                case 1.3: //State1.3 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='baseprocess'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item7 : name='baseprocess'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item8 : value='1800'><input
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.4;
+                    }
+                    break;
+                case 1.4: //State1.4 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='mtype'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item9 : name='mtype'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "25" + "&"; //Item10 : value='PCM%'><table     
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.5;
+                    }
+                    break;
+                case 1.5: //State1.5 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='device'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item11 : name='device'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item12 : value='web'     
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.6;
+                    }
+                    break;
+                case 1.6: //State1.6 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='format'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item13 : name='format'
+                        stateShow_UrlToGetCsvData = 1.7;
+                    }
+                    break;
+                case 1.7: //State1.7 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("value='csv'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item14 : value='csv'
+                        stateShow_UrlToGetCsvData = 1.8;
+                    }
+                    break;
+                case 1.8: //State1.8 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='samplerate_pass'><option", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item15 : name='samplerate_pass'><option
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item16 : value='100'>100</option><option     
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.9;
+                    }
+                    break;
+                case 1.9: //State1.9 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='samplerate_fail'><option", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item17 : name='samplerate_fail'><option
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item18 : value='100'>100</option><option     
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.11;
+                    }
+                    break;
+                case 1.11: //State1.11 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='maxcount_pass'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item19 : name='maxcount_pass'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item20 : value='xxx'     
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.12;
+                    }
+                    break;
+                case 1.12: //State1.12 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='foundcount_pass'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item21 : name='foundcount_pass'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item22 : value='xxx'     
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.13;
+                    }
+                    break;
+                case 1.13: //State1.13 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='maxcount_fail'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item23 : name='maxcount_fail'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item24 : value='xxx'     
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.14;
+                    }
+                    break;
+                case 1.14: //State1.14 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='foundcount_fail'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item25 : name='foundcount_fail'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item26 : value='xxx'     
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.15;
+                    }
+                    break;
+                case 1.15: //State1.15 : Show URL to GetCsvData(Continue)
+                    if (find_WordIndex("name='process'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item27 : name='process'
+                        urlToGetCsvData += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item28 : value='1800'     
+                        indexRunning += 1; // Update value
+                        stateShow_UrlToGetCsvData = 1.16;
+                    }
+                    break;
+                case 1.16: //State1.16 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_head'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item29 : name='param_1800_head'
+                        indexParam1800Head = indexRunning; // Assign indexParam1800Head = indexRunning
+                        stateShow_UrlToGetCsvData = 1.17;
+                    }
+                    break;
+                case 1.17: //State1.17 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='1:MR_RES:4:0'>1", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item30 : value='1:MR_RES:4:0'>1
+                        indexParam1800HeadValue = indexRunning; // Assign indexParam1800HeadValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.18;
+                    }
+                    break;
+
+                case 1.18: //State1.18 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_head'", indexParam1800Head))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item31 : name='param_1800_head'
+                        indexParam1800Head = indexRunning; // Assign indexParam1800Head = indexRunning
+                        stateShow_UrlToGetCsvData = 1.19;
+                    }
+                    break;
+                case 1.19: //State1.19 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='2:READV:4:0'>2", (indexParam1800HeadValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item32 : value='2:READV:4:0'>2
+                        indexParam1800HeadValue = indexRunning; // Assign indexParam1800HeadValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.21;
+                    }
+                    break;
+                case 1.21: //State1.21 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_head'", indexParam1800Head))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item33 : name='param_1800_head'
+                        indexParam1800Head = indexRunning; // Assign indexParam1800Head = indexRunning
+                        stateShow_UrlToGetCsvData = 1.22;
+                    }
+                    break;
+                case 1.22: //State1.22 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='3:MR_RES2:4:0'>3", (indexParam1800HeadValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item34 : value='3:MR_RES2:4:0'>3
+                        indexParam1800HeadValue = indexRunning; // Assign indexParam1800HeadValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.23;
+                    }
+                    break;
+                case 1.23: //State1.23 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_head'", indexParam1800Head))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item35 : name='param_1800_head'
+                        indexParam1800Head = indexRunning; // Assign indexParam1800Head = indexRunning
+                        stateShow_UrlToGetCsvData = 1.24;
+                    }
+                    break;
+                case 1.24: //State1.24 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='4:READV2:4:0'>4", (indexParam1800HeadValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item36 : value='4:READV2:4:0'>4
+                        indexParam1800HeadValue = indexRunning; // Assign indexParam1800HeadValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.25;
+                    }
+                    break;
+                case 1.25: //State1.25 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_head'", indexParam1800Head))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item37 : name='param_1800_head'
+                        indexParam1800Head = indexRunning; // Assign indexParam1800Head = indexRunning
+                        stateShow_UrlToGetCsvData = 1.26;
+                    }
+                    break;
+                case 1.26: //State1.26 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='5:TFC_RES:4:0'>5", (indexParam1800HeadValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item38 : value='5:TFC_RES:4:0'>5
+                        indexParam1800HeadValue = indexRunning; // Assign indexParam1800HeadValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.27;
+                    }
+                    break;
+                case 1.27: //State1.27 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_head'", indexParam1800Head))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item39 : name='param_1800_head'
+                        indexParam1800Head = indexRunning; // Assign indexParam1800Head = indexRunning
+                        stateShow_UrlToGetCsvData = 1.28;
+                    }
+                    break;
+                case 1.28: //State1.28 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='6:ECS_RES:4:0'>6", (indexParam1800HeadValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item40 : value='6:ECS_RES:4:0'>6
+                        indexParam1800HeadValue = indexRunning; // Assign indexParam1800HeadValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.29;
+                    }
+                    break;
+                case 1.29: //State1.29 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_head'", indexParam1800Head))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item41 : name='param_1800_head'
+                        indexParam1800Head = indexRunning; // Assign indexParam1800Head = indexRunning
+                        stateShow_UrlToGetCsvData = 1.31;
+                    }
+                    break;
+                case 1.31: //State1.31 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='7:PMR_PLS_RES:4:0'>7", (indexParam1800HeadValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item42 : value='7:PMR_PLS_RES:4:0'>7
+                        indexParam1800HeadValue = indexRunning; // Assign indexParam1800HeadValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.32;
+                    }
+                    break;
+                case 1.32: //State1.32 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_head'", indexParam1800Head))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item43 : name='param_1800_head'
+                        indexParam1800Head = indexRunning; // Assign indexParam1800Head = indexRunning
+                        stateShow_UrlToGetCsvData = 1.33;
+                    }
+                    break;
+                case 1.33: //State1.33 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='8:WR_RES:4:0'>8", (indexParam1800HeadValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item44 : value='8:WR_RES:4:0'>8
+                        indexParam1800HeadValue = indexRunning; // Assign indexParam1800HeadValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.34;
+                    }
+                    break;
+
+                case 1.34: //State1.34 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_unit'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item45 : name='param_1800_unit'
+                        indexParam1800Unit = indexRunning; // Assign indexParam1800Unit = indexRunning
+                        stateShow_UrlToGetCsvData = 1.35;
+                    }
+                    break;
+                case 1.35: //State1.35 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='1:VCM_RES:4:0'>1", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item46 : value='1:VCM_RES:4:0'>1
+                        indexParam1800UnitValue = indexRunning; // Assign indexParam1800UnitValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.36;
+                    }
+                    break;
+                case 1.36: //State1.36 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_unit'", indexParam1800Unit))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item47 : name='param_1800_unit'
+                        indexParam1800Unit = indexRunning; // Assign indexParam1800Unit = indexRunning
+                        stateShow_UrlToGetCsvData = 1.37;
+                    }
+                    break;
+                case 1.37: //State1.37 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='2:PIEZO:4:0'>2", (indexParam1800UnitValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item48 : value='2:PIEZO:4:0'>2
+                        indexParam1800UnitValue = indexRunning; // Assign indexParam1800UnitValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.38;
+                    }
+                    break;
+                case 1.38: //State1.38 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_unit'", indexParam1800Unit))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item49 : name='param_1800_unit'
+                        indexParam1800Unit = indexRunning; // Assign indexParam1800Unit = indexRunning
+                        stateShow_UrlToGetCsvData = 1.39;
+                    }
+                    break;
+                case 1.39: //State1.39 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='3:HMA_PLS:4:0'>3", (indexParam1800UnitValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item50 : value='3:HMA_PLS:4:0'>3
+                        indexParam1800UnitValue = indexRunning; // Assign indexParam1800UnitValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.41;
+                    }
+                    break;
+                case 1.41: //State1.41 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='param_1800_unit'", indexParam1800Unit))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "="; //Item51 : name='param_1800_unit'
+                        indexParam1800Unit = indexRunning; // Assign indexParam1800Unit = indexRunning
+                        stateShow_UrlToGetCsvData = 1.42;
+                    }
+                    break;
+                case 1.42: //State1.42 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("value='4:HMA_MNS:4:0'>4", (indexParam1800UnitValue + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "&"; //Item52 : value='4:HMA_MNS:4:0'>4
+                        indexParam1800UnitValue = indexRunning; // Assign indexParam1800UnitValue = indexRunning
+                        stateShow_UrlToGetCsvData = 1.43;
+                    }
+                    break;
+                case 1.43: //State1.43 : Show URL to GetCsvData(Continue) ###Special
+                    if (find_WordIndex("name='add_prior'", (indexRunning + 1)))
+                    {
+                        urlToGetCsvData += split_Text(wordRunning) + "=" + "on"; //Item53 : name='add_prior'
+                        stateShow_UrlToGetCsvData = 3;
+                    }
+                    break;
+
+                case 3: //State3 : Show URL to GetCsvData(Continue)
+                    textBoxUrlToGetCsvData.Text = urlToGetCsvData;
+                    stateShow_UrlToGetCsvData = 10;
+                    break;
+                case 10: //Clear Variables
+                    statusShow_UrlToGetCsvData = true;
+                    stateShow_UrlToGetCsvData = 0;
+                    break;
+                default:
+                    break;
+                    
+            }
+            return statusShow_UrlToGetCsvData;
+        }
+        //##### End : show_UrlToGetCsvData
 
         //##### Begin : download_CsvFile
         private void download_CsvFile()  
@@ -1390,25 +1761,23 @@ namespace SIRE_Test_Healthy_Check
                     case 11: //State11 : Show WebCode Response String from Server
                         if (addword_InRowTable())
                         {
-                            //stateDownloadCsvFile = 12;
-                            stateDownloadCsvFile = 100;
+                            stateDownloadCsvFile = 12;
                         }
                         break;
                     case 12: //State12 : Show URL to get csv data
-                        /*
                         if (show_UrlToGetCsvData())
                         {
                             stateDownloadCsvFile = 13;
+                            //stateDownloadCsvFile = 100;
                         }
-                        */
                         break;
                     case 13: //State13 : Go csv Page
-                        /*
+                        
                         if (go_Url(urlToGetCsvData))
                         {
                             stateDownloadCsvFile = 100;
                         }
-                        */
+                        
                         break;
                     case 100: //State100 : End This Function and Resetting variables
                         switchDownloadCsvFile = false;

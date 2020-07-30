@@ -74,6 +74,8 @@
             this.labelUrlToRetrieveParam = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
+            this.textBoxUrlToGetCsvData = new System.Windows.Forms.TextBox();
+            this.labelUrlToGetCsvData = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -443,7 +445,9 @@
             this.tabPage3.Controls.Add(this.textBoxWordRunning);
             this.tabPage3.Controls.Add(this.labelIndexRunning);
             this.tabPage3.Controls.Add(this.textBoxIndexRunning);
+            this.tabPage3.Controls.Add(this.textBoxUrlToGetCsvData);
             this.tabPage3.Controls.Add(this.textBoxUrlToRetrieveParam);
+            this.tabPage3.Controls.Add(this.labelUrlToGetCsvData);
             this.tabPage3.Controls.Add(this.labelUrlToRetrieveParam);
             this.tabPage3.Controls.Add(this.dataGridView1);
             this.tabPage3.Controls.Add(this.buttonTestGoParametricUrl1);
@@ -471,7 +475,7 @@
             // labelWordRunning
             // 
             this.labelWordRunning.AutoSize = true;
-            this.labelWordRunning.Location = new System.Drawing.Point(629, 570);
+            this.labelWordRunning.Location = new System.Drawing.Point(629, 709);
             this.labelWordRunning.Name = "labelWordRunning";
             this.labelWordRunning.Size = new System.Drawing.Size(76, 13);
             this.labelWordRunning.TabIndex = 13;
@@ -479,7 +483,7 @@
             // 
             // textBoxWordRunning
             // 
-            this.textBoxWordRunning.Location = new System.Drawing.Point(629, 589);
+            this.textBoxWordRunning.Location = new System.Drawing.Point(629, 728);
             this.textBoxWordRunning.Name = "textBoxWordRunning";
             this.textBoxWordRunning.Size = new System.Drawing.Size(418, 20);
             this.textBoxWordRunning.TabIndex = 12;
@@ -487,7 +491,7 @@
             // labelIndexRunning
             // 
             this.labelIndexRunning.AutoSize = true;
-            this.labelIndexRunning.Location = new System.Drawing.Point(537, 570);
+            this.labelIndexRunning.Location = new System.Drawing.Point(537, 709);
             this.labelIndexRunning.Name = "labelIndexRunning";
             this.labelIndexRunning.Size = new System.Drawing.Size(76, 13);
             this.labelIndexRunning.TabIndex = 13;
@@ -495,7 +499,7 @@
             // 
             // textBoxIndexRunning
             // 
-            this.textBoxIndexRunning.Location = new System.Drawing.Point(537, 589);
+            this.textBoxIndexRunning.Location = new System.Drawing.Point(537, 728);
             this.textBoxIndexRunning.Name = "textBoxIndexRunning";
             this.textBoxIndexRunning.Size = new System.Drawing.Size(67, 20);
             this.textBoxIndexRunning.TabIndex = 12;
@@ -505,7 +509,7 @@
             this.textBoxUrlToRetrieveParam.Location = new System.Drawing.Point(539, 324);
             this.textBoxUrlToRetrieveParam.Multiline = true;
             this.textBoxUrlToRetrieveParam.Name = "textBoxUrlToRetrieveParam";
-            this.textBoxUrlToRetrieveParam.Size = new System.Drawing.Size(709, 226);
+            this.textBoxUrlToRetrieveParam.Size = new System.Drawing.Size(709, 167);
             this.textBoxUrlToRetrieveParam.TabIndex = 11;
             // 
             // labelUrlToRetrieveParam
@@ -525,6 +529,23 @@
             // 
             this.timerStateCyclic.Interval = 1;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
+            // 
+            // textBoxUrlToGetCsvData
+            // 
+            this.textBoxUrlToGetCsvData.Location = new System.Drawing.Point(538, 539);
+            this.textBoxUrlToGetCsvData.Multiline = true;
+            this.textBoxUrlToGetCsvData.Name = "textBoxUrlToGetCsvData";
+            this.textBoxUrlToGetCsvData.Size = new System.Drawing.Size(709, 167);
+            this.textBoxUrlToGetCsvData.TabIndex = 11;
+            // 
+            // labelUrlToGetCsvData
+            // 
+            this.labelUrlToGetCsvData.AutoSize = true;
+            this.labelUrlToGetCsvData.Location = new System.Drawing.Point(537, 523);
+            this.labelUrlToGetCsvData.Name = "labelUrlToGetCsvData";
+            this.labelUrlToGetCsvData.Size = new System.Drawing.Size(102, 13);
+            this.labelUrlToGetCsvData.TabIndex = 10;
+            this.labelUrlToGetCsvData.Text = "URL to GetCsvData";
             // 
             // Form1
             // 
@@ -597,6 +618,8 @@
         private System.Windows.Forms.TextBox textBoxWordRunning;
         private System.Windows.Forms.Label labelIndexRunning;
         private System.Windows.Forms.TextBox textBoxIndexRunning;
+        private System.Windows.Forms.TextBox textBoxUrlToGetCsvData;
+        private System.Windows.Forms.Label labelUrlToGetCsvData;
     }
 }
 
