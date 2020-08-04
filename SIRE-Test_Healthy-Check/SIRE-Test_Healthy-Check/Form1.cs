@@ -40,6 +40,7 @@ namespace SIRE_Test_Healthy_Check
         string urlToRetrieveParam = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Initial urlToRetrieveParam
         string urlToGetCsvData = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Initial urlToRetrieveParam
         string wordTarget = ""; //Initial to use with Function fine_Word()
+        string[] wordCsvData; //Decare String array to receive CSV Data
 
         string wordRunning = ""; //Initial to use in Function find_WordIndex
         int indexRunning = 0; //Initial to use in Function find_WordIndex
@@ -1768,16 +1769,14 @@ namespace SIRE_Test_Healthy_Check
                         if (show_UrlToGetCsvData())
                         {
                             stateDownloadCsvFile = 13;
-                            //stateDownloadCsvFile = 100;
                         }
                         break;
                     case 13: //State13 : Go csv Page
-                        
                         if (go_Url(urlToGetCsvData))
                         {
+                            textBoxCsvData.Text = webBrowser1.Document.Body.InnerText;
                             stateDownloadCsvFile = 100;
                         }
-                        
                         break;
                     case 100: //State100 : End This Function and Resetting variables
                         switchDownloadCsvFile = false;
@@ -1842,8 +1841,8 @@ namespace SIRE_Test_Healthy_Check
         }
 
         private void buttonTest_Click(object sender, EventArgs e)
-        {   
-            //this.webBrowser1.Navigate(textBoxUrlToGo.Text); //InnerState1 : Go URL
+        {
+            switchDownloadCsvFile = true; //Start function : download_CsvFile()
         }
         private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
