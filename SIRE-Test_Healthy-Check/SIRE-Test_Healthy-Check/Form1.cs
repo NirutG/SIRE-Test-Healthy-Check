@@ -40,7 +40,10 @@ namespace SIRE_Test_Healthy_Check
         string urlToRetrieveParam = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Initial urlToRetrieveParam
         string urlToGetCsvData = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Initial urlToRetrieveParam
         string wordTarget = ""; //Initial to use with Function fine_Word()
-        string[] wordCsvData; //Decare String array to receive CSV Data
+        string[] wordCsvDataRow; //Decare String array to receive CSV Data separate by Row
+        string[] wordCsvDataColumn; //Decare String array to receive CSV Data separate by Column
+        int indexCsvDataRow = 0; //Decare to be Row index of CsvData
+        int indexCsvDataColumn = 0; //Decare to be Column index of CsvData
 
         string wordRunning = ""; //Initial to use in Function find_WordIndex
         int indexRunning = 0; //Initial to use in Function find_WordIndex
@@ -62,6 +65,7 @@ namespace SIRE_Test_Healthy_Check
 
 
         DataTable datatableWordWebCodeResponse = new DataTable(); //Decare to use Class DataTable to help checking
+        DataTable datatableCsvData = new DataTable(); //Decare to use Class DataTable to help checking CSV Data
         AutoHand autoHand = new AutoHand();//Decare to use DLL File of AutoItX3
         //Point point = new Point(0, 0); //Decare point x=0, y=0
         Point point = new Point(0, 0); //Decare point x=0, y=0
@@ -1696,6 +1700,10 @@ namespace SIRE_Test_Healthy_Check
                 {
                     case 0: //State0 : Initial Variables 
                         statusWebBrowser1DocumentCompleted = false;
+
+                        indexCsvDataRow = 0; 
+                        indexCsvDataColumn = 0; 
+
                         stateDownloadCsvFile = 1;
                         tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
                         break;
@@ -1774,9 +1782,49 @@ namespace SIRE_Test_Healthy_Check
                     case 13: //State13 : Go csv Page
                         if (go_Url(urlToGetCsvData))
                         {
-                            textBoxCsvData.Text = webBrowser1.Document.Body.InnerText;
-                            stateDownloadCsvFile = 100;
+                            stateDownloadCsvFile = 14;
                         }
+                        break;
+                    case 14: //State14 : Convert CSV Data from web to dataGridView2
+                        textBoxCsvData.Text = webBrowser1.Document.Body.InnerText;
+
+
+                        datatableCsvData.Clear(); //Clear datatable of CSV Data
+                        datatableCsvData.Columns.Clear(); //Clear Columns of datatable CSV Data
+                        datatableCsvData.Rows.Clear(); //Clear Rows of datatable CSV Data
+
+                        indexCsvDataRow = 0; //Initial indexCsvDataRow
+                        indexCsvDataColumn = 0; //Initial indexCsvDataColumn
+
+                        wordCsvDataRow = textBoxCsvData.Text.Split('\n'); //Split Row by new line(\n)
+
+                        wordCsvDataColumn = wordCsvDataRow[0].Split(','); //Split Column of Row0 by comma(,)
+
+                        foreach (var dataColumn in wordCsvDataColumn) //Add Other 42 Columns of CSV Header
+                        {
+                            datatableCsvData.Columns.Add(dataColumn);
+
+                            textBoxIndexCsvDataColumn.Text = indexCsvDataColumn.ToString();
+                            indexCsvDataColumn++;
+                        }
+
+                        foreach (var dataRow in wordCsvDataRow)
+                        {
+                            if (dataRow == wordCsvDataRow[0])
+                            {
+                            }
+                            else
+                            {
+                                wordCsvDataColumn = dataRow.Split(',');
+                                datatableCsvData.Rows.Add(wordCsvDataColumn);
+                            }
+                            textBoxIndexCsvDataRow.Text = indexCsvDataRow.ToString();
+                            indexCsvDataRow++;
+                        }
+
+                        dataGridView2.DataSource = datatableCsvData;
+
+                        stateDownloadCsvFile = 100;
                         break;
                     case 100: //State100 : End This Function and Resetting variables
                         switchDownloadCsvFile = false;
@@ -1838,6 +1886,8 @@ namespace SIRE_Test_Healthy_Check
             datatableWordWebCodeResponse.Columns.Add("INDEX");
             datatableWordWebCodeResponse.Columns.Add("WORD");
             switchDownloadCsvFile = true; //Start function : download_CsvFile()
+
+            
         }
 
         private void buttonTest_Click(object sender, EventArgs e)
@@ -1892,431 +1942,10 @@ namespace SIRE_Test_Healthy_Check
             //WindowState = FormWindowState.Maximized; //Assign Windows to Maximize
         }
 
+        private void buttonCheckDataInDataGridView2_Click(object sender, EventArgs e)
+        {
+            textBoxDataGridView2Value.Text = dataGridView2[int.Parse(textBoxDataGridView2Column.Text), int.Parse(textBoxDataGridView2Row.Text)].Value.ToString();
+        }
     }
 }
 
-
-/* ##### Begin : Backup Code ######
- * 
- *                  
- *                  case 25: //State25 : Set Window to Maximize
-                        Location = point; //Assign Form1 Location = point(0, 0)
-                        WindowState = FormWindowState.Maximized; //Assign Form1 Windows to Maximize
-                        stateDownloadCsvFile = 100;
-                        break;
-                    case 26: //State26 : Test Clear Cache and Cookies
-                                                
-                        stateDownloadCsvFile = 26.1;
-                        break;
-                    case 26.1: //State26.1 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 26.2;
-                        }
-                        break;
-                    case 26.2: //State26.2 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 26.3;
-                        break;
-                    case 26.3: //State26.3 : Delay a little bit
-                        if (delay_State(2000))
-                        {
-                            stateDownloadCsvFile = 27;
-                        }
-                        break;
-                    case 27: //State27 : Select parameters in Parametric Data Retrieve(Production DB) Page
-                        autoHand.mouseMoveAndClick("LEFT", 532, 167, 1, 10); //Move to Click at Tab, Standard Mode
-                        autoHand.mouseMoveAndClick("LEFT", 472, 231, 1, 10); //Move to Click at M/T
-                        stateDownloadCsvFile = 27.1;
-                        break;
-                    case 27.1: //State27.1 : Delay a little bit
-                        if (delay_State(1000))
-                        {
-                            stateDownloadCsvFile = 27.2;
-                        }
-                        break;
-                    case 27.2: //State27.2 : Select parameters in Parametric Data Retrieve(Production DB) Page, Continue
-                        autoHand.mouseDrag("LEFT", 472, 280, 472, 567, 5); //Drag to see PCM%
-                        autoHand.mouseMoveAndClick("LEFT", 431, 449, 1, 5); //Move to Click at PCM%
-                        autoHand.mouseMoveAndClick("LEFT", 834, 230, 1, 5); //Move to Click at Filter
-                        stateDownloadCsvFile = 28;
-                        break;
-                    case 28: //State28 : Select parameters in Parametric Data Retrieve(Production DB) Page, continue
-                        if (delay_State(500))
-                        {
-                            autoHand.mouseMoveAndClick("LEFT", 577, 247, 1, 5); //Move to Click at PCM-ALL
-                            stateDownloadCsvFile = 100;
-                        }
-                        break;
-                    case 29: //State29 : Click at Retrieve Button
-                        autoHand.mouseMoveAndClick("LEFT", 273, 760, 1, 5); //Move to Click at Retrieve Button
-                        stateDownloadCsvFile = 30;
-                        break;
-                    case 30: //State30 : Delay a little bit
-                        if (delay_State(500))
-                        {
-                            stateDownloadCsvFile = 100;
-                        }
-                        break;
-                    case 100: //State16 : End This Function and Resetting variables
-                        switchDownloadCsvFile = false;
-                        stateDownloadCsvFile = 0;
-
-                        
-
-                        break;
-                    default:
-                        break;
-
-
-    // Before Create function : addword_InRowTable()
-
-    case 0.1: //State0.1 : Initial Entering Web VnusQ by Logoff
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/logoff.jsp");
-                        stateDownloadCsvFile = 0.2;
-                        break;
-                    case 0.2: //State0.2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 0.3;
-                        }
-                        break;
-                    case 0.3: //State0.3 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 1;
-                        break;
-                    case 1: //State1 : Go URL, Index Page
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/index.jsp");
-                        stateDownloadCsvFile = 2;
-                        break;
-                    case 2: //State2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 3;
-                        }
-                        break;
-                    case 3: //State3 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 4;
-                        break;
-                    case 4: //State4 : Go URL, Login Page
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login");
-                        stateDownloadCsvFile = 5;
-                        break;
-                    case 5: //State5 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Login Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 6;
-                        }
-                        break;
-                    case 6: //State6 : Show WebCode Response from Server of Login Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 7;
-                        break;
-                    case 7: //State7 : Go URL, Entering Loging by Send Login UserName + Password
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/login.jsp/j_security_check?j_username=woravit&j_password=123456&Logon=Log%20On");
-                        stateDownloadCsvFile = 8;
-                        break;
-                    case 8: //State8 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Entering Loging by Send Login UserName + Password
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 9;
-                        }
-                        break;
-                    case 9: //State9 : Show WebCode Response from Server of Entering Loging by Send Login UserName + Password
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 10;
-                        break;
-
-    case 10: //State10 : Show WebCode Response String Length from Server
-                        textBoxWebCodeResponseStringLength.Text = textBoxWebCodeResponse.Text.Length.ToString();
-                        stateDownloadCsvFile = 11;
-                        break;
-                    case 11: //State11 : Make SubString by Remove no need characters from Web Code Response
-                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(null); //SubState5.1 : Split null
-                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[0], StringSplitOptions.RemoveEmptyEntries); //SubState5.2
-                        wordWebCodeResponse = textBoxWebCodeResponse.Text.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //SubState5.3 (InnerState5.1 to 5.3 = Remove no need characters)
-                        stateDownloadCsvFile = 12;
-                        break;
-                    case 12: //State12 : Show WebCode Response SubString Length
-                        textBoxWebCodeResponseSubStringLength.Text = wordWebCodeResponse.Length.ToString();
-                        stateDownloadCsvFile = 13;
-                        break;
-                    case 13://State13 : Show WebCode Response Last SubString 
-                        textBoxWebCodeResponseLastSubString.Text = wordWebCodeResponse.Last();
-                        stateDownloadCsvFile = 14;
-                        break;
-                    case 14: //State14 : Clear all data in datatable
-                        datatableWordWebCodeResponse.Clear();
-                        stateDownloadCsvFile = 15;
-                        break;
-                    case 15: //State15 : Initial indexWordWebCodeResponse = 0
-                        indexWordWebCodeResponse = 0;
-                        stateDownloadCsvFile = 16;
-                        break;
-                    case 16: //State16 : Looping until last word in String Array wordWebCodeResponse
-                        foreach (var word in wordWebCodeResponse) 
-                        {
-                            datatableWordWebCodeResponse.Rows.Add(indexWordWebCodeResponse.ToString(), wordWebCodeResponse[indexWordWebCodeResponse]); //Add Data to new Row in Table
-                            indexWordWebCodeResponse++;
-                        }
-                        stateDownloadCsvFile = 17; 
-                        break;
-                    case 17: //State17 : Input dataGridView1 by datatableWordWebCodeResponse to show in Table
-                        dataGridView1.DataSource = datatableWordWebCodeResponse;
-                        stateDownloadCsvFile = 18;
-                        break;
-
-
-
-
-    case 25: //State25 : Test RetrieveProcess
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveProcess&location=0&mtype=PCM%25&modelid=PCM-ALL&datekey=test&enddate0=20200720&endtime0=000000&enddate1=20200720&endtime1=235959&scanmode=all&scanmodesub=found&process=1800&snlist=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&pfcode=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hddtrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&hsatrial=&locid=&locid=&locid=&locid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&mfgid=&testerid=&testerid=&testerid=&testerid=&testerid=&testerid=&cellid=&cellid=&cellid=&cellid=&cellid=&cellid=&testertype=&testertype=&testertype=&testertype=&testcode=&testcode=&testcode=&testcode=&partid_spdl=&partid_disk=&partid_hsa=&partid_card=&partid_hgau=&partid_hgad=&partid_sldu=&partid_sldd=&lineid=&lineid=&lineid=&teamid=&teamid=&teamid=&cycle=&disposition=&disposition=&disposition=&disposition=&key1=diskpn&key1val=&key1val=&key1val=&key1val=&key2=hsapn&key2val=&key2val=&key2val=&key2val=&key3=hgapn&key3val=&key3val=&key3val=&key3val=&key4=sliderec&key4val=&key4val=&key4val=&key4val=");
-                        stateDownloadCsvFile = 26;
-                        break;
-                    case 26: //State26 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 27;
-                        }
-                        break;
-                    case 27: //State27 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 28;
-                        break;
-                    case 28: //State28 : Prepare for Auto Mouse move
-                        Location = point; //Assign Form1 Location = point(0, 0)
-                        stateDownloadCsvFile = 100;
-                        break;
-                    case 29: //State29 : Test RetrieveParam
-                        //Save to Disk
-                        //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
-                        //View ON Web
-                        this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=web&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on");
-                        stateDownloadCsvFile = 29.1;
-
-
-                        //webClient1.DownloadFileAsync(new Uri("http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?action=retrieveParam&id=1595180965397&location=0&baseprocess=1800&mtype=PCM%25&device=disk&format=csv&samplerate_pass=100&samplerate_fail=100&maxcount_pass=678&foundcount_pass=678&maxcount_fail=37&foundcount_fail=37&process=1800&param_1800_head=1%3AMR_RES%3A4%3A0&param_1800_head=2%3AREADV%3A4%3A0&param_1800_head=3%3AMR_RES2%3A4%3A0&param_1800_head=4%3AREADV2%3A4%3A0&param_1800_head=5%3ATFC_RES%3A4%3A0&param_1800_head=6%3AECS_RES%3A4%3A0&param_1800_head=7%3APMR_PLS_RES%3A4%3A0&param_1800_head=8%3AWR_RES%3A4%3A0&param_1800_unit=1%3AVCM_RES%3A4%3A0&param_1800_unit=2%3APIEZO%3A4%3A0&param_1800_unit=3%3AHMA_PLS%3A4%3A0&param_1800_unit=4%3AHMA_MNS%3A4%3A0&add_prior=on"), @"C\param.csv");
-                        //stateDownloadCsvFile = 100;
-
-                        break;
-                    case 29.1: //State29.1 : ON function SaveCsvFile
-                        //switchSaveCsvFile = true;
-                        stateDownloadCsvFile = 30;
-                        break;
-                    case 30: //State30 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
-                        if (statusWebBrowser1DocumentCompleted)
-                        {
-                            textBoxUrlResponse.Text = "" + webBrowser1.Url;
-                            stateDownloadCsvFile = 31;
-                        }
-                        break;
-                    case 31: //State31 : Show WebCode Response from Server of Index Page
-                        textBoxWebCodeResponse.Text = webBrowser1.DocumentText;
-                        stateDownloadCsvFile = 100;
-                        break;
-                    case 100: //State100 : End This Function and Resetting variables
-                        switchDownloadCsvFile = false;
-                        stateDownloadCsvFile = 0;
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-        //##### End : download_CsvFile
-
-
-
-
-    // Before Create Function find_WordIndex
-
-    case 1: //State1 : Show URL to RetrieveParam
-                        
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1037]) + "="; //Item1
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1038]) + "&"; //Item2
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1151]) + "="; //Item3
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1153]) + "&"; //Item4
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1160]) + "="; //Item5
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1513]) + "25" + "&"; //Item6
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[1632]) + "="; //Item7
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2582]) + "&"; //Item8
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2935]) + "="; //Item9
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2936]) + "&"; //Item10
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2993]) + "="; //Item11
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[2995]) + "&"; //Item12
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[3510]) + "="; //Item13
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[3511]) + "&"; //Item14
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[3517]) + "="; //Item15
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[3520]) + "&"; //Item16
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4035]) + "="; //Item17
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4036]) + "&"; //Item18
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4054]) + "="; //Item19
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4055]) + "&"; //Item20
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4080]) + "="; //Item21
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4081]) + "&"; //Item22
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4161]) + "="; //Item23
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4250]) + "&"; //Item24
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4539]) + "=" + "&"; //Item25
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4551]) + "=" + "&"; //Item26
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4556]) + "=" + "&"; //Item27
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4561]) + "=" + "&"; //Item28
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4566]) + "=" + "&"; //Item29
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4571]) + "=" + "&"; //Item30
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4576]) + "=" + "&"; //Item31
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4581]) + "=" + "&"; //Item32
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4586]) + "=" + "&"; //Item33
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4595]) + "=" + "&"; //Item34
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4600]) + "=" + "&"; //Item35
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4605]) + "=" + "&"; //Item36
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4610]) + "=" + "&"; //Item37
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4615]) + "=" + "&"; //Item38
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4620]) + "=" + "&"; //Item39
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4625]) + "=" + "&"; //Item40
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4630]) + "=" + "&"; //Item41
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4664]) + "=" + "&"; //Item42
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4669]) + "=" + "&"; //Item43
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4674]) + "=" + "&"; //Item44
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4679]) + "=" + "&"; //Item45
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4684]) + "=" + "&"; //Item46
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4689]) + "=" + "&"; //Item47
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4694]) + "=" + "&"; //Item48
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4699]) + "=" + "&"; //Item49
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4708]) + "=" + "&"; //Item50
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4713]) + "=" + "&"; //Item51
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4718]) + "=" + "&"; //Item52
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4723]) + "=" + "&"; //Item53
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4728]) + "=" + "&"; //Item54
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4733]) + "=" + "&"; //Item55
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4738]) + "=" + "&"; //Item56
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4743]) + "=" + "&"; //Item57
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4757]) + "=" + "&"; //Item58
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4762]) + "=" + "&"; //Item59
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4767]) + "=" + "&"; //Item60
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4772]) + "=" + "&"; //Item61
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4777]) + "=" + "&"; //Item62
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4782]) + "=" + "&"; //Item63
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4787]) + "=" + "&"; //Item64
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4792]) + "=" + "&"; //Item65
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4801]) + "=" + "&"; //Item66
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4806]) + "=" + "&"; //Item67
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4811]) + "=" + "&"; //Item68
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4816]) + "=" + "&"; //Item69
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4821]) + "=" + "&"; //Item70
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4826]) + "=" + "&"; //Item71
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4831]) + "=" + "&"; //Item72
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4836]) + "=" + "&"; //Item73
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4929]) + "=" + "&"; //Item74
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4940]) + "=" + "&"; //Item75
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4947]) + "=" + "&"; //Item76
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4954]) + "=" + "&"; //Item77
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4971]) + "=" + "&"; //Item78
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4976]) + "=" + "&"; //Item79
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4981]) + "=" + "&"; //Item80
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4986]) + "=" + "&"; //Item81
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4991]) + "=" + "&"; //Item82
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[4996]) + "=" + "&"; //Item83
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5013]) + "=" + "&"; //Item84
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5018]) + "=" + "&"; //Item85
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5023]) + "=" + "&"; //Item86
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5028]) + "=" + "&"; //Item87
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5033]) + "=" + "&"; //Item88
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5038]) + "=" + "&"; //Item89
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5052]) + "=" + "&"; //Item90
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5057]) + "=" + "&"; //Item91
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5062]) + "=" + "&"; //Item92
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5067]) + "=" + "&"; //Item93
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5072]) + "=" + "&"; //Item94
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5077]) + "=" + "&"; //Item95
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5091]) + "=" + "&"; //Item96
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5096]) + "=" + "&"; //Item97
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5101]) + "=" + "&"; //Item98
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5106]) + "=" + "&"; //Item99
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5120]) + "=" + "&"; //Item100
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5125]) + "=" + "&"; //Item101
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5130]) + "=" + "&"; //Item102
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5135]) + "=" + "&"; //Item103
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5158]) + "=" + "&"; //Item104
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5165]) + "=" + "&"; //Item105
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5172]) + "=" + "&"; //Item106
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5179]) + "=" + "&"; //Item107
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5189]) + "=" + "&"; //Item108
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5196]) + "=" + "&"; //Item109
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5203]) + "=" + "&"; //Item110
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5210]) + "=" + "&"; //Item111
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5222]) + "=" + "&"; //Item112
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5227]) + "=" + "&"; //Item113
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5232]) + "=" + "&"; //Item114
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5239]) + "=" + "&"; //Item115
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5244]) + "=" + "&"; //Item116
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5249]) + "=" + "&"; //Item117
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5258]) + "=" + "&"; //Item118
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5266]) + "=" + "&"; //Item119
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5271]) + "=" + "&"; //Item120
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5276]) + "=" + "&"; //Item121
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5281]) + "=" + "&"; //Item122
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5292]) + "="; //Item123
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5303]) + "&"; //Item124
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5440]) + "=" + "&"; //Item125
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5445]) + "=" + "&"; //Item126
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5450]) + "=" + "&"; //Item127
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5455]) + "=" + "&"; //Item128
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5463]) + "="; //Item129
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5563]) + "&"; //Item130
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5611]) + "=" + "&"; //Item131
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5616]) + "=" + "&"; //Item132
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5621]) + "=" + "&"; //Item133
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5626]) + "=" + "&"; //Item134
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5634]) + "="; //Item135
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5740]) + "&"; //Item136
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5782]) + "=" + "&"; //Item137
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5787]) + "=" + "&"; //Item138
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5792]) + "=" + "&"; //Item139
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5797]) + "=" + "&"; //Item140
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5805]) + "="; //Item141
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5914]) + "&"; //Item142
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5953]) + "=" + "&"; //Item143
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5958]) + "=" + "&"; //Item144
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5963]) + "=" + "&"; //Item145
-                    urlToRetrieveParam += split_Text(wordWebCodeResponse[5968]) + "="; //Item146
-                    
-
-                    textBoxUrlToRetrieveParam.Text = urlToRetrieveParam;
-                        
-
-                    /*
-                    indexFirst = textBoxWebCodeResponse.Text.IndexOf("<form method='POST' name='main' action='/dwh/retrieve/comParam'");
-                    textBoxFirstIndex.Text = indexFirst.ToString();
-
-                    stringLength = "<form method='POST' name='main' action='/dwh/retrieve/comParam'".Length;
-                    textBoxStringLength.Text = stringLength.ToString();
-
-                    //indexLast = textBoxWebCodeResponse.Text.LastIndexOf("<form method='POST' name='main' action='/dwh/retrieve/comParam'");
-                    //textBoxLastIndex.Text = indexLast.ToString();
-
-                    //wordFinding = textBoxWordFinding.Text
-                    textBoxWordFinding.Text = textBoxWebCodeResponse.Text.Substring(indexFirst, (indexFirst + stringLength));
-                    
-
-                    stateShowUrlToRetrieveParam = 2;
-                    break;
-
-                    */
-
-
-
-
-
-
-
-
-
-//##### End : Backup Code ######
-
-  

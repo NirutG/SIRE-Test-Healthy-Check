@@ -60,6 +60,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelCsvData = new System.Windows.Forms.Label();
+            this.textBoxCsvData = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelStateSaveCsvFile = new System.Windows.Forms.Label();
             this.labelStateDownloadCsvFile = new System.Windows.Forms.Label();
@@ -74,16 +76,29 @@
             this.textBoxUrlToRetrieveParam = new System.Windows.Forms.TextBox();
             this.labelUrlToGetCsvData = new System.Windows.Forms.Label();
             this.labelUrlToRetrieveParam = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
-            this.labelCsvData = new System.Windows.Forms.Label();
-            this.textBoxCsvData = new System.Windows.Forms.TextBox();
+            this.textBoxIndexCsvDataColumn = new System.Windows.Forms.TextBox();
+            this.label_IndexOfCsvDataColumn = new System.Windows.Forms.Label();
+            this.textBoxIndexCsvDataRow = new System.Windows.Forms.TextBox();
+            this.label_IndexOfCsvDataRow = new System.Windows.Forms.Label();
+            this.buttonCheckDataInDataGridView2 = new System.Windows.Forms.Button();
+            this.textBoxDataGridView2Column = new System.Windows.Forms.TextBox();
+            this.labelDataGridView2Column = new System.Windows.Forms.Label();
+            this.textBoxDataGridView2Value = new System.Windows.Forms.TextBox();
+            this.textBoxDataGridView2Row = new System.Windows.Forms.TextBox();
+            this.labelDataGridView2Row = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonTest
@@ -313,6 +328,8 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
@@ -394,6 +411,25 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // labelCsvData
+            // 
+            this.labelCsvData.AutoSize = true;
+            this.labelCsvData.Location = new System.Drawing.Point(28, 592);
+            this.labelCsvData.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCsvData.Name = "labelCsvData";
+            this.labelCsvData.Size = new System.Drawing.Size(54, 13);
+            this.labelCsvData.TabIndex = 5;
+            this.labelCsvData.Text = "CSV Data";
+            // 
+            // textBoxCsvData
+            // 
+            this.textBoxCsvData.Location = new System.Drawing.Point(27, 612);
+            this.textBoxCsvData.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCsvData.Multiline = true;
+            this.textBoxCsvData.Name = "textBoxCsvData";
+            this.textBoxCsvData.Size = new System.Drawing.Size(1171, 320);
+            this.textBoxCsvData.TabIndex = 4;
             // 
             // tabPage2
             // 
@@ -542,6 +578,43 @@
             this.labelUrlToRetrieveParam.TabIndex = 10;
             this.labelUrlToRetrieveParam.Text = "URL to RetrieveParam";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.buttonCheckDataInDataGridView2);
+            this.tabPage4.Controls.Add(this.textBoxDataGridView2Column);
+            this.tabPage4.Controls.Add(this.labelDataGridView2Column);
+            this.tabPage4.Controls.Add(this.textBoxDataGridView2Value);
+            this.tabPage4.Controls.Add(this.textBoxDataGridView2Row);
+            this.tabPage4.Controls.Add(this.labelDataGridView2Row);
+            this.tabPage4.Controls.Add(this.textBoxIndexCsvDataColumn);
+            this.tabPage4.Controls.Add(this.label_IndexOfCsvDataColumn);
+            this.tabPage4.Controls.Add(this.textBoxIndexCsvDataRow);
+            this.tabPage4.Controls.Add(this.label_IndexOfCsvDataRow);
+            this.tabPage4.Controls.Add(this.dataGridView2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1272, 954);
+            this.tabPage4.TabIndex = 4;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(27, 74);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1171, 649);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1272, 954);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -551,24 +624,86 @@
             this.timerStateCyclic.Interval = 1;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
-            // labelCsvData
+            // textBoxIndexCsvDataColumn
             // 
-            this.labelCsvData.AutoSize = true;
-            this.labelCsvData.Location = new System.Drawing.Point(28, 592);
-            this.labelCsvData.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelCsvData.Name = "labelCsvData";
-            this.labelCsvData.Size = new System.Drawing.Size(54, 13);
-            this.labelCsvData.TabIndex = 5;
-            this.labelCsvData.Text = "CSV Data";
+            this.textBoxIndexCsvDataColumn.Location = new System.Drawing.Point(483, 30);
+            this.textBoxIndexCsvDataColumn.Name = "textBoxIndexCsvDataColumn";
+            this.textBoxIndexCsvDataColumn.Size = new System.Drawing.Size(157, 20);
+            this.textBoxIndexCsvDataColumn.TabIndex = 16;
             // 
-            // textBoxCsvData
+            // label_IndexOfCsvDataColumn
             // 
-            this.textBoxCsvData.Location = new System.Drawing.Point(27, 612);
-            this.textBoxCsvData.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxCsvData.Multiline = true;
-            this.textBoxCsvData.Name = "textBoxCsvData";
-            this.textBoxCsvData.Size = new System.Drawing.Size(1171, 320);
-            this.textBoxCsvData.TabIndex = 4;
+            this.label_IndexOfCsvDataColumn.AutoSize = true;
+            this.label_IndexOfCsvDataColumn.Location = new System.Drawing.Point(335, 33);
+            this.label_IndexOfCsvDataColumn.Name = "label_IndexOfCsvDataColumn";
+            this.label_IndexOfCsvDataColumn.Size = new System.Drawing.Size(142, 13);
+            this.label_IndexOfCsvDataColumn.TabIndex = 15;
+            this.label_IndexOfCsvDataColumn.Text = "Index of CSV Data Column =";
+            // 
+            // textBoxIndexCsvDataRow
+            // 
+            this.textBoxIndexCsvDataRow.Location = new System.Drawing.Point(158, 30);
+            this.textBoxIndexCsvDataRow.Name = "textBoxIndexCsvDataRow";
+            this.textBoxIndexCsvDataRow.Size = new System.Drawing.Size(157, 20);
+            this.textBoxIndexCsvDataRow.TabIndex = 14;
+            // 
+            // label_IndexOfCsvDataRow
+            // 
+            this.label_IndexOfCsvDataRow.AutoSize = true;
+            this.label_IndexOfCsvDataRow.Location = new System.Drawing.Point(24, 33);
+            this.label_IndexOfCsvDataRow.Name = "label_IndexOfCsvDataRow";
+            this.label_IndexOfCsvDataRow.Size = new System.Drawing.Size(129, 13);
+            this.label_IndexOfCsvDataRow.TabIndex = 13;
+            this.label_IndexOfCsvDataRow.Text = "Index of CSV Data Row =";
+            // 
+            // buttonCheckDataInDataGridView2
+            // 
+            this.buttonCheckDataInDataGridView2.Location = new System.Drawing.Point(27, 799);
+            this.buttonCheckDataInDataGridView2.Name = "buttonCheckDataInDataGridView2";
+            this.buttonCheckDataInDataGridView2.Size = new System.Drawing.Size(125, 47);
+            this.buttonCheckDataInDataGridView2.TabIndex = 22;
+            this.buttonCheckDataInDataGridView2.Text = "Check Data in DataGridView2";
+            this.buttonCheckDataInDataGridView2.UseVisualStyleBackColor = true;
+            this.buttonCheckDataInDataGridView2.Click += new System.EventHandler(this.buttonCheckDataInDataGridView2_Click);
+            // 
+            // textBoxDataGridView2Column
+            // 
+            this.textBoxDataGridView2Column.Location = new System.Drawing.Point(471, 759);
+            this.textBoxDataGridView2Column.Name = "textBoxDataGridView2Column";
+            this.textBoxDataGridView2Column.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDataGridView2Column.TabIndex = 21;
+            // 
+            // labelDataGridView2Column
+            // 
+            this.labelDataGridView2Column.AutoSize = true;
+            this.labelDataGridView2Column.Location = new System.Drawing.Point(335, 762);
+            this.labelDataGridView2Column.Name = "labelDataGridView2Column";
+            this.labelDataGridView2Column.Size = new System.Drawing.Size(120, 13);
+            this.labelDataGridView2Column.TabIndex = 20;
+            this.labelDataGridView2Column.Text = "dataGridView2Column =";
+            // 
+            // textBoxDataGridView2Value
+            // 
+            this.textBoxDataGridView2Value.Location = new System.Drawing.Point(158, 813);
+            this.textBoxDataGridView2Value.Name = "textBoxDataGridView2Value";
+            this.textBoxDataGridView2Value.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDataGridView2Value.TabIndex = 18;
+            // 
+            // textBoxDataGridView2Row
+            // 
+            this.textBoxDataGridView2Row.Location = new System.Drawing.Point(158, 759);
+            this.textBoxDataGridView2Row.Name = "textBoxDataGridView2Row";
+            this.textBoxDataGridView2Row.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDataGridView2Row.TabIndex = 19;
+            // 
+            // labelDataGridView2Row
+            // 
+            this.labelDataGridView2Row.AutoSize = true;
+            this.labelDataGridView2Row.Location = new System.Drawing.Point(24, 762);
+            this.labelDataGridView2Row.Name = "labelDataGridView2Row";
+            this.labelDataGridView2Row.Size = new System.Drawing.Size(107, 13);
+            this.labelDataGridView2Row.TabIndex = 17;
+            this.labelDataGridView2Row.Text = "dataGridView2Row =";
             // 
             // Form1
             // 
@@ -590,6 +725,9 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -645,6 +783,19 @@
         private System.Windows.Forms.Label labelUrlToGetCsvData;
         private System.Windows.Forms.Label labelCsvData;
         private System.Windows.Forms.TextBox textBoxCsvData;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TextBox textBoxIndexCsvDataColumn;
+        private System.Windows.Forms.Label label_IndexOfCsvDataColumn;
+        private System.Windows.Forms.TextBox textBoxIndexCsvDataRow;
+        private System.Windows.Forms.Label label_IndexOfCsvDataRow;
+        private System.Windows.Forms.Button buttonCheckDataInDataGridView2;
+        private System.Windows.Forms.TextBox textBoxDataGridView2Column;
+        private System.Windows.Forms.Label labelDataGridView2Column;
+        private System.Windows.Forms.TextBox textBoxDataGridView2Value;
+        private System.Windows.Forms.TextBox textBoxDataGridView2Row;
+        private System.Windows.Forms.Label labelDataGridView2Row;
     }
 }
 
