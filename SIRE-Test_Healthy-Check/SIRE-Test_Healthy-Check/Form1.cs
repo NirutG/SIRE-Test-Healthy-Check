@@ -187,7 +187,10 @@ namespace SIRE_Test_Healthy_Check
                     stateAddWordInRowTable = 5;
                     break;
                 case 5: //State5 : Clear all data in datatable
-                    datatableWordWebCodeResponse.Clear();
+                    //datatableWordWebCodeResponse.Clear();
+                    datatableWordWebCodeResponse.Clear(); //Clear datatable
+                    //datatableWordWebCodeResponse.Columns.Clear(); //Clear Columns of datatable
+                    //datatableWordWebCodeResponse.Rows.Clear(); //Clear Rows of datatable
                     stateAddWordInRowTable = 6;
                     break;
                 case 6: //State6 : Initial indexWordWebCodeResponse = 0
@@ -1800,6 +1803,8 @@ namespace SIRE_Test_Healthy_Check
 
                         wordCsvDataColumn = wordCsvDataRow[0].Split(','); //Split Column of Row0 by comma(,)
 
+                        datatableCsvData.Columns.Add("ITEM"); //Add 1st Column is name = Item
+
                         foreach (var dataColumn in wordCsvDataColumn) //Add Other 42 Columns of CSV Header
                         {
                             datatableCsvData.Columns.Add(dataColumn);
@@ -1816,7 +1821,18 @@ namespace SIRE_Test_Healthy_Check
                             else
                             {
                                 wordCsvDataColumn = dataRow.Split(',');
-                                datatableCsvData.Rows.Add(wordCsvDataColumn);
+                                //datatableCsvData.Rows.Add(wordCsvDataColumn);
+                                datatableCsvData.Rows.Add(indexCsvDataRow, wordCsvDataColumn[0],  wordCsvDataColumn[1],  wordCsvDataColumn[2],  wordCsvDataColumn[3],
+                                                                           wordCsvDataColumn[4],  wordCsvDataColumn[5],  wordCsvDataColumn[6],  wordCsvDataColumn[7],
+                                                                           wordCsvDataColumn[8],  wordCsvDataColumn[9],  wordCsvDataColumn[10], wordCsvDataColumn[11],
+                                                                           wordCsvDataColumn[12], wordCsvDataColumn[13], wordCsvDataColumn[14], wordCsvDataColumn[15],
+                                                                           wordCsvDataColumn[16], wordCsvDataColumn[17], wordCsvDataColumn[18], wordCsvDataColumn[19],
+                                                                           wordCsvDataColumn[20], wordCsvDataColumn[21], wordCsvDataColumn[22], wordCsvDataColumn[23],
+                                                                           wordCsvDataColumn[24], wordCsvDataColumn[25], wordCsvDataColumn[26], wordCsvDataColumn[27],
+                                                                           wordCsvDataColumn[28], wordCsvDataColumn[29], wordCsvDataColumn[30], wordCsvDataColumn[31],
+                                                                           wordCsvDataColumn[32], wordCsvDataColumn[33], wordCsvDataColumn[34], wordCsvDataColumn[35],
+                                                                           wordCsvDataColumn[36], wordCsvDataColumn[37], wordCsvDataColumn[38], wordCsvDataColumn[39],
+                                                                           wordCsvDataColumn[40], wordCsvDataColumn[41]);
                             }
                             textBoxIndexCsvDataRow.Text = indexCsvDataRow.ToString();
                             indexCsvDataRow++;
