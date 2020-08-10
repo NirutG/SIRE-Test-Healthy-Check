@@ -54,12 +54,10 @@ namespace SIRE_Test_Healthy_Check
         double testShow = 10.0;
         int test = 0;
         bool switchStepRun = false; //Decare to test function by STEP Run
-        bool switchDownloadCsvFile = false; //Decare for ON function download_CsvFile
-        bool switchSaveCsvFile = false; //Decare for ON function save_CsvFile
-        bool switchReadCsvFile = false; //Decare for ON function read_CsvFile
-        bool switchSearchDataInCsvFile = false; //Decare for ON function search_DataInCsvFile
+        bool switchDownloadCsvData = false; //Decare for ON function download_CsvData
+        bool switchDisplayCsvData = false; //Decare for ON function display_CsvData
 
-        double stateDownloadCsvFile = 0; //Initial State of Function download_CsvFile at state0
+        double stateDownloadCsvData = 0; //Initial State of Function download_CsvData at state0
         double stateSaveCsvFile = 0; //Initial State of Function save_CsvFile at state0
 
 
@@ -1693,98 +1691,98 @@ namespace SIRE_Test_Healthy_Check
         }
         //##### End : show_UrlToGetCsvData
 
-        //##### Begin : download_CsvFile
-        private void download_CsvFile()  
+        //##### Begin : download_CsvData
+        private void download_CsvData()  
         {
-            if(switchDownloadCsvFile) 
+            if(switchDownloadCsvData) 
             {
-                switch(stateDownloadCsvFile)
+                switch(stateDownloadCsvData)
                 {
                     case 0: //State0 : Initial Variables 
                         statusWebBrowser1DocumentCompleted = false;
 
                         indexCsvDataRow = 0; 
-                        indexCsvDataColumn = 0; 
+                        indexCsvDataColumn = 0;
 
-                        stateDownloadCsvFile = 1;
+                        stateDownloadCsvData = 1;
                         tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
                         break;
                     case 1: //State1 : Initial Entering Web VnusQ by Logoff
                         if(go_Url("http://dwhweb.prb.hgst.com/dwh/logoff.jsp"))
                         {
-                            stateDownloadCsvFile = 2;
+                            stateDownloadCsvData = 2;
                         }
                         break;
                     case 2: //State2 : Go URL, Index Page
                         if (go_Url("http://dwhweb.prb.hgst.com/dwh/index.jsp"))
                         {
-                            stateDownloadCsvFile = 3;
+                            stateDownloadCsvData = 3;
                         }
                         break;
                     case 3: //State3 : Go URL, Login Page
                         if (go_Url("http://dwhweb.prb.hgst.com/dwh/login"))
                         {
-                            stateDownloadCsvFile = 4;
+                            stateDownloadCsvData = 4;
                         }
                         break;
                     case 4: //State4 : Go URL, Entering Loging by Send Login UserName + Password
                         if (go_Url("http://dwhweb.prb.hgst.com/dwh/login.jsp/j_security_check?j_username=woravit&j_password=123456&Logon=Log%20On"))
                         {
-                            stateDownloadCsvFile = 5;
+                            stateDownloadCsvData = 5;
                         }
                         break;
                     case 5: //State5 : Show WebCode Response String from Server
                         if (addword_InRowTable())
                         {
-                            stateDownloadCsvFile = 6;
+                            stateDownloadCsvData = 6;
                         }
                         break;
                     case 6: //State6 : Show URL to RetrieveProcess
                         if (show_UrlToRetrieveProcess())
                         {
-                            stateDownloadCsvFile = 7;
+                            stateDownloadCsvData = 7;
                         }
                         break;
                     case 7: //State7 : Go RetrieveProcess Page
                         if (go_Url("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56)))
                         {
-                            stateDownloadCsvFile = 8;
+                            stateDownloadCsvData = 8;
                         }
                         break;
                     case 8: //State8 : Show WebCode Response String from Server
                         if (addword_InRowTable())
                         {
-                            stateDownloadCsvFile = 9;
+                            stateDownloadCsvData = 9;
                         }
                         break;
                     case 9: //State9 : Show URL to RetrieveParam
                         if (show_UrlToRetrieveParam())
                         {
-                            stateDownloadCsvFile = 10;
+                            stateDownloadCsvData = 10;
                         }
                         break;
                     case 10: //State10 : Go RetrieveParam Page
                         if(go_Url(urlToRetrieveParam))
                         {
-                            stateDownloadCsvFile = 11;
+                            stateDownloadCsvData = 11;
                         }
                         break;
                     case 11: //State11 : Show WebCode Response String from Server
                         if (addword_InRowTable())
                         {
-                            stateDownloadCsvFile = 12;
+                            stateDownloadCsvData = 12;
                         }
                         break;
                     case 12: //State12 : Show URL to get csv data
                         if (show_UrlToGetCsvData())
                         {
-                            stateDownloadCsvFile = 13;
+                            stateDownloadCsvData = 13;
                         }
                         break;
                     case 13: //State13 : Go csv Page
                         if (go_Url(urlToGetCsvData))
                         {
-                            stateDownloadCsvFile = 14;
+                            stateDownloadCsvData = 14;
                         }
                         break;
                     case 14: //State14 : Convert CSV Data from web to dataGridView2
@@ -1838,60 +1836,18 @@ namespace SIRE_Test_Healthy_Check
 
                         dataGridView2.DataSource = datatableCsvData;
 
-                        stateDownloadCsvFile = 100;
+                        stateDownloadCsvData = 100;
                         break;
                     case 100: //State100 : End This Function and Resetting variables
-                        switchDownloadCsvFile = false;
-                        stateDownloadCsvFile = 0;
+                        switchDownloadCsvData = false;
+                        stateDownloadCsvData = 0;
                         break;
                     default:
                         break;
                 }
             }
         }
-        //##### End : download_CsvFile
-
-        //##### Begin : save_CsvFile
-        private void save_CsvFile()
-        {
-            if (switchSaveCsvFile)
-            {
-                switch (stateSaveCsvFile)
-                {
-                    case 0: //Initial Variables
-                        statusWebBrowser1DocumentCompleted = false;
-                        stateSaveCsvFile = 1;//Temp
-                        break;
-                    case 1:// State1 : Delay a little bit
-                        if (delay_State(1000))
-                        {
-                            stateSaveCsvFile = 2;
-                        }
-                        break;
-                    case 2:// State2 : Auto mouse move to click Save Button
-                        autoHand.mouseMoveAndClick("LEFT", 1014, 546, 1, 1); //Move to Click at Save Button
-                        stateSaveCsvFile = 3;
-                        break;
-                    case 3:// State3 : Delay a little bit
-                        if (delay_State(1000))
-                        {
-                            stateSaveCsvFile = 4;
-                        }
-                        break;
-                    case 4:// State4 : Click at path
-                        autoHand.mouseMoveAndClick("LEFT", 1055, 274, 1, 1); //Move to Click at Path to save
-                        stateSaveCsvFile = 100;
-                        break;
-                    case 100:// State End
-                        switchSaveCsvFile = false;
-                        stateSaveCsvFile = 0;
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-        //##### End : save_CsvFile
+        //##### End : download_CsvData
 
         //##### End : My function Area #####
 
@@ -1899,14 +1855,12 @@ namespace SIRE_Test_Healthy_Check
         {
             datatableWordWebCodeResponse.Columns.Add("INDEX");
             datatableWordWebCodeResponse.Columns.Add("WORD");
-            switchDownloadCsvFile = true; //Start function : download_CsvFile()
-
-            
+            switchDownloadCsvData = true; //Start function : download_CsvData()
         }
 
         private void buttonTest_Click(object sender, EventArgs e)
         {
-            switchDownloadCsvFile = true; //Start function : download_CsvFile()
+            switchDownloadCsvData = true; //Start function : download_CsvData()
         }
         private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
@@ -1937,9 +1891,9 @@ namespace SIRE_Test_Healthy_Check
 
         private void timerStateCyclic_Tick(object sender, EventArgs e)
         {
-            download_CsvFile(); //Auto download CSV File
+            download_CsvData(); //Auto download CSV File
             //save_CsvFile(); //Auto save CSV File
-            textBoxStateDownloadCsvFile.Text = stateDownloadCsvFile.ToString();
+            textBoxStateDownloadCsvData.Text = stateDownloadCsvData.ToString();
             textBoxStateSaveCsvFile.Text = stateSaveCsvFile.ToString();
         }
 
