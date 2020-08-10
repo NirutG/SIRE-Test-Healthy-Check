@@ -58,7 +58,7 @@ namespace SIRE_Test_Healthy_Check
         bool switchDisplayCsvData = false; //Decare for ON function display_CsvData
 
         double stateDownloadCsvData = 0; //Initial State of Function download_CsvData at state0
-        double stateSaveCsvFile = 0; //Initial State of Function save_CsvFile at state0
+        double stateDisplayData = 0; //Initial State of Function save_CsvFile at state0
 
 
 
@@ -1894,7 +1894,7 @@ namespace SIRE_Test_Healthy_Check
             download_CsvData(); //Auto download CSV File
             //save_CsvFile(); //Auto save CSV File
             textBoxStateDownloadCsvData.Text = stateDownloadCsvData.ToString();
-            textBoxStateSaveCsvFile.Text = stateSaveCsvFile.ToString();
+            textBoxStateDisplayData.Text = stateDisplayData.ToString();
         }
 
 

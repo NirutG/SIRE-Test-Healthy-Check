@@ -58,9 +58,9 @@
             this.labelCsvData = new System.Windows.Forms.Label();
             this.textBoxCsvData = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.labelStateSaveCsvFile = new System.Windows.Forms.Label();
+            this.labelStateDisplayData = new System.Windows.Forms.Label();
             this.labelStateDownloadCsvData = new System.Windows.Forms.Label();
-            this.textBoxStateSaveCsvFile = new System.Windows.Forms.TextBox();
+            this.textBoxStateDisplayData = new System.Windows.Forms.TextBox();
             this.textBoxStateDownloadCsvData = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.labelWordRunning = new System.Windows.Forms.Label();
@@ -382,9 +382,9 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.labelStateSaveCsvFile);
+            this.tabPage2.Controls.Add(this.labelStateDisplayData);
             this.tabPage2.Controls.Add(this.labelStateDownloadCsvData);
-            this.tabPage2.Controls.Add(this.textBoxStateSaveCsvFile);
+            this.tabPage2.Controls.Add(this.textBoxStateDisplayData);
             this.tabPage2.Controls.Add(this.textBoxStateDownloadCsvData);
             this.tabPage2.Controls.Add(this.webBrowser1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -396,14 +396,14 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // labelStateSaveCsvFile
+            // labelStateDisplayData
             // 
-            this.labelStateSaveCsvFile.AutoSize = true;
-            this.labelStateSaveCsvFile.Location = new System.Drawing.Point(1077, 100);
-            this.labelStateSaveCsvFile.Name = "labelStateSaveCsvFile";
-            this.labelStateSaveCsvFile.Size = new System.Drawing.Size(91, 13);
-            this.labelStateSaveCsvFile.TabIndex = 3;
-            this.labelStateSaveCsvFile.Text = "StateSaveCsvFile";
+            this.labelStateDisplayData.AutoSize = true;
+            this.labelStateDisplayData.Location = new System.Drawing.Point(1077, 100);
+            this.labelStateDisplayData.Name = "labelStateDisplayData";
+            this.labelStateDisplayData.Size = new System.Drawing.Size(89, 13);
+            this.labelStateDisplayData.TabIndex = 3;
+            this.labelStateDisplayData.Text = "StateDisplayData";
             // 
             // labelStateDownloadCsvData
             // 
@@ -414,12 +414,12 @@
             this.labelStateDownloadCsvData.TabIndex = 3;
             this.labelStateDownloadCsvData.Text = "StateDownloadCsvFile";
             // 
-            // textBoxStateSaveCsvFile
+            // textBoxStateDisplayData
             // 
-            this.textBoxStateSaveCsvFile.Location = new System.Drawing.Point(1077, 119);
-            this.textBoxStateSaveCsvFile.Name = "textBoxStateSaveCsvFile";
-            this.textBoxStateSaveCsvFile.Size = new System.Drawing.Size(100, 20);
-            this.textBoxStateSaveCsvFile.TabIndex = 2;
+            this.textBoxStateDisplayData.Location = new System.Drawing.Point(1077, 119);
+            this.textBoxStateDisplayData.Name = "textBoxStateDisplayData";
+            this.textBoxStateDisplayData.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStateDisplayData.TabIndex = 2;
             // 
             // textBoxStateDownloadCsvData
             // 
@@ -711,9 +711,9 @@
         private System.Windows.Forms.TabPage tabPage0;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerStateCyclic;
-        private System.Windows.Forms.Label labelStateSaveCsvFile;
+        private System.Windows.Forms.Label labelStateDisplayData;
         private System.Windows.Forms.Label labelStateDownloadCsvData;
-        private System.Windows.Forms.TextBox textBoxStateSaveCsvFile;
+        private System.Windows.Forms.TextBox textBoxStateDisplayData;
         private System.Windows.Forms.TextBox textBoxStateDownloadCsvData;
         private System.Windows.Forms.Label labelUrlToRetrieveParam;
         private System.Windows.Forms.TextBox textBoxUrlToRetrieveParam;
