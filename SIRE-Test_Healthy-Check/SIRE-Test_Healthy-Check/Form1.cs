@@ -1795,21 +1795,20 @@ namespace SIRE_Test_Healthy_Check
                         datatableCsvData.Columns.Clear(); //Clear Columns of datatable CSV Data
                         datatableCsvData.Rows.Clear(); //Clear Rows of datatable CSV Data
 
-                        indexCsvDataRow = 0; //Initial indexCsvDataRow
-                        indexCsvDataColumn = 1; //Initial indexCsvDataColumn
-
                         wordCsvDataRow = textBoxCsvData.Text.Split('\n'); //Split Row by new line(\n)
 
                         wordCsvDataColumn = wordCsvDataRow[0].Split(','); //Split Column of Row0 by comma(,)
 
                         datatableCsvData.Columns.Add("ITEM"); //Add 1st Column is name = Item
 
+                        indexCsvDataRow = 0; //Initial indexCsvDataRow
+                        indexCsvDataColumn = 1; //Initial indexCsvDataColumn
+
                         foreach (var dataColumn in wordCsvDataColumn) //Add Other 42 Columns of CSV Header
                         {
                             datatableCsvData.Columns.Add(dataColumn);
-
-                            textBoxIndexCsvDataColumn.Text = indexCsvDataColumn.ToString();
                             indexCsvDataColumn++;
+                            textBoxIndexCsvDataColumn.Text = indexCsvDataColumn.ToString();
                         }
 
                         foreach (var dataRow in wordCsvDataRow)
