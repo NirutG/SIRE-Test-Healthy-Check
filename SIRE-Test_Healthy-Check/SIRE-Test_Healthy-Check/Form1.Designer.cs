@@ -54,11 +54,6 @@
             this.buttonTestGoParametricUrl1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage0 = new System.Windows.Forms.TabPage();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.buttonStepRun = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.labelCsvData = new System.Windows.Forms.Label();
             this.textBoxCsvData = new System.Windows.Forms.TextBox();
@@ -77,23 +72,22 @@
             this.labelUrlToGetCsvData = new System.Windows.Forms.Label();
             this.labelUrlToRetrieveParam = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
-            this.textBoxIndexCsvDataColumn = new System.Windows.Forms.TextBox();
-            this.label_IndexOfCsvDataColumn = new System.Windows.Forms.Label();
-            this.textBoxIndexCsvDataRow = new System.Windows.Forms.TextBox();
-            this.label_IndexOfCsvDataRow = new System.Windows.Forms.Label();
             this.buttonCheckDataInDataGridView2 = new System.Windows.Forms.Button();
             this.textBoxDataGridView2Column = new System.Windows.Forms.TextBox();
             this.labelDataGridView2Column = new System.Windows.Forms.Label();
             this.textBoxDataGridView2Value = new System.Windows.Forms.TextBox();
             this.textBoxDataGridView2Row = new System.Windows.Forms.TextBox();
             this.labelDataGridView2Row = new System.Windows.Forms.Label();
+            this.textBoxIndexCsvDataColumn = new System.Windows.Forms.TextBox();
+            this.label_IndexOfCsvDataColumn = new System.Windows.Forms.Label();
+            this.textBoxIndexCsvDataRow = new System.Windows.Forms.TextBox();
+            this.label_IndexOfCsvDataRow = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabPage0.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -339,11 +333,6 @@
             // 
             // tabPage0
             // 
-            this.tabPage0.Controls.Add(this.textBox3);
-            this.tabPage0.Controls.Add(this.textBox2);
-            this.tabPage0.Controls.Add(this.buttonStepRun);
-            this.tabPage0.Controls.Add(this.textBox1);
-            this.tabPage0.Controls.Add(this.button1);
             this.tabPage0.Location = new System.Drawing.Point(4, 22);
             this.tabPage0.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage0.Name = "tabPage0";
@@ -351,46 +340,6 @@
             this.tabPage0.TabIndex = 3;
             this.tabPage0.Text = "tabPage0";
             this.tabPage0.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(256, 136);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(289, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(67, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // buttonStepRun
-            // 
-            this.buttonStepRun.Location = new System.Drawing.Point(160, 73);
-            this.buttonStepRun.Name = "buttonStepRun";
-            this.buttonStepRun.Size = new System.Drawing.Size(75, 40);
-            this.buttonStepRun.TabIndex = 2;
-            this.buttonStepRun.Text = "stepRun";
-            this.buttonStepRun.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(300, 218);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(160, 218);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tabPage1
             // 
@@ -598,64 +547,6 @@
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(27, 74);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1171, 649);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1272, 954);
-            this.tabPage5.TabIndex = 5;
-            this.tabPage5.Text = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timerStateCyclic
-            // 
-            this.timerStateCyclic.Interval = 1;
-            this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
-            // 
-            // textBoxIndexCsvDataColumn
-            // 
-            this.textBoxIndexCsvDataColumn.Location = new System.Drawing.Point(483, 30);
-            this.textBoxIndexCsvDataColumn.Name = "textBoxIndexCsvDataColumn";
-            this.textBoxIndexCsvDataColumn.Size = new System.Drawing.Size(157, 20);
-            this.textBoxIndexCsvDataColumn.TabIndex = 16;
-            // 
-            // label_IndexOfCsvDataColumn
-            // 
-            this.label_IndexOfCsvDataColumn.AutoSize = true;
-            this.label_IndexOfCsvDataColumn.Location = new System.Drawing.Point(335, 33);
-            this.label_IndexOfCsvDataColumn.Name = "label_IndexOfCsvDataColumn";
-            this.label_IndexOfCsvDataColumn.Size = new System.Drawing.Size(142, 13);
-            this.label_IndexOfCsvDataColumn.TabIndex = 15;
-            this.label_IndexOfCsvDataColumn.Text = "Index of CSV Data Column =";
-            // 
-            // textBoxIndexCsvDataRow
-            // 
-            this.textBoxIndexCsvDataRow.Location = new System.Drawing.Point(158, 30);
-            this.textBoxIndexCsvDataRow.Name = "textBoxIndexCsvDataRow";
-            this.textBoxIndexCsvDataRow.Size = new System.Drawing.Size(157, 20);
-            this.textBoxIndexCsvDataRow.TabIndex = 14;
-            // 
-            // label_IndexOfCsvDataRow
-            // 
-            this.label_IndexOfCsvDataRow.AutoSize = true;
-            this.label_IndexOfCsvDataRow.Location = new System.Drawing.Point(24, 33);
-            this.label_IndexOfCsvDataRow.Name = "label_IndexOfCsvDataRow";
-            this.label_IndexOfCsvDataRow.Size = new System.Drawing.Size(129, 13);
-            this.label_IndexOfCsvDataRow.TabIndex = 13;
-            this.label_IndexOfCsvDataRow.Text = "Index of CSV Data Row =";
-            // 
             // buttonCheckDataInDataGridView2
             // 
             this.buttonCheckDataInDataGridView2.Location = new System.Drawing.Point(27, 799);
@@ -705,6 +596,64 @@
             this.labelDataGridView2Row.TabIndex = 17;
             this.labelDataGridView2Row.Text = "dataGridView2Row =";
             // 
+            // textBoxIndexCsvDataColumn
+            // 
+            this.textBoxIndexCsvDataColumn.Location = new System.Drawing.Point(483, 30);
+            this.textBoxIndexCsvDataColumn.Name = "textBoxIndexCsvDataColumn";
+            this.textBoxIndexCsvDataColumn.Size = new System.Drawing.Size(157, 20);
+            this.textBoxIndexCsvDataColumn.TabIndex = 16;
+            // 
+            // label_IndexOfCsvDataColumn
+            // 
+            this.label_IndexOfCsvDataColumn.AutoSize = true;
+            this.label_IndexOfCsvDataColumn.Location = new System.Drawing.Point(335, 33);
+            this.label_IndexOfCsvDataColumn.Name = "label_IndexOfCsvDataColumn";
+            this.label_IndexOfCsvDataColumn.Size = new System.Drawing.Size(142, 13);
+            this.label_IndexOfCsvDataColumn.TabIndex = 15;
+            this.label_IndexOfCsvDataColumn.Text = "Index of CSV Data Column =";
+            // 
+            // textBoxIndexCsvDataRow
+            // 
+            this.textBoxIndexCsvDataRow.Location = new System.Drawing.Point(158, 30);
+            this.textBoxIndexCsvDataRow.Name = "textBoxIndexCsvDataRow";
+            this.textBoxIndexCsvDataRow.Size = new System.Drawing.Size(157, 20);
+            this.textBoxIndexCsvDataRow.TabIndex = 14;
+            // 
+            // label_IndexOfCsvDataRow
+            // 
+            this.label_IndexOfCsvDataRow.AutoSize = true;
+            this.label_IndexOfCsvDataRow.Location = new System.Drawing.Point(24, 33);
+            this.label_IndexOfCsvDataRow.Name = "label_IndexOfCsvDataRow";
+            this.label_IndexOfCsvDataRow.Size = new System.Drawing.Size(129, 13);
+            this.label_IndexOfCsvDataRow.TabIndex = 13;
+            this.label_IndexOfCsvDataRow.Text = "Index of CSV Data Row =";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(27, 74);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(1171, 649);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1272, 954);
+            this.tabPage5.TabIndex = 5;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerStateCyclic
+            // 
+            this.timerStateCyclic.Interval = 1;
+            this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -717,8 +666,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage0.ResumeLayout(false);
-            this.tabPage0.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -764,11 +711,6 @@
         private System.Windows.Forms.TabPage tabPage0;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerStateCyclic;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button buttonStepRun;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label labelStateSaveCsvFile;
         private System.Windows.Forms.Label labelStateDownloadCsvFile;
         private System.Windows.Forms.TextBox textBoxStateSaveCsvFile;
