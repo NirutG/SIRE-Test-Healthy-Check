@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.buttonTest = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.textBoxUrlToGo = new System.Windows.Forms.TextBox();
@@ -54,6 +57,13 @@
             this.buttonTestGoParametricUrl1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage0 = new System.Windows.Forms.TabPage();
+            this.textBoxErorCodeFail = new System.Windows.Forms.TextBox();
+            this.textBoxErorCodePass = new System.Windows.Forms.TextBox();
+            this.textBoxErorCodeTotal = new System.Windows.Forms.TextBox();
+            this.labelErorCodeFail = new System.Windows.Forms.Label();
+            this.labelErorCodePass = new System.Windows.Forms.Label();
+            this.labelErorCodeTotal = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.labelCsvData = new System.Windows.Forms.Label();
             this.textBoxCsvData = new System.Windows.Forms.TextBox();
@@ -78,16 +88,20 @@
             this.textBoxDataGridView2Value = new System.Windows.Forms.TextBox();
             this.textBoxDataGridView2Row = new System.Windows.Forms.TextBox();
             this.labelDataGridView2Row = new System.Windows.Forms.Label();
-            this.textBoxIndexCsvDataColumn = new System.Windows.Forms.TextBox();
-            this.label_IndexOfCsvDataColumn = new System.Windows.Forms.Label();
-            this.textBoxIndexCsvDataRow = new System.Windows.Forms.TextBox();
-            this.label_IndexOfCsvDataRow = new System.Windows.Forms.Label();
+            this.textBoxLastIndexOfCsvDataColumn = new System.Windows.Forms.TextBox();
+            this.labelLastIndexOfCsvDataColumn = new System.Windows.Forms.Label();
+            this.textBoxLastIndexOfCsvDataRow = new System.Windows.Forms.TextBox();
+            this.labelLastIndexOfCsvDataRow = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
+            this.labelTest = new System.Windows.Forms.Label();
+            this.textBoxTest = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPage0.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -333,6 +347,15 @@
             // 
             // tabPage0
             // 
+            this.tabPage0.Controls.Add(this.textBoxTest);
+            this.tabPage0.Controls.Add(this.textBoxErorCodeFail);
+            this.tabPage0.Controls.Add(this.textBoxErorCodePass);
+            this.tabPage0.Controls.Add(this.labelTest);
+            this.tabPage0.Controls.Add(this.textBoxErorCodeTotal);
+            this.tabPage0.Controls.Add(this.labelErorCodeFail);
+            this.tabPage0.Controls.Add(this.labelErorCodePass);
+            this.tabPage0.Controls.Add(this.labelErorCodeTotal);
+            this.tabPage0.Controls.Add(this.chart1);
             this.tabPage0.Location = new System.Drawing.Point(4, 22);
             this.tabPage0.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage0.Name = "tabPage0";
@@ -340,6 +363,71 @@
             this.tabPage0.TabIndex = 3;
             this.tabPage0.Text = "tabPage0";
             this.tabPage0.UseVisualStyleBackColor = true;
+            // 
+            // textBoxErorCodeFail
+            // 
+            this.textBoxErorCodeFail.Location = new System.Drawing.Point(195, 515);
+            this.textBoxErorCodeFail.Name = "textBoxErorCodeFail";
+            this.textBoxErorCodeFail.Size = new System.Drawing.Size(133, 20);
+            this.textBoxErorCodeFail.TabIndex = 2;
+            // 
+            // textBoxErorCodePass
+            // 
+            this.textBoxErorCodePass.Location = new System.Drawing.Point(195, 480);
+            this.textBoxErorCodePass.Name = "textBoxErorCodePass";
+            this.textBoxErorCodePass.Size = new System.Drawing.Size(133, 20);
+            this.textBoxErorCodePass.TabIndex = 2;
+            // 
+            // textBoxErorCodeTotal
+            // 
+            this.textBoxErorCodeTotal.Location = new System.Drawing.Point(195, 447);
+            this.textBoxErorCodeTotal.Name = "textBoxErorCodeTotal";
+            this.textBoxErorCodeTotal.Size = new System.Drawing.Size(133, 20);
+            this.textBoxErorCodeTotal.TabIndex = 2;
+            // 
+            // labelErorCodeFail
+            // 
+            this.labelErorCodeFail.AutoSize = true;
+            this.labelErorCodeFail.Location = new System.Drawing.Point(105, 518);
+            this.labelErorCodeFail.Name = "labelErorCodeFail";
+            this.labelErorCodeFail.Size = new System.Drawing.Size(76, 13);
+            this.labelErorCodeFail.TabIndex = 1;
+            this.labelErorCodeFail.Text = "Error Code Fail";
+            // 
+            // labelErorCodePass
+            // 
+            this.labelErorCodePass.AutoSize = true;
+            this.labelErorCodePass.Location = new System.Drawing.Point(105, 483);
+            this.labelErorCodePass.Name = "labelErorCodePass";
+            this.labelErorCodePass.Size = new System.Drawing.Size(83, 13);
+            this.labelErorCodePass.TabIndex = 1;
+            this.labelErorCodePass.Text = "Error Code Pass";
+            // 
+            // labelErorCodeTotal
+            // 
+            this.labelErorCodeTotal.AutoSize = true;
+            this.labelErorCodeTotal.Location = new System.Drawing.Point(105, 450);
+            this.labelErorCodeTotal.Name = "labelErorCodeTotal";
+            this.labelErorCodeTotal.Size = new System.Drawing.Size(84, 13);
+            this.labelErorCodeTotal.TabIndex = 1;
+            this.labelErorCodeTotal.Text = "Error Code Total";
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(147, 76);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "pfcd";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
             // 
             // tabPage1
             // 
@@ -410,9 +498,9 @@
             this.labelStateDownloadCsvData.AutoSize = true;
             this.labelStateDownloadCsvData.Location = new System.Drawing.Point(1077, 39);
             this.labelStateDownloadCsvData.Name = "labelStateDownloadCsvData";
-            this.labelStateDownloadCsvData.Size = new System.Drawing.Size(114, 13);
+            this.labelStateDownloadCsvData.Size = new System.Drawing.Size(121, 13);
             this.labelStateDownloadCsvData.TabIndex = 3;
-            this.labelStateDownloadCsvData.Text = "StateDownloadCsvFile";
+            this.labelStateDownloadCsvData.Text = "StateDownloadCsvData";
             // 
             // textBoxStateDisplayData
             // 
@@ -535,10 +623,10 @@
             this.tabPage4.Controls.Add(this.textBoxDataGridView2Value);
             this.tabPage4.Controls.Add(this.textBoxDataGridView2Row);
             this.tabPage4.Controls.Add(this.labelDataGridView2Row);
-            this.tabPage4.Controls.Add(this.textBoxIndexCsvDataColumn);
-            this.tabPage4.Controls.Add(this.label_IndexOfCsvDataColumn);
-            this.tabPage4.Controls.Add(this.textBoxIndexCsvDataRow);
-            this.tabPage4.Controls.Add(this.label_IndexOfCsvDataRow);
+            this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataColumn);
+            this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataColumn);
+            this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataRow);
+            this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataRow);
             this.tabPage4.Controls.Add(this.dataGridView2);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -596,37 +684,37 @@
             this.labelDataGridView2Row.TabIndex = 17;
             this.labelDataGridView2Row.Text = "dataGridView2Row =";
             // 
-            // textBoxIndexCsvDataColumn
+            // textBoxLastIndexOfCsvDataColumn
             // 
-            this.textBoxIndexCsvDataColumn.Location = new System.Drawing.Point(483, 30);
-            this.textBoxIndexCsvDataColumn.Name = "textBoxIndexCsvDataColumn";
-            this.textBoxIndexCsvDataColumn.Size = new System.Drawing.Size(157, 20);
-            this.textBoxIndexCsvDataColumn.TabIndex = 16;
+            this.textBoxLastIndexOfCsvDataColumn.Location = new System.Drawing.Point(457, 30);
+            this.textBoxLastIndexOfCsvDataColumn.Name = "textBoxLastIndexOfCsvDataColumn";
+            this.textBoxLastIndexOfCsvDataColumn.Size = new System.Drawing.Size(157, 20);
+            this.textBoxLastIndexOfCsvDataColumn.TabIndex = 16;
             // 
-            // label_IndexOfCsvDataColumn
+            // labelLastIndexOfCsvDataColumn
             // 
-            this.label_IndexOfCsvDataColumn.AutoSize = true;
-            this.label_IndexOfCsvDataColumn.Location = new System.Drawing.Point(335, 33);
-            this.label_IndexOfCsvDataColumn.Name = "label_IndexOfCsvDataColumn";
-            this.label_IndexOfCsvDataColumn.Size = new System.Drawing.Size(142, 13);
-            this.label_IndexOfCsvDataColumn.TabIndex = 15;
-            this.label_IndexOfCsvDataColumn.Text = "Index of CSV Data Column =";
+            this.labelLastIndexOfCsvDataColumn.AutoSize = true;
+            this.labelLastIndexOfCsvDataColumn.Location = new System.Drawing.Point(335, 33);
+            this.labelLastIndexOfCsvDataColumn.Name = "labelLastIndexOfCsvDataColumn";
+            this.labelLastIndexOfCsvDataColumn.Size = new System.Drawing.Size(115, 13);
+            this.labelLastIndexOfCsvDataColumn.TabIndex = 15;
+            this.labelLastIndexOfCsvDataColumn.Text = "Last Index of Column =";
             // 
-            // textBoxIndexCsvDataRow
+            // textBoxLastIndexOfCsvDataRow
             // 
-            this.textBoxIndexCsvDataRow.Location = new System.Drawing.Point(158, 30);
-            this.textBoxIndexCsvDataRow.Name = "textBoxIndexCsvDataRow";
-            this.textBoxIndexCsvDataRow.Size = new System.Drawing.Size(157, 20);
-            this.textBoxIndexCsvDataRow.TabIndex = 14;
+            this.textBoxLastIndexOfCsvDataRow.Location = new System.Drawing.Point(134, 30);
+            this.textBoxLastIndexOfCsvDataRow.Name = "textBoxLastIndexOfCsvDataRow";
+            this.textBoxLastIndexOfCsvDataRow.Size = new System.Drawing.Size(157, 20);
+            this.textBoxLastIndexOfCsvDataRow.TabIndex = 14;
             // 
-            // label_IndexOfCsvDataRow
+            // labelLastIndexOfCsvDataRow
             // 
-            this.label_IndexOfCsvDataRow.AutoSize = true;
-            this.label_IndexOfCsvDataRow.Location = new System.Drawing.Point(24, 33);
-            this.label_IndexOfCsvDataRow.Name = "label_IndexOfCsvDataRow";
-            this.label_IndexOfCsvDataRow.Size = new System.Drawing.Size(129, 13);
-            this.label_IndexOfCsvDataRow.TabIndex = 13;
-            this.label_IndexOfCsvDataRow.Text = "Index of CSV Data Row =";
+            this.labelLastIndexOfCsvDataRow.AutoSize = true;
+            this.labelLastIndexOfCsvDataRow.Location = new System.Drawing.Point(24, 33);
+            this.labelLastIndexOfCsvDataRow.Name = "labelLastIndexOfCsvDataRow";
+            this.labelLastIndexOfCsvDataRow.Size = new System.Drawing.Size(102, 13);
+            this.labelLastIndexOfCsvDataRow.TabIndex = 13;
+            this.labelLastIndexOfCsvDataRow.Text = "Last Index of Row =";
             // 
             // dataGridView2
             // 
@@ -654,6 +742,22 @@
             this.timerStateCyclic.Interval = 1;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
+            // labelTest
+            // 
+            this.labelTest.AutoSize = true;
+            this.labelTest.Location = new System.Drawing.Point(105, 557);
+            this.labelTest.Name = "labelTest";
+            this.labelTest.Size = new System.Drawing.Size(35, 13);
+            this.labelTest.TabIndex = 1;
+            this.labelTest.Text = "TEST";
+            // 
+            // textBoxTest
+            // 
+            this.textBoxTest.Location = new System.Drawing.Point(195, 554);
+            this.textBoxTest.Name = "textBoxTest";
+            this.textBoxTest.Size = new System.Drawing.Size(133, 20);
+            this.textBoxTest.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,6 +770,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage0.ResumeLayout(false);
+            this.tabPage0.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -728,16 +835,25 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TextBox textBoxIndexCsvDataColumn;
-        private System.Windows.Forms.Label label_IndexOfCsvDataColumn;
-        private System.Windows.Forms.TextBox textBoxIndexCsvDataRow;
-        private System.Windows.Forms.Label label_IndexOfCsvDataRow;
+        private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataColumn;
+        private System.Windows.Forms.Label labelLastIndexOfCsvDataColumn;
+        private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataRow;
+        private System.Windows.Forms.Label labelLastIndexOfCsvDataRow;
         private System.Windows.Forms.Button buttonCheckDataInDataGridView2;
         private System.Windows.Forms.TextBox textBoxDataGridView2Column;
         private System.Windows.Forms.Label labelDataGridView2Column;
         private System.Windows.Forms.TextBox textBoxDataGridView2Value;
         private System.Windows.Forms.TextBox textBoxDataGridView2Row;
         private System.Windows.Forms.Label labelDataGridView2Row;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.TextBox textBoxErorCodeFail;
+        private System.Windows.Forms.TextBox textBoxErorCodePass;
+        private System.Windows.Forms.TextBox textBoxErorCodeTotal;
+        private System.Windows.Forms.Label labelErorCodeFail;
+        private System.Windows.Forms.Label labelErorCodePass;
+        private System.Windows.Forms.Label labelErorCodeTotal;
+        private System.Windows.Forms.TextBox textBoxTest;
+        private System.Windows.Forms.Label labelTest;
     }
 }
 

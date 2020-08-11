@@ -55,11 +55,15 @@ namespace SIRE_Test_Healthy_Check
         int test = 0;
         bool switchStepRun = false; //Decare to test function by STEP Run
         bool switchDownloadCsvData = false; //Decare for ON function download_CsvData
-        bool switchDisplayCsvData = false; //Decare for ON function display_CsvData
+        bool switchDisplayData = false; //Decare for ON function display_Data
 
         double stateDownloadCsvData = 0; //Initial State of Function download_CsvData at state0
-        double stateDisplayData = 0; //Initial State of Function save_CsvFile at state0
+        double stateDisplayData = 0; //Initial State of Function display_Data at state0
 
+        int errorCodeTotal = 0; //Initial Count Total Error Code
+        int errorCodePass = 0; //Initial Count Pass Error Code
+        int errorCodeFail = 0; //Initial Count Fail Error Code
+        string checkColumnPfcd = ""; //Initial for check Column Name : PFCD
 
 
         DataTable datatableWordWebCodeResponse = new DataTable(); //Decare to use Class DataTable to help checking
@@ -1795,42 +1799,41 @@ namespace SIRE_Test_Healthy_Check
 
                         wordCsvDataRow = textBoxCsvData.Text.Split('\n'); //Split Row by new line(\n)
 
-                        wordCsvDataColumn = wordCsvDataRow[0].Split(','); //Split Column of Row0 by comma(,)
-
-                        datatableCsvData.Columns.Add("ITEM"); //Add 1st Column is name = Item
-
                         indexCsvDataRow = 0; //Initial indexCsvDataRow
-                        indexCsvDataColumn = 1; //Initial indexCsvDataColumn
+                        indexCsvDataColumn = 0; //Initial indexCsvDataColumn
+
+                        //datatableCsvData.Columns.Add("Column0"); //Add 1st Column is name = Item
+                        datatableCsvData.Columns.Add("Column" + indexCsvDataColumn);
+
+                        wordCsvDataColumn = wordCsvDataRow[0].Split(','); //Split Column of Row0 by comma(,)
 
                         foreach (var dataColumn in wordCsvDataColumn) //Add Other 42 Columns of CSV Header
                         {
-                            datatableCsvData.Columns.Add(dataColumn);
+                            //datatableCsvData.Columns.Add(dataColumn);
                             indexCsvDataColumn++;
-                            textBoxIndexCsvDataColumn.Text = indexCsvDataColumn.ToString();
+                            datatableCsvData.Columns.Add("Column"+ indexCsvDataColumn);
+                            
+                            textBoxLastIndexOfCsvDataColumn.Text = indexCsvDataColumn.ToString();
                         }
 
                         foreach (var dataRow in wordCsvDataRow)
                         {
-                            if (dataRow == wordCsvDataRow[0])
-                            {
-                            }
-                            else
-                            {
-                                wordCsvDataColumn = dataRow.Split(',');
-                                //datatableCsvData.Rows.Add(wordCsvDataColumn);
-                                datatableCsvData.Rows.Add(indexCsvDataRow, wordCsvDataColumn[0],  wordCsvDataColumn[1],  wordCsvDataColumn[2],  wordCsvDataColumn[3],
-                                                                           wordCsvDataColumn[4],  wordCsvDataColumn[5],  wordCsvDataColumn[6],  wordCsvDataColumn[7],
-                                                                           wordCsvDataColumn[8],  wordCsvDataColumn[9],  wordCsvDataColumn[10], wordCsvDataColumn[11],
-                                                                           wordCsvDataColumn[12], wordCsvDataColumn[13], wordCsvDataColumn[14], wordCsvDataColumn[15],
-                                                                           wordCsvDataColumn[16], wordCsvDataColumn[17], wordCsvDataColumn[18], wordCsvDataColumn[19],
-                                                                           wordCsvDataColumn[20], wordCsvDataColumn[21], wordCsvDataColumn[22], wordCsvDataColumn[23],
-                                                                           wordCsvDataColumn[24], wordCsvDataColumn[25], wordCsvDataColumn[26], wordCsvDataColumn[27],
-                                                                           wordCsvDataColumn[28], wordCsvDataColumn[29], wordCsvDataColumn[30], wordCsvDataColumn[31],
-                                                                           wordCsvDataColumn[32], wordCsvDataColumn[33], wordCsvDataColumn[34], wordCsvDataColumn[35],
-                                                                           wordCsvDataColumn[36], wordCsvDataColumn[37], wordCsvDataColumn[38], wordCsvDataColumn[39],
-                                                                           wordCsvDataColumn[40], wordCsvDataColumn[41]);
-                            }
-                            textBoxIndexCsvDataRow.Text = indexCsvDataRow.ToString();
+                            wordCsvDataColumn = dataRow.Split(',');
+
+                            datatableCsvData.Rows.Add(indexCsvDataRow, wordCsvDataColumn[0], wordCsvDataColumn[1], wordCsvDataColumn[2], wordCsvDataColumn[3],
+                                                                       wordCsvDataColumn[4], wordCsvDataColumn[5], wordCsvDataColumn[6], wordCsvDataColumn[7],
+                                                                       wordCsvDataColumn[8], wordCsvDataColumn[9], wordCsvDataColumn[10], wordCsvDataColumn[11],
+                                                                       wordCsvDataColumn[12], wordCsvDataColumn[13], wordCsvDataColumn[14], wordCsvDataColumn[15],
+                                                                       wordCsvDataColumn[16], wordCsvDataColumn[17], wordCsvDataColumn[18], wordCsvDataColumn[19],
+                                                                       wordCsvDataColumn[20], wordCsvDataColumn[21], wordCsvDataColumn[22], wordCsvDataColumn[23],
+                                                                       wordCsvDataColumn[24], wordCsvDataColumn[25], wordCsvDataColumn[26], wordCsvDataColumn[27],
+                                                                       wordCsvDataColumn[28], wordCsvDataColumn[29], wordCsvDataColumn[30], wordCsvDataColumn[31],
+                                                                       wordCsvDataColumn[32], wordCsvDataColumn[33], wordCsvDataColumn[34], wordCsvDataColumn[35],
+                                                                       wordCsvDataColumn[36], wordCsvDataColumn[37], wordCsvDataColumn[38], wordCsvDataColumn[39],
+                                                                       wordCsvDataColumn[40], wordCsvDataColumn[41]);
+
+                            textBoxLastIndexOfCsvDataRow.Text = indexCsvDataRow.ToString();
+
                             indexCsvDataRow++;
                         }
 
@@ -1839,6 +1842,7 @@ namespace SIRE_Test_Healthy_Check
                         stateDownloadCsvData = 100;
                         break;
                     case 100: //State100 : End This Function and Resetting variables
+                        switchDisplayData = true; //Enable Function display_Data()
                         switchDownloadCsvData = false;
                         stateDownloadCsvData = 0;
                         break;
@@ -1848,6 +1852,63 @@ namespace SIRE_Test_Healthy_Check
             }
         }
         //##### End : download_CsvData
+
+        //##### Begin : display_Data
+        private void display_Data()
+        {
+            if (switchDisplayData)
+            {
+                switch (stateDisplayData)
+                {
+                    case 0: //Initial Variable
+                        stateDisplayData = 1;
+                        errorCodeTotal = indexCsvDataRow; //Initial Count Total Error Code
+                        errorCodePass = 0; //Initial Count Pass Error Code
+                        errorCodeFail = 0; //Initial Count Fail Error Code
+                        tabControl1.SelectedTab = tabPage0; //Open tabPage0 to Display data
+                        stateDisplayData = 1;
+                        break;
+                    case 1: //State1 : Count ErrorCode in Column "PFCD", Total and Pass and Fail = ?
+                        
+                        //for(int i = 0; i <= dataGridView2.RowCount; i++)
+                        for(int i = 1; i < errorCodeTotal; i++)
+                        {
+                            if(dataGridView2[7,i].Value.ToString() == "0000") //Column : "PFCD"
+                            {
+                                errorCodePass++;
+                            }
+                            else
+                            {
+                                errorCodeFail++;
+                            }
+                        }
+                        textBoxErorCodeTotal.Text = errorCodeTotal.ToString();
+                        textBoxErorCodePass.Text = errorCodePass.ToString();
+                        textBoxErorCodeFail.Text = errorCodeFail.ToString();
+                        //textBoxTest.Text = dataGridView2.RowCount.ToString();
+                        /*
+                        errorCodeFail = dataGridView2[7, 0].Value.ToString();
+
+                        textBoxErorCodeTotal.Text = errorCodeTotal.ToString();
+                        textBoxErorCodePass.Text = errorCodePass.ToString();
+                        textBoxErorCodeFail.Text = errorCodeFail.ToString();
+                        if (errorCodeFail == "PFCD")
+                        {
+                            textBoxTest.Text = "OK NirutG Go to Next Step!";
+                        }
+                        */
+                        stateDisplayData = 100;
+                        break;
+                    case 100: //State100:
+                        switchDisplayData = false;
+                        stateDisplayData = 0;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        //##### End : display_Data
 
         //##### End : My function Area #####
 
@@ -1892,7 +1953,7 @@ namespace SIRE_Test_Healthy_Check
         private void timerStateCyclic_Tick(object sender, EventArgs e)
         {
             download_CsvData(); //Auto download CSV File
-            //save_CsvFile(); //Auto save CSV File
+            display_Data(); //Auto display Data
             textBoxStateDownloadCsvData.Text = stateDownloadCsvData.ToString();
             textBoxStateDisplayData.Text = stateDisplayData.ToString();
         }
