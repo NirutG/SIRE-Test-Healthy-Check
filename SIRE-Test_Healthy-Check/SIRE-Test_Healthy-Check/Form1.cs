@@ -58,16 +58,27 @@ namespace SIRE_Test_Healthy_Check
         bool switchDisplayData = false; //Decare for ON function display_Data
 
         double stateDownloadCsvData = 0; //Initial State of Function download_CsvData at state0
-        double stateDisplayData = 0; //Initial State of Function display_Data at state0
+        byte stateDisplayData = 0; //Initial State of Function display_Data at state0
+        byte subStateDisplayData1 = 0; //Initial subStateDisplayData1 of Function display_Data at State2
+
 
         int errorCodeTotal = 0; //Initial Count Total Error Code
         int errorCodePass = 0; //Initial Count Pass Error Code
         int errorCodeFail = 0; //Initial Count Fail Error Code
+        int countErrorCodeLoop = 0; //Initial errorCodeFail counting 
         string checkColumnPfcd = ""; //Initial for check Column Name : PFCD
+
+        //string[] errorCodeNumber; //Decare to store ErrorCode Number from dataGridView3
+        short errorCodeIndex = 0; //Decare for separate ErrorCode count how many difference ErrorCode in dataGridView4
+        string[] errorCode = new string[10000]; //Decare for store ErrorCode 
+        short[] errorCodeQuantity = new short[70000]; //Decare for Store ErrorCode Quantity in dataGridView4
+
 
 
         DataTable datatableWordWebCodeResponse = new DataTable(); //Decare to use Class DataTable to help checking
         DataTable datatableCsvData = new DataTable(); //Decare to use Class DataTable to help checking CSV Data
+        DataTable datatableDisplayData = new DataTable(); //Decare to use Class DataTable to help checking Display Data
+        DataTable datatableDisplayErrorCodeCount = new DataTable(); //Decare to use Class DataTable to help count ErrorCode Count
         AutoHand autoHand = new AutoHand();//Decare to use DLL File of AutoItX3
         //Point point = new Point(0, 0); //Decare point x=0, y=0
         Point point = new Point(0, 0); //Decare point x=0, y=0
@@ -1792,7 +1803,6 @@ namespace SIRE_Test_Healthy_Check
                     case 14: //State14 : Convert CSV Data from web to dataGridView2
                         textBoxCsvData.Text = webBrowser1.Document.Body.InnerText;
 
-
                         datatableCsvData.Clear(); //Clear datatable of CSV Data
                         datatableCsvData.Columns.Clear(); //Clear Columns of datatable CSV Data
                         datatableCsvData.Rows.Clear(); //Clear Rows of datatable CSV Data
@@ -1802,14 +1812,12 @@ namespace SIRE_Test_Healthy_Check
                         indexCsvDataRow = 0; //Initial indexCsvDataRow
                         indexCsvDataColumn = 0; //Initial indexCsvDataColumn
 
-                        //datatableCsvData.Columns.Add("Column0"); //Add 1st Column is name = Item
                         datatableCsvData.Columns.Add("Column" + indexCsvDataColumn);
 
                         wordCsvDataColumn = wordCsvDataRow[0].Split(','); //Split Column of Row0 by comma(,)
 
                         foreach (var dataColumn in wordCsvDataColumn) //Add Other 42 Columns of CSV Header
                         {
-                            //datatableCsvData.Columns.Add(dataColumn);
                             indexCsvDataColumn++;
                             datatableCsvData.Columns.Add("Column"+ indexCsvDataColumn);
                             
@@ -1861,16 +1869,29 @@ namespace SIRE_Test_Healthy_Check
                 switch (stateDisplayData)
                 {
                     case 0: //Initial Variable
-                        stateDisplayData = 1;
                         errorCodeTotal = indexCsvDataRow; //Initial Count Total Error Code
                         errorCodePass = 0; //Initial Count Pass Error Code
                         errorCodeFail = 0; //Initial Count Fail Error Code
+                        //countErrorCodeLoop = 0;
+
+                        datatableDisplayData.Clear(); //Clear datatable of Display Data
+                        datatableDisplayData.Columns.Clear(); //Clear Columns of Display CSV Data
+                        datatableDisplayData.Rows.Clear(); //Clear Rows of Display CSV Data
+                        datatableDisplayData.Columns.Add("Item"); //Add 1st Column
+                        datatableDisplayData.Columns.Add("ErrorCode"); //Add 2nd Column
+
+                        datatableDisplayErrorCodeCount.Clear(); //Clear datatable of ErrorCodeCount
+                        datatableDisplayErrorCodeCount.Columns.Clear(); //Clear Column of ErrorCodeCount
+                        datatableDisplayErrorCodeCount.Rows.Clear(); //Clear Rows of ErrorCodeCount
+                        datatableDisplayErrorCodeCount.Columns.Add("ErrorCodeNumber"); //Add 1st Column
+                        datatableDisplayErrorCodeCount.Columns.Add("Q'ty"); //Add 2nd Column
+                        datatableDisplayErrorCodeCount.Columns.Add("%"); //Add 3rn Column
+
                         tabControl1.SelectedTab = tabPage0; //Open tabPage0 to Display data
+                        subStateDisplayData1 = 0;
                         stateDisplayData = 1;
                         break;
-                    case 1: //State1 : Count ErrorCode in Column "PFCD", Total and Pass and Fail = ?
-                        
-                        //for(int i = 0; i <= dataGridView2.RowCount; i++)
+                    case 1: //State1 : Count ErrorCode in Column "PFCD", Total and Pass and Fail = ? and Identigy ErrorCode into dataGridView3
                         for(int i = 1; i < errorCodeTotal; i++)
                         {
                             if(dataGridView2[7,i].Value.ToString() == "0000") //Column : "PFCD"
@@ -1879,28 +1900,59 @@ namespace SIRE_Test_Healthy_Check
                             }
                             else
                             {
+                                datatableDisplayData.Rows.Add(i, dataGridView2[7, i].Value.ToString()); //Add Idex of ErrorCode and ErrorCode into datatableDisplayData
                                 errorCodeFail++;
                             }
                         }
                         textBoxErorCodeTotal.Text = errorCodeTotal.ToString();
                         textBoxErorCodePass.Text = errorCodePass.ToString();
                         textBoxErorCodeFail.Text = errorCodeFail.ToString();
-                        //textBoxTest.Text = dataGridView2.RowCount.ToString();
+                        dataGridView3.DataSource = datatableDisplayData; //Dump datatableDisplayData after added all ErrorCode into dataGridView3 to Analyze
+                        stateDisplayData = 2;
+                        break;
+                    case 2: //State3 : Count Q'ty and % of ErrorCode in dataTable3 
                         /*
-                        errorCodeFail = dataGridView2[7, 0].Value.ToString();
-
-                        textBoxErorCodeTotal.Text = errorCodeTotal.ToString();
-                        textBoxErorCodePass.Text = errorCodePass.ToString();
-                        textBoxErorCodeFail.Text = errorCodeFail.ToString();
-                        if (errorCodeFail == "PFCD")
+                        for (int j = 0; j <= errorCodeFail; j++)
                         {
-                            textBoxTest.Text = "OK NirutG Go to Next Step!";
+                            
                         }
                         */
+                        switch (subStateDisplayData1)
+                        {
+                            case 0: //Initial Variables
+                                errorCodeIndex = 0; //Prepare to count ErrorCode1
+                                //errorCode[errorCodeIndex] = datatableDisplayData.Rows[0][1].ToString(); //1st ErrorCode
+                                errorCode[errorCodeIndex] = dataGridView3.Rows[0].Cells[1].Value.ToString(); //1st ErrorCode
+                                //errorCode[errorCodeIndex] = "0555"; //Test
+
+                                //errorCode[0] = "0010"; //Test
+
+                                errorCodeQuantity[errorCodeIndex] = 1; //ErrorCode1
+                                //errorCodeQuantity[0] = 1; //ErrorCode1
+                                //datatableDisplayErrorCodeCount.Rows.Add(errorCode[errorCodeIndex], errorCodeQuantity[errorCodeIndex], "NotReady"); //Add 1st Row ErrorCode Number
+                                //datatableDisplayErrorCodeCount.Rows.Add(errorCode[0], 1, "NotReady"); //Add 1st Row ErrorCode Number
+                                datatableDisplayErrorCodeCount.Rows.Add(errorCode[errorCodeIndex], errorCodeQuantity[errorCodeIndex], "NotReady!");
+                                dataGridView4.DataSource = datatableDisplayErrorCodeCount; //Assign dataGridView4.DataSource = datatableDisplayErrorCodeCount
+                                subStateDisplayData1 = 1;
+                                break;
+                            case 1:
+                                //datatableDisplayErrorCodeCount.Rows.Add(dataGridView3[1, 0].Value.ToString(), errorCodeQuantity[errorCodeIndex], "Not Ready"); //Add 1st Row ErrorCode Number
+                                
+                                subStateDisplayData1 = 2;
+                                break;
+                            case 2:
+                                //if(datatableDisplayErrorCodeCount.Rows[j][1] == "")
+                                stateDisplayData = 100;
+                                break;
+                            default:
+                                break;
+                        }
                         stateDisplayData = 100;
                         break;
+
                     case 100: //State100:
                         switchDisplayData = false;
+                        subStateDisplayData1 = 0;
                         stateDisplayData = 0;
                         break;
                     default:

@@ -1,0 +1,10 @@
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\bin\Debug\Test_dataGridView.exe.config
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\bin\Debug\Test_dataGridView.exe
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\bin\Debug\Test_dataGridView.pdb
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\obj\Debug\Test_dataGridView.csprojAssemblyReference.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\obj\Debug\Test_dataGridView.Form1.resources
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\obj\Debug\Test_dataGridView.Properties.Resources.resources
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\obj\Debug\Test_dataGridView.csproj.GenerateResource.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\obj\Debug\Test_dataGridView.csproj.CoreCompileInputs.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\obj\Debug\Test_dataGridView.exe
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_dataGridView\Test_dataGridView\obj\Debug\Test_dataGridView.pdb

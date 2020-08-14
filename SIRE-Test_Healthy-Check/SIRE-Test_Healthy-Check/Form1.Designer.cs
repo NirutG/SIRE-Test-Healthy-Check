@@ -57,8 +57,12 @@
             this.buttonTestGoParametricUrl1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage0 = new System.Windows.Forms.TabPage();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.textBoxTest = new System.Windows.Forms.TextBox();
             this.textBoxErorCodeFail = new System.Windows.Forms.TextBox();
             this.textBoxErorCodePass = new System.Windows.Forms.TextBox();
+            this.labelTest = new System.Windows.Forms.Label();
             this.textBoxErorCodeTotal = new System.Windows.Forms.TextBox();
             this.labelErorCodeFail = new System.Windows.Forms.Label();
             this.labelErorCodePass = new System.Windows.Forms.Label();
@@ -96,11 +100,11 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
-            this.labelTest = new System.Windows.Forms.Label();
-            this.textBoxTest = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -347,6 +351,8 @@
             // 
             // tabPage0
             // 
+            this.tabPage0.Controls.Add(this.dataGridView4);
+            this.tabPage0.Controls.Add(this.dataGridView3);
             this.tabPage0.Controls.Add(this.textBoxTest);
             this.tabPage0.Controls.Add(this.textBoxErorCodeFail);
             this.tabPage0.Controls.Add(this.textBoxErorCodePass);
@@ -364,6 +370,29 @@
             this.tabPage0.Text = "tabPage0";
             this.tabPage0.UseVisualStyleBackColor = true;
             // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(767, 27);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(405, 607);
+            this.dataGridView4.TabIndex = 4;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(387, 27);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(331, 607);
+            this.dataGridView3.TabIndex = 3;
+            // 
+            // textBoxTest
+            // 
+            this.textBoxTest.Location = new System.Drawing.Point(195, 554);
+            this.textBoxTest.Name = "textBoxTest";
+            this.textBoxTest.Size = new System.Drawing.Size(133, 20);
+            this.textBoxTest.TabIndex = 2;
+            // 
             // textBoxErorCodeFail
             // 
             this.textBoxErorCodeFail.Location = new System.Drawing.Point(195, 515);
@@ -377,6 +406,15 @@
             this.textBoxErorCodePass.Name = "textBoxErorCodePass";
             this.textBoxErorCodePass.Size = new System.Drawing.Size(133, 20);
             this.textBoxErorCodePass.TabIndex = 2;
+            // 
+            // labelTest
+            // 
+            this.labelTest.AutoSize = true;
+            this.labelTest.Location = new System.Drawing.Point(105, 557);
+            this.labelTest.Name = "labelTest";
+            this.labelTest.Size = new System.Drawing.Size(35, 13);
+            this.labelTest.TabIndex = 1;
+            this.labelTest.Text = "TEST";
             // 
             // textBoxErorCodeTotal
             // 
@@ -418,7 +456,7 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(147, 76);
+            this.chart1.Location = new System.Drawing.Point(28, 69);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -742,22 +780,6 @@
             this.timerStateCyclic.Interval = 1;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
-            // labelTest
-            // 
-            this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(105, 557);
-            this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(35, 13);
-            this.labelTest.TabIndex = 1;
-            this.labelTest.Text = "TEST";
-            // 
-            // textBoxTest
-            // 
-            this.textBoxTest.Location = new System.Drawing.Point(195, 554);
-            this.textBoxTest.Name = "textBoxTest";
-            this.textBoxTest.Size = new System.Drawing.Size(133, 20);
-            this.textBoxTest.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -772,6 +794,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage0.ResumeLayout(false);
             this.tabPage0.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -854,6 +878,8 @@
         private System.Windows.Forms.Label labelErorCodeTotal;
         private System.Windows.Forms.TextBox textBoxTest;
         private System.Windows.Forms.Label labelTest;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridView4;
     }
 }
 
