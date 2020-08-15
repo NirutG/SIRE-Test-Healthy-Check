@@ -100,6 +100,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
+            this.textBoxCheckErrorCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -351,6 +352,7 @@
             // 
             // tabPage0
             // 
+            this.tabPage0.Controls.Add(this.textBoxCheckErrorCode);
             this.tabPage0.Controls.Add(this.dataGridView4);
             this.tabPage0.Controls.Add(this.dataGridView3);
             this.tabPage0.Controls.Add(this.textBoxTest);
@@ -375,7 +377,7 @@
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Location = new System.Drawing.Point(767, 27);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(405, 607);
+            this.dataGridView4.Size = new System.Drawing.Size(405, 329);
             this.dataGridView4.TabIndex = 4;
             // 
             // dataGridView3
@@ -780,6 +782,14 @@
             this.timerStateCyclic.Interval = 1;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
+            // textBoxCheckErrorCode
+            // 
+            this.textBoxCheckErrorCode.Location = new System.Drawing.Point(767, 425);
+            this.textBoxCheckErrorCode.Multiline = true;
+            this.textBoxCheckErrorCode.Name = "textBoxCheckErrorCode";
+            this.textBoxCheckErrorCode.Size = new System.Drawing.Size(405, 209);
+            this.textBoxCheckErrorCode.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -880,6 +890,7 @@
         private System.Windows.Forms.Label labelTest;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.TextBox textBoxCheckErrorCode;
     }
 }
 
