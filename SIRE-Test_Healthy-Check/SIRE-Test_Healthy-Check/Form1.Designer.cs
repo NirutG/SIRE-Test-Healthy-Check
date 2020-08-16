@@ -57,16 +57,6 @@
             this.buttonTestGoParametricUrl1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage0 = new System.Windows.Forms.TabPage();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.textBoxTest = new System.Windows.Forms.TextBox();
-            this.textBoxErorCodeFail = new System.Windows.Forms.TextBox();
-            this.textBoxErorCodePass = new System.Windows.Forms.TextBox();
-            this.labelTest = new System.Windows.Forms.Label();
-            this.textBoxErorCodeTotal = new System.Windows.Forms.TextBox();
-            this.labelErorCodeFail = new System.Windows.Forms.Label();
-            this.labelErorCodePass = new System.Windows.Forms.Label();
-            this.labelErorCodeTotal = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.labelCsvData = new System.Windows.Forms.Label();
@@ -100,18 +90,29 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
+            this.textBoxTest = new System.Windows.Forms.TextBox();
+            this.textBoxErorCodeFail = new System.Windows.Forms.TextBox();
+            this.textBoxErorCodePass = new System.Windows.Forms.TextBox();
+            this.labelTest = new System.Windows.Forms.Label();
+            this.textBoxErorCodeTotal = new System.Windows.Forms.TextBox();
+            this.labelErorCodeFail = new System.Windows.Forms.Label();
+            this.labelErorCodePass = new System.Windows.Forms.Label();
+            this.labelErorCodeTotal = new System.Windows.Forms.Label();
             this.textBoxCheckErrorCode = new System.Windows.Forms.TextBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonTest
@@ -352,17 +353,6 @@
             // 
             // tabPage0
             // 
-            this.tabPage0.Controls.Add(this.textBoxCheckErrorCode);
-            this.tabPage0.Controls.Add(this.dataGridView4);
-            this.tabPage0.Controls.Add(this.dataGridView3);
-            this.tabPage0.Controls.Add(this.textBoxTest);
-            this.tabPage0.Controls.Add(this.textBoxErorCodeFail);
-            this.tabPage0.Controls.Add(this.textBoxErorCodePass);
-            this.tabPage0.Controls.Add(this.labelTest);
-            this.tabPage0.Controls.Add(this.textBoxErorCodeTotal);
-            this.tabPage0.Controls.Add(this.labelErorCodeFail);
-            this.tabPage0.Controls.Add(this.labelErorCodePass);
-            this.tabPage0.Controls.Add(this.labelErorCodeTotal);
             this.tabPage0.Controls.Add(this.chart1);
             this.tabPage0.Location = new System.Drawing.Point(4, 22);
             this.tabPage0.Margin = new System.Windows.Forms.Padding(2);
@@ -371,86 +361,6 @@
             this.tabPage0.TabIndex = 3;
             this.tabPage0.Text = "tabPage0";
             this.tabPage0.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(767, 27);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(405, 329);
-            this.dataGridView4.TabIndex = 4;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(387, 27);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(331, 607);
-            this.dataGridView3.TabIndex = 3;
-            // 
-            // textBoxTest
-            // 
-            this.textBoxTest.Location = new System.Drawing.Point(195, 554);
-            this.textBoxTest.Name = "textBoxTest";
-            this.textBoxTest.Size = new System.Drawing.Size(133, 20);
-            this.textBoxTest.TabIndex = 2;
-            // 
-            // textBoxErorCodeFail
-            // 
-            this.textBoxErorCodeFail.Location = new System.Drawing.Point(195, 515);
-            this.textBoxErorCodeFail.Name = "textBoxErorCodeFail";
-            this.textBoxErorCodeFail.Size = new System.Drawing.Size(133, 20);
-            this.textBoxErorCodeFail.TabIndex = 2;
-            // 
-            // textBoxErorCodePass
-            // 
-            this.textBoxErorCodePass.Location = new System.Drawing.Point(195, 480);
-            this.textBoxErorCodePass.Name = "textBoxErorCodePass";
-            this.textBoxErorCodePass.Size = new System.Drawing.Size(133, 20);
-            this.textBoxErorCodePass.TabIndex = 2;
-            // 
-            // labelTest
-            // 
-            this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(105, 557);
-            this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(35, 13);
-            this.labelTest.TabIndex = 1;
-            this.labelTest.Text = "TEST";
-            // 
-            // textBoxErorCodeTotal
-            // 
-            this.textBoxErorCodeTotal.Location = new System.Drawing.Point(195, 447);
-            this.textBoxErorCodeTotal.Name = "textBoxErorCodeTotal";
-            this.textBoxErorCodeTotal.Size = new System.Drawing.Size(133, 20);
-            this.textBoxErorCodeTotal.TabIndex = 2;
-            // 
-            // labelErorCodeFail
-            // 
-            this.labelErorCodeFail.AutoSize = true;
-            this.labelErorCodeFail.Location = new System.Drawing.Point(105, 518);
-            this.labelErorCodeFail.Name = "labelErorCodeFail";
-            this.labelErorCodeFail.Size = new System.Drawing.Size(76, 13);
-            this.labelErorCodeFail.TabIndex = 1;
-            this.labelErorCodeFail.Text = "Error Code Fail";
-            // 
-            // labelErorCodePass
-            // 
-            this.labelErorCodePass.AutoSize = true;
-            this.labelErorCodePass.Location = new System.Drawing.Point(105, 483);
-            this.labelErorCodePass.Name = "labelErorCodePass";
-            this.labelErorCodePass.Size = new System.Drawing.Size(83, 13);
-            this.labelErorCodePass.TabIndex = 1;
-            this.labelErorCodePass.Text = "Error Code Pass";
-            // 
-            // labelErorCodeTotal
-            // 
-            this.labelErorCodeTotal.AutoSize = true;
-            this.labelErorCodeTotal.Location = new System.Drawing.Point(105, 450);
-            this.labelErorCodeTotal.Name = "labelErorCodeTotal";
-            this.labelErorCodeTotal.Size = new System.Drawing.Size(84, 13);
-            this.labelErorCodeTotal.TabIndex = 1;
-            this.labelErorCodeTotal.Text = "Error Code Total";
             // 
             // chart1
             // 
@@ -766,6 +676,17 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.textBoxCheckErrorCode);
+            this.tabPage5.Controls.Add(this.dataGridView4);
+            this.tabPage5.Controls.Add(this.dataGridView3);
+            this.tabPage5.Controls.Add(this.textBoxTest);
+            this.tabPage5.Controls.Add(this.textBoxErorCodeFail);
+            this.tabPage5.Controls.Add(this.textBoxErorCodePass);
+            this.tabPage5.Controls.Add(this.labelTest);
+            this.tabPage5.Controls.Add(this.textBoxErorCodeTotal);
+            this.tabPage5.Controls.Add(this.labelErorCodeFail);
+            this.tabPage5.Controls.Add(this.labelErorCodePass);
+            this.tabPage5.Controls.Add(this.labelErorCodeTotal);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(1272, 954);
@@ -782,13 +703,93 @@
             this.timerStateCyclic.Interval = 1;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
+            // textBoxTest
+            // 
+            this.textBoxTest.Location = new System.Drawing.Point(127, 303);
+            this.textBoxTest.Name = "textBoxTest";
+            this.textBoxTest.Size = new System.Drawing.Size(133, 20);
+            this.textBoxTest.TabIndex = 7;
+            // 
+            // textBoxErorCodeFail
+            // 
+            this.textBoxErorCodeFail.Location = new System.Drawing.Point(127, 264);
+            this.textBoxErorCodeFail.Name = "textBoxErorCodeFail";
+            this.textBoxErorCodeFail.Size = new System.Drawing.Size(133, 20);
+            this.textBoxErorCodeFail.TabIndex = 8;
+            // 
+            // textBoxErorCodePass
+            // 
+            this.textBoxErorCodePass.Location = new System.Drawing.Point(127, 229);
+            this.textBoxErorCodePass.Name = "textBoxErorCodePass";
+            this.textBoxErorCodePass.Size = new System.Drawing.Size(133, 20);
+            this.textBoxErorCodePass.TabIndex = 9;
+            // 
+            // labelTest
+            // 
+            this.labelTest.AutoSize = true;
+            this.labelTest.Location = new System.Drawing.Point(37, 306);
+            this.labelTest.Name = "labelTest";
+            this.labelTest.Size = new System.Drawing.Size(35, 13);
+            this.labelTest.TabIndex = 3;
+            this.labelTest.Text = "TEST";
+            // 
+            // textBoxErorCodeTotal
+            // 
+            this.textBoxErorCodeTotal.Location = new System.Drawing.Point(127, 196);
+            this.textBoxErorCodeTotal.Name = "textBoxErorCodeTotal";
+            this.textBoxErorCodeTotal.Size = new System.Drawing.Size(133, 20);
+            this.textBoxErorCodeTotal.TabIndex = 10;
+            // 
+            // labelErorCodeFail
+            // 
+            this.labelErorCodeFail.AutoSize = true;
+            this.labelErorCodeFail.Location = new System.Drawing.Point(37, 267);
+            this.labelErorCodeFail.Name = "labelErorCodeFail";
+            this.labelErorCodeFail.Size = new System.Drawing.Size(76, 13);
+            this.labelErorCodeFail.TabIndex = 4;
+            this.labelErorCodeFail.Text = "Error Code Fail";
+            // 
+            // labelErorCodePass
+            // 
+            this.labelErorCodePass.AutoSize = true;
+            this.labelErorCodePass.Location = new System.Drawing.Point(37, 232);
+            this.labelErorCodePass.Name = "labelErorCodePass";
+            this.labelErorCodePass.Size = new System.Drawing.Size(83, 13);
+            this.labelErorCodePass.TabIndex = 5;
+            this.labelErorCodePass.Text = "Error Code Pass";
+            // 
+            // labelErorCodeTotal
+            // 
+            this.labelErorCodeTotal.AutoSize = true;
+            this.labelErorCodeTotal.Location = new System.Drawing.Point(37, 199);
+            this.labelErorCodeTotal.Name = "labelErorCodeTotal";
+            this.labelErorCodeTotal.Size = new System.Drawing.Size(84, 13);
+            this.labelErorCodeTotal.TabIndex = 6;
+            this.labelErorCodeTotal.Text = "Error Code Total";
+            // 
             // textBoxCheckErrorCode
             // 
-            this.textBoxCheckErrorCode.Location = new System.Drawing.Point(767, 425);
+            this.textBoxCheckErrorCode.Location = new System.Drawing.Point(791, 446);
             this.textBoxCheckErrorCode.Multiline = true;
             this.textBoxCheckErrorCode.Name = "textBoxCheckErrorCode";
             this.textBoxCheckErrorCode.Size = new System.Drawing.Size(405, 209);
-            this.textBoxCheckErrorCode.TabIndex = 5;
+            this.textBoxCheckErrorCode.TabIndex = 13;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(791, 48);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(405, 329);
+            this.dataGridView4.TabIndex = 12;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(411, 48);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(331, 607);
+            this.dataGridView3.TabIndex = 11;
             // 
             // Form1
             // 
@@ -803,9 +804,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage0.ResumeLayout(false);
-            this.tabPage0.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -816,6 +814,10 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -880,17 +882,17 @@
         private System.Windows.Forms.TextBox textBoxDataGridView2Row;
         private System.Windows.Forms.Label labelDataGridView2Row;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.TextBox textBoxCheckErrorCode;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TextBox textBoxTest;
         private System.Windows.Forms.TextBox textBoxErorCodeFail;
         private System.Windows.Forms.TextBox textBoxErorCodePass;
+        private System.Windows.Forms.Label labelTest;
         private System.Windows.Forms.TextBox textBoxErorCodeTotal;
         private System.Windows.Forms.Label labelErorCodeFail;
         private System.Windows.Forms.Label labelErorCodePass;
         private System.Windows.Forms.Label labelErorCodeTotal;
-        private System.Windows.Forms.TextBox textBoxTest;
-        private System.Windows.Forms.Label labelTest;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.TextBox textBoxCheckErrorCode;
     }
 }
 

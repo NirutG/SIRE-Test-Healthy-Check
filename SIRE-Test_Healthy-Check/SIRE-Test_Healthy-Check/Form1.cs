@@ -17,7 +17,7 @@ namespace SIRE_Test_Healthy_Check
     {
         //##### Begin : Decare variable in Form1 #####
         string[] wordWebCodeResponse; //Check Word in textBoxWebCodeResponse
-        uint indexWordWebCodeResponse = 0; //Index of string array, wordWebCodeResponse
+        int indexWordWebCodeResponse = 0; //Index of string array, wordWebCodeResponse
 
         bool statusWebBrowser1DocumentCompleted = false; //Decare for check when webBrowser1_DocumentCompleted
         bool statusDelay = false; //Check Function delay_State is done?
@@ -42,17 +42,17 @@ namespace SIRE_Test_Healthy_Check
         string wordTarget = ""; //Initial to use with Function fine_Word()
         string[] wordCsvDataRow; //Decare String array to receive CSV Data separate by Row
         string[] wordCsvDataColumn; //Decare String array to receive CSV Data separate by Column
-        uint indexCsvDataRow = 0; //Decare to be Row index of CsvData
-        uint indexCsvDataColumn = 0; //Decare to be Column index of CsvData
+        int indexCsvDataRow = 0; //Decare to be Row index of CsvData
+        int indexCsvDataColumn = 0; //Decare to be Column index of CsvData
 
         string wordRunning = ""; //Initial to use in Function find_WordIndex
-        uint indexRunning = 0; //Initial to use in Function find_WordIndex
-        uint indexParam1800Head = 0; //Initial to use in Function show_UrlToGetCsvData()
-        uint indexParam1800Unit = 0; //Initial to use in Function show_UrlToGetCsvData()
-        uint indexParam1800HeadValue = 0; //Initial to use in Function show_UrlToGetCsvData()
-        uint indexParam1800UnitValue = 0; //Initial to use in Function show_UrlToGetCsvData()
+        int indexRunning = 0; //Initial to use in Function find_WordIndex
+        int indexParam1800Head = 0; //Initial to use in Function show_UrlToGetCsvData()
+        int indexParam1800Unit = 0; //Initial to use in Function show_UrlToGetCsvData()
+        int indexParam1800HeadValue = 0; //Initial to use in Function show_UrlToGetCsvData()
+        int indexParam1800UnitValue = 0; //Initial to use in Function show_UrlToGetCsvData()
         double testShow = 10.0;
-        uint test = 0;
+        int test = 0;
         bool switchStepRun = false; //Decare to test function by STEP Run
         bool switchDownloadCsvData = false; //Decare for ON function download_CsvData
         bool switchDisplayData = false; //Decare for ON function display_Data
@@ -62,19 +62,20 @@ namespace SIRE_Test_Healthy_Check
         byte subStateDisplayData1 = 0; //Initial subStateDisplayData1 of Function display_Data at State2
 
 
-        uint errorCodeTotal = 0; //Initial Count Total Error Code
-        uint errorCodePass = 0; //Initial Count Pass Error Code
-        uint errorCodeFail = 0; //Initial Count Fail Error Code
-        uint countErrorCodeLoop = 0; //Initial errorCodeFail counting 
+        int errorCodeTotal = 0; //Initial Count Total Error Code
+        int errorCodePass = 0; //Initial Count Pass Error Code
+        int errorCodeFail = 0; //Initial Count Fail Error Code
+        int countErrorCodeLoop = 0; //Initial errorCodeFail counting 
         string checkColumnPfcd = ""; //Initial for check Column Name : PFCD
 
-        //string[] errorCodeNumber; //Decare to store ErrorCode Number from dataGridView3
-        uint index = 0; //Decare for separate ErrorCode count how many difference ErrorCode in dataGridView4
+        int indexDataGridView3 = 0; 
+        int indexDataGridView4 = 0; //Decare for separate ErrorCode count how many difference ErrorCode in dataGridView4
         string[] errorCode = new string[100000000]; //Decare for store ErrorCode 
-        uint[] errorCodeQuantity = new uint[70000]; //Decare for Store ErrorCode Quantity in dataGridView4
+        int[] errorCodeQuantity = new int[70000]; //Decare for Store ErrorCode Quantity in dataGridView4
         string errorCodeInColumn = "";
         string errorCodeCheck = "";
-
+        string[] errorCodeNumber = new string[10000]; //Decare for inside loop to remember difference ErrorCodeNumber
+        List<string> list = new List<string>(); //Decare for add each difference ErrorCode into errorCodeNumber[]
 
 
         DataTable dataTable1 = new DataTable(); //Decare to use Class DataTable to help checking
@@ -283,7 +284,7 @@ namespace SIRE_Test_Healthy_Check
         //##### End : split_Text
 
         //##### Begin : find_WordIndex
-        private bool find_WordIndex(string wordToCompare, uint indexInitial)
+        private bool find_WordIndex(string wordToCompare, int indexInitial)
         {
             switch (stateFindWordIndex)
             {
@@ -1886,30 +1887,29 @@ namespace SIRE_Test_Healthy_Check
                         dataTable4.Columns.Clear(); //Clear Column of ErrorCodeCount
                         dataTable4.Rows.Clear(); //Clear Rows of ErrorCodeCount
                         dataTable4.Columns.Add("ErrorCodeNumber"); //Add 1st Column
-                        dataTable4.Columns.Add("Q'ty"); //Add 2nd Column
+                        dataTable4.Columns.Add("Q'ty or dataGrid3Item"); //Add 2nd Column
                         dataTable4.Columns.Add("%"); //Add 3rn Column
 
 
 
-                        tabControl1.SelectedTab = tabPage0; //Open tabPage0 to Display data
+                        tabControl1.SelectedTab = tabPage5; //Open tabPage5 to Display data
                         subStateDisplayData1 = 0;
                         stateDisplayData = 1;
                         break;
                     case 1: //State1 : Count ErrorCode in Column "PFCD", Total and Pass and Fail = ? and Identigy ErrorCode into dataGridView3
                         for(int i = 1; i < errorCodeTotal; i++)
                         {
-                            //if(dataGridView2[7,i].Value.ToString() == "0000") //Column : "PFCD"
-                            if(dataGridView2.Rows[i].Cells[7].Value.ToString() == "0000") //Column : "PFCD" ***** Test New Code
+                            if(dataTable2.Rows[i][7].ToString()=="0000")
                             {
-                                errorCodePass++;
+                                errorCodePass++; //Debug
                             }
                             else
                             {
-                                //dataTable3.Rows.Add(i, dataGridView2[7, i].Value.ToString()); //Add Idex of ErrorCode and ErrorCode into dataTable3
-                                dataTable3.Rows.Add(i, dataGridView2.Rows[i].Cells[7].Value.ToString()); //Add Idex of ErrorCode and ErrorCode into dataTable3 ***** Test New Code
+                                dataTable3.Rows.Add(i, dataTable2.Rows[i][7].ToString()); //Debug
                                 errorCodeFail++;
                             }
                         }
+                        textBoxTest.Text = dataTable2.Rows[0][7].ToString(); //Debug
                         textBoxErorCodeTotal.Text = errorCodeTotal.ToString();
                         textBoxErorCodePass.Text = errorCodePass.ToString();
                         textBoxErorCodeFail.Text = errorCodeFail.ToString();
@@ -1921,33 +1921,67 @@ namespace SIRE_Test_Healthy_Check
                         foreach (DataGridViewRow checkCode in dataGridView3.Rows)
                         {
                             errorCodeInColumn += checkCode.Cells["ErrorCode"].Value + " ";
-                            //errorCodeInColumn += checkCode.Cells["ErrorCode"].Value;
                         }
                         textBoxCheckErrorCode.Text = errorCodeInColumn;
                         
                         stateDisplayData = 3;
                         break;
                     case 3: //State3 : Count Q'ty and % of ErrorCode in dataTable3 Continue
-                        index = 0; //Prepare to count ErrorCode1
-                        errorCode = errorCodeInColumn.Split(' ');
+                        indexDataGridView3 = 0; 
+                        indexDataGridView4 = 0; //Prepare to count ErrorCode1
+                        //errorCodeInColumn = errorCodeInColumn.Replace('"','W'); //Test
+                        //errorCodeInColumn = errorCodeInColumn.Replace("WW", ""); //Test
+                        errorCode = errorCodeInColumn.Split(' '); //Test
                         stateDisplayData = 4;
                         break;
                     case 4: //State4 : Count Q'ty and % of ErrorCode in dataTable3 Continue
-                        //errorCodeFilter = errorCode[0]+" "; //Put 1st ErrorCode to errorCodeFilter
-                        dataTable4.Rows.Add(errorCode[0], "NotCount!", "NotReady!");
-                        errorCodeCheck = errorCode[0];
-                        //index++;
+                        list.Add(errorCode[indexDataGridView4]); //Add errorCode[0] into list
+                        errorCodeNumber = list.ToArray(); //Add 1st ErrorCode to errorCodeNumber
+                        //dataTable4.Rows.Add(errorCodeNumber[indexDataGridView4], dataGridView3.Rows[indexDataGridView3].Cells[0].Value, "NotReady!"); //Add 1st ErrorCode into dataTable4
+                        //dataTable2.Rows[0][7].ToString();
+                        dataTable4.Rows.Add(errorCodeNumber[indexDataGridView4], dataTable3.Rows[indexDataGridView3][0], "NotReady!"); //Add 1st ErrorCode into dataTable4
+                        errorCodeCheck = errorCodeNumber[indexDataGridView4];
+                        //indexDataGridView3++;
+
                         stateDisplayData = 5;
+                        //stateDisplayData = 6;
                         break;
                     case 5: //State5 : Count Q'ty and % of ErrorCode in dataTable3 Continue
                         foreach (string checkWord in errorCode)
                         {
-                            if(checkWord != errorCodeCheck) //Checking Difference ErrorCode
+                            
+                            if (checkWord != errorCodeNumber[indexDataGridView4]) //Checking Difference ErrorCode
                             {
-                                dataTable4.Rows.Add(checkWord, "NotCount", "NotReady!");
-                                errorCodeCheck = checkWord;
+                                //Console.WriteLine("indexDataGridView3 = "+ (indexDataGridView3-1) + "----" + "Word : " + checkWord); //Debug
+                                //dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3 - 1][0], "NotReady!");
+                                dataTable4.Rows.Add(checkWord, indexDataGridView3, "NotReady!"); //Test
+                                indexDataGridView3++;
+
+                                //### Yesterday
+                                //errorCode = errorCodeInColumn.Split(' '); //Split by space
+                                //errorCode = Regex.Split(errorCodeInColumn, errorCodeCheck); //Split by value in Variabl errorCodeCheck
+                                //errorCodeInColumn = errorCodeInColumn.Replace(errorCodeCheck, "");
+                                //errorCode = errorCodeInColumn.Split(' '); //Split by space again
+
+                                /*### Today
+                                foreach(string checkDiffernce in errorCodeNumber)
+                                {
+                                    if (checkWord != checkDiffernce)
+                                    {
+                                        list.Add(checkWord); //Add each difference ErrorCode into list
+                                        errorCodeNumber = list.ToArray(); //Add each difference ErrorCode to errorCodeNumber
+                                        errorCodeCheck = checkWord; // Now errorCodeCheck is value in checkWord
+                                        dataTable4.Rows.Add(checkWord, "NotCount", "NotReady!");
+                                    }
+                                }
+                                */
+
                             }
-                            //index++;
+                            else
+                            {
+                                indexDataGridView3++;
+                            }
+                            textBoxTest.Text = indexDataGridView3.ToString();
                         }
                         stateDisplayData = 6;
                         break;
