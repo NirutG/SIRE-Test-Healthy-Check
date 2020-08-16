@@ -1929,8 +1929,7 @@ namespace SIRE_Test_Healthy_Check
                     case 3: //State3 : Count Q'ty and % of ErrorCode in dataTable3 Continue
                         indexDataGridView3 = 0; 
                         indexDataGridView4 = 0; //Prepare to count ErrorCode1
-                        //errorCodeInColumn = errorCodeInColumn.Replace('"','W'); //Test
-                        //errorCodeInColumn = errorCodeInColumn.Replace("WW", ""); //Test
+                        errorCodeInColumn = errorCodeInColumn.TrimEnd(); //Trim Whitespaces
                         errorCode = errorCodeInColumn.Split(' '); //Test
                         stateDisplayData = 4;
                         break;
@@ -1953,8 +1952,8 @@ namespace SIRE_Test_Healthy_Check
                             if (checkWord != errorCodeNumber[indexDataGridView4]) //Checking Difference ErrorCode
                             {
                                 //Console.WriteLine("indexDataGridView3 = "+ (indexDataGridView3-1) + "----" + "Word : " + checkWord); //Debug
-                                //dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3 - 1][0], "NotReady!");
-                                dataTable4.Rows.Add(checkWord, indexDataGridView3, "NotReady!"); //Test
+                                dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3][0], "NotReady!");
+                                //dataTable4.Rows.Add(checkWord, indexDataGridView3, "NotReady!"); //Test
                                 indexDataGridView3++;
 
                                 //### Yesterday
