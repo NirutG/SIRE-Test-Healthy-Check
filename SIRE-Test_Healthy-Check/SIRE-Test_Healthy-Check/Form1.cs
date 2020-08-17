@@ -1939,7 +1939,7 @@ namespace SIRE_Test_Healthy_Check
                         //dataTable4.Rows.Add(errorCodeNumber[indexDataGridView4], dataGridView3.Rows[indexDataGridView3].Cells[0].Value, "NotReady!"); //Add 1st ErrorCode into dataTable4
                         //dataTable2.Rows[0][7].ToString();
                         dataTable4.Rows.Add(errorCodeNumber[indexDataGridView4], dataTable3.Rows[indexDataGridView3][0], "NotReady!"); //Add 1st ErrorCode into dataTable4
-                        errorCodeCheck = errorCodeNumber[indexDataGridView4];
+                        //errorCodeCheck = errorCodeNumber[indexDataGridView4];
                         //indexDataGridView3++;
 
                         stateDisplayData = 5;
@@ -1948,32 +1948,41 @@ namespace SIRE_Test_Healthy_Check
                     case 5: //State5 : Count Q'ty and % of ErrorCode in dataTable3 Continue
                         foreach (string checkWord in errorCode)
                         {
-                            
                             if (checkWord != errorCodeNumber[indexDataGridView4]) //Checking Difference ErrorCode
                             {
-                                //Console.WriteLine("indexDataGridView3 = "+ (indexDataGridView3-1) + "----" + "Word : " + checkWord); //Debug
-                                dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3][0], "NotReady!");
-                                //dataTable4.Rows.Add(checkWord, indexDataGridView3, "NotReady!"); //Test
-                                indexDataGridView3++;
+                                //dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3][0], "NotReady!");
+                                //indexDataGridView3++;
 
-                                //### Yesterday
-                                //errorCode = errorCodeInColumn.Split(' '); //Split by space
-                                //errorCode = Regex.Split(errorCodeInColumn, errorCodeCheck); //Split by value in Variabl errorCodeCheck
-                                //errorCodeInColumn = errorCodeInColumn.Replace(errorCodeCheck, "");
-                                //errorCode = errorCodeInColumn.Split(' '); //Split by space again
-
-                                /*### Today
-                                foreach(string checkDiffernce in errorCodeNumber)
+                                /*### Yesterday
+                                foreach(string checkDiff in errorCodeNumber)
                                 {
-                                    if (checkWord != checkDiffernce)
+                                    if (checkWord != checkDiff)
                                     {
                                         list.Add(checkWord); //Add each difference ErrorCode into list
                                         errorCodeNumber = list.ToArray(); //Add each difference ErrorCode to errorCodeNumber
-                                        errorCodeCheck = checkWord; // Now errorCodeCheck is value in checkWord
+                                        //errorCodeCheck = checkWord; // Now errorCodeCheck is value in checkWord
                                         dataTable4.Rows.Add(checkWord, "NotCount", "NotReady!");
                                     }
                                 }
                                 */
+
+                                foreach(string check in errorCodeNumber)
+                                {
+                                    if (errorCodeNumber.Contains(checkWord))
+                                    {
+                                        //indexDataGridView3++;
+                                    }
+                                    else
+                                    {
+                                        list.Add(checkWord);
+                                        errorCodeNumber = list.ToArray();
+                                        indexDataGridView4++;
+
+                                        dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3][0], "NotReady!");
+                                        //indexDataGridView3++;
+                                    }
+                                }
+                                indexDataGridView3++;
 
                             }
                             else

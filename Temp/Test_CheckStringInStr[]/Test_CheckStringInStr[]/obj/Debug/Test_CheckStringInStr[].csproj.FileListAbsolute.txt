@@ -1,0 +1,10 @@
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\bin\Debug\Test_CheckStringInStr[].exe.config
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\bin\Debug\Test_CheckStringInStr[].exe
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\bin\Debug\Test_CheckStringInStr[].pdb
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\obj\Debug\Test_CheckStringInStr[].csprojAssemblyReference.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\obj\Debug\Test_CheckStringInStr__.Form1.resources
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\obj\Debug\Test_CheckStringInStr__.Properties.Resources.resources
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\obj\Debug\Test_CheckStringInStr[].csproj.GenerateResource.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\obj\Debug\Test_CheckStringInStr[].csproj.CoreCompileInputs.cache
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\obj\Debug\Test_CheckStringInStr[].exe
+C:\NirutG\2)_PROJECT\1)_SIRE Healthy Check\4)_Software\3)_Program\Development\SIRE-Test-Healthy-Check\Temp\Test_CheckStringInStr[]\Test_CheckStringInStr[]\obj\Debug\Test_CheckStringInStr[].pdb
