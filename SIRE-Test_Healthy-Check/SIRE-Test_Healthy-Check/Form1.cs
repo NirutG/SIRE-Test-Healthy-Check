@@ -95,6 +95,7 @@ namespace SIRE_Test_Healthy_Check
         {
             InitializeComponent();
             timerStateCyclic.Enabled = true;
+            timerStateCyclic.Start(); //Add new
         }
 
         //##### Begin : My function Area #####
@@ -111,6 +112,7 @@ namespace SIRE_Test_Healthy_Check
                 case 1: //Set Interval and Enable timer1
                     timer1.Interval = intervalValue;
                     timer1.Enabled = true;
+                    timer1.Start(); //Added new
                     stateDelay = 2;
                     break;
                 case 2: //Wait until timer1 will Tick
@@ -131,6 +133,7 @@ namespace SIRE_Test_Healthy_Check
         private void timer1_Tick(object sender, EventArgs e)
         {
             statusDelay = true;
+            timer1.Stop(); //Added new
             timer1.Enabled = false;
         }
         //##### End : delay_State
@@ -1936,54 +1939,30 @@ namespace SIRE_Test_Healthy_Check
                     case 4: //State4 : Count Q'ty and % of ErrorCode in dataTable3 Continue
                         list.Add(errorCode[indexDataGridView4]); //Add errorCode[0] into list
                         errorCodeNumber = list.ToArray(); //Add 1st ErrorCode to errorCodeNumber
-                        //dataTable4.Rows.Add(errorCodeNumber[indexDataGridView4], dataGridView3.Rows[indexDataGridView3].Cells[0].Value, "NotReady!"); //Add 1st ErrorCode into dataTable4
-                        //dataTable2.Rows[0][7].ToString();
                         dataTable4.Rows.Add(errorCodeNumber[indexDataGridView4], dataTable3.Rows[indexDataGridView3][0], "NotReady!"); //Add 1st ErrorCode into dataTable4
-                        //errorCodeCheck = errorCodeNumber[indexDataGridView4];
-                        //indexDataGridView3++;
-
                         stateDisplayData = 5;
-                        //stateDisplayData = 6;
                         break;
                     case 5: //State5 : Count Q'ty and % of ErrorCode in dataTable3 Continue
                         foreach (string checkWord in errorCode)
                         {
                             if (checkWord != errorCodeNumber[indexDataGridView4]) //Checking Difference ErrorCode
                             {
-                                //dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3][0], "NotReady!");
-                                //indexDataGridView3++;
-
-                                /*### Yesterday
-                                foreach(string checkDiff in errorCodeNumber)
-                                {
-                                    if (checkWord != checkDiff)
-                                    {
-                                        list.Add(checkWord); //Add each difference ErrorCode into list
-                                        errorCodeNumber = list.ToArray(); //Add each difference ErrorCode to errorCodeNumber
-                                        //errorCodeCheck = checkWord; // Now errorCodeCheck is value in checkWord
-                                        dataTable4.Rows.Add(checkWord, "NotCount", "NotReady!");
-                                    }
-                                }
-                                */
-
                                 foreach(string check in errorCodeNumber)
                                 {
-                                    if (errorCodeNumber.Contains(checkWord))
+                                    if (errorCodeNumber.Contains(checkWord)) //Check current ErrorCodeNumber is contain in errorCodeNumber array or not?
                                     {
-                                        //indexDataGridView3++;
+
                                     }
                                     else
                                     {
-                                        list.Add(checkWord);
-                                        errorCodeNumber = list.ToArray();
+                                        list.Add(checkWord); //Add current ErrorCodeNumber to list
+                                        errorCodeNumber = list.ToArray(); //Convert list to be Array then dump to errorCodeNumber
                                         indexDataGridView4++;
 
-                                        dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3][0], "NotReady!");
-                                        //indexDataGridView3++;
+                                        dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3][0], "NotReady!"); //Add Difference ErrorCode into dataTable4
                                     }
                                 }
                                 indexDataGridView3++;
-
                             }
                             else
                             {
