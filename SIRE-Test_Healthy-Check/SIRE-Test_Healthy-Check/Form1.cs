@@ -1987,10 +1987,8 @@ namespace SIRE_Test_Healthy_Check
                                 if(code == dataTable4.Rows[count][0].ToString())
                                 {
                                     errorCodeQuantity[count]++;
-
-                                    Console.WriteLine("code = " + code); //Debug
-                                    Console.WriteLine("errorCodeQuantity[count] = " + errorCodeQuantity[count]); //Debug
-
+                                    //Console.WriteLine("code = " + code); //Debug
+                                    //Console.WriteLine("errorCodeQuantity[count] = " + errorCodeQuantity[count]); //Debug
                                     dataTable4.Rows[count][2] = errorCodeQuantity[count]; //Put ErrorCode Quantity to Column2
                                 }
                                 else
