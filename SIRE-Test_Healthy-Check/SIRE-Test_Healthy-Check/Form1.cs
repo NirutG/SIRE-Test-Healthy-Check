@@ -71,7 +71,8 @@ namespace SIRE_Test_Healthy_Check
         int indexDataGridView3 = 0; 
         int indexDataGridView4 = 0; //Decare for separate ErrorCode count how many difference ErrorCode in dataGridView4
         string[] errorCode = new string[100000000]; //Decare for store ErrorCode 
-        int[] errorCodeQuantity = new int[70000]; //Decare for Store ErrorCode Quantity in dataGridView4
+        int[] errorCodeQuantity = new int[10000]; //Decare for Store ErrorCode Quantity in dataGridView4
+        int errorCodeShiftRow = 0; //Decare for shift row down to work together with errorCodeQuantity
         string errorCodeInColumn = "";
         string errorCodeCheck = "";
         string[] errorCodeNumber = new string[10000]; //Decare for inside loop to remember difference ErrorCodeNumber
@@ -1893,7 +1894,7 @@ namespace SIRE_Test_Healthy_Check
                         dataTable4.Columns.Add("Q'ty or dataGrid3Item"); //Add 2nd Column
                         dataTable4.Columns.Add("%"); //Add 3rn Column
 
-
+                        
 
                         tabControl1.SelectedTab = tabPage5; //Open tabPage5 to Display data
                         subStateDisplayData1 = 0;
@@ -1970,9 +1971,53 @@ namespace SIRE_Test_Healthy_Check
                             }
                             textBoxTest.Text = indexDataGridView3.ToString();
                         }
+                        errorCodeQuantity[0] = 0; //Initial before count errorCode
+                        errorCodeShiftRow = 0; //Initial before count errorCode
+
                         stateDisplayData = 6;
                         break;
-                    case 6: //State6 : Count Q'ty and % of ErrorCode in dataTable3 Continue
+                    case 6: //State6 : Count Q'ty of ErrorCode in dataTable3
+                        textBoxTest.Text = dataTable4.Rows.Count.ToString();
+                        //count = dataTable4.Rows.Count;
+
+                        for (int count = 0; count < dataTable4.Rows.Count; count++)
+                        {
+                            foreach(string code in errorCode)
+                            {
+                                if(code == dataTable4.Rows[count][0].ToString())
+                                {
+                                    errorCodeQuantity[count]++;
+
+                                    Console.WriteLine("code = " + code); //Debug
+                                    Console.WriteLine("errorCodeQuantity[count] = " + errorCodeQuantity[count]); //Debug
+
+                                    dataTable4.Rows[count][2] = errorCodeQuantity[count]; //Put ErrorCode Quantity to Column2
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
+
+                        stateDisplayData = 7;
+
+                        /*
+                        if(dataTable4.Rows[errorCodeShiftRow][0].ToString() != "")
+                        {
+
+                            //errorCodeQuantity[0]++;
+                            //if(dataTable3.Rows[errorCodeQuantity[0]][1])
+                            errorCodeShiftRow++;
+                        }
+                        else
+                        {
+                            textBoxTest.Text = errorCodeShiftRow.ToString(); //Check Top Empty Low
+                            stateDisplayData = 7;
+                        }
+                        */
+                        break;
+                    case 7: //State7 : Count Q'ty and % of ErrorCode in dataTable3 Continue
                         dataGridView4.DataSource = dataTable4; //Assign dataGridView4.DataSource = dataTable4
                         stateDisplayData = 100;
                         break;
