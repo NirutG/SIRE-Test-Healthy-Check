@@ -1879,7 +1879,6 @@ namespace SIRE_Test_Healthy_Check
                         errorCodeTotal = indexCsvDataRow; //Initial Count Total Error Code
                         errorCodePass = 0; //Initial Count Pass Error Code
                         errorCodeFail = 0; //Initial Count Fail Error Code
-                        //countErrorCodeLoop = 0;
 
                         dataTable3.Clear(); //Clear datatable of Display Data
                         dataTable3.Columns.Clear(); //Clear Columns of Display CSV Data
@@ -1893,8 +1892,6 @@ namespace SIRE_Test_Healthy_Check
                         dataTable4.Columns.Add("ErrorCodeNumber"); //Add 1st Column
                         dataTable4.Columns.Add("Q'ty or dataGrid3Item"); //Add 2nd Column
                         dataTable4.Columns.Add("%"); //Add 3rn Column
-
-                        
 
                         tabControl1.SelectedTab = tabPage5; //Open tabPage5 to Display data
                         subStateDisplayData1 = 0;
@@ -1921,13 +1918,11 @@ namespace SIRE_Test_Healthy_Check
                         stateDisplayData = 2;
                         break;
                     case 2: //State2 : Count Q'ty and % of ErrorCode in dataTable3 
-                        
                         foreach (DataGridViewRow checkCode in dataGridView3.Rows)
                         {
                             errorCodeInColumn += checkCode.Cells["ErrorCode"].Value + " ";
                         }
                         textBoxCheckErrorCode.Text = errorCodeInColumn;
-                        
                         stateDisplayData = 3;
                         break;
                     case 3: //State3 : Count Q'ty and % of ErrorCode in dataTable3 Continue
@@ -1989,7 +1984,6 @@ namespace SIRE_Test_Healthy_Check
                                 }
                                 else
                                 {
-
                                 }
                             }
                         }
