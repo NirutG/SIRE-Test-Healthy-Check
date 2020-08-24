@@ -1978,8 +1978,6 @@ namespace SIRE_Test_Healthy_Check
                         break;
                     case 6: //State6 : Count Q'ty of ErrorCode in dataTable3
                         textBoxTest.Text = dataTable4.Rows.Count.ToString();
-                        //count = dataTable4.Rows.Count;
-
                         for (int count = 0; count < dataTable4.Rows.Count; count++)
                         {
                             foreach(string code in errorCode)
@@ -1987,8 +1985,6 @@ namespace SIRE_Test_Healthy_Check
                                 if(code == dataTable4.Rows[count][0].ToString())
                                 {
                                     errorCodeQuantity[count]++;
-                                    //Console.WriteLine("code = " + code); //Debug
-                                    //Console.WriteLine("errorCodeQuantity[count] = " + errorCodeQuantity[count]); //Debug
                                     dataTable4.Rows[count][2] = errorCodeQuantity[count]; //Put ErrorCode Quantity to Column2
                                 }
                                 else
@@ -1997,23 +1993,7 @@ namespace SIRE_Test_Healthy_Check
                                 }
                             }
                         }
-
                         stateDisplayData = 7;
-
-                        /*
-                        if(dataTable4.Rows[errorCodeShiftRow][0].ToString() != "")
-                        {
-
-                            //errorCodeQuantity[0]++;
-                            //if(dataTable3.Rows[errorCodeQuantity[0]][1])
-                            errorCodeShiftRow++;
-                        }
-                        else
-                        {
-                            textBoxTest.Text = errorCodeShiftRow.ToString(); //Check Top Empty Low
-                            stateDisplayData = 7;
-                        }
-                        */
                         break;
                     case 7: //State7 : Count Q'ty and % of ErrorCode in dataTable3 Continue
                         dataGridView4.DataSource = dataTable4; //Assign dataGridView4.DataSource = dataTable4
