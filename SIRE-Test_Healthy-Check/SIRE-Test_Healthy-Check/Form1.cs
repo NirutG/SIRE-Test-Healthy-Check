@@ -407,7 +407,8 @@ namespace SIRE_Test_Healthy_Check
                     if (find_WordIndex("name='enddate0'>", (indexRunning + 1)))
                     {
                         urlToRetrieveParam += split_Text(wordRunning) + "="; //Item11 : name='enddate0'>
-                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 2]) + "&"; //Item12 : value= current date
+                        //urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 2]) + "&"; //Item12 : value= current date
+                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 5]) + "&"; //Item12 : value= Yesterday date
                         indexRunning += 2; // Update value
                         stateShowUrlToRetrieveParam = 2;
                     }
@@ -418,8 +419,9 @@ namespace SIRE_Test_Healthy_Check
                     if(find_WordIndex("name='endtime0'", (indexRunning + 1))) 
                     {
                         urlToRetrieveParam += split_Text(wordRunning) + "="; //Item13 : name='endtime0'
-                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item14 : value='000000'
-                        indexRunning += 1; // Update value
+                        //urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item14 : value='000000'
+                        urlToRetrieveParam += "070000" + "&"; //Item14 : value = 7 am.
+                        //indexRunning += 1; // Update value
                         stateShowUrlToRetrieveParam = 2.1;
                     }
                     break;
@@ -436,8 +438,9 @@ namespace SIRE_Test_Healthy_Check
                     if (find_WordIndex("name='endtime1'", (indexRunning + 1)))
                     {
                         urlToRetrieveParam += split_Text(wordRunning) + "="; //Item17 : name='endtime1'
-                        urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item18 : value='235959'
-                        indexRunning += 1; // Update value
+                        //urlToRetrieveParam += split_Text(wordWebCodeResponse[indexRunning + 1]) + "&"; //Item18 : value='235959'
+                        urlToRetrieveParam += "065959" + "&"; //Item18 : value= 6.59 am.
+                        //indexRunning += 1; // Update value
                         stateShowUrlToRetrieveParam = 2.3;
                     }
                     break;
