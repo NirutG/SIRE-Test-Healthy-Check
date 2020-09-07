@@ -1856,6 +1856,7 @@ namespace SIRE_Test_Healthy_Check
                         }
 
                         dataGridView2.DataSource = dataTable2;
+                        dataGridView5.DataSource = dataTable2;
 
                         stateDownloadCsvData = 100;
                         break;
@@ -2038,14 +2039,10 @@ namespace SIRE_Test_Healthy_Check
 
         private void buttonTestTrim_Click(object sender, EventArgs e) //Must Do After Login completed
         {
-            //textBoxWebCodeResponseSubStringIndex17.Text = wordWebCodeResponse[17]; //InnerState12 : Show wordWebCodeResponse[17] to textbox
-            //textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Text = wordWebCodeResponse[17].Substring(7, 56); //InnerState13 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
-            //textBoxParametricUrl1.Text = "http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56); //InnerState14 : Show Parametric URL 1 to textbox
         }
 
         private void buttonTestGoParametricUrl1_Click(object sender, EventArgs e)
         {
-            //this.webBrowser1.Navigate("http://dwhweb.prb.hgst.com/" + wordWebCodeResponse[17].Substring(7, 56)); //InnerState15 : Go Parametric URL 1
         }
 
         private void timerStateCyclic_Tick(object sender, EventArgs e)
