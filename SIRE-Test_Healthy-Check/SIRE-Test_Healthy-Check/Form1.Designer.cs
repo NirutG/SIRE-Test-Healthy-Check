@@ -88,8 +88,9 @@
             this.labelLastIndexOfCsvDataRow = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
+            this.textBoxCheckErrorCode = new System.Windows.Forms.TextBox();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.textBoxTest = new System.Windows.Forms.TextBox();
             this.textBoxErorCodeFail = new System.Windows.Forms.TextBox();
             this.textBoxErorCodePass = new System.Windows.Forms.TextBox();
@@ -98,9 +99,11 @@
             this.labelErorCodeFail = new System.Windows.Forms.Label();
             this.labelErorCodePass = new System.Windows.Forms.Label();
             this.labelErorCodeTotal = new System.Windows.Forms.Label();
-            this.textBoxCheckErrorCode = new System.Windows.Forms.TextBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -113,6 +116,9 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonTest
@@ -344,6 +350,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
@@ -694,14 +701,29 @@
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // timer1
+            // textBoxCheckErrorCode
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.textBoxCheckErrorCode.Location = new System.Drawing.Point(791, 446);
+            this.textBoxCheckErrorCode.Multiline = true;
+            this.textBoxCheckErrorCode.Name = "textBoxCheckErrorCode";
+            this.textBoxCheckErrorCode.Size = new System.Drawing.Size(405, 209);
+            this.textBoxCheckErrorCode.TabIndex = 13;
             // 
-            // timerStateCyclic
+            // dataGridView4
             // 
-            this.timerStateCyclic.Interval = 1;
-            this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(791, 48);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(405, 329);
+            this.dataGridView4.TabIndex = 12;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(411, 48);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(331, 607);
+            this.dataGridView3.TabIndex = 11;
             // 
             // textBoxTest
             // 
@@ -767,29 +789,41 @@
             this.labelErorCodeTotal.TabIndex = 6;
             this.labelErorCodeTotal.Text = "Error Code Total";
             // 
-            // textBoxCheckErrorCode
+            // timer1
             // 
-            this.textBoxCheckErrorCode.Location = new System.Drawing.Point(791, 446);
-            this.textBoxCheckErrorCode.Multiline = true;
-            this.textBoxCheckErrorCode.Name = "textBoxCheckErrorCode";
-            this.textBoxCheckErrorCode.Size = new System.Drawing.Size(405, 209);
-            this.textBoxCheckErrorCode.TabIndex = 13;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // dataGridView4
+            // timerStateCyclic
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(791, 48);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(405, 329);
-            this.dataGridView4.TabIndex = 12;
+            this.timerStateCyclic.Interval = 1;
+            this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
-            // dataGridView3
+            // tabPage6
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(411, 48);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(331, 607);
-            this.dataGridView3.TabIndex = 11;
+            this.tabPage6.Controls.Add(this.dataGridView6);
+            this.tabPage6.Controls.Add(this.dataGridView5);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1272, 954);
+            this.tabPage6.TabIndex = 6;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(14, 14);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.Size = new System.Drawing.Size(1231, 420);
+            this.dataGridView5.TabIndex = 0;
+            // 
+            // dataGridView6
+            // 
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.Location = new System.Drawing.Point(14, 454);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.Size = new System.Drawing.Size(1231, 462);
+            this.dataGridView6.TabIndex = 1;
             // 
             // Form1
             // 
@@ -818,6 +852,9 @@
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -893,6 +930,9 @@
         private System.Windows.Forms.Label labelErorCodeFail;
         private System.Windows.Forms.Label labelErorCodePass;
         private System.Windows.Forms.Label labelErorCodeTotal;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.DataGridView dataGridView5;
     }
 }
 
