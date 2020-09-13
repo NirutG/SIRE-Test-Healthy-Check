@@ -29,96 +29,123 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.buttonTest = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.textBoxUrlToGo = new System.Windows.Forms.TextBox();
-            this.textBoxUrlResponse = new System.Windows.Forms.TextBox();
-            this.textBoxWebCodeResponse = new System.Windows.Forms.TextBox();
+            this.textBoxUrlResponseA = new System.Windows.Forms.TextBox();
+            this.textBoxWebCodeResponseA = new System.Windows.Forms.TextBox();
             this.labelUrlToGo = new System.Windows.Forms.Label();
-            this.labelUrlResponse = new System.Windows.Forms.Label();
-            this.labelWebCodeResponse = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.labelWebCodeResponseStringLength = new System.Windows.Forms.Label();
-            this.textBoxWebCodeResponseStringLength = new System.Windows.Forms.TextBox();
-            this.textBoxWebCodeResponseSubStringLength = new System.Windows.Forms.TextBox();
-            this.labelWebCodeResponseSubStringLength = new System.Windows.Forms.Label();
-            this.labelWebCodeResponseLastSubString = new System.Windows.Forms.Label();
-            this.textBoxWebCodeResponseLastSubString = new System.Windows.Forms.TextBox();
-            this.labelWebCodeResponseSubStringIndex17 = new System.Windows.Forms.Label();
-            this.textBoxWebCodeResponseSubStringIndex17 = new System.Windows.Forms.TextBox();
+            this.labelUrlResponseA = new System.Windows.Forms.Label();
+            this.labelWebCodeResponseA = new System.Windows.Forms.Label();
+            this.dataGridView1A = new System.Windows.Forms.DataGridView();
+            this.labelWebCodeResponseStringLengthA = new System.Windows.Forms.Label();
+            this.textBoxWebCodeResponseStringLengthA = new System.Windows.Forms.TextBox();
+            this.textBoxWebCodeResponseSubStringLengthA = new System.Windows.Forms.TextBox();
+            this.labelWebCodeResponseSubStringLengthA = new System.Windows.Forms.Label();
+            this.labelWebCodeResponseLastSubStringA = new System.Windows.Forms.Label();
+            this.textBoxWebCodeResponseLastSubStringA = new System.Windows.Forms.TextBox();
+            this.labelWebCodeResponseSubStringIndex17A = new System.Windows.Forms.Label();
+            this.textBoxWebCodeResponseSubStringIndex17A = new System.Windows.Forms.TextBox();
             this.buttonTestTrim = new System.Windows.Forms.Button();
-            this.labelWebCodeResponseAfterTrimmed = new System.Windows.Forms.Label();
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed = new System.Windows.Forms.TextBox();
-            this.labelParametricDataRetrieveProductionDB = new System.Windows.Forms.Label();
-            this.textBoxParametricDataRetrieveProductionDB = new System.Windows.Forms.TextBox();
+            this.labelWebCodeResponseAfterTrimmedA = new System.Windows.Forms.Label();
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA = new System.Windows.Forms.TextBox();
+            this.labelParametricDataRetrieveProductionDB_A = new System.Windows.Forms.Label();
+            this.textBoxParametricDataRetrieveProductionDB_A = new System.Windows.Forms.TextBox();
             this.buttonTestGoParametricUrl1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage0 = new System.Windows.Forms.TabPage();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.labelCsvData = new System.Windows.Forms.Label();
-            this.textBoxCsvData = new System.Windows.Forms.TextBox();
+            this.labelCsvDataB = new System.Windows.Forms.Label();
+            this.labelCsvDataA = new System.Windows.Forms.Label();
+            this.labelWebCodeResponseB = new System.Windows.Forms.Label();
+            this.labelUrlResponseB = new System.Windows.Forms.Label();
+            this.textBoxUrlResponseB = new System.Windows.Forms.TextBox();
+            this.textBoxCsvDataB = new System.Windows.Forms.TextBox();
+            this.textBoxCsvDataA = new System.Windows.Forms.TextBox();
+            this.textBoxWebCodeResponseB = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.labelStateDisplayData = new System.Windows.Forms.Label();
-            this.labelStateDownloadCsvData = new System.Windows.Forms.Label();
-            this.textBoxStateDisplayData = new System.Windows.Forms.TextBox();
-            this.textBoxStateDownloadCsvData = new System.Windows.Forms.TextBox();
+            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
+            this.labelStateDisplayDataA = new System.Windows.Forms.Label();
+            this.labelStateDownloadCsvDataA = new System.Windows.Forms.Label();
+            this.textBoxStateDisplayDataA = new System.Windows.Forms.TextBox();
+            this.textBoxStateDownloadCsvDataA = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.labelWordRunning = new System.Windows.Forms.Label();
-            this.textBoxWordRunning = new System.Windows.Forms.TextBox();
-            this.labelIndexRunning = new System.Windows.Forms.Label();
-            this.textBoxIndexRunning = new System.Windows.Forms.TextBox();
-            this.textBoxUrlToGetCsvData = new System.Windows.Forms.TextBox();
-            this.textBoxUrlToRetrieveParam = new System.Windows.Forms.TextBox();
-            this.labelUrlToGetCsvData = new System.Windows.Forms.Label();
-            this.labelUrlToRetrieveParam = new System.Windows.Forms.Label();
+            this.labelWordRunningB = new System.Windows.Forms.Label();
+            this.labelWordRunningA = new System.Windows.Forms.Label();
+            this.textBoxWordRunningB = new System.Windows.Forms.TextBox();
+            this.textBoxWordRunningA = new System.Windows.Forms.TextBox();
+            this.labelIndexRunningB = new System.Windows.Forms.Label();
+            this.labelIndexRunningA = new System.Windows.Forms.Label();
+            this.textBoxIndexRunningB = new System.Windows.Forms.TextBox();
+            this.textBoxIndexRunningA = new System.Windows.Forms.TextBox();
+            this.textBoxUrlToGetCsvDataB = new System.Windows.Forms.TextBox();
+            this.textBoxUrlToGetCsvDataA = new System.Windows.Forms.TextBox();
+            this.textBoxUrlToRetrieveParamB = new System.Windows.Forms.TextBox();
+            this.textBoxUrlToRetrieveParamA = new System.Windows.Forms.TextBox();
+            this.labelUrlToGetCsvDataB = new System.Windows.Forms.Label();
+            this.labelUrlToRetrieveParamB = new System.Windows.Forms.Label();
+            this.labelUrlToGetCsvDataA = new System.Windows.Forms.Label();
+            this.labelUrlToRetrieveParamA = new System.Windows.Forms.Label();
+            this.dataGridView1B = new System.Windows.Forms.DataGridView();
+            this.labelWebCodeResponseStringLengthB = new System.Windows.Forms.Label();
+            this.labelWebCodeResponseSubStringLengthB = new System.Windows.Forms.Label();
+            this.textBoxParametricDataRetrieveProductionDB_B = new System.Windows.Forms.TextBox();
+            this.labelWebCodeResponseLastSubStringB = new System.Windows.Forms.Label();
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB = new System.Windows.Forms.TextBox();
+            this.textBoxWebCodeResponseStringLengthB = new System.Windows.Forms.TextBox();
+            this.textBoxWebCodeResponseSubStringIndex17B = new System.Windows.Forms.TextBox();
+            this.textBoxWebCodeResponseSubStringLengthB = new System.Windows.Forms.TextBox();
+            this.labelParametricDataRetrieveProductionDB_B = new System.Windows.Forms.Label();
+            this.textBoxWebCodeResponseLastSubStringB = new System.Windows.Forms.TextBox();
+            this.labelWebCodeResponseAfterTrimmedB = new System.Windows.Forms.Label();
+            this.labelWebCodeResponseSubStringIndex17B = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.buttonCheckDataInDataGridView2 = new System.Windows.Forms.Button();
-            this.textBoxDataGridView2Column = new System.Windows.Forms.TextBox();
-            this.labelDataGridView2Column = new System.Windows.Forms.Label();
-            this.textBoxDataGridView2Value = new System.Windows.Forms.TextBox();
-            this.textBoxDataGridView2Row = new System.Windows.Forms.TextBox();
-            this.labelDataGridView2Row = new System.Windows.Forms.Label();
-            this.textBoxLastIndexOfCsvDataColumn = new System.Windows.Forms.TextBox();
-            this.labelLastIndexOfCsvDataColumn = new System.Windows.Forms.Label();
-            this.textBoxLastIndexOfCsvDataRow = new System.Windows.Forms.TextBox();
-            this.labelLastIndexOfCsvDataRow = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.buttonCheckDataInDataGridView2B = new System.Windows.Forms.Button();
+            this.buttonCheckDataInDataGridView2A = new System.Windows.Forms.Button();
+            this.textBoxDataGridView2ColumnB = new System.Windows.Forms.TextBox();
+            this.textBoxDataGridView2ColumnA = new System.Windows.Forms.TextBox();
+            this.labelDataGridView2ColumnB = new System.Windows.Forms.Label();
+            this.labelDataGridView2ColumnA = new System.Windows.Forms.Label();
+            this.textBoxDataGridView2ValueB = new System.Windows.Forms.TextBox();
+            this.textBoxDataGridView2ValueA = new System.Windows.Forms.TextBox();
+            this.textBoxDataGridView2RowB = new System.Windows.Forms.TextBox();
+            this.textBoxDataGridView2RowA = new System.Windows.Forms.TextBox();
+            this.labelDataGridView2RowB = new System.Windows.Forms.Label();
+            this.labelDataGridView2RowA = new System.Windows.Forms.Label();
+            this.textBoxLastIndexOfCsvDataColumnB = new System.Windows.Forms.TextBox();
+            this.textBoxLastIndexOfCsvDataColumnA = new System.Windows.Forms.TextBox();
+            this.labelLastIndexOfCsvDataColumnB = new System.Windows.Forms.Label();
+            this.labelLastIndexOfCsvDataColumnA = new System.Windows.Forms.Label();
+            this.textBoxLastIndexOfCsvDataRowB = new System.Windows.Forms.TextBox();
+            this.textBoxLastIndexOfCsvDataRowA = new System.Windows.Forms.TextBox();
+            this.labelLastIndexOfCsvDataRowB = new System.Windows.Forms.Label();
+            this.labelLastIndexOfCsvDataRowA = new System.Windows.Forms.Label();
+            this.dataGridView2B = new System.Windows.Forms.DataGridView();
+            this.dataGridView2A = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.textBoxCheckErrorCode = new System.Windows.Forms.TextBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.textBoxTest = new System.Windows.Forms.TextBox();
-            this.textBoxErorCodeFail = new System.Windows.Forms.TextBox();
-            this.textBoxErorCodePass = new System.Windows.Forms.TextBox();
-            this.labelTest = new System.Windows.Forms.Label();
-            this.textBoxErorCodeTotal = new System.Windows.Forms.TextBox();
-            this.labelErorCodeFail = new System.Windows.Forms.Label();
-            this.labelErorCodePass = new System.Windows.Forms.Label();
-            this.labelErorCodeTotal = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
-            this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.textBoxStateDownloadCsvDataB = new System.Windows.Forms.TextBox();
+            this.textBoxStateDisplayDataB = new System.Windows.Forms.TextBox();
+            this.labelStateDownloadCsvDataB = new System.Windows.Forms.Label();
+            this.labelStateDisplayDataB = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1B)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2B)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2A)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonTest
@@ -139,7 +166,7 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(998, 940);
+            this.webBrowser1.Size = new System.Drawing.Size(1053, 414);
             this.webBrowser1.TabIndex = 1;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
@@ -154,23 +181,23 @@
             this.textBoxUrlToGo.Size = new System.Drawing.Size(1171, 19);
             this.textBoxUrlToGo.TabIndex = 2;
             // 
-            // textBoxUrlResponse
+            // textBoxUrlResponseA
             // 
-            this.textBoxUrlResponse.Location = new System.Drawing.Point(27, 107);
-            this.textBoxUrlResponse.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxUrlResponse.Multiline = true;
-            this.textBoxUrlResponse.Name = "textBoxUrlResponse";
-            this.textBoxUrlResponse.Size = new System.Drawing.Size(1171, 110);
-            this.textBoxUrlResponse.TabIndex = 3;
+            this.textBoxUrlResponseA.Location = new System.Drawing.Point(27, 107);
+            this.textBoxUrlResponseA.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxUrlResponseA.Multiline = true;
+            this.textBoxUrlResponseA.Name = "textBoxUrlResponseA";
+            this.textBoxUrlResponseA.Size = new System.Drawing.Size(1171, 75);
+            this.textBoxUrlResponseA.TabIndex = 3;
             // 
-            // textBoxWebCodeResponse
+            // textBoxWebCodeResponseA
             // 
-            this.textBoxWebCodeResponse.Location = new System.Drawing.Point(27, 241);
-            this.textBoxWebCodeResponse.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxWebCodeResponse.Multiline = true;
-            this.textBoxWebCodeResponse.Name = "textBoxWebCodeResponse";
-            this.textBoxWebCodeResponse.Size = new System.Drawing.Size(1171, 317);
-            this.textBoxWebCodeResponse.TabIndex = 4;
+            this.textBoxWebCodeResponseA.Location = new System.Drawing.Point(23, 307);
+            this.textBoxWebCodeResponseA.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseA.Multiline = true;
+            this.textBoxWebCodeResponseA.Name = "textBoxWebCodeResponseA";
+            this.textBoxWebCodeResponseA.Size = new System.Drawing.Size(1171, 93);
+            this.textBoxWebCodeResponseA.TabIndex = 4;
             // 
             // labelUrlToGo
             // 
@@ -182,161 +209,161 @@
             this.labelUrlToGo.TabIndex = 5;
             this.labelUrlToGo.Text = "URL to go";
             // 
-            // labelUrlResponse
+            // labelUrlResponseA
             // 
-            this.labelUrlResponse.AutoSize = true;
-            this.labelUrlResponse.Location = new System.Drawing.Point(27, 91);
-            this.labelUrlResponse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelUrlResponse.Name = "labelUrlResponse";
-            this.labelUrlResponse.Size = new System.Drawing.Size(80, 13);
-            this.labelUrlResponse.TabIndex = 5;
-            this.labelUrlResponse.Text = "URL Response";
+            this.labelUrlResponseA.AutoSize = true;
+            this.labelUrlResponseA.Location = new System.Drawing.Point(27, 91);
+            this.labelUrlResponseA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelUrlResponseA.Name = "labelUrlResponseA";
+            this.labelUrlResponseA.Size = new System.Drawing.Size(87, 13);
+            this.labelUrlResponseA.TabIndex = 5;
+            this.labelUrlResponseA.Text = "URL ResponseA";
             // 
-            // labelWebCodeResponse
+            // labelWebCodeResponseA
             // 
-            this.labelWebCodeResponse.AutoSize = true;
-            this.labelWebCodeResponse.Location = new System.Drawing.Point(28, 226);
-            this.labelWebCodeResponse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelWebCodeResponse.Name = "labelWebCodeResponse";
-            this.labelWebCodeResponse.Size = new System.Drawing.Size(109, 13);
-            this.labelWebCodeResponse.TabIndex = 5;
-            this.labelWebCodeResponse.Text = "Web Code Response";
+            this.labelWebCodeResponseA.AutoSize = true;
+            this.labelWebCodeResponseA.Location = new System.Drawing.Point(24, 292);
+            this.labelWebCodeResponseA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseA.Name = "labelWebCodeResponseA";
+            this.labelWebCodeResponseA.Size = new System.Drawing.Size(116, 13);
+            this.labelWebCodeResponseA.TabIndex = 5;
+            this.labelWebCodeResponseA.Text = "Web Code ResponseA";
             // 
-            // dataGridView1
+            // dataGridView1A
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 63);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(511, 726);
-            this.dataGridView1.TabIndex = 6;
+            this.dataGridView1A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1A.Location = new System.Drawing.Point(12, 48);
+            this.dataGridView1A.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1A.Name = "dataGridView1A";
+            this.dataGridView1A.RowTemplate.Height = 24;
+            this.dataGridView1A.Size = new System.Drawing.Size(511, 377);
+            this.dataGridView1A.TabIndex = 6;
             // 
-            // labelWebCodeResponseStringLength
+            // labelWebCodeResponseStringLengthA
             // 
-            this.labelWebCodeResponseStringLength.AutoSize = true;
-            this.labelWebCodeResponseStringLength.Location = new System.Drawing.Point(9, 23);
-            this.labelWebCodeResponseStringLength.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelWebCodeResponseStringLength.Name = "labelWebCodeResponseStringLength";
-            this.labelWebCodeResponseStringLength.Size = new System.Drawing.Size(109, 26);
-            this.labelWebCodeResponseStringLength.TabIndex = 5;
-            this.labelWebCodeResponseStringLength.Text = "Web Code Response\r\nString Length";
+            this.labelWebCodeResponseStringLengthA.AutoSize = true;
+            this.labelWebCodeResponseStringLengthA.Location = new System.Drawing.Point(9, 12);
+            this.labelWebCodeResponseStringLengthA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseStringLengthA.Name = "labelWebCodeResponseStringLengthA";
+            this.labelWebCodeResponseStringLengthA.Size = new System.Drawing.Size(109, 26);
+            this.labelWebCodeResponseStringLengthA.TabIndex = 5;
+            this.labelWebCodeResponseStringLengthA.Text = "Web Code Response\r\nString LengthA";
             // 
-            // textBoxWebCodeResponseStringLength
+            // textBoxWebCodeResponseStringLengthA
             // 
-            this.textBoxWebCodeResponseStringLength.Location = new System.Drawing.Point(118, 23);
-            this.textBoxWebCodeResponseStringLength.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxWebCodeResponseStringLength.Name = "textBoxWebCodeResponseStringLength";
-            this.textBoxWebCodeResponseStringLength.Size = new System.Drawing.Size(50, 20);
-            this.textBoxWebCodeResponseStringLength.TabIndex = 7;
+            this.textBoxWebCodeResponseStringLengthA.Location = new System.Drawing.Point(118, 12);
+            this.textBoxWebCodeResponseStringLengthA.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseStringLengthA.Name = "textBoxWebCodeResponseStringLengthA";
+            this.textBoxWebCodeResponseStringLengthA.Size = new System.Drawing.Size(50, 20);
+            this.textBoxWebCodeResponseStringLengthA.TabIndex = 7;
             // 
-            // textBoxWebCodeResponseSubStringLength
+            // textBoxWebCodeResponseSubStringLengthA
             // 
-            this.textBoxWebCodeResponseSubStringLength.Location = new System.Drawing.Point(289, 23);
-            this.textBoxWebCodeResponseSubStringLength.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxWebCodeResponseSubStringLength.Name = "textBoxWebCodeResponseSubStringLength";
-            this.textBoxWebCodeResponseSubStringLength.Size = new System.Drawing.Size(50, 20);
-            this.textBoxWebCodeResponseSubStringLength.TabIndex = 7;
+            this.textBoxWebCodeResponseSubStringLengthA.Location = new System.Drawing.Point(289, 12);
+            this.textBoxWebCodeResponseSubStringLengthA.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseSubStringLengthA.Name = "textBoxWebCodeResponseSubStringLengthA";
+            this.textBoxWebCodeResponseSubStringLengthA.Size = new System.Drawing.Size(50, 20);
+            this.textBoxWebCodeResponseSubStringLengthA.TabIndex = 7;
             // 
-            // labelWebCodeResponseSubStringLength
+            // labelWebCodeResponseSubStringLengthA
             // 
-            this.labelWebCodeResponseSubStringLength.AutoSize = true;
-            this.labelWebCodeResponseSubStringLength.Location = new System.Drawing.Point(178, 23);
-            this.labelWebCodeResponseSubStringLength.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelWebCodeResponseSubStringLength.Name = "labelWebCodeResponseSubStringLength";
-            this.labelWebCodeResponseSubStringLength.Size = new System.Drawing.Size(109, 26);
-            this.labelWebCodeResponseSubStringLength.TabIndex = 5;
-            this.labelWebCodeResponseSubStringLength.Text = "Web Code Response\r\nSubString Length";
+            this.labelWebCodeResponseSubStringLengthA.AutoSize = true;
+            this.labelWebCodeResponseSubStringLengthA.Location = new System.Drawing.Point(178, 12);
+            this.labelWebCodeResponseSubStringLengthA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseSubStringLengthA.Name = "labelWebCodeResponseSubStringLengthA";
+            this.labelWebCodeResponseSubStringLengthA.Size = new System.Drawing.Size(109, 26);
+            this.labelWebCodeResponseSubStringLengthA.TabIndex = 5;
+            this.labelWebCodeResponseSubStringLengthA.Text = "Web Code Response\r\nSubString LengthA";
             // 
-            // labelWebCodeResponseLastSubString
+            // labelWebCodeResponseLastSubStringA
             // 
-            this.labelWebCodeResponseLastSubString.AutoSize = true;
-            this.labelWebCodeResponseLastSubString.Location = new System.Drawing.Point(352, 23);
-            this.labelWebCodeResponseLastSubString.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelWebCodeResponseLastSubString.Name = "labelWebCodeResponseLastSubString";
-            this.labelWebCodeResponseLastSubString.Size = new System.Drawing.Size(109, 26);
-            this.labelWebCodeResponseLastSubString.TabIndex = 5;
-            this.labelWebCodeResponseLastSubString.Text = "Web Code Response\r\nLast SubString";
+            this.labelWebCodeResponseLastSubStringA.AutoSize = true;
+            this.labelWebCodeResponseLastSubStringA.Location = new System.Drawing.Point(352, 12);
+            this.labelWebCodeResponseLastSubStringA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseLastSubStringA.Name = "labelWebCodeResponseLastSubStringA";
+            this.labelWebCodeResponseLastSubStringA.Size = new System.Drawing.Size(109, 26);
+            this.labelWebCodeResponseLastSubStringA.TabIndex = 5;
+            this.labelWebCodeResponseLastSubStringA.Text = "Web Code Response\r\nLast SubStringA";
             // 
-            // textBoxWebCodeResponseLastSubString
+            // textBoxWebCodeResponseLastSubStringA
             // 
-            this.textBoxWebCodeResponseLastSubString.Location = new System.Drawing.Point(464, 23);
-            this.textBoxWebCodeResponseLastSubString.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxWebCodeResponseLastSubString.Name = "textBoxWebCodeResponseLastSubString";
-            this.textBoxWebCodeResponseLastSubString.Size = new System.Drawing.Size(735, 20);
-            this.textBoxWebCodeResponseLastSubString.TabIndex = 7;
+            this.textBoxWebCodeResponseLastSubStringA.Location = new System.Drawing.Point(464, 12);
+            this.textBoxWebCodeResponseLastSubStringA.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseLastSubStringA.Name = "textBoxWebCodeResponseLastSubStringA";
+            this.textBoxWebCodeResponseLastSubStringA.Size = new System.Drawing.Size(735, 20);
+            this.textBoxWebCodeResponseLastSubStringA.TabIndex = 7;
             // 
-            // labelWebCodeResponseSubStringIndex17
+            // labelWebCodeResponseSubStringIndex17A
             // 
-            this.labelWebCodeResponseSubStringIndex17.AutoSize = true;
-            this.labelWebCodeResponseSubStringIndex17.Location = new System.Drawing.Point(536, 109);
-            this.labelWebCodeResponseSubStringIndex17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelWebCodeResponseSubStringIndex17.Name = "labelWebCodeResponseSubStringIndex17";
-            this.labelWebCodeResponseSubStringIndex17.Size = new System.Drawing.Size(196, 13);
-            this.labelWebCodeResponseSubStringIndex17.TabIndex = 5;
-            this.labelWebCodeResponseSubStringIndex17.Text = "Web Code Response SubStringIndex17\r\n";
+            this.labelWebCodeResponseSubStringIndex17A.AutoSize = true;
+            this.labelWebCodeResponseSubStringIndex17A.Location = new System.Drawing.Point(534, 58);
+            this.labelWebCodeResponseSubStringIndex17A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseSubStringIndex17A.Name = "labelWebCodeResponseSubStringIndex17A";
+            this.labelWebCodeResponseSubStringIndex17A.Size = new System.Drawing.Size(196, 26);
+            this.labelWebCodeResponseSubStringIndex17A.TabIndex = 5;
+            this.labelWebCodeResponseSubStringIndex17A.Text = "Web Code Response SubStringIndex17\r\nA";
             // 
-            // textBoxWebCodeResponseSubStringIndex17
+            // textBoxWebCodeResponseSubStringIndex17A
             // 
-            this.textBoxWebCodeResponseSubStringIndex17.Location = new System.Drawing.Point(538, 124);
-            this.textBoxWebCodeResponseSubStringIndex17.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxWebCodeResponseSubStringIndex17.Name = "textBoxWebCodeResponseSubStringIndex17";
-            this.textBoxWebCodeResponseSubStringIndex17.Size = new System.Drawing.Size(661, 20);
-            this.textBoxWebCodeResponseSubStringIndex17.TabIndex = 7;
+            this.textBoxWebCodeResponseSubStringIndex17A.Location = new System.Drawing.Point(538, 74);
+            this.textBoxWebCodeResponseSubStringIndex17A.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseSubStringIndex17A.Name = "textBoxWebCodeResponseSubStringIndex17A";
+            this.textBoxWebCodeResponseSubStringIndex17A.Size = new System.Drawing.Size(661, 20);
+            this.textBoxWebCodeResponseSubStringIndex17A.TabIndex = 7;
             // 
             // buttonTestTrim
             // 
-            this.buttonTestTrim.Location = new System.Drawing.Point(538, 63);
+            this.buttonTestTrim.Location = new System.Drawing.Point(538, 39);
             this.buttonTestTrim.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestTrim.Name = "buttonTestTrim";
-            this.buttonTestTrim.Size = new System.Drawing.Size(72, 30);
+            this.buttonTestTrim.Size = new System.Drawing.Size(72, 20);
             this.buttonTestTrim.TabIndex = 8;
             this.buttonTestTrim.Text = "Test Trim";
             this.buttonTestTrim.UseVisualStyleBackColor = true;
             this.buttonTestTrim.Click += new System.EventHandler(this.buttonTestTrim_Click);
             // 
-            // labelWebCodeResponseAfterTrimmed
+            // labelWebCodeResponseAfterTrimmedA
             // 
-            this.labelWebCodeResponseAfterTrimmed.AutoSize = true;
-            this.labelWebCodeResponseAfterTrimmed.Location = new System.Drawing.Point(535, 155);
-            this.labelWebCodeResponseAfterTrimmed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelWebCodeResponseAfterTrimmed.Name = "labelWebCodeResponseAfterTrimmed";
-            this.labelWebCodeResponseAfterTrimmed.Size = new System.Drawing.Size(261, 26);
-            this.labelWebCodeResponseAfterTrimmed.TabIndex = 5;
-            this.labelWebCodeResponseAfterTrimmed.Text = "Web Code Response SubStringIndex17 AfterTrimmed\r\n\r\n";
+            this.labelWebCodeResponseAfterTrimmedA.AutoSize = true;
+            this.labelWebCodeResponseAfterTrimmedA.Location = new System.Drawing.Point(535, 96);
+            this.labelWebCodeResponseAfterTrimmedA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseAfterTrimmedA.Name = "labelWebCodeResponseAfterTrimmedA";
+            this.labelWebCodeResponseAfterTrimmedA.Size = new System.Drawing.Size(268, 13);
+            this.labelWebCodeResponseAfterTrimmedA.TabIndex = 5;
+            this.labelWebCodeResponseAfterTrimmedA.Text = "Web Code Response SubStringIndex17 AfterTrimmedA\r\n";
             // 
-            // textBoxWebCodeResponseSubStringIndex17AfterTrimmed
+            // textBoxWebCodeResponseSubStringIndex17AfterTrimmedA
             // 
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Location = new System.Drawing.Point(537, 170);
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Name = "textBoxWebCodeResponseSubStringIndex17AfterTrimmed";
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.Size = new System.Drawing.Size(662, 20);
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed.TabIndex = 7;
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Location = new System.Drawing.Point(537, 111);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Name = "textBoxWebCodeResponseSubStringIndex17AfterTrimmedA";
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Size = new System.Drawing.Size(662, 20);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.TabIndex = 7;
             // 
-            // labelParametricDataRetrieveProductionDB
+            // labelParametricDataRetrieveProductionDB_A
             // 
-            this.labelParametricDataRetrieveProductionDB.AutoSize = true;
-            this.labelParametricDataRetrieveProductionDB.Location = new System.Drawing.Point(534, 203);
-            this.labelParametricDataRetrieveProductionDB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelParametricDataRetrieveProductionDB.Name = "labelParametricDataRetrieveProductionDB";
-            this.labelParametricDataRetrieveProductionDB.Size = new System.Drawing.Size(204, 13);
-            this.labelParametricDataRetrieveProductionDB.TabIndex = 5;
-            this.labelParametricDataRetrieveProductionDB.Text = "Parametric Data Retrieve (Production DB)";
+            this.labelParametricDataRetrieveProductionDB_A.AutoSize = true;
+            this.labelParametricDataRetrieveProductionDB_A.Location = new System.Drawing.Point(534, 133);
+            this.labelParametricDataRetrieveProductionDB_A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelParametricDataRetrieveProductionDB_A.Name = "labelParametricDataRetrieveProductionDB_A";
+            this.labelParametricDataRetrieveProductionDB_A.Size = new System.Drawing.Size(211, 13);
+            this.labelParametricDataRetrieveProductionDB_A.TabIndex = 5;
+            this.labelParametricDataRetrieveProductionDB_A.Text = "Parametric Data Retrieve (Production DB)A";
             // 
-            // textBoxParametricDataRetrieveProductionDB
+            // textBoxParametricDataRetrieveProductionDB_A
             // 
-            this.textBoxParametricDataRetrieveProductionDB.Location = new System.Drawing.Point(537, 218);
-            this.textBoxParametricDataRetrieveProductionDB.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxParametricDataRetrieveProductionDB.Name = "textBoxParametricDataRetrieveProductionDB";
-            this.textBoxParametricDataRetrieveProductionDB.Size = new System.Drawing.Size(662, 20);
-            this.textBoxParametricDataRetrieveProductionDB.TabIndex = 7;
+            this.textBoxParametricDataRetrieveProductionDB_A.Location = new System.Drawing.Point(537, 148);
+            this.textBoxParametricDataRetrieveProductionDB_A.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxParametricDataRetrieveProductionDB_A.Name = "textBoxParametricDataRetrieveProductionDB_A";
+            this.textBoxParametricDataRetrieveProductionDB_A.Size = new System.Drawing.Size(662, 20);
+            this.textBoxParametricDataRetrieveProductionDB_A.TabIndex = 7;
             // 
             // buttonTestGoParametricUrl1
             // 
-            this.buttonTestGoParametricUrl1.Location = new System.Drawing.Point(537, 254);
+            this.buttonTestGoParametricUrl1.Location = new System.Drawing.Point(537, 172);
             this.buttonTestGoParametricUrl1.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestGoParametricUrl1.Name = "buttonTestGoParametricUrl1";
-            this.buttonTestGoParametricUrl1.Size = new System.Drawing.Size(151, 26);
+            this.buttonTestGoParametricUrl1.Size = new System.Drawing.Size(151, 27);
             this.buttonTestGoParametricUrl1.TabIndex = 9;
             this.buttonTestGoParametricUrl1.Text = "Test Go Parametric URL 1";
             this.buttonTestGoParametricUrl1.UseVisualStyleBackColor = true;
@@ -371,17 +398,17 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart1.Legends.Add(legend6);
             this.chart1.Location = new System.Drawing.Point(28, 69);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "pfcd";
-            this.chart1.Series.Add(series1);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series6.Legend = "Legend1";
+            series6.Name = "pfcd";
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -389,14 +416,20 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.buttonTest);
-            this.tabPage1.Controls.Add(this.labelCsvData);
-            this.tabPage1.Controls.Add(this.labelWebCodeResponse);
+            this.tabPage1.Controls.Add(this.labelCsvDataB);
+            this.tabPage1.Controls.Add(this.labelCsvDataA);
+            this.tabPage1.Controls.Add(this.labelWebCodeResponseB);
+            this.tabPage1.Controls.Add(this.labelWebCodeResponseA);
             this.tabPage1.Controls.Add(this.textBoxUrlToGo);
-            this.tabPage1.Controls.Add(this.labelUrlResponse);
-            this.tabPage1.Controls.Add(this.textBoxUrlResponse);
+            this.tabPage1.Controls.Add(this.labelUrlResponseB);
+            this.tabPage1.Controls.Add(this.labelUrlResponseA);
+            this.tabPage1.Controls.Add(this.textBoxUrlResponseB);
+            this.tabPage1.Controls.Add(this.textBoxUrlResponseA);
             this.tabPage1.Controls.Add(this.labelUrlToGo);
-            this.tabPage1.Controls.Add(this.textBoxCsvData);
-            this.tabPage1.Controls.Add(this.textBoxWebCodeResponse);
+            this.tabPage1.Controls.Add(this.textBoxCsvDataB);
+            this.tabPage1.Controls.Add(this.textBoxCsvDataA);
+            this.tabPage1.Controls.Add(this.textBoxWebCodeResponseB);
+            this.tabPage1.Controls.Add(this.textBoxWebCodeResponseA);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
@@ -406,31 +439,93 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // labelCsvData
+            // labelCsvDataB
             // 
-            this.labelCsvData.AutoSize = true;
-            this.labelCsvData.Location = new System.Drawing.Point(28, 592);
-            this.labelCsvData.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelCsvData.Name = "labelCsvData";
-            this.labelCsvData.Size = new System.Drawing.Size(54, 13);
-            this.labelCsvData.TabIndex = 5;
-            this.labelCsvData.Text = "CSV Data";
+            this.labelCsvDataB.AutoSize = true;
+            this.labelCsvDataB.Location = new System.Drawing.Point(24, 697);
+            this.labelCsvDataB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCsvDataB.Name = "labelCsvDataB";
+            this.labelCsvDataB.Size = new System.Drawing.Size(61, 13);
+            this.labelCsvDataB.TabIndex = 5;
+            this.labelCsvDataB.Text = "CSV DataB";
             // 
-            // textBoxCsvData
+            // labelCsvDataA
             // 
-            this.textBoxCsvData.Location = new System.Drawing.Point(27, 612);
-            this.textBoxCsvData.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxCsvData.Multiline = true;
-            this.textBoxCsvData.Name = "textBoxCsvData";
-            this.textBoxCsvData.Size = new System.Drawing.Size(1171, 320);
-            this.textBoxCsvData.TabIndex = 4;
+            this.labelCsvDataA.AutoSize = true;
+            this.labelCsvDataA.Location = new System.Drawing.Point(24, 531);
+            this.labelCsvDataA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCsvDataA.Name = "labelCsvDataA";
+            this.labelCsvDataA.Size = new System.Drawing.Size(61, 13);
+            this.labelCsvDataA.TabIndex = 5;
+            this.labelCsvDataA.Text = "CSV DataA";
+            // 
+            // labelWebCodeResponseB
+            // 
+            this.labelWebCodeResponseB.AutoSize = true;
+            this.labelWebCodeResponseB.Location = new System.Drawing.Point(24, 407);
+            this.labelWebCodeResponseB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseB.Name = "labelWebCodeResponseB";
+            this.labelWebCodeResponseB.Size = new System.Drawing.Size(116, 13);
+            this.labelWebCodeResponseB.TabIndex = 5;
+            this.labelWebCodeResponseB.Text = "Web Code ResponseB";
+            // 
+            // labelUrlResponseB
+            // 
+            this.labelUrlResponseB.AutoSize = true;
+            this.labelUrlResponseB.Location = new System.Drawing.Point(26, 188);
+            this.labelUrlResponseB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelUrlResponseB.Name = "labelUrlResponseB";
+            this.labelUrlResponseB.Size = new System.Drawing.Size(87, 13);
+            this.labelUrlResponseB.TabIndex = 5;
+            this.labelUrlResponseB.Text = "URL ResponseB";
+            // 
+            // textBoxUrlResponseB
+            // 
+            this.textBoxUrlResponseB.Location = new System.Drawing.Point(26, 204);
+            this.textBoxUrlResponseB.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxUrlResponseB.Multiline = true;
+            this.textBoxUrlResponseB.Name = "textBoxUrlResponseB";
+            this.textBoxUrlResponseB.Size = new System.Drawing.Size(1171, 75);
+            this.textBoxUrlResponseB.TabIndex = 3;
+            // 
+            // textBoxCsvDataB
+            // 
+            this.textBoxCsvDataB.Location = new System.Drawing.Point(23, 717);
+            this.textBoxCsvDataB.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCsvDataB.Multiline = true;
+            this.textBoxCsvDataB.Name = "textBoxCsvDataB";
+            this.textBoxCsvDataB.Size = new System.Drawing.Size(1171, 137);
+            this.textBoxCsvDataB.TabIndex = 4;
+            // 
+            // textBoxCsvDataA
+            // 
+            this.textBoxCsvDataA.Location = new System.Drawing.Point(23, 551);
+            this.textBoxCsvDataA.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCsvDataA.Multiline = true;
+            this.textBoxCsvDataA.Name = "textBoxCsvDataA";
+            this.textBoxCsvDataA.Size = new System.Drawing.Size(1171, 137);
+            this.textBoxCsvDataA.TabIndex = 4;
+            // 
+            // textBoxWebCodeResponseB
+            // 
+            this.textBoxWebCodeResponseB.Location = new System.Drawing.Point(23, 422);
+            this.textBoxWebCodeResponseB.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseB.Multiline = true;
+            this.textBoxWebCodeResponseB.Name = "textBoxWebCodeResponseB";
+            this.textBoxWebCodeResponseB.Size = new System.Drawing.Size(1171, 93);
+            this.textBoxWebCodeResponseB.TabIndex = 4;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.labelStateDisplayData);
-            this.tabPage2.Controls.Add(this.labelStateDownloadCsvData);
-            this.tabPage2.Controls.Add(this.textBoxStateDisplayData);
-            this.tabPage2.Controls.Add(this.textBoxStateDownloadCsvData);
+            this.tabPage2.Controls.Add(this.webBrowser2);
+            this.tabPage2.Controls.Add(this.labelStateDisplayDataB);
+            this.tabPage2.Controls.Add(this.labelStateDisplayDataA);
+            this.tabPage2.Controls.Add(this.labelStateDownloadCsvDataB);
+            this.tabPage2.Controls.Add(this.labelStateDownloadCsvDataA);
+            this.tabPage2.Controls.Add(this.textBoxStateDisplayDataB);
+            this.tabPage2.Controls.Add(this.textBoxStateDisplayDataA);
+            this.tabPage2.Controls.Add(this.textBoxStateDownloadCsvDataB);
+            this.tabPage2.Controls.Add(this.textBoxStateDownloadCsvDataA);
             this.tabPage2.Controls.Add(this.webBrowser1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
@@ -441,63 +536,95 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // labelStateDisplayData
+            // webBrowser2
             // 
-            this.labelStateDisplayData.AutoSize = true;
-            this.labelStateDisplayData.Location = new System.Drawing.Point(1077, 100);
-            this.labelStateDisplayData.Name = "labelStateDisplayData";
-            this.labelStateDisplayData.Size = new System.Drawing.Size(89, 13);
-            this.labelStateDisplayData.TabIndex = 3;
-            this.labelStateDisplayData.Text = "StateDisplayData";
+            this.webBrowser2.Location = new System.Drawing.Point(3, 445);
+            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser2.Name = "webBrowser2";
+            this.webBrowser2.Size = new System.Drawing.Size(1050, 473);
+            this.webBrowser2.TabIndex = 4;
+            this.webBrowser2.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser2_DocumentCompleted);
+            this.webBrowser2.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser2_Navigated);
+            this.webBrowser2.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser2_Navigating);
             // 
-            // labelStateDownloadCsvData
+            // labelStateDisplayDataA
             // 
-            this.labelStateDownloadCsvData.AutoSize = true;
-            this.labelStateDownloadCsvData.Location = new System.Drawing.Point(1077, 39);
-            this.labelStateDownloadCsvData.Name = "labelStateDownloadCsvData";
-            this.labelStateDownloadCsvData.Size = new System.Drawing.Size(121, 13);
-            this.labelStateDownloadCsvData.TabIndex = 3;
-            this.labelStateDownloadCsvData.Text = "StateDownloadCsvData";
+            this.labelStateDisplayDataA.AutoSize = true;
+            this.labelStateDisplayDataA.Location = new System.Drawing.Point(1084, 105);
+            this.labelStateDisplayDataA.Name = "labelStateDisplayDataA";
+            this.labelStateDisplayDataA.Size = new System.Drawing.Size(96, 13);
+            this.labelStateDisplayDataA.TabIndex = 3;
+            this.labelStateDisplayDataA.Text = "StateDisplayDataA";
             // 
-            // textBoxStateDisplayData
+            // labelStateDownloadCsvDataA
             // 
-            this.textBoxStateDisplayData.Location = new System.Drawing.Point(1077, 119);
-            this.textBoxStateDisplayData.Name = "textBoxStateDisplayData";
-            this.textBoxStateDisplayData.Size = new System.Drawing.Size(100, 20);
-            this.textBoxStateDisplayData.TabIndex = 2;
+            this.labelStateDownloadCsvDataA.AutoSize = true;
+            this.labelStateDownloadCsvDataA.Location = new System.Drawing.Point(1084, 44);
+            this.labelStateDownloadCsvDataA.Name = "labelStateDownloadCsvDataA";
+            this.labelStateDownloadCsvDataA.Size = new System.Drawing.Size(128, 13);
+            this.labelStateDownloadCsvDataA.TabIndex = 3;
+            this.labelStateDownloadCsvDataA.Text = "StateDownloadCsvDataA";
             // 
-            // textBoxStateDownloadCsvData
+            // textBoxStateDisplayDataA
             // 
-            this.textBoxStateDownloadCsvData.Location = new System.Drawing.Point(1077, 58);
-            this.textBoxStateDownloadCsvData.Name = "textBoxStateDownloadCsvData";
-            this.textBoxStateDownloadCsvData.Size = new System.Drawing.Size(100, 20);
-            this.textBoxStateDownloadCsvData.TabIndex = 2;
+            this.textBoxStateDisplayDataA.Location = new System.Drawing.Point(1084, 124);
+            this.textBoxStateDisplayDataA.Name = "textBoxStateDisplayDataA";
+            this.textBoxStateDisplayDataA.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStateDisplayDataA.TabIndex = 2;
+            // 
+            // textBoxStateDownloadCsvDataA
+            // 
+            this.textBoxStateDownloadCsvDataA.Location = new System.Drawing.Point(1084, 63);
+            this.textBoxStateDownloadCsvDataA.Name = "textBoxStateDownloadCsvDataA";
+            this.textBoxStateDownloadCsvDataA.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStateDownloadCsvDataA.TabIndex = 2;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.labelWordRunning);
-            this.tabPage3.Controls.Add(this.textBoxWordRunning);
-            this.tabPage3.Controls.Add(this.labelIndexRunning);
-            this.tabPage3.Controls.Add(this.textBoxIndexRunning);
-            this.tabPage3.Controls.Add(this.textBoxUrlToGetCsvData);
-            this.tabPage3.Controls.Add(this.textBoxUrlToRetrieveParam);
-            this.tabPage3.Controls.Add(this.labelUrlToGetCsvData);
-            this.tabPage3.Controls.Add(this.labelUrlToRetrieveParam);
-            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.labelWordRunningB);
+            this.tabPage3.Controls.Add(this.labelWordRunningA);
+            this.tabPage3.Controls.Add(this.textBoxWordRunningB);
+            this.tabPage3.Controls.Add(this.textBoxWordRunningA);
+            this.tabPage3.Controls.Add(this.labelIndexRunningB);
+            this.tabPage3.Controls.Add(this.labelIndexRunningA);
+            this.tabPage3.Controls.Add(this.textBoxIndexRunningB);
+            this.tabPage3.Controls.Add(this.textBoxIndexRunningA);
+            this.tabPage3.Controls.Add(this.textBoxUrlToGetCsvDataB);
+            this.tabPage3.Controls.Add(this.textBoxUrlToGetCsvDataA);
+            this.tabPage3.Controls.Add(this.textBoxUrlToRetrieveParamB);
+            this.tabPage3.Controls.Add(this.textBoxUrlToRetrieveParamA);
+            this.tabPage3.Controls.Add(this.labelUrlToGetCsvDataB);
+            this.tabPage3.Controls.Add(this.labelUrlToRetrieveParamB);
+            this.tabPage3.Controls.Add(this.labelUrlToGetCsvDataA);
+            this.tabPage3.Controls.Add(this.labelUrlToRetrieveParamA);
+            this.tabPage3.Controls.Add(this.dataGridView1B);
+            this.tabPage3.Controls.Add(this.dataGridView1A);
             this.tabPage3.Controls.Add(this.buttonTestGoParametricUrl1);
-            this.tabPage3.Controls.Add(this.labelWebCodeResponseStringLength);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseStringLengthB);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseStringLengthA);
             this.tabPage3.Controls.Add(this.buttonTestTrim);
-            this.tabPage3.Controls.Add(this.textBoxParametricDataRetrieveProductionDB);
-            this.tabPage3.Controls.Add(this.labelWebCodeResponseSubStringLength);
-            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringIndex17AfterTrimmed);
-            this.tabPage3.Controls.Add(this.labelWebCodeResponseLastSubString);
-            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringIndex17);
-            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseStringLength);
-            this.tabPage3.Controls.Add(this.labelParametricDataRetrieveProductionDB);
-            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringLength);
-            this.tabPage3.Controls.Add(this.labelWebCodeResponseAfterTrimmed);
-            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseLastSubString);
-            this.tabPage3.Controls.Add(this.labelWebCodeResponseSubStringIndex17);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseSubStringLengthB);
+            this.tabPage3.Controls.Add(this.textBoxParametricDataRetrieveProductionDB_B);
+            this.tabPage3.Controls.Add(this.textBoxParametricDataRetrieveProductionDB_A);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseSubStringLengthA);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseLastSubStringB);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseLastSubStringA);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseStringLengthB);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringIndex17B);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringIndex17A);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseStringLengthA);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringLengthB);
+            this.tabPage3.Controls.Add(this.labelParametricDataRetrieveProductionDB_B);
+            this.tabPage3.Controls.Add(this.labelParametricDataRetrieveProductionDB_A);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseSubStringLengthA);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseLastSubStringB);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseAfterTrimmedB);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseAfterTrimmedA);
+            this.tabPage3.Controls.Add(this.textBoxWebCodeResponseLastSubStringA);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseSubStringIndex17B);
+            this.tabPage3.Controls.Add(this.labelWebCodeResponseSubStringIndex17A);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
@@ -506,85 +633,280 @@
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // labelWordRunning
+            // labelWordRunningB
             // 
-            this.labelWordRunning.AutoSize = true;
-            this.labelWordRunning.Location = new System.Drawing.Point(629, 709);
-            this.labelWordRunning.Name = "labelWordRunning";
-            this.labelWordRunning.Size = new System.Drawing.Size(76, 13);
-            this.labelWordRunning.TabIndex = 13;
-            this.labelWordRunning.Text = "Word Running";
+            this.labelWordRunningB.AutoSize = true;
+            this.labelWordRunningB.Location = new System.Drawing.Point(908, 615);
+            this.labelWordRunningB.Name = "labelWordRunningB";
+            this.labelWordRunningB.Size = new System.Drawing.Size(83, 13);
+            this.labelWordRunningB.TabIndex = 13;
+            this.labelWordRunningB.Text = "Word RunningB";
             // 
-            // textBoxWordRunning
+            // labelWordRunningA
             // 
-            this.textBoxWordRunning.Location = new System.Drawing.Point(629, 728);
-            this.textBoxWordRunning.Name = "textBoxWordRunning";
-            this.textBoxWordRunning.Size = new System.Drawing.Size(418, 20);
-            this.textBoxWordRunning.TabIndex = 12;
+            this.labelWordRunningA.AutoSize = true;
+            this.labelWordRunningA.Location = new System.Drawing.Point(908, 173);
+            this.labelWordRunningA.Name = "labelWordRunningA";
+            this.labelWordRunningA.Size = new System.Drawing.Size(83, 13);
+            this.labelWordRunningA.TabIndex = 13;
+            this.labelWordRunningA.Text = "Word RunningA";
             // 
-            // labelIndexRunning
+            // textBoxWordRunningB
             // 
-            this.labelIndexRunning.AutoSize = true;
-            this.labelIndexRunning.Location = new System.Drawing.Point(537, 709);
-            this.labelIndexRunning.Name = "labelIndexRunning";
-            this.labelIndexRunning.Size = new System.Drawing.Size(76, 13);
-            this.labelIndexRunning.TabIndex = 13;
-            this.labelIndexRunning.Text = "Index Running";
+            this.textBoxWordRunningB.Location = new System.Drawing.Point(908, 628);
+            this.textBoxWordRunningB.Name = "textBoxWordRunningB";
+            this.textBoxWordRunningB.Size = new System.Drawing.Size(291, 20);
+            this.textBoxWordRunningB.TabIndex = 12;
             // 
-            // textBoxIndexRunning
+            // textBoxWordRunningA
             // 
-            this.textBoxIndexRunning.Location = new System.Drawing.Point(537, 728);
-            this.textBoxIndexRunning.Name = "textBoxIndexRunning";
-            this.textBoxIndexRunning.Size = new System.Drawing.Size(67, 20);
-            this.textBoxIndexRunning.TabIndex = 12;
+            this.textBoxWordRunningA.Location = new System.Drawing.Point(908, 186);
+            this.textBoxWordRunningA.Name = "textBoxWordRunningA";
+            this.textBoxWordRunningA.Size = new System.Drawing.Size(291, 20);
+            this.textBoxWordRunningA.TabIndex = 12;
             // 
-            // textBoxUrlToGetCsvData
+            // labelIndexRunningB
             // 
-            this.textBoxUrlToGetCsvData.Location = new System.Drawing.Point(538, 539);
-            this.textBoxUrlToGetCsvData.Multiline = true;
-            this.textBoxUrlToGetCsvData.Name = "textBoxUrlToGetCsvData";
-            this.textBoxUrlToGetCsvData.Size = new System.Drawing.Size(709, 167);
-            this.textBoxUrlToGetCsvData.TabIndex = 11;
+            this.labelIndexRunningB.AutoSize = true;
+            this.labelIndexRunningB.Location = new System.Drawing.Point(816, 615);
+            this.labelIndexRunningB.Name = "labelIndexRunningB";
+            this.labelIndexRunningB.Size = new System.Drawing.Size(83, 13);
+            this.labelIndexRunningB.TabIndex = 13;
+            this.labelIndexRunningB.Text = "Index RunningB";
             // 
-            // textBoxUrlToRetrieveParam
+            // labelIndexRunningA
             // 
-            this.textBoxUrlToRetrieveParam.Location = new System.Drawing.Point(539, 324);
-            this.textBoxUrlToRetrieveParam.Multiline = true;
-            this.textBoxUrlToRetrieveParam.Name = "textBoxUrlToRetrieveParam";
-            this.textBoxUrlToRetrieveParam.Size = new System.Drawing.Size(709, 167);
-            this.textBoxUrlToRetrieveParam.TabIndex = 11;
+            this.labelIndexRunningA.AutoSize = true;
+            this.labelIndexRunningA.Location = new System.Drawing.Point(816, 173);
+            this.labelIndexRunningA.Name = "labelIndexRunningA";
+            this.labelIndexRunningA.Size = new System.Drawing.Size(83, 13);
+            this.labelIndexRunningA.TabIndex = 13;
+            this.labelIndexRunningA.Text = "Index RunningA";
             // 
-            // labelUrlToGetCsvData
+            // textBoxIndexRunningB
             // 
-            this.labelUrlToGetCsvData.AutoSize = true;
-            this.labelUrlToGetCsvData.Location = new System.Drawing.Point(537, 523);
-            this.labelUrlToGetCsvData.Name = "labelUrlToGetCsvData";
-            this.labelUrlToGetCsvData.Size = new System.Drawing.Size(102, 13);
-            this.labelUrlToGetCsvData.TabIndex = 10;
-            this.labelUrlToGetCsvData.Text = "URL to GetCsvData";
+            this.textBoxIndexRunningB.Location = new System.Drawing.Point(816, 628);
+            this.textBoxIndexRunningB.Name = "textBoxIndexRunningB";
+            this.textBoxIndexRunningB.Size = new System.Drawing.Size(67, 20);
+            this.textBoxIndexRunningB.TabIndex = 12;
             // 
-            // labelUrlToRetrieveParam
+            // textBoxIndexRunningA
             // 
-            this.labelUrlToRetrieveParam.AutoSize = true;
-            this.labelUrlToRetrieveParam.Location = new System.Drawing.Point(535, 307);
-            this.labelUrlToRetrieveParam.Name = "labelUrlToRetrieveParam";
-            this.labelUrlToRetrieveParam.Size = new System.Drawing.Size(114, 13);
-            this.labelUrlToRetrieveParam.TabIndex = 10;
-            this.labelUrlToRetrieveParam.Text = "URL to RetrieveParam";
+            this.textBoxIndexRunningA.Location = new System.Drawing.Point(816, 186);
+            this.textBoxIndexRunningA.Name = "textBoxIndexRunningA";
+            this.textBoxIndexRunningA.Size = new System.Drawing.Size(67, 20);
+            this.textBoxIndexRunningA.TabIndex = 12;
+            // 
+            // textBoxUrlToGetCsvDataB
+            // 
+            this.textBoxUrlToGetCsvDataB.Location = new System.Drawing.Point(541, 749);
+            this.textBoxUrlToGetCsvDataB.Multiline = true;
+            this.textBoxUrlToGetCsvDataB.Name = "textBoxUrlToGetCsvDataB";
+            this.textBoxUrlToGetCsvDataB.Size = new System.Drawing.Size(709, 83);
+            this.textBoxUrlToGetCsvDataB.TabIndex = 11;
+            // 
+            // textBoxUrlToGetCsvDataA
+            // 
+            this.textBoxUrlToGetCsvDataA.Location = new System.Drawing.Point(538, 308);
+            this.textBoxUrlToGetCsvDataA.Multiline = true;
+            this.textBoxUrlToGetCsvDataA.Name = "textBoxUrlToGetCsvDataA";
+            this.textBoxUrlToGetCsvDataA.Size = new System.Drawing.Size(709, 83);
+            this.textBoxUrlToGetCsvDataA.TabIndex = 11;
+            // 
+            // textBoxUrlToRetrieveParamB
+            // 
+            this.textBoxUrlToRetrieveParamB.Location = new System.Drawing.Point(541, 654);
+            this.textBoxUrlToRetrieveParamB.Multiline = true;
+            this.textBoxUrlToRetrieveParamB.Name = "textBoxUrlToRetrieveParamB";
+            this.textBoxUrlToRetrieveParamB.Size = new System.Drawing.Size(709, 74);
+            this.textBoxUrlToRetrieveParamB.TabIndex = 11;
+            // 
+            // textBoxUrlToRetrieveParamA
+            // 
+            this.textBoxUrlToRetrieveParamA.Location = new System.Drawing.Point(541, 217);
+            this.textBoxUrlToRetrieveParamA.Multiline = true;
+            this.textBoxUrlToRetrieveParamA.Name = "textBoxUrlToRetrieveParamA";
+            this.textBoxUrlToRetrieveParamA.Size = new System.Drawing.Size(709, 74);
+            this.textBoxUrlToRetrieveParamA.TabIndex = 11;
+            // 
+            // labelUrlToGetCsvDataB
+            // 
+            this.labelUrlToGetCsvDataB.AutoSize = true;
+            this.labelUrlToGetCsvDataB.Location = new System.Drawing.Point(540, 733);
+            this.labelUrlToGetCsvDataB.Name = "labelUrlToGetCsvDataB";
+            this.labelUrlToGetCsvDataB.Size = new System.Drawing.Size(109, 13);
+            this.labelUrlToGetCsvDataB.TabIndex = 10;
+            this.labelUrlToGetCsvDataB.Text = "URL to GetCsvDataB";
+            // 
+            // labelUrlToRetrieveParamB
+            // 
+            this.labelUrlToRetrieveParamB.AutoSize = true;
+            this.labelUrlToRetrieveParamB.Location = new System.Drawing.Point(535, 638);
+            this.labelUrlToRetrieveParamB.Name = "labelUrlToRetrieveParamB";
+            this.labelUrlToRetrieveParamB.Size = new System.Drawing.Size(121, 13);
+            this.labelUrlToRetrieveParamB.TabIndex = 10;
+            this.labelUrlToRetrieveParamB.Text = "URL to RetrieveParamB";
+            // 
+            // labelUrlToGetCsvDataA
+            // 
+            this.labelUrlToGetCsvDataA.AutoSize = true;
+            this.labelUrlToGetCsvDataA.Location = new System.Drawing.Point(537, 292);
+            this.labelUrlToGetCsvDataA.Name = "labelUrlToGetCsvDataA";
+            this.labelUrlToGetCsvDataA.Size = new System.Drawing.Size(109, 13);
+            this.labelUrlToGetCsvDataA.TabIndex = 10;
+            this.labelUrlToGetCsvDataA.Text = "URL to GetCsvDataA";
+            // 
+            // labelUrlToRetrieveParamA
+            // 
+            this.labelUrlToRetrieveParamA.AutoSize = true;
+            this.labelUrlToRetrieveParamA.Location = new System.Drawing.Point(535, 201);
+            this.labelUrlToRetrieveParamA.Name = "labelUrlToRetrieveParamA";
+            this.labelUrlToRetrieveParamA.Size = new System.Drawing.Size(121, 13);
+            this.labelUrlToRetrieveParamA.TabIndex = 10;
+            this.labelUrlToRetrieveParamA.Text = "URL to RetrieveParamA";
+            // 
+            // dataGridView1B
+            // 
+            this.dataGridView1B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1B.Location = new System.Drawing.Point(12, 503);
+            this.dataGridView1B.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1B.Name = "dataGridView1B";
+            this.dataGridView1B.RowTemplate.Height = 24;
+            this.dataGridView1B.Size = new System.Drawing.Size(511, 377);
+            this.dataGridView1B.TabIndex = 6;
+            // 
+            // labelWebCodeResponseStringLengthB
+            // 
+            this.labelWebCodeResponseStringLengthB.AutoSize = true;
+            this.labelWebCodeResponseStringLengthB.Location = new System.Drawing.Point(9, 466);
+            this.labelWebCodeResponseStringLengthB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseStringLengthB.Name = "labelWebCodeResponseStringLengthB";
+            this.labelWebCodeResponseStringLengthB.Size = new System.Drawing.Size(109, 26);
+            this.labelWebCodeResponseStringLengthB.TabIndex = 5;
+            this.labelWebCodeResponseStringLengthB.Text = "Web Code Response\r\nString LengthB";
+            // 
+            // labelWebCodeResponseSubStringLengthB
+            // 
+            this.labelWebCodeResponseSubStringLengthB.AutoSize = true;
+            this.labelWebCodeResponseSubStringLengthB.Location = new System.Drawing.Point(178, 466);
+            this.labelWebCodeResponseSubStringLengthB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseSubStringLengthB.Name = "labelWebCodeResponseSubStringLengthB";
+            this.labelWebCodeResponseSubStringLengthB.Size = new System.Drawing.Size(109, 26);
+            this.labelWebCodeResponseSubStringLengthB.TabIndex = 5;
+            this.labelWebCodeResponseSubStringLengthB.Text = "Web Code Response\r\nSubString LengthB";
+            // 
+            // textBoxParametricDataRetrieveProductionDB_B
+            // 
+            this.textBoxParametricDataRetrieveProductionDB_B.Location = new System.Drawing.Point(537, 593);
+            this.textBoxParametricDataRetrieveProductionDB_B.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxParametricDataRetrieveProductionDB_B.Name = "textBoxParametricDataRetrieveProductionDB_B";
+            this.textBoxParametricDataRetrieveProductionDB_B.Size = new System.Drawing.Size(662, 20);
+            this.textBoxParametricDataRetrieveProductionDB_B.TabIndex = 7;
+            // 
+            // labelWebCodeResponseLastSubStringB
+            // 
+            this.labelWebCodeResponseLastSubStringB.AutoSize = true;
+            this.labelWebCodeResponseLastSubStringB.Location = new System.Drawing.Point(352, 466);
+            this.labelWebCodeResponseLastSubStringB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseLastSubStringB.Name = "labelWebCodeResponseLastSubStringB";
+            this.labelWebCodeResponseLastSubStringB.Size = new System.Drawing.Size(109, 26);
+            this.labelWebCodeResponseLastSubStringB.TabIndex = 5;
+            this.labelWebCodeResponseLastSubStringB.Text = "Web Code Response\r\nLast SubStringB";
+            // 
+            // textBoxWebCodeResponseSubStringIndex17AfterTrimmedB
+            // 
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Location = new System.Drawing.Point(537, 556);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Name = "textBoxWebCodeResponseSubStringIndex17AfterTrimmedB";
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Size = new System.Drawing.Size(662, 20);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.TabIndex = 7;
+            // 
+            // textBoxWebCodeResponseStringLengthB
+            // 
+            this.textBoxWebCodeResponseStringLengthB.Location = new System.Drawing.Point(118, 466);
+            this.textBoxWebCodeResponseStringLengthB.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseStringLengthB.Name = "textBoxWebCodeResponseStringLengthB";
+            this.textBoxWebCodeResponseStringLengthB.Size = new System.Drawing.Size(50, 20);
+            this.textBoxWebCodeResponseStringLengthB.TabIndex = 7;
+            // 
+            // textBoxWebCodeResponseSubStringIndex17B
+            // 
+            this.textBoxWebCodeResponseSubStringIndex17B.Location = new System.Drawing.Point(538, 519);
+            this.textBoxWebCodeResponseSubStringIndex17B.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseSubStringIndex17B.Name = "textBoxWebCodeResponseSubStringIndex17B";
+            this.textBoxWebCodeResponseSubStringIndex17B.Size = new System.Drawing.Size(661, 20);
+            this.textBoxWebCodeResponseSubStringIndex17B.TabIndex = 7;
+            // 
+            // textBoxWebCodeResponseSubStringLengthB
+            // 
+            this.textBoxWebCodeResponseSubStringLengthB.Location = new System.Drawing.Point(289, 466);
+            this.textBoxWebCodeResponseSubStringLengthB.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseSubStringLengthB.Name = "textBoxWebCodeResponseSubStringLengthB";
+            this.textBoxWebCodeResponseSubStringLengthB.Size = new System.Drawing.Size(50, 20);
+            this.textBoxWebCodeResponseSubStringLengthB.TabIndex = 7;
+            // 
+            // labelParametricDataRetrieveProductionDB_B
+            // 
+            this.labelParametricDataRetrieveProductionDB_B.AutoSize = true;
+            this.labelParametricDataRetrieveProductionDB_B.Location = new System.Drawing.Point(534, 578);
+            this.labelParametricDataRetrieveProductionDB_B.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelParametricDataRetrieveProductionDB_B.Name = "labelParametricDataRetrieveProductionDB_B";
+            this.labelParametricDataRetrieveProductionDB_B.Size = new System.Drawing.Size(211, 13);
+            this.labelParametricDataRetrieveProductionDB_B.TabIndex = 5;
+            this.labelParametricDataRetrieveProductionDB_B.Text = "Parametric Data Retrieve (Production DB)B";
+            // 
+            // textBoxWebCodeResponseLastSubStringB
+            // 
+            this.textBoxWebCodeResponseLastSubStringB.Location = new System.Drawing.Point(464, 466);
+            this.textBoxWebCodeResponseLastSubStringB.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWebCodeResponseLastSubStringB.Name = "textBoxWebCodeResponseLastSubStringB";
+            this.textBoxWebCodeResponseLastSubStringB.Size = new System.Drawing.Size(735, 20);
+            this.textBoxWebCodeResponseLastSubStringB.TabIndex = 7;
+            // 
+            // labelWebCodeResponseAfterTrimmedB
+            // 
+            this.labelWebCodeResponseAfterTrimmedB.AutoSize = true;
+            this.labelWebCodeResponseAfterTrimmedB.Location = new System.Drawing.Point(535, 541);
+            this.labelWebCodeResponseAfterTrimmedB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseAfterTrimmedB.Name = "labelWebCodeResponseAfterTrimmedB";
+            this.labelWebCodeResponseAfterTrimmedB.Size = new System.Drawing.Size(268, 13);
+            this.labelWebCodeResponseAfterTrimmedB.TabIndex = 5;
+            this.labelWebCodeResponseAfterTrimmedB.Text = "Web Code Response SubStringIndex17 AfterTrimmedB";
+            // 
+            // labelWebCodeResponseSubStringIndex17B
+            // 
+            this.labelWebCodeResponseSubStringIndex17B.AutoSize = true;
+            this.labelWebCodeResponseSubStringIndex17B.Location = new System.Drawing.Point(534, 503);
+            this.labelWebCodeResponseSubStringIndex17B.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWebCodeResponseSubStringIndex17B.Name = "labelWebCodeResponseSubStringIndex17B";
+            this.labelWebCodeResponseSubStringIndex17B.Size = new System.Drawing.Size(196, 26);
+            this.labelWebCodeResponseSubStringIndex17B.TabIndex = 5;
+            this.labelWebCodeResponseSubStringIndex17B.Text = "Web Code Response SubStringIndex17\r\nB";
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.buttonCheckDataInDataGridView2);
-            this.tabPage4.Controls.Add(this.textBoxDataGridView2Column);
-            this.tabPage4.Controls.Add(this.labelDataGridView2Column);
-            this.tabPage4.Controls.Add(this.textBoxDataGridView2Value);
-            this.tabPage4.Controls.Add(this.textBoxDataGridView2Row);
-            this.tabPage4.Controls.Add(this.labelDataGridView2Row);
-            this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataColumn);
-            this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataColumn);
-            this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataRow);
-            this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataRow);
-            this.tabPage4.Controls.Add(this.dataGridView2);
+            this.tabPage4.Controls.Add(this.buttonCheckDataInDataGridView2B);
+            this.tabPage4.Controls.Add(this.buttonCheckDataInDataGridView2A);
+            this.tabPage4.Controls.Add(this.textBoxDataGridView2ColumnB);
+            this.tabPage4.Controls.Add(this.textBoxDataGridView2ColumnA);
+            this.tabPage4.Controls.Add(this.labelDataGridView2ColumnB);
+            this.tabPage4.Controls.Add(this.labelDataGridView2ColumnA);
+            this.tabPage4.Controls.Add(this.textBoxDataGridView2ValueB);
+            this.tabPage4.Controls.Add(this.textBoxDataGridView2ValueA);
+            this.tabPage4.Controls.Add(this.textBoxDataGridView2RowB);
+            this.tabPage4.Controls.Add(this.textBoxDataGridView2RowA);
+            this.tabPage4.Controls.Add(this.labelDataGridView2RowB);
+            this.tabPage4.Controls.Add(this.labelDataGridView2RowA);
+            this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataColumnB);
+            this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataColumnA);
+            this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataColumnB);
+            this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataColumnA);
+            this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataRowB);
+            this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataRowA);
+            this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataRowB);
+            this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataRowA);
+            this.tabPage4.Controls.Add(this.dataGridView2B);
+            this.tabPage4.Controls.Add(this.dataGridView2A);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1272, 954);
@@ -592,108 +914,186 @@
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // buttonCheckDataInDataGridView2
+            // buttonCheckDataInDataGridView2B
             // 
-            this.buttonCheckDataInDataGridView2.Location = new System.Drawing.Point(27, 799);
-            this.buttonCheckDataInDataGridView2.Name = "buttonCheckDataInDataGridView2";
-            this.buttonCheckDataInDataGridView2.Size = new System.Drawing.Size(125, 47);
-            this.buttonCheckDataInDataGridView2.TabIndex = 22;
-            this.buttonCheckDataInDataGridView2.Text = "Check Data in DataGridView2";
-            this.buttonCheckDataInDataGridView2.UseVisualStyleBackColor = true;
-            this.buttonCheckDataInDataGridView2.Click += new System.EventHandler(this.buttonCheckDataInDataGridView2_Click);
+            this.buttonCheckDataInDataGridView2B.Location = new System.Drawing.Point(944, 882);
+            this.buttonCheckDataInDataGridView2B.Name = "buttonCheckDataInDataGridView2B";
+            this.buttonCheckDataInDataGridView2B.Size = new System.Drawing.Size(125, 34);
+            this.buttonCheckDataInDataGridView2B.TabIndex = 22;
+            this.buttonCheckDataInDataGridView2B.Text = "Check Data in DataGridView2B";
+            this.buttonCheckDataInDataGridView2B.UseVisualStyleBackColor = true;
+            this.buttonCheckDataInDataGridView2B.Click += new System.EventHandler(this.buttonCheckDataInDataGridView2B_Click);
             // 
-            // textBoxDataGridView2Column
+            // buttonCheckDataInDataGridView2A
             // 
-            this.textBoxDataGridView2Column.Location = new System.Drawing.Point(471, 759);
-            this.textBoxDataGridView2Column.Name = "textBoxDataGridView2Column";
-            this.textBoxDataGridView2Column.Size = new System.Drawing.Size(157, 20);
-            this.textBoxDataGridView2Column.TabIndex = 21;
+            this.buttonCheckDataInDataGridView2A.Location = new System.Drawing.Point(944, 381);
+            this.buttonCheckDataInDataGridView2A.Name = "buttonCheckDataInDataGridView2A";
+            this.buttonCheckDataInDataGridView2A.Size = new System.Drawing.Size(125, 34);
+            this.buttonCheckDataInDataGridView2A.TabIndex = 22;
+            this.buttonCheckDataInDataGridView2A.Text = "Check Data in DataGridView2A";
+            this.buttonCheckDataInDataGridView2A.UseVisualStyleBackColor = true;
+            this.buttonCheckDataInDataGridView2A.Click += new System.EventHandler(this.buttonCheckDataInDataGridView2A_Click);
             // 
-            // labelDataGridView2Column
+            // textBoxDataGridView2ColumnB
             // 
-            this.labelDataGridView2Column.AutoSize = true;
-            this.labelDataGridView2Column.Location = new System.Drawing.Point(335, 762);
-            this.labelDataGridView2Column.Name = "labelDataGridView2Column";
-            this.labelDataGridView2Column.Size = new System.Drawing.Size(120, 13);
-            this.labelDataGridView2Column.TabIndex = 20;
-            this.labelDataGridView2Column.Text = "dataGridView2Column =";
+            this.textBoxDataGridView2ColumnB.Location = new System.Drawing.Point(461, 890);
+            this.textBoxDataGridView2ColumnB.Name = "textBoxDataGridView2ColumnB";
+            this.textBoxDataGridView2ColumnB.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDataGridView2ColumnB.TabIndex = 21;
             // 
-            // textBoxDataGridView2Value
+            // textBoxDataGridView2ColumnA
             // 
-            this.textBoxDataGridView2Value.Location = new System.Drawing.Point(158, 813);
-            this.textBoxDataGridView2Value.Name = "textBoxDataGridView2Value";
-            this.textBoxDataGridView2Value.Size = new System.Drawing.Size(157, 20);
-            this.textBoxDataGridView2Value.TabIndex = 18;
+            this.textBoxDataGridView2ColumnA.Location = new System.Drawing.Point(461, 389);
+            this.textBoxDataGridView2ColumnA.Name = "textBoxDataGridView2ColumnA";
+            this.textBoxDataGridView2ColumnA.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDataGridView2ColumnA.TabIndex = 21;
             // 
-            // textBoxDataGridView2Row
+            // labelDataGridView2ColumnB
             // 
-            this.textBoxDataGridView2Row.Location = new System.Drawing.Point(158, 759);
-            this.textBoxDataGridView2Row.Name = "textBoxDataGridView2Row";
-            this.textBoxDataGridView2Row.Size = new System.Drawing.Size(157, 20);
-            this.textBoxDataGridView2Row.TabIndex = 19;
+            this.labelDataGridView2ColumnB.AutoSize = true;
+            this.labelDataGridView2ColumnB.Location = new System.Drawing.Point(325, 893);
+            this.labelDataGridView2ColumnB.Name = "labelDataGridView2ColumnB";
+            this.labelDataGridView2ColumnB.Size = new System.Drawing.Size(127, 13);
+            this.labelDataGridView2ColumnB.TabIndex = 20;
+            this.labelDataGridView2ColumnB.Text = "dataGridView2ColumnB =";
             // 
-            // labelDataGridView2Row
+            // labelDataGridView2ColumnA
             // 
-            this.labelDataGridView2Row.AutoSize = true;
-            this.labelDataGridView2Row.Location = new System.Drawing.Point(24, 762);
-            this.labelDataGridView2Row.Name = "labelDataGridView2Row";
-            this.labelDataGridView2Row.Size = new System.Drawing.Size(107, 13);
-            this.labelDataGridView2Row.TabIndex = 17;
-            this.labelDataGridView2Row.Text = "dataGridView2Row =";
+            this.labelDataGridView2ColumnA.AutoSize = true;
+            this.labelDataGridView2ColumnA.Location = new System.Drawing.Point(325, 392);
+            this.labelDataGridView2ColumnA.Name = "labelDataGridView2ColumnA";
+            this.labelDataGridView2ColumnA.Size = new System.Drawing.Size(127, 13);
+            this.labelDataGridView2ColumnA.TabIndex = 20;
+            this.labelDataGridView2ColumnA.Text = "dataGridView2ColumnA =";
             // 
-            // textBoxLastIndexOfCsvDataColumn
+            // textBoxDataGridView2ValueB
             // 
-            this.textBoxLastIndexOfCsvDataColumn.Location = new System.Drawing.Point(457, 30);
-            this.textBoxLastIndexOfCsvDataColumn.Name = "textBoxLastIndexOfCsvDataColumn";
-            this.textBoxLastIndexOfCsvDataColumn.Size = new System.Drawing.Size(157, 20);
-            this.textBoxLastIndexOfCsvDataColumn.TabIndex = 16;
+            this.textBoxDataGridView2ValueB.Location = new System.Drawing.Point(1075, 890);
+            this.textBoxDataGridView2ValueB.Name = "textBoxDataGridView2ValueB";
+            this.textBoxDataGridView2ValueB.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDataGridView2ValueB.TabIndex = 18;
             // 
-            // labelLastIndexOfCsvDataColumn
+            // textBoxDataGridView2ValueA
             // 
-            this.labelLastIndexOfCsvDataColumn.AutoSize = true;
-            this.labelLastIndexOfCsvDataColumn.Location = new System.Drawing.Point(335, 33);
-            this.labelLastIndexOfCsvDataColumn.Name = "labelLastIndexOfCsvDataColumn";
-            this.labelLastIndexOfCsvDataColumn.Size = new System.Drawing.Size(115, 13);
-            this.labelLastIndexOfCsvDataColumn.TabIndex = 15;
-            this.labelLastIndexOfCsvDataColumn.Text = "Last Index of Column =";
+            this.textBoxDataGridView2ValueA.Location = new System.Drawing.Point(1075, 389);
+            this.textBoxDataGridView2ValueA.Name = "textBoxDataGridView2ValueA";
+            this.textBoxDataGridView2ValueA.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDataGridView2ValueA.TabIndex = 18;
             // 
-            // textBoxLastIndexOfCsvDataRow
+            // textBoxDataGridView2RowB
             // 
-            this.textBoxLastIndexOfCsvDataRow.Location = new System.Drawing.Point(134, 30);
-            this.textBoxLastIndexOfCsvDataRow.Name = "textBoxLastIndexOfCsvDataRow";
-            this.textBoxLastIndexOfCsvDataRow.Size = new System.Drawing.Size(157, 20);
-            this.textBoxLastIndexOfCsvDataRow.TabIndex = 14;
+            this.textBoxDataGridView2RowB.Location = new System.Drawing.Point(148, 890);
+            this.textBoxDataGridView2RowB.Name = "textBoxDataGridView2RowB";
+            this.textBoxDataGridView2RowB.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDataGridView2RowB.TabIndex = 19;
             // 
-            // labelLastIndexOfCsvDataRow
+            // textBoxDataGridView2RowA
             // 
-            this.labelLastIndexOfCsvDataRow.AutoSize = true;
-            this.labelLastIndexOfCsvDataRow.Location = new System.Drawing.Point(24, 33);
-            this.labelLastIndexOfCsvDataRow.Name = "labelLastIndexOfCsvDataRow";
-            this.labelLastIndexOfCsvDataRow.Size = new System.Drawing.Size(102, 13);
-            this.labelLastIndexOfCsvDataRow.TabIndex = 13;
-            this.labelLastIndexOfCsvDataRow.Text = "Last Index of Row =";
+            this.textBoxDataGridView2RowA.Location = new System.Drawing.Point(148, 389);
+            this.textBoxDataGridView2RowA.Name = "textBoxDataGridView2RowA";
+            this.textBoxDataGridView2RowA.Size = new System.Drawing.Size(157, 20);
+            this.textBoxDataGridView2RowA.TabIndex = 19;
             // 
-            // dataGridView2
+            // labelDataGridView2RowB
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(27, 74);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1171, 649);
-            this.dataGridView2.TabIndex = 0;
+            this.labelDataGridView2RowB.AutoSize = true;
+            this.labelDataGridView2RowB.Location = new System.Drawing.Point(14, 893);
+            this.labelDataGridView2RowB.Name = "labelDataGridView2RowB";
+            this.labelDataGridView2RowB.Size = new System.Drawing.Size(114, 13);
+            this.labelDataGridView2RowB.TabIndex = 17;
+            this.labelDataGridView2RowB.Text = "dataGridView2RowB =";
+            // 
+            // labelDataGridView2RowA
+            // 
+            this.labelDataGridView2RowA.AutoSize = true;
+            this.labelDataGridView2RowA.Location = new System.Drawing.Point(14, 392);
+            this.labelDataGridView2RowA.Name = "labelDataGridView2RowA";
+            this.labelDataGridView2RowA.Size = new System.Drawing.Size(114, 13);
+            this.labelDataGridView2RowA.TabIndex = 17;
+            this.labelDataGridView2RowA.Text = "dataGridView2RowA =";
+            // 
+            // textBoxLastIndexOfCsvDataColumnB
+            // 
+            this.textBoxLastIndexOfCsvDataColumnB.Location = new System.Drawing.Point(447, 511);
+            this.textBoxLastIndexOfCsvDataColumnB.Name = "textBoxLastIndexOfCsvDataColumnB";
+            this.textBoxLastIndexOfCsvDataColumnB.Size = new System.Drawing.Size(157, 20);
+            this.textBoxLastIndexOfCsvDataColumnB.TabIndex = 16;
+            // 
+            // textBoxLastIndexOfCsvDataColumnA
+            // 
+            this.textBoxLastIndexOfCsvDataColumnA.Location = new System.Drawing.Point(447, 10);
+            this.textBoxLastIndexOfCsvDataColumnA.Name = "textBoxLastIndexOfCsvDataColumnA";
+            this.textBoxLastIndexOfCsvDataColumnA.Size = new System.Drawing.Size(157, 20);
+            this.textBoxLastIndexOfCsvDataColumnA.TabIndex = 16;
+            // 
+            // labelLastIndexOfCsvDataColumnB
+            // 
+            this.labelLastIndexOfCsvDataColumnB.AutoSize = true;
+            this.labelLastIndexOfCsvDataColumnB.Location = new System.Drawing.Point(325, 514);
+            this.labelLastIndexOfCsvDataColumnB.Name = "labelLastIndexOfCsvDataColumnB";
+            this.labelLastIndexOfCsvDataColumnB.Size = new System.Drawing.Size(122, 13);
+            this.labelLastIndexOfCsvDataColumnB.TabIndex = 15;
+            this.labelLastIndexOfCsvDataColumnB.Text = "Last Index of ColumnB =";
+            // 
+            // labelLastIndexOfCsvDataColumnA
+            // 
+            this.labelLastIndexOfCsvDataColumnA.AutoSize = true;
+            this.labelLastIndexOfCsvDataColumnA.Location = new System.Drawing.Point(325, 13);
+            this.labelLastIndexOfCsvDataColumnA.Name = "labelLastIndexOfCsvDataColumnA";
+            this.labelLastIndexOfCsvDataColumnA.Size = new System.Drawing.Size(122, 13);
+            this.labelLastIndexOfCsvDataColumnA.TabIndex = 15;
+            this.labelLastIndexOfCsvDataColumnA.Text = "Last Index of ColumnA =";
+            // 
+            // textBoxLastIndexOfCsvDataRowB
+            // 
+            this.textBoxLastIndexOfCsvDataRowB.Location = new System.Drawing.Point(124, 511);
+            this.textBoxLastIndexOfCsvDataRowB.Name = "textBoxLastIndexOfCsvDataRowB";
+            this.textBoxLastIndexOfCsvDataRowB.Size = new System.Drawing.Size(157, 20);
+            this.textBoxLastIndexOfCsvDataRowB.TabIndex = 14;
+            // 
+            // textBoxLastIndexOfCsvDataRowA
+            // 
+            this.textBoxLastIndexOfCsvDataRowA.Location = new System.Drawing.Point(124, 10);
+            this.textBoxLastIndexOfCsvDataRowA.Name = "textBoxLastIndexOfCsvDataRowA";
+            this.textBoxLastIndexOfCsvDataRowA.Size = new System.Drawing.Size(157, 20);
+            this.textBoxLastIndexOfCsvDataRowA.TabIndex = 14;
+            // 
+            // labelLastIndexOfCsvDataRowB
+            // 
+            this.labelLastIndexOfCsvDataRowB.AutoSize = true;
+            this.labelLastIndexOfCsvDataRowB.Location = new System.Drawing.Point(14, 514);
+            this.labelLastIndexOfCsvDataRowB.Name = "labelLastIndexOfCsvDataRowB";
+            this.labelLastIndexOfCsvDataRowB.Size = new System.Drawing.Size(109, 13);
+            this.labelLastIndexOfCsvDataRowB.TabIndex = 13;
+            this.labelLastIndexOfCsvDataRowB.Text = "Last Index of RowB =";
+            // 
+            // labelLastIndexOfCsvDataRowA
+            // 
+            this.labelLastIndexOfCsvDataRowA.AutoSize = true;
+            this.labelLastIndexOfCsvDataRowA.Location = new System.Drawing.Point(14, 13);
+            this.labelLastIndexOfCsvDataRowA.Name = "labelLastIndexOfCsvDataRowA";
+            this.labelLastIndexOfCsvDataRowA.Size = new System.Drawing.Size(109, 13);
+            this.labelLastIndexOfCsvDataRowA.TabIndex = 13;
+            this.labelLastIndexOfCsvDataRowA.Text = "Last Index of RowA =";
+            // 
+            // dataGridView2B
+            // 
+            this.dataGridView2B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2B.Location = new System.Drawing.Point(17, 539);
+            this.dataGridView2B.Name = "dataGridView2B";
+            this.dataGridView2B.Size = new System.Drawing.Size(1222, 338);
+            this.dataGridView2B.TabIndex = 0;
+            // 
+            // dataGridView2A
+            // 
+            this.dataGridView2A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2A.Location = new System.Drawing.Point(17, 38);
+            this.dataGridView2A.Name = "dataGridView2A";
+            this.dataGridView2A.Size = new System.Drawing.Size(1222, 338);
+            this.dataGridView2A.TabIndex = 0;
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.textBoxCheckErrorCode);
-            this.tabPage5.Controls.Add(this.dataGridView4);
-            this.tabPage5.Controls.Add(this.dataGridView3);
-            this.tabPage5.Controls.Add(this.textBoxTest);
-            this.tabPage5.Controls.Add(this.textBoxErorCodeFail);
-            this.tabPage5.Controls.Add(this.textBoxErorCodePass);
-            this.tabPage5.Controls.Add(this.labelTest);
-            this.tabPage5.Controls.Add(this.textBoxErorCodeTotal);
-            this.tabPage5.Controls.Add(this.labelErorCodeFail);
-            this.tabPage5.Controls.Add(this.labelErorCodePass);
-            this.tabPage5.Controls.Add(this.labelErorCodeTotal);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(1272, 954);
@@ -701,93 +1101,14 @@
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // textBoxCheckErrorCode
+            // tabPage6
             // 
-            this.textBoxCheckErrorCode.Location = new System.Drawing.Point(791, 446);
-            this.textBoxCheckErrorCode.Multiline = true;
-            this.textBoxCheckErrorCode.Name = "textBoxCheckErrorCode";
-            this.textBoxCheckErrorCode.Size = new System.Drawing.Size(405, 209);
-            this.textBoxCheckErrorCode.TabIndex = 13;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(791, 48);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(405, 329);
-            this.dataGridView4.TabIndex = 12;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(411, 48);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(331, 607);
-            this.dataGridView3.TabIndex = 11;
-            // 
-            // textBoxTest
-            // 
-            this.textBoxTest.Location = new System.Drawing.Point(127, 303);
-            this.textBoxTest.Name = "textBoxTest";
-            this.textBoxTest.Size = new System.Drawing.Size(133, 20);
-            this.textBoxTest.TabIndex = 7;
-            // 
-            // textBoxErorCodeFail
-            // 
-            this.textBoxErorCodeFail.Location = new System.Drawing.Point(127, 264);
-            this.textBoxErorCodeFail.Name = "textBoxErorCodeFail";
-            this.textBoxErorCodeFail.Size = new System.Drawing.Size(133, 20);
-            this.textBoxErorCodeFail.TabIndex = 8;
-            // 
-            // textBoxErorCodePass
-            // 
-            this.textBoxErorCodePass.Location = new System.Drawing.Point(127, 229);
-            this.textBoxErorCodePass.Name = "textBoxErorCodePass";
-            this.textBoxErorCodePass.Size = new System.Drawing.Size(133, 20);
-            this.textBoxErorCodePass.TabIndex = 9;
-            // 
-            // labelTest
-            // 
-            this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(37, 306);
-            this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(35, 13);
-            this.labelTest.TabIndex = 3;
-            this.labelTest.Text = "TEST";
-            // 
-            // textBoxErorCodeTotal
-            // 
-            this.textBoxErorCodeTotal.Location = new System.Drawing.Point(127, 196);
-            this.textBoxErorCodeTotal.Name = "textBoxErorCodeTotal";
-            this.textBoxErorCodeTotal.Size = new System.Drawing.Size(133, 20);
-            this.textBoxErorCodeTotal.TabIndex = 10;
-            // 
-            // labelErorCodeFail
-            // 
-            this.labelErorCodeFail.AutoSize = true;
-            this.labelErorCodeFail.Location = new System.Drawing.Point(37, 267);
-            this.labelErorCodeFail.Name = "labelErorCodeFail";
-            this.labelErorCodeFail.Size = new System.Drawing.Size(76, 13);
-            this.labelErorCodeFail.TabIndex = 4;
-            this.labelErorCodeFail.Text = "Error Code Fail";
-            // 
-            // labelErorCodePass
-            // 
-            this.labelErorCodePass.AutoSize = true;
-            this.labelErorCodePass.Location = new System.Drawing.Point(37, 232);
-            this.labelErorCodePass.Name = "labelErorCodePass";
-            this.labelErorCodePass.Size = new System.Drawing.Size(83, 13);
-            this.labelErorCodePass.TabIndex = 5;
-            this.labelErorCodePass.Text = "Error Code Pass";
-            // 
-            // labelErorCodeTotal
-            // 
-            this.labelErorCodeTotal.AutoSize = true;
-            this.labelErorCodeTotal.Location = new System.Drawing.Point(37, 199);
-            this.labelErorCodeTotal.Name = "labelErorCodeTotal";
-            this.labelErorCodeTotal.Size = new System.Drawing.Size(84, 13);
-            this.labelErorCodeTotal.TabIndex = 6;
-            this.labelErorCodeTotal.Text = "Error Code Total";
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1272, 954);
+            this.tabPage6.TabIndex = 6;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // timer1
             // 
@@ -798,32 +1119,41 @@
             this.timerStateCyclic.Interval = 1;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
-            // tabPage6
+            // timer2
             // 
-            this.tabPage6.Controls.Add(this.dataGridView6);
-            this.tabPage6.Controls.Add(this.dataGridView5);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1272, 954);
-            this.tabPage6.TabIndex = 6;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // dataGridView5
+            // textBoxStateDownloadCsvDataB
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(14, 14);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(1231, 420);
-            this.dataGridView5.TabIndex = 0;
+            this.textBoxStateDownloadCsvDataB.Location = new System.Drawing.Point(1087, 566);
+            this.textBoxStateDownloadCsvDataB.Name = "textBoxStateDownloadCsvDataB";
+            this.textBoxStateDownloadCsvDataB.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStateDownloadCsvDataB.TabIndex = 2;
             // 
-            // dataGridView6
+            // textBoxStateDisplayDataB
             // 
-            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Location = new System.Drawing.Point(14, 454);
-            this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(1231, 462);
-            this.dataGridView6.TabIndex = 1;
+            this.textBoxStateDisplayDataB.Location = new System.Drawing.Point(1087, 627);
+            this.textBoxStateDisplayDataB.Name = "textBoxStateDisplayDataB";
+            this.textBoxStateDisplayDataB.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStateDisplayDataB.TabIndex = 2;
+            // 
+            // labelStateDownloadCsvDataB
+            // 
+            this.labelStateDownloadCsvDataB.AutoSize = true;
+            this.labelStateDownloadCsvDataB.Location = new System.Drawing.Point(1087, 547);
+            this.labelStateDownloadCsvDataB.Name = "labelStateDownloadCsvDataB";
+            this.labelStateDownloadCsvDataB.Size = new System.Drawing.Size(128, 13);
+            this.labelStateDownloadCsvDataB.TabIndex = 3;
+            this.labelStateDownloadCsvDataB.Text = "StateDownloadCsvDataB";
+            // 
+            // labelStateDisplayDataB
+            // 
+            this.labelStateDisplayDataB.AutoSize = true;
+            this.labelStateDisplayDataB.Location = new System.Drawing.Point(1087, 608);
+            this.labelStateDisplayDataB.Name = "labelStateDisplayDataB";
+            this.labelStateDisplayDataB.Size = new System.Drawing.Size(96, 13);
+            this.labelStateDisplayDataB.TabIndex = 3;
+            this.labelStateDisplayDataB.Text = "StateDisplayDataB";
             // 
             // Form1
             // 
@@ -835,7 +1165,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage0.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
@@ -845,16 +1175,11 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1B)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.tabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2B)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2A)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -864,25 +1189,25 @@
         private System.Windows.Forms.Button buttonTest;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.TextBox textBoxUrlToGo;
-        private System.Windows.Forms.TextBox textBoxUrlResponse;
-        private System.Windows.Forms.TextBox textBoxWebCodeResponse;
+        private System.Windows.Forms.TextBox textBoxUrlResponseA;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseA;
         private System.Windows.Forms.Label labelUrlToGo;
-        private System.Windows.Forms.Label labelUrlResponse;
-        private System.Windows.Forms.Label labelWebCodeResponse;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label labelWebCodeResponseStringLength;
-        private System.Windows.Forms.TextBox textBoxWebCodeResponseStringLength;
-        private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringLength;
-        private System.Windows.Forms.Label labelWebCodeResponseSubStringLength;
-        private System.Windows.Forms.Label labelWebCodeResponseLastSubString;
-        private System.Windows.Forms.TextBox textBoxWebCodeResponseLastSubString;
-        private System.Windows.Forms.Label labelWebCodeResponseSubStringIndex17;
-        private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringIndex17;
+        private System.Windows.Forms.Label labelUrlResponseA;
+        private System.Windows.Forms.Label labelWebCodeResponseA;
+        private System.Windows.Forms.DataGridView dataGridView1A;
+        private System.Windows.Forms.Label labelWebCodeResponseStringLengthA;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseStringLengthA;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringLengthA;
+        private System.Windows.Forms.Label labelWebCodeResponseSubStringLengthA;
+        private System.Windows.Forms.Label labelWebCodeResponseLastSubStringA;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseLastSubStringA;
+        private System.Windows.Forms.Label labelWebCodeResponseSubStringIndex17A;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringIndex17A;
         private System.Windows.Forms.Button buttonTestTrim;
-        private System.Windows.Forms.Label labelWebCodeResponseAfterTrimmed;
-        private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringIndex17AfterTrimmed;
-        private System.Windows.Forms.Label labelParametricDataRetrieveProductionDB;
-        private System.Windows.Forms.TextBox textBoxParametricDataRetrieveProductionDB;
+        private System.Windows.Forms.Label labelWebCodeResponseAfterTrimmedA;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringIndex17AfterTrimmedA;
+        private System.Windows.Forms.Label labelParametricDataRetrieveProductionDB_A;
+        private System.Windows.Forms.TextBox textBoxParametricDataRetrieveProductionDB_A;
         private System.Windows.Forms.Button buttonTestGoParametricUrl1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -891,48 +1216,79 @@
         private System.Windows.Forms.TabPage tabPage0;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerStateCyclic;
-        private System.Windows.Forms.Label labelStateDisplayData;
-        private System.Windows.Forms.Label labelStateDownloadCsvData;
-        private System.Windows.Forms.TextBox textBoxStateDisplayData;
-        private System.Windows.Forms.TextBox textBoxStateDownloadCsvData;
-        private System.Windows.Forms.Label labelUrlToRetrieveParam;
-        private System.Windows.Forms.TextBox textBoxUrlToRetrieveParam;
-        private System.Windows.Forms.Label labelWordRunning;
-        private System.Windows.Forms.TextBox textBoxWordRunning;
-        private System.Windows.Forms.Label labelIndexRunning;
-        private System.Windows.Forms.TextBox textBoxIndexRunning;
-        private System.Windows.Forms.TextBox textBoxUrlToGetCsvData;
-        private System.Windows.Forms.Label labelUrlToGetCsvData;
-        private System.Windows.Forms.Label labelCsvData;
-        private System.Windows.Forms.TextBox textBoxCsvData;
+        private System.Windows.Forms.Label labelStateDisplayDataA;
+        private System.Windows.Forms.Label labelStateDownloadCsvDataA;
+        private System.Windows.Forms.TextBox textBoxStateDisplayDataA;
+        private System.Windows.Forms.TextBox textBoxStateDownloadCsvDataA;
+        private System.Windows.Forms.Label labelUrlToRetrieveParamA;
+        private System.Windows.Forms.TextBox textBoxUrlToRetrieveParamA;
+        private System.Windows.Forms.Label labelWordRunningA;
+        private System.Windows.Forms.TextBox textBoxWordRunningA;
+        private System.Windows.Forms.Label labelIndexRunningA;
+        private System.Windows.Forms.TextBox textBoxIndexRunningA;
+        private System.Windows.Forms.TextBox textBoxUrlToGetCsvDataA;
+        private System.Windows.Forms.Label labelUrlToGetCsvDataA;
+        private System.Windows.Forms.Label labelCsvDataA;
+        private System.Windows.Forms.TextBox textBoxCsvDataA;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView2A;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataColumn;
-        private System.Windows.Forms.Label labelLastIndexOfCsvDataColumn;
-        private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataRow;
-        private System.Windows.Forms.Label labelLastIndexOfCsvDataRow;
-        private System.Windows.Forms.Button buttonCheckDataInDataGridView2;
-        private System.Windows.Forms.TextBox textBoxDataGridView2Column;
-        private System.Windows.Forms.Label labelDataGridView2Column;
-        private System.Windows.Forms.TextBox textBoxDataGridView2Value;
-        private System.Windows.Forms.TextBox textBoxDataGridView2Row;
-        private System.Windows.Forms.Label labelDataGridView2Row;
+        private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataColumnA;
+        private System.Windows.Forms.Label labelLastIndexOfCsvDataColumnA;
+        private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataRowA;
+        private System.Windows.Forms.Label labelLastIndexOfCsvDataRowA;
+        private System.Windows.Forms.Button buttonCheckDataInDataGridView2A;
+        private System.Windows.Forms.TextBox textBoxDataGridView2ColumnA;
+        private System.Windows.Forms.Label labelDataGridView2ColumnA;
+        private System.Windows.Forms.TextBox textBoxDataGridView2ValueA;
+        private System.Windows.Forms.TextBox textBoxDataGridView2RowA;
+        private System.Windows.Forms.Label labelDataGridView2RowA;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.TextBox textBoxCheckErrorCode;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.TextBox textBoxTest;
-        private System.Windows.Forms.TextBox textBoxErorCodeFail;
-        private System.Windows.Forms.TextBox textBoxErorCodePass;
-        private System.Windows.Forms.Label labelTest;
-        private System.Windows.Forms.TextBox textBoxErorCodeTotal;
-        private System.Windows.Forms.Label labelErorCodeFail;
-        private System.Windows.Forms.Label labelErorCodePass;
-        private System.Windows.Forms.Label labelErorCodeTotal;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.DataGridView dataGridView6;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.WebBrowser webBrowser2;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label labelUrlResponseB;
+        private System.Windows.Forms.TextBox textBoxUrlResponseB;
+        private System.Windows.Forms.Label labelWebCodeResponseB;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseB;
+        private System.Windows.Forms.DataGridView dataGridView1B;
+        private System.Windows.Forms.Label labelWebCodeResponseStringLengthB;
+        private System.Windows.Forms.Label labelWebCodeResponseSubStringLengthB;
+        private System.Windows.Forms.Label labelWebCodeResponseLastSubStringB;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseStringLengthB;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringLengthB;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseLastSubStringB;
+        private System.Windows.Forms.TextBox textBoxParametricDataRetrieveProductionDB_B;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringIndex17AfterTrimmedB;
+        private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringIndex17B;
+        private System.Windows.Forms.Label labelParametricDataRetrieveProductionDB_B;
+        private System.Windows.Forms.Label labelWebCodeResponseAfterTrimmedB;
+        private System.Windows.Forms.Label labelWebCodeResponseSubStringIndex17B;
+        private System.Windows.Forms.Label labelWordRunningB;
+        private System.Windows.Forms.TextBox textBoxWordRunningB;
+        private System.Windows.Forms.Label labelIndexRunningB;
+        private System.Windows.Forms.TextBox textBoxIndexRunningB;
+        private System.Windows.Forms.TextBox textBoxUrlToRetrieveParamB;
+        private System.Windows.Forms.Label labelUrlToRetrieveParamB;
+        private System.Windows.Forms.TextBox textBoxUrlToGetCsvDataB;
+        private System.Windows.Forms.Label labelUrlToGetCsvDataB;
+        private System.Windows.Forms.Label labelCsvDataB;
+        private System.Windows.Forms.TextBox textBoxCsvDataB;
+        private System.Windows.Forms.Button buttonCheckDataInDataGridView2B;
+        private System.Windows.Forms.TextBox textBoxDataGridView2ColumnB;
+        private System.Windows.Forms.Label labelDataGridView2ColumnB;
+        private System.Windows.Forms.TextBox textBoxDataGridView2ValueB;
+        private System.Windows.Forms.TextBox textBoxDataGridView2RowB;
+        private System.Windows.Forms.Label labelDataGridView2RowB;
+        private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataColumnB;
+        private System.Windows.Forms.Label labelLastIndexOfCsvDataColumnB;
+        private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataRowB;
+        private System.Windows.Forms.Label labelLastIndexOfCsvDataRowB;
+        private System.Windows.Forms.DataGridView dataGridView2B;
+        private System.Windows.Forms.Label labelStateDisplayDataB;
+        private System.Windows.Forms.Label labelStateDownloadCsvDataB;
+        private System.Windows.Forms.TextBox textBoxStateDisplayDataB;
+        private System.Windows.Forms.TextBox textBoxStateDownloadCsvDataB;
     }
 }
 
