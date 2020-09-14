@@ -122,8 +122,10 @@ namespace SIRE_Test_Healthy_Check
         //Point point = new Point(0, 0); //Decare point x=0, y=0
         Point point = new Point(0, 0); //Decare point x=0, y=0
         WebClient webClient1 = new WebClient();
-        
-        
+
+        int timeA = 0; //Initial Check Time of ProcessA
+        int timeB = 0; //Initial Check Time of ProcessB
+        bool switchB = false; //Initial switch of ProcessB
 
         //##### End : Decare variable in Form1 #####
 
@@ -135,6 +137,26 @@ namespace SIRE_Test_Healthy_Check
         }
 
         //##### Begin : My function Area #####
+
+        //##### Begin : check_Time
+        private void check_Time()
+        {
+            textBoxTimeA.Text = DateTime.Now.ToString("HH:mm:ss").Replace(":", ""); //Get Time form computer
+            textBoxTimeB.Text = DateTime.Now.ToString("HH:mm:ss").Replace(":", ""); //Get Time form computer
+            timeB = int.Parse(textBoxTimeB.Text);
+
+            if((timeB >= 090000)&&(timeB < 235500)) //Check Time to use Function download_CsvDataB() must between 09:00 to 23:54
+            {
+                switchB = true;
+                textBoxTimeB.BackColor = Color.LawnGreen;
+            }
+            else
+            {
+                switchB = false;
+                textBoxTimeB.BackColor = Color.Red;
+            }
+        }
+        //##### End : check_Time
 
         //##### Begin : delay_StateA
         public bool delay_StateA(int intervalValue) //Delay function
@@ -282,7 +304,6 @@ namespace SIRE_Test_Healthy_Check
         }
         //##### End : go_UrlB
 
-
         //##### Begin : addWordInRow_TableA
         private bool addword_InRowTableA()
         {
@@ -413,7 +434,6 @@ namespace SIRE_Test_Healthy_Check
         }
         //##### End : addWordInRow_TableB
 
-
         //##### Begin : show_UrlToRetrieveProcessA
         private bool show_UrlToRetrieveProcessA()
         {
@@ -425,10 +445,14 @@ namespace SIRE_Test_Healthy_Check
                     break;
                 case 1: //State1 : Show wordWebCodeResponse[17] to textbox
                     textBoxWebCodeResponseSubStringIndex17A.Text = wordWebCodeResponseA[17];
+                    //Console.WriteLine(wordWebCodeResponseA[17]); //Debug
+                    tabControl1.SelectedTab = tabPage3; //Open tabPage3 to Debug
                     stateShowUrlToRetrieveProcessA = 2;
                     break;
                 case 2: //State2 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
                     textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Text = wordWebCodeResponseA[17].Substring(7, 56);
+                    //Console.WriteLine(wordWebCodeResponseA[17].Substring(7, 56)); //Debug
+                    tabControl1.SelectedTab = tabPage2; //Open tabPage3 to normal
                     stateShowUrlToRetrieveProcessA = 3;
                     break;
                 case 3: //State3 : Show ParametricDataRetrieveProductionDB URL to textbox
@@ -457,10 +481,14 @@ namespace SIRE_Test_Healthy_Check
                     break;
                 case 1: //State1 : Show wordWebCodeResponse[17] to textbox
                     textBoxWebCodeResponseSubStringIndex17B.Text = wordWebCodeResponseB[17];
+                    //Console.WriteLine(wordWebCodeResponseB[17]); //Debug
+                    tabControl1.SelectedTab = tabPage3; //Open tabPage3 to Debug
                     stateShowUrlToRetrieveProcessB = 2;
                     break;
                 case 2: //State2 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
                     textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Text = wordWebCodeResponseB[17].Substring(7, 56);
+                    //Console.WriteLine(wordWebCodeResponseB[17].Substring(7, 56)); //Debug
+                    tabControl1.SelectedTab = tabPage2; //Open tabPage3 to normal
                     stateShowUrlToRetrieveProcessB = 3;
                     break;
                 case 3: //State3 : Show ParametricDataRetrieveProductionDB URL to textbox
@@ -477,7 +505,6 @@ namespace SIRE_Test_Healthy_Check
             return statusShowUrlToRetrieveProcessB;
         }
         //##### End : show_UrlToRetrieveProcessB
-
 
         //##### Begin : split_TextA
         private string split_TextA(string textInput)
@@ -3464,6 +3491,9 @@ namespace SIRE_Test_Healthy_Check
                         }
                         break;
                     case 14: //State14 : Convert CSV Data from web to dataGridView2A
+
+                        tabControl1.SelectedTab = tabPage1; //Debug
+
                         textBoxCsvDataA.Text = webBrowser1.Document.Body.InnerText;
 
                         dataTable2A.Clear(); //Clear datatable of CSV Data
@@ -3511,6 +3541,8 @@ namespace SIRE_Test_Healthy_Check
                         dataGridView2A.DataSource = dataTable2A;
                         //dataGridView5.DataSource = dataTable2A;
 
+                        tabControl1.SelectedTab = tabPage2; //Debug
+
                         stateDownloadCsvDataA = 100;
                         break;
                     case 100: //State100 : End This Function and Resetting variables
@@ -3529,155 +3561,163 @@ namespace SIRE_Test_Healthy_Check
         //##### Begin : download_CsvDataB
         private void download_CsvDataB()
         {
-            if (switchDownloadCsvDataB)
+            if (switchB)
             {
-                switch (stateDownloadCsvDataB)
+                if (switchDownloadCsvDataB)
                 {
-                    case 0: //State0 : Initial Variables 
-                        statusWebBrowser2DocumentCompleted = false;
+                    switch (stateDownloadCsvDataB)
+                    {
+                        case 0: //State0 : Initial Variables 
+                            statusWebBrowser2DocumentCompleted = false;
 
-                        indexCsvDataRowB = 0;
-                        indexCsvDataColumnB = 0;
+                            indexCsvDataRowB = 0;
+                            indexCsvDataColumnB = 0;
 
-                        stateDownloadCsvDataB = 1;
-                        tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
-                        break;
-                    case 1: //State1 : Initial Entering Web VnusQ by Logoff
-                        if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/logoff.jsp"))
-                        {
-                            stateDownloadCsvDataB = 2;
-                        }
-                        break;
-                    case 2: //State2 : Go URL, Index Page
-                        if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/index.jsp"))
-                        {
-                            stateDownloadCsvDataB = 3;
-                        }
-                        break;
-                    case 3: //State3 : Go URL, Login Page
-                        if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/login"))
-                        {
-                            stateDownloadCsvDataB = 4;
-                        }
-                        break;
-                    case 4: //State4 : Go URL, Entering Loging by Send Login UserName + Password
-                        if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/login.jsp/j_security_check?j_username=woravit&j_password=123456&Logon=Log%20On"))
-                        {
-                            stateDownloadCsvDataB = 5;
-                        }
-                        break;
-                    case 5: //State5 : Show WebCode Response String from Server
-                        if (addword_InRowTableB())
-                        {
-                            stateDownloadCsvDataB = 6;
-                        }
-                        break;
-                    case 6: //State6 : Show URL to RetrieveProcess
-                        if (show_UrlToRetrieveProcessB())
-                        {
-                            stateDownloadCsvDataB = 7;
-                        }
-                        break;
-                    case 7: //State7 : Go RetrieveProcess Page
-                        if (go_UrlB("http://dwhweb.prb.hgst.com/" + wordWebCodeResponseB[17].Substring(7, 56)))
-                        {
-                            stateDownloadCsvDataB = 8;
-                        }
-                        break;
-                    case 8: //State8 : Show WebCode Response String from Server
-                        if (addword_InRowTableB())
-                        {
-                            stateDownloadCsvDataB = 9;
-                        }
-                        break;
-                    case 9: //State9 : Show URL to RetrieveParam
-                        if (show_UrlToRetrieveParamB())
-                        {
-                            stateDownloadCsvDataB = 10;
-                        }
-                        break;
-                    case 10: //State10 : Go RetrieveParam Page
-                        if (go_UrlB(urlToRetrieveParamB))
-                        {
-                            stateDownloadCsvDataB = 11;
-                        }
-                        break;
-                    case 11: //State11 : Show WebCode Response String from Server
-                        if (addword_InRowTableB())
-                        {
-                            stateDownloadCsvDataB = 12;
-                        }
-                        break;
-                    case 12: //State12 : Show URL to get csv data
-                        if (show_UrlToGetCsvDataB())
-                        {
-                            stateDownloadCsvDataB = 13;
-                        }
-                        break;
-                    case 13: //State13 : Go csv Page
-                        if (go_UrlB(urlToGetCsvDataB))
-                        {
-                            stateDownloadCsvDataB = 14;
-                        }
-                        break;
-                    case 14: //State14 : Convert CSV Data from web to dataGridView2A
-                        textBoxCsvDataB.Text = webBrowser2.Document.Body.InnerText;
+                            stateDownloadCsvDataB = 1;
+                            tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
+                            break;
+                        case 1: //State1 : Initial Entering Web VnusQ by Logoff
+                            if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/logoff.jsp"))
+                            {
+                                stateDownloadCsvDataB = 2;
+                            }
+                            break;
+                        case 2: //State2 : Go URL, Index Page
+                            if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/index.jsp"))
+                            {
+                                stateDownloadCsvDataB = 3;
+                            }
+                            break;
+                        case 3: //State3 : Go URL, Login Page
+                            if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/login"))
+                            {
+                                stateDownloadCsvDataB = 4;
+                            }
+                            break;
+                        case 4: //State4 : Go URL, Entering Loging by Send Login UserName + Password
+                            if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/login.jsp/j_security_check?j_username=woravit&j_password=123456&Logon=Log%20On"))
+                            {
+                                stateDownloadCsvDataB = 5;
+                            }
+                            break;
+                        case 5: //State5 : Show WebCode Response String from Server
+                            if (addword_InRowTableB())
+                            {
+                                stateDownloadCsvDataB = 6;
+                            }
+                            break;
+                        case 6: //State6 : Show URL to RetrieveProcess
+                            if (show_UrlToRetrieveProcessB())
+                            {
+                                stateDownloadCsvDataB = 7;
+                            }
+                            break;
+                        case 7: //State7 : Go RetrieveProcess Page
+                            if (go_UrlB("http://dwhweb.prb.hgst.com/" + wordWebCodeResponseB[17].Substring(7, 56)))
+                            {
+                                stateDownloadCsvDataB = 8;
+                            }
+                            break;
+                        case 8: //State8 : Show WebCode Response String from Server
+                            if (addword_InRowTableB())
+                            {
+                                stateDownloadCsvDataB = 9;
+                            }
+                            break;
+                        case 9: //State9 : Show URL to RetrieveParam
+                            if (show_UrlToRetrieveParamB())
+                            {
+                                stateDownloadCsvDataB = 10;
+                            }
+                            break;
+                        case 10: //State10 : Go RetrieveParam Page
+                            if (go_UrlB(urlToRetrieveParamB))
+                            {
+                                stateDownloadCsvDataB = 11;
+                            }
+                            break;
+                        case 11: //State11 : Show WebCode Response String from Server
+                            if (addword_InRowTableB())
+                            {
+                                stateDownloadCsvDataB = 12;
+                            }
+                            break;
+                        case 12: //State12 : Show URL to get csv data
+                            if (show_UrlToGetCsvDataB())
+                            {
+                                stateDownloadCsvDataB = 13;
+                            }
+                            break;
+                        case 13: //State13 : Go csv Page
+                            if (go_UrlB(urlToGetCsvDataB))
+                            {
+                                stateDownloadCsvDataB = 14;
+                            }
+                            break;
+                        case 14: //State14 : Convert CSV Data from web to dataGridView2A
 
-                        dataTable2B.Clear(); //Clear datatable of CSV Data
-                        dataTable2B.Columns.Clear(); //Clear Columns of datatable CSV Data
-                        dataTable2B.Rows.Clear(); //Clear Rows of datatable CSV Data
+                            tabControl1.SelectedTab = tabPage1; //Debug
 
-                        wordCsvDataRowB = textBoxCsvDataB.Text.Split('\n'); //Split Row by new line(\n)
+                            textBoxCsvDataB.Text = webBrowser2.Document.Body.InnerText;
 
-                        indexCsvDataRowB = 0; //Initial indexCsvDataRowB
-                        indexCsvDataColumnB = 0; //Initial indexCsvDataColumnB
+                            dataTable2B.Clear(); //Clear datatable of CSV Data
+                            dataTable2B.Columns.Clear(); //Clear Columns of datatable CSV Data
+                            dataTable2B.Rows.Clear(); //Clear Rows of datatable CSV Data
 
-                        dataTable2B.Columns.Add("Column" + indexCsvDataColumnB);
+                            wordCsvDataRowB = textBoxCsvDataB.Text.Split('\n'); //Split Row by new line(\n)
 
-                        wordCsvDataColumnB = wordCsvDataRowB[0].Split(','); //Split Column of Row0 by comma(,)
+                            indexCsvDataRowB = 0; //Initial indexCsvDataRowB
+                            indexCsvDataColumnB = 0; //Initial indexCsvDataColumnB
 
-                        foreach (var dataColumn in wordCsvDataColumnB) //Add Other 42 Columns of CSV Header
-                        {
-                            indexCsvDataColumnB++;
                             dataTable2B.Columns.Add("Column" + indexCsvDataColumnB);
 
-                            textBoxLastIndexOfCsvDataColumnB.Text = indexCsvDataColumnB.ToString();
-                        }
+                            wordCsvDataColumnB = wordCsvDataRowB[0].Split(','); //Split Column of Row0 by comma(,)
 
-                        foreach (var dataRow in wordCsvDataRowB)
-                        {
-                            wordCsvDataColumnB = dataRow.Split(',');
+                            foreach (var dataColumn in wordCsvDataColumnB) //Add Other 42 Columns of CSV Header
+                            {
+                                indexCsvDataColumnB++;
+                                dataTable2B.Columns.Add("Column" + indexCsvDataColumnB);
 
-                            dataTable2B.Rows.Add(indexCsvDataRowB, wordCsvDataColumnB[0], wordCsvDataColumnB[1], wordCsvDataColumnB[2], wordCsvDataColumnB[3],
-                                                                       wordCsvDataColumnB[4], wordCsvDataColumnB[5], wordCsvDataColumnB[6], wordCsvDataColumnB[7],
-                                                                       wordCsvDataColumnB[8], wordCsvDataColumnB[9], wordCsvDataColumnB[10], wordCsvDataColumnB[11],
-                                                                       wordCsvDataColumnB[12], wordCsvDataColumnB[13], wordCsvDataColumnB[14], wordCsvDataColumnB[15],
-                                                                       wordCsvDataColumnB[16], wordCsvDataColumnB[17], wordCsvDataColumnB[18], wordCsvDataColumnB[19],
-                                                                       wordCsvDataColumnB[20], wordCsvDataColumnB[21], wordCsvDataColumnB[22], wordCsvDataColumnB[23],
-                                                                       wordCsvDataColumnB[24], wordCsvDataColumnB[25], wordCsvDataColumnB[26], wordCsvDataColumnB[27],
-                                                                       wordCsvDataColumnB[28], wordCsvDataColumnB[29], wordCsvDataColumnB[30], wordCsvDataColumnB[31],
-                                                                       wordCsvDataColumnB[32], wordCsvDataColumnB[33], wordCsvDataColumnB[34], wordCsvDataColumnB[35],
-                                                                       wordCsvDataColumnB[36], wordCsvDataColumnB[37], wordCsvDataColumnB[38], wordCsvDataColumnB[39],
-                                                                       wordCsvDataColumnB[40], wordCsvDataColumnB[41]);
+                                textBoxLastIndexOfCsvDataColumnB.Text = indexCsvDataColumnB.ToString();
+                            }
 
-                            textBoxLastIndexOfCsvDataRowB.Text = indexCsvDataRowB.ToString();
+                            foreach (var dataRow in wordCsvDataRowB)
+                            {
+                                wordCsvDataColumnB = dataRow.Split(',');
 
-                            indexCsvDataRowB++;
-                        }
+                                dataTable2B.Rows.Add(indexCsvDataRowB, wordCsvDataColumnB[0], wordCsvDataColumnB[1], wordCsvDataColumnB[2], wordCsvDataColumnB[3],
+                                                                           wordCsvDataColumnB[4], wordCsvDataColumnB[5], wordCsvDataColumnB[6], wordCsvDataColumnB[7],
+                                                                           wordCsvDataColumnB[8], wordCsvDataColumnB[9], wordCsvDataColumnB[10], wordCsvDataColumnB[11],
+                                                                           wordCsvDataColumnB[12], wordCsvDataColumnB[13], wordCsvDataColumnB[14], wordCsvDataColumnB[15],
+                                                                           wordCsvDataColumnB[16], wordCsvDataColumnB[17], wordCsvDataColumnB[18], wordCsvDataColumnB[19],
+                                                                           wordCsvDataColumnB[20], wordCsvDataColumnB[21], wordCsvDataColumnB[22], wordCsvDataColumnB[23],
+                                                                           wordCsvDataColumnB[24], wordCsvDataColumnB[25], wordCsvDataColumnB[26], wordCsvDataColumnB[27],
+                                                                           wordCsvDataColumnB[28], wordCsvDataColumnB[29], wordCsvDataColumnB[30], wordCsvDataColumnB[31],
+                                                                           wordCsvDataColumnB[32], wordCsvDataColumnB[33], wordCsvDataColumnB[34], wordCsvDataColumnB[35],
+                                                                           wordCsvDataColumnB[36], wordCsvDataColumnB[37], wordCsvDataColumnB[38], wordCsvDataColumnB[39],
+                                                                           wordCsvDataColumnB[40], wordCsvDataColumnB[41]);
 
-                        dataGridView2B.DataSource = dataTable2B;
-                        //dataGridView5.DataSource = dataTable2B;
+                                textBoxLastIndexOfCsvDataRowB.Text = indexCsvDataRowB.ToString();
 
-                        stateDownloadCsvDataB = 100;
-                        break;
-                    case 100: //State100 : End This Function and Resetting variables
-                        //switchDisplayData = true; //Enable Function display_Data()
-                        //switchDownloadCsvData2 = true; //Start function : download_CsvData2()
-                        switchDownloadCsvDataB = false;
-                        stateDownloadCsvDataB = 0;
-                        break;
-                    default:
-                        break;
+                                indexCsvDataRowB++;
+                            }
+
+                            dataGridView2B.DataSource = dataTable2B;
+                            //dataGridView5.DataSource = dataTable2B;
+
+                            tabControl1.SelectedTab = tabPage2; //Debug
+
+                            stateDownloadCsvDataB = 100;
+                            break;
+                        case 100: //State100 : End This Function and Resetting variables
+                                  //switchDisplayData = true; //Enable Function display_Data()
+                                  //switchDownloadCsvData2 = true; //Start function : download_CsvData2()
+                            switchDownloadCsvDataB = false;
+                            stateDownloadCsvDataB = 0;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
@@ -3875,6 +3915,7 @@ namespace SIRE_Test_Healthy_Check
 
         private void timerStateCyclic_Tick(object sender, EventArgs e)
         {
+            check_Time(); //Check Time to use Function download_CsvDataB() must between 09:00 to 23:54 
             download_CsvDataA(); //Auto download CSV Data Yesterday 07:00 to Today 06:59
             download_CsvDataB(); //Auto download CSV Data Today 07:00 to Today 23.59
             //display_Data(); //Auto display Data

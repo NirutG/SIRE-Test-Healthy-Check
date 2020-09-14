@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.buttonTest = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.textBoxUrlToGo = new System.Windows.Forms.TextBox();
@@ -69,9 +69,13 @@
             this.textBoxWebCodeResponseB = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
+            this.labelStateDisplayDataB = new System.Windows.Forms.Label();
             this.labelStateDisplayDataA = new System.Windows.Forms.Label();
+            this.labelStateDownloadCsvDataB = new System.Windows.Forms.Label();
             this.labelStateDownloadCsvDataA = new System.Windows.Forms.Label();
+            this.textBoxStateDisplayDataB = new System.Windows.Forms.TextBox();
             this.textBoxStateDisplayDataA = new System.Windows.Forms.TextBox();
+            this.textBoxStateDownloadCsvDataB = new System.Windows.Forms.TextBox();
             this.textBoxStateDownloadCsvDataA = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.labelWordRunningB = new System.Windows.Forms.Label();
@@ -131,10 +135,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.textBoxStateDownloadCsvDataB = new System.Windows.Forms.TextBox();
-            this.textBoxStateDisplayDataB = new System.Windows.Forms.TextBox();
-            this.labelStateDownloadCsvDataB = new System.Windows.Forms.Label();
-            this.labelStateDisplayDataB = new System.Windows.Forms.Label();
+            this.textBoxTimeA = new System.Windows.Forms.TextBox();
+            this.labelTimeA = new System.Windows.Forms.Label();
+            this.labelTimeB = new System.Windows.Forms.Label();
+            this.textBoxTimeB = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -398,17 +402,17 @@
             // 
             // chart1
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(28, 69);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series6.Legend = "Legend1";
-            series6.Name = "pfcd";
-            this.chart1.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "pfcd";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -517,8 +521,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBoxTimeB);
+            this.tabPage2.Controls.Add(this.textBoxTimeA);
             this.tabPage2.Controls.Add(this.webBrowser2);
+            this.tabPage2.Controls.Add(this.labelTimeB);
             this.tabPage2.Controls.Add(this.labelStateDisplayDataB);
+            this.tabPage2.Controls.Add(this.labelTimeA);
             this.tabPage2.Controls.Add(this.labelStateDisplayDataA);
             this.tabPage2.Controls.Add(this.labelStateDownloadCsvDataB);
             this.tabPage2.Controls.Add(this.labelStateDownloadCsvDataA);
@@ -547,14 +555,32 @@
             this.webBrowser2.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser2_Navigated);
             this.webBrowser2.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser2_Navigating);
             // 
+            // labelStateDisplayDataB
+            // 
+            this.labelStateDisplayDataB.AutoSize = true;
+            this.labelStateDisplayDataB.Location = new System.Drawing.Point(1087, 599);
+            this.labelStateDisplayDataB.Name = "labelStateDisplayDataB";
+            this.labelStateDisplayDataB.Size = new System.Drawing.Size(96, 13);
+            this.labelStateDisplayDataB.TabIndex = 3;
+            this.labelStateDisplayDataB.Text = "StateDisplayDataB";
+            // 
             // labelStateDisplayDataA
             // 
             this.labelStateDisplayDataA.AutoSize = true;
-            this.labelStateDisplayDataA.Location = new System.Drawing.Point(1084, 105);
+            this.labelStateDisplayDataA.Location = new System.Drawing.Point(1084, 95);
             this.labelStateDisplayDataA.Name = "labelStateDisplayDataA";
             this.labelStateDisplayDataA.Size = new System.Drawing.Size(96, 13);
             this.labelStateDisplayDataA.TabIndex = 3;
             this.labelStateDisplayDataA.Text = "StateDisplayDataA";
+            // 
+            // labelStateDownloadCsvDataB
+            // 
+            this.labelStateDownloadCsvDataB.AutoSize = true;
+            this.labelStateDownloadCsvDataB.Location = new System.Drawing.Point(1087, 547);
+            this.labelStateDownloadCsvDataB.Name = "labelStateDownloadCsvDataB";
+            this.labelStateDownloadCsvDataB.Size = new System.Drawing.Size(128, 13);
+            this.labelStateDownloadCsvDataB.TabIndex = 3;
+            this.labelStateDownloadCsvDataB.Text = "StateDownloadCsvDataB";
             // 
             // labelStateDownloadCsvDataA
             // 
@@ -565,12 +591,26 @@
             this.labelStateDownloadCsvDataA.TabIndex = 3;
             this.labelStateDownloadCsvDataA.Text = "StateDownloadCsvDataA";
             // 
+            // textBoxStateDisplayDataB
+            // 
+            this.textBoxStateDisplayDataB.Location = new System.Drawing.Point(1087, 618);
+            this.textBoxStateDisplayDataB.Name = "textBoxStateDisplayDataB";
+            this.textBoxStateDisplayDataB.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStateDisplayDataB.TabIndex = 2;
+            // 
             // textBoxStateDisplayDataA
             // 
-            this.textBoxStateDisplayDataA.Location = new System.Drawing.Point(1084, 124);
+            this.textBoxStateDisplayDataA.Location = new System.Drawing.Point(1084, 114);
             this.textBoxStateDisplayDataA.Name = "textBoxStateDisplayDataA";
             this.textBoxStateDisplayDataA.Size = new System.Drawing.Size(100, 20);
             this.textBoxStateDisplayDataA.TabIndex = 2;
+            // 
+            // textBoxStateDownloadCsvDataB
+            // 
+            this.textBoxStateDownloadCsvDataB.Location = new System.Drawing.Point(1087, 566);
+            this.textBoxStateDownloadCsvDataB.Name = "textBoxStateDownloadCsvDataB";
+            this.textBoxStateDownloadCsvDataB.Size = new System.Drawing.Size(100, 20);
+            this.textBoxStateDownloadCsvDataB.TabIndex = 2;
             // 
             // textBoxStateDownloadCsvDataA
             // 
@@ -1116,44 +1156,44 @@
             // 
             // timerStateCyclic
             // 
-            this.timerStateCyclic.Interval = 1;
+            this.timerStateCyclic.Interval = 10;
             this.timerStateCyclic.Tick += new System.EventHandler(this.timerStateCyclic_Tick);
             // 
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // textBoxStateDownloadCsvDataB
+            // textBoxTimeA
             // 
-            this.textBoxStateDownloadCsvDataB.Location = new System.Drawing.Point(1087, 566);
-            this.textBoxStateDownloadCsvDataB.Name = "textBoxStateDownloadCsvDataB";
-            this.textBoxStateDownloadCsvDataB.Size = new System.Drawing.Size(100, 20);
-            this.textBoxStateDownloadCsvDataB.TabIndex = 2;
+            this.textBoxTimeA.Location = new System.Drawing.Point(1084, 174);
+            this.textBoxTimeA.Name = "textBoxTimeA";
+            this.textBoxTimeA.Size = new System.Drawing.Size(143, 20);
+            this.textBoxTimeA.TabIndex = 5;
             // 
-            // textBoxStateDisplayDataB
+            // labelTimeA
             // 
-            this.textBoxStateDisplayDataB.Location = new System.Drawing.Point(1087, 627);
-            this.textBoxStateDisplayDataB.Name = "textBoxStateDisplayDataB";
-            this.textBoxStateDisplayDataB.Size = new System.Drawing.Size(100, 20);
-            this.textBoxStateDisplayDataB.TabIndex = 2;
+            this.labelTimeA.AutoSize = true;
+            this.labelTimeA.Location = new System.Drawing.Point(1084, 158);
+            this.labelTimeA.Name = "labelTimeA";
+            this.labelTimeA.Size = new System.Drawing.Size(37, 13);
+            this.labelTimeA.TabIndex = 3;
+            this.labelTimeA.Text = "TimeA";
             // 
-            // labelStateDownloadCsvDataB
+            // labelTimeB
             // 
-            this.labelStateDownloadCsvDataB.AutoSize = true;
-            this.labelStateDownloadCsvDataB.Location = new System.Drawing.Point(1087, 547);
-            this.labelStateDownloadCsvDataB.Name = "labelStateDownloadCsvDataB";
-            this.labelStateDownloadCsvDataB.Size = new System.Drawing.Size(128, 13);
-            this.labelStateDownloadCsvDataB.TabIndex = 3;
-            this.labelStateDownloadCsvDataB.Text = "StateDownloadCsvDataB";
+            this.labelTimeB.AutoSize = true;
+            this.labelTimeB.Location = new System.Drawing.Point(1087, 660);
+            this.labelTimeB.Name = "labelTimeB";
+            this.labelTimeB.Size = new System.Drawing.Size(37, 13);
+            this.labelTimeB.TabIndex = 3;
+            this.labelTimeB.Text = "TimeB";
             // 
-            // labelStateDisplayDataB
+            // textBoxTimeB
             // 
-            this.labelStateDisplayDataB.AutoSize = true;
-            this.labelStateDisplayDataB.Location = new System.Drawing.Point(1087, 608);
-            this.labelStateDisplayDataB.Name = "labelStateDisplayDataB";
-            this.labelStateDisplayDataB.Size = new System.Drawing.Size(96, 13);
-            this.labelStateDisplayDataB.TabIndex = 3;
-            this.labelStateDisplayDataB.Text = "StateDisplayDataB";
+            this.textBoxTimeB.Location = new System.Drawing.Point(1087, 676);
+            this.textBoxTimeB.Name = "textBoxTimeB";
+            this.textBoxTimeB.Size = new System.Drawing.Size(143, 20);
+            this.textBoxTimeB.TabIndex = 5;
             // 
             // Form1
             // 
@@ -1289,6 +1329,10 @@
         private System.Windows.Forms.Label labelStateDownloadCsvDataB;
         private System.Windows.Forms.TextBox textBoxStateDisplayDataB;
         private System.Windows.Forms.TextBox textBoxStateDownloadCsvDataB;
+        private System.Windows.Forms.TextBox textBoxTimeB;
+        private System.Windows.Forms.TextBox textBoxTimeA;
+        private System.Windows.Forms.Label labelTimeB;
+        private System.Windows.Forms.Label labelTimeA;
     }
 }
 
