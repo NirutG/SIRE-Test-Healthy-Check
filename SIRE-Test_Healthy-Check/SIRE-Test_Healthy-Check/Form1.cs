@@ -118,7 +118,7 @@ namespace SIRE_Test_Healthy_Check
         DataTable dataTable1B = new DataTable(); //Decare to use Class DataTable to help checking
         DataTable dataTable2A = new DataTable(); //Decare to use Class DataTable to help checking CSV Data
         DataTable dataTable2B = new DataTable(); //Decare to use Class DataTable to help checking CSV Data
-        AutoHand autoHand = new AutoHand();//Decare to use DLL File of AutoItX3
+        //AutoHand autoHand = new AutoHand();//Decare to use DLL File of AutoItX3
         //Point point = new Point(0, 0); //Decare point x=0, y=0
         Point point = new Point(0, 0); //Decare point x=0, y=0
         WebClient webClient1 = new WebClient();
