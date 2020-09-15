@@ -68,8 +68,12 @@
             this.textBoxCsvDataA = new System.Windows.Forms.TextBox();
             this.textBoxWebCodeResponseB = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBoxTimeB = new System.Windows.Forms.TextBox();
+            this.textBoxTimeA = new System.Windows.Forms.TextBox();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
+            this.labelTimeB = new System.Windows.Forms.Label();
             this.labelStateDisplayDataB = new System.Windows.Forms.Label();
+            this.labelTimeA = new System.Windows.Forms.Label();
             this.labelStateDisplayDataA = new System.Windows.Forms.Label();
             this.labelStateDownloadCsvDataB = new System.Windows.Forms.Label();
             this.labelStateDownloadCsvDataA = new System.Windows.Forms.Label();
@@ -135,10 +139,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.textBoxTimeA = new System.Windows.Forms.TextBox();
-            this.labelTimeA = new System.Windows.Forms.Label();
-            this.labelTimeB = new System.Windows.Forms.Label();
-            this.textBoxTimeB = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage0.SuspendLayout();
@@ -544,6 +544,20 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // textBoxTimeB
+            // 
+            this.textBoxTimeB.Location = new System.Drawing.Point(1087, 676);
+            this.textBoxTimeB.Name = "textBoxTimeB";
+            this.textBoxTimeB.Size = new System.Drawing.Size(75, 20);
+            this.textBoxTimeB.TabIndex = 5;
+            // 
+            // textBoxTimeA
+            // 
+            this.textBoxTimeA.Location = new System.Drawing.Point(1084, 174);
+            this.textBoxTimeA.Name = "textBoxTimeA";
+            this.textBoxTimeA.Size = new System.Drawing.Size(78, 20);
+            this.textBoxTimeA.TabIndex = 5;
+            // 
             // webBrowser2
             // 
             this.webBrowser2.Location = new System.Drawing.Point(3, 445);
@@ -555,6 +569,15 @@
             this.webBrowser2.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser2_Navigated);
             this.webBrowser2.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser2_Navigating);
             // 
+            // labelTimeB
+            // 
+            this.labelTimeB.AutoSize = true;
+            this.labelTimeB.Location = new System.Drawing.Point(1087, 660);
+            this.labelTimeB.Name = "labelTimeB";
+            this.labelTimeB.Size = new System.Drawing.Size(37, 13);
+            this.labelTimeB.TabIndex = 3;
+            this.labelTimeB.Text = "TimeB";
+            // 
             // labelStateDisplayDataB
             // 
             this.labelStateDisplayDataB.AutoSize = true;
@@ -563,6 +586,15 @@
             this.labelStateDisplayDataB.Size = new System.Drawing.Size(96, 13);
             this.labelStateDisplayDataB.TabIndex = 3;
             this.labelStateDisplayDataB.Text = "StateDisplayDataB";
+            // 
+            // labelTimeA
+            // 
+            this.labelTimeA.AutoSize = true;
+            this.labelTimeA.Location = new System.Drawing.Point(1084, 158);
+            this.labelTimeA.Name = "labelTimeA";
+            this.labelTimeA.Size = new System.Drawing.Size(37, 13);
+            this.labelTimeA.TabIndex = 3;
+            this.labelTimeA.Text = "TimeA";
             // 
             // labelStateDisplayDataA
             // 
@@ -1162,38 +1194,6 @@
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // textBoxTimeA
-            // 
-            this.textBoxTimeA.Location = new System.Drawing.Point(1084, 174);
-            this.textBoxTimeA.Name = "textBoxTimeA";
-            this.textBoxTimeA.Size = new System.Drawing.Size(143, 20);
-            this.textBoxTimeA.TabIndex = 5;
-            // 
-            // labelTimeA
-            // 
-            this.labelTimeA.AutoSize = true;
-            this.labelTimeA.Location = new System.Drawing.Point(1084, 158);
-            this.labelTimeA.Name = "labelTimeA";
-            this.labelTimeA.Size = new System.Drawing.Size(37, 13);
-            this.labelTimeA.TabIndex = 3;
-            this.labelTimeA.Text = "TimeA";
-            // 
-            // labelTimeB
-            // 
-            this.labelTimeB.AutoSize = true;
-            this.labelTimeB.Location = new System.Drawing.Point(1087, 660);
-            this.labelTimeB.Name = "labelTimeB";
-            this.labelTimeB.Size = new System.Drawing.Size(37, 13);
-            this.labelTimeB.TabIndex = 3;
-            this.labelTimeB.Text = "TimeB";
-            // 
-            // textBoxTimeB
-            // 
-            this.textBoxTimeB.Location = new System.Drawing.Point(1087, 676);
-            this.textBoxTimeB.Name = "textBoxTimeB";
-            this.textBoxTimeB.Size = new System.Drawing.Size(143, 20);
-            this.textBoxTimeB.TabIndex = 5;
             // 
             // Form1
             // 

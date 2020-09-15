@@ -115,7 +115,7 @@ namespace SIRE_Test_Healthy_Check
 
 
         DataTable dataTable1A = new DataTable(); //Decare to use Class DataTable to help checking
-        DataTable dataTableB1 = new DataTable(); //Decare to use Class DataTable to help checking
+        DataTable dataTable1B = new DataTable(); //Decare to use Class DataTable to help checking
         DataTable dataTable2A = new DataTable(); //Decare to use Class DataTable to help checking CSV Data
         DataTable dataTable2B = new DataTable(); //Decare to use Class DataTable to help checking CSV Data
         AutoHand autoHand = new AutoHand();//Decare to use DLL File of AutoItX3
@@ -401,10 +401,10 @@ namespace SIRE_Test_Healthy_Check
                     stateAddWordInRowTableB = 5;
                     break;
                 case 5: //State5 : Clear all data in datatable
-                    //dataTableB1.Clear();
-                    dataTableB1.Clear(); //Clear datatable
-                    //dataTableB1.Columns.Clear(); //Clear Columns of datatable
-                    //dataTableB1.Rows.Clear(); //Clear Rows of datatable
+                    //dataTable1B.Clear();
+                    dataTable1B.Clear(); //Clear datatable
+                    //dataTable1B.Columns.Clear(); //Clear Columns of datatable
+                    //dataTable1B.Rows.Clear(); //Clear Rows of datatable
                     stateAddWordInRowTableB = 6;
                     break;
                 case 6: //State6 : Initial indexWordWebCodeResponseB = 0
@@ -414,13 +414,13 @@ namespace SIRE_Test_Healthy_Check
                 case 7: //State7 : Looping until last word in String Array wordWebCodeResponseB
                     foreach (var word in wordWebCodeResponseB)
                     {
-                        dataTableB1.Rows.Add(indexWordWebCodeResponseB.ToString(), wordWebCodeResponseB[indexWordWebCodeResponseB]); //Add Data to new Row in Table
+                        dataTable1B.Rows.Add(indexWordWebCodeResponseB.ToString(), wordWebCodeResponseB[indexWordWebCodeResponseB]); //Add Data to new Row in Table
                         indexWordWebCodeResponseB++;
                     }
                     stateAddWordInRowTableB = 8;
                     break;
-                case 8: //State8 : Input dataGridViewB1 by dataTableB1 to show in Table
-                    dataGridView1B.DataSource = dataTableB1;
+                case 8: //State8 : Input dataGridViewB1 by dataTable1B to show in Table
+                    dataGridView1B.DataSource = dataTable1B;
                     stateAddWordInRowTableB = 9;
                     break;
                 case 9: //State9 : Clear Variable
@@ -3867,17 +3867,145 @@ namespace SIRE_Test_Healthy_Check
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            GC.Collect(); //Force garbage collection
+            GC.WaitForPendingFinalizers(); //Wait for all finalizer
+
             dataTable1A.Columns.Add("INDEX");
             dataTable1A.Columns.Add("WORD");
-            dataTableB1.Columns.Add("INDEX");
-            dataTableB1.Columns.Add("WORD");
+            dataTable1B.Columns.Add("INDEX");
+            dataTable1B.Columns.Add("WORD");
             switchDownloadCsvDataA = true; //Start function : download_CsvData1()
             switchDownloadCsvDataB = true; //Start function : download_CsvData2()
         }
 
         private void buttonTest_Click(object sender, EventArgs e)
         {
-            //switchDownloadCsvDataA = true; //Start function : download_CsvData1()
+            // Reset all necessary variables
+            this.webBrowser1.Navigate(string.Empty);
+            this.webBrowser2.Navigate(string.Empty);
+
+            textBoxUrlToGo.Clear();
+            textBoxUrlResponseA.Clear();
+            textBoxUrlResponseB.Clear();
+            textBoxWebCodeResponseA.Clear();
+            textBoxWebCodeResponseB.Clear();
+            textBoxCsvDataA.Clear();
+            textBoxCsvDataB.Clear();
+
+            textBoxWebCodeResponseStringLengthA.Clear();
+            textBoxWebCodeResponseSubStringLengthA.Clear();
+            textBoxWebCodeResponseLastSubStringA.Clear();
+            textBoxWebCodeResponseSubStringIndex17A.Clear();
+            textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Clear();
+            textBoxParametricDataRetrieveProductionDB_A.Clear();
+            textBoxIndexRunningA.Clear();
+            textBoxWordRunningA.Clear();
+            textBoxUrlToRetrieveParamA.Clear();
+            textBoxUrlToGetCsvDataA.Clear();
+
+            textBoxWebCodeResponseStringLengthB.Clear();
+            textBoxWebCodeResponseSubStringLengthB.Clear();
+            textBoxWebCodeResponseLastSubStringB.Clear();
+            textBoxWebCodeResponseSubStringIndex17B.Clear();
+            textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Clear();
+            textBoxParametricDataRetrieveProductionDB_B.Clear();
+            textBoxIndexRunningB.Clear();
+            textBoxWordRunningB.Clear();
+            textBoxUrlToRetrieveParamB.Clear();
+            textBoxUrlToGetCsvDataB.Clear();
+
+            dataTable1A.Clear(); //Clear datatable
+            dataTable1B.Clear(); //Clear datatable
+
+            textBoxLastIndexOfCsvDataRowA.Clear();
+            textBoxLastIndexOfCsvDataColumnA.Clear();
+            textBoxDataGridView2RowA.Clear();
+            textBoxDataGridView2ColumnA.Clear();
+            textBoxDataGridView2ValueA.Clear();
+
+            textBoxLastIndexOfCsvDataRowB.Clear();
+            textBoxLastIndexOfCsvDataColumnB.Clear();
+            textBoxDataGridView2RowB.Clear();
+            textBoxDataGridView2ColumnB.Clear();
+            textBoxDataGridView2ValueB.Clear();
+
+            dataTable2A.Clear(); //Clear datatable
+            dataTable2B.Clear(); //Clear datatable
+
+            switchDownloadCsvDataA = false; //Stop function : download_CsvData1()
+            switchDownloadCsvDataB = false; //Stop function : download_CsvData2()
+
+            statusGoUrlA = false;
+            stateGoUrlA = 0;
+
+            statusGoUrlB = false;
+            stateGoUrlB = 0;
+
+            statusAddWordInRowTableA = false;
+            stateAddWordInRowTableA = 0;
+
+            statusAddWordInRowTableB = false;
+            stateAddWordInRowTableB = 0;
+
+            statusShowUrlToRetrieveProcessA = false;
+            stateShowUrlToRetrieveProcessA = 0;
+
+            statusShowUrlToRetrieveProcessB = false;
+            stateShowUrlToRetrieveProcessB = 0;
+
+            statusFindWordIndexA = false;
+            stateFindWordIndexA = 0;
+
+            statusFindWordIndexB = false;
+            stateFindWordIndexB = 0;
+
+            statusShowUrlToRetrieveParamA = false;
+            urlToRetrieveParamA = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Added new
+            indexRunningA = 0;
+            stateShowUrlToRetrieveParamA = 0;
+
+            statusShowUrlToRetrieveParamB = false;
+            urlToRetrieveParamB = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Added new
+            indexRunningB = 0;
+            stateShowUrlToRetrieveParamB = 0;
+
+            statusShow_UrlToGetCsvDataA = false;
+            urlToGetCsvDataA = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?";
+            indexRunningA = 0;
+            indexParam1800HeadA = 0;
+            indexParam1800UnitA = 0;
+            indexParam1800HeadValueA = 0;
+            indexParam1800UnitValueA = 0;
+            stateShow_UrlToGetCsvDataA = 0;
+
+            statusShow_UrlToGetCsvDataB = false;
+            urlToGetCsvDataB = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?";
+            indexRunningB = 0;
+            indexParam1800HeadB = 0;
+            indexParam1800UnitB = 0;
+            indexParam1800HeadValueB = 0;
+            indexParam1800UnitValueB = 0;
+            stateShow_UrlToGetCsvDataB = 0;
+
+            statusWebBrowser1DocumentCompleted = false;
+            indexCsvDataRowA = 0;
+            indexCsvDataColumnA = 0;
+            stateDownloadCsvDataA = 0;
+            //tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
+
+            statusWebBrowser2DocumentCompleted = false;
+            indexCsvDataRowB = 0;
+            indexCsvDataColumnB = 0;
+            stateDownloadCsvDataB = 0;
+            tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
+
+            //Begin again
+
+            GC.Collect(); //Force garbage collection
+            GC.WaitForPendingFinalizers(); //Wait for all finalizer
+
+            switchDownloadCsvDataA = true; //Start function : download_CsvData1()
+            switchDownloadCsvDataB = true; //Start function : download_CsvData2()
         }
         private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
