@@ -278,7 +278,6 @@ namespace SIRE_Test_Healthy_Check
                     break;
                 case 1: //State1 : Go URL
                     this.webBrowser2.Navigate(url);
-                    webBrowser2.ScriptErrorsSuppressed = true; //Debug
                     stateGoUrlB = 2;
                     break;
                 case 2: //State2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
@@ -3547,6 +3546,17 @@ namespace SIRE_Test_Healthy_Check
                     case 100: //State100 : End This Function and Resetting variables
                         //switchDisplayData = true; //Enable Function display_Data()
                         //switchDownloadCsvData2 = true; //Start function : download_CsvData2()
+
+                        //Begin Clear Ram
+                        this.webBrowser1.Navigate(string.Empty);
+
+                        textBoxUrlToGo.Clear();
+                        textBoxUrlResponseA.Clear();
+                        textBoxWebCodeResponseA.Clear();
+                        textBoxCsvDataA.Clear();
+
+                        //End Clear Ram
+                        switchDownloadCsvDataB = true; //Start function : download_CsvData2()
                         switchDownloadCsvDataA = false;
                         stateDownloadCsvDataA = 0;
                         break;
@@ -3634,6 +3644,7 @@ namespace SIRE_Test_Healthy_Check
                             {
                                 stateDownloadCsvDataB = 11;
                             }
+                            webBrowser2.ScriptErrorsSuppressed = true; //Debug
                             break;
                         case 11: //State11 : Show WebCode Response String from Server
                             if (addword_InRowTableB())
@@ -3711,6 +3722,17 @@ namespace SIRE_Test_Healthy_Check
                         case 100: //State100 : End This Function and Resetting variables
                                   //switchDisplayData = true; //Enable Function display_Data()
                                   //switchDownloadCsvData2 = true; //Start function : download_CsvData2()
+
+                            //Begin Clear Ram
+                            this.webBrowser2.Navigate(string.Empty);
+
+                            //textBoxUrlToGo.Clear();
+                            textBoxUrlResponseB.Clear();
+                            textBoxWebCodeResponseB.Clear();
+                            textBoxCsvDataB.Clear();
+
+                            //End Clear Ram
+
                             switchDownloadCsvDataB = false;
                             stateDownloadCsvDataB = 0;
                             break;
@@ -3874,7 +3896,7 @@ namespace SIRE_Test_Healthy_Check
             dataTable1B.Columns.Add("INDEX");
             dataTable1B.Columns.Add("WORD");
             switchDownloadCsvDataA = true; //Start function : download_CsvData1()
-            switchDownloadCsvDataB = true; //Start function : download_CsvData2()
+            //switchDownloadCsvDataB = true; //Start function : download_CsvData2()
         }
 
         private void buttonTest_Click(object sender, EventArgs e)
