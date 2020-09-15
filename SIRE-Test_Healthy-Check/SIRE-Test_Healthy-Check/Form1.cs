@@ -96,7 +96,6 @@ namespace SIRE_Test_Healthy_Check
         byte stateDisplayData = 0; //Initial State of Function display_Data at state0
         byte subStateDisplayData1 = 0; //Initial subStateDisplayData1 of Function display_Data at State2
 
-
         int errorCodeTotal = 0; //Initial Count Total Error Code
         int errorCodePass = 0; //Initial Count Pass Error Code
         int errorCodeFail = 0; //Initial Count Fail Error Code
@@ -112,7 +111,6 @@ namespace SIRE_Test_Healthy_Check
         string errorCodeCheck = "";
         string[] errorCodeNumber = new string[10000]; //Decare for inside loop to remember difference ErrorCodeNumber
         List<string> list = new List<string>(); //Decare for add each difference ErrorCode into errorCodeNumber[]
-
 
         DataTable dataTable1A = new DataTable(); //Decare to use Class DataTable to help checking
         DataTable dataTable1B = new DataTable(); //Decare to use Class DataTable to help checking
@@ -280,6 +278,7 @@ namespace SIRE_Test_Healthy_Check
                     break;
                 case 1: //State1 : Go URL
                     this.webBrowser2.Navigate(url);
+                    webBrowser2.ScriptErrorsSuppressed = true; //Debug
                     stateGoUrlB = 2;
                     break;
                 case 2: //State2 : After webBrowser1_DocumentCompleted, Show URL Response from Server of Index Page
