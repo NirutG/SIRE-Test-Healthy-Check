@@ -3503,20 +3503,24 @@ namespace SIRE_Test_Healthy_Check
                         indexCsvDataRowA = 0; //Initial indexCsvDataRowA
                         indexCsvDataColumnA = 0; //Initial indexCsvDataColumnA
 
-                        dataTable2A.Columns.Add("Column" + indexCsvDataColumnA);
+                        //dataTable2A.Columns.Add("Column" + indexCsvDataColumnA);
+                        dataTable2A.Columns.Add("Item");
 
                         wordCsvDataColumnA = wordCsvDataRowA[0].Split(','); //Split Column of Row0 by comma(,)
 
                         foreach (var dataColumn in wordCsvDataColumnA) //Add Other 42 Columns of CSV Header
                         {
-                            indexCsvDataColumnA++;
-                            dataTable2A.Columns.Add("Column"+ indexCsvDataColumnA);
-                            
+                            //indexCsvDataColumnA++;
+                            //dataTable2A.Columns.Add("Column"+ indexCsvDataColumnA);
+                            dataTable2A.Columns.Add(dataColumn);
+
                             textBoxLastIndexOfCsvDataColumnA.Text = indexCsvDataColumnA.ToString();
+                            indexCsvDataColumnA++;
                         }
 
                         foreach (var dataRow in wordCsvDataRowA)
                         {
+                            /*
                             wordCsvDataColumnA = dataRow.Split(',');
 
                             dataTable2A.Rows.Add(indexCsvDataRowA, wordCsvDataColumnA[0], wordCsvDataColumnA[1], wordCsvDataColumnA[2], wordCsvDataColumnA[3],
@@ -3532,6 +3536,25 @@ namespace SIRE_Test_Healthy_Check
                                                                        wordCsvDataColumnA[40], wordCsvDataColumnA[41]);
 
                             textBoxLastIndexOfCsvDataRowA.Text = indexCsvDataRowA.ToString();
+                            */
+                            if (indexCsvDataRowA > 0)
+                            {
+                                wordCsvDataColumnA = dataRow.Split(',');
+
+                                dataTable2A.Rows.Add(indexCsvDataRowA, wordCsvDataColumnA[0], wordCsvDataColumnA[1], wordCsvDataColumnA[2], wordCsvDataColumnA[3],
+                                                                           wordCsvDataColumnA[4], wordCsvDataColumnA[5], wordCsvDataColumnA[6], wordCsvDataColumnA[7],
+                                                                           wordCsvDataColumnA[8], wordCsvDataColumnA[9], wordCsvDataColumnA[10], wordCsvDataColumnA[11],
+                                                                           wordCsvDataColumnA[12], wordCsvDataColumnA[13], wordCsvDataColumnA[14], wordCsvDataColumnA[15],
+                                                                           wordCsvDataColumnA[16], wordCsvDataColumnA[17], wordCsvDataColumnA[18], wordCsvDataColumnA[19],
+                                                                           wordCsvDataColumnA[20], wordCsvDataColumnA[21], wordCsvDataColumnA[22], wordCsvDataColumnA[23],
+                                                                           wordCsvDataColumnA[24], wordCsvDataColumnA[25], wordCsvDataColumnA[26], wordCsvDataColumnA[27],
+                                                                           wordCsvDataColumnA[28], wordCsvDataColumnA[29], wordCsvDataColumnA[30], wordCsvDataColumnA[31],
+                                                                           wordCsvDataColumnA[32], wordCsvDataColumnA[33], wordCsvDataColumnA[34], wordCsvDataColumnA[35],
+                                                                           wordCsvDataColumnA[36], wordCsvDataColumnA[37], wordCsvDataColumnA[38], wordCsvDataColumnA[39],
+                                                                           wordCsvDataColumnA[40], wordCsvDataColumnA[41]);
+
+                                textBoxLastIndexOfCsvDataRowA.Text = indexCsvDataRowA.ToString();
+                            }
 
                             indexCsvDataRowA++;
                         }
@@ -3679,20 +3702,24 @@ namespace SIRE_Test_Healthy_Check
                             indexCsvDataRowB = 0; //Initial indexCsvDataRowB
                             indexCsvDataColumnB = 0; //Initial indexCsvDataColumnB
 
-                            dataTable2B.Columns.Add("Column" + indexCsvDataColumnB);
+                            //dataTable2B.Columns.Add("Column" + indexCsvDataColumnB);
+                            dataTable2B.Columns.Add("Item");
 
                             wordCsvDataColumnB = wordCsvDataRowB[0].Split(','); //Split Column of Row0 by comma(,)
 
                             foreach (var dataColumn in wordCsvDataColumnB) //Add Other 42 Columns of CSV Header
                             {
-                                indexCsvDataColumnB++;
-                                dataTable2B.Columns.Add("Column" + indexCsvDataColumnB);
+                                //indexCsvDataColumnB++;
+                                //dataTable2B.Columns.Add("Column" + indexCsvDataColumnB);
+                                dataTable2B.Columns.Add(dataColumn);
 
                                 textBoxLastIndexOfCsvDataColumnB.Text = indexCsvDataColumnB.ToString();
+                                indexCsvDataColumnB++;
                             }
 
                             foreach (var dataRow in wordCsvDataRowB)
                             {
+                                /*
                                 wordCsvDataColumnB = dataRow.Split(',');
 
                                 dataTable2B.Rows.Add(indexCsvDataRowB, wordCsvDataColumnB[0], wordCsvDataColumnB[1], wordCsvDataColumnB[2], wordCsvDataColumnB[3],
@@ -3708,6 +3735,25 @@ namespace SIRE_Test_Healthy_Check
                                                                            wordCsvDataColumnB[40], wordCsvDataColumnB[41]);
 
                                 textBoxLastIndexOfCsvDataRowB.Text = indexCsvDataRowB.ToString();
+                                */
+                                if (indexCsvDataRowB > 0)
+                                {
+                                    wordCsvDataColumnB = dataRow.Split(',');
+
+                                    dataTable2B.Rows.Add(indexCsvDataRowB, wordCsvDataColumnB[0], wordCsvDataColumnB[1], wordCsvDataColumnB[2], wordCsvDataColumnB[3],
+                                                                               wordCsvDataColumnB[4], wordCsvDataColumnB[5], wordCsvDataColumnB[6], wordCsvDataColumnB[7],
+                                                                               wordCsvDataColumnB[8], wordCsvDataColumnB[9], wordCsvDataColumnB[10], wordCsvDataColumnB[11],
+                                                                               wordCsvDataColumnB[12], wordCsvDataColumnB[13], wordCsvDataColumnB[14], wordCsvDataColumnB[15],
+                                                                               wordCsvDataColumnB[16], wordCsvDataColumnB[17], wordCsvDataColumnB[18], wordCsvDataColumnB[19],
+                                                                               wordCsvDataColumnB[20], wordCsvDataColumnB[21], wordCsvDataColumnB[22], wordCsvDataColumnB[23],
+                                                                               wordCsvDataColumnB[24], wordCsvDataColumnB[25], wordCsvDataColumnB[26], wordCsvDataColumnB[27],
+                                                                               wordCsvDataColumnB[28], wordCsvDataColumnB[29], wordCsvDataColumnB[30], wordCsvDataColumnB[31],
+                                                                               wordCsvDataColumnB[32], wordCsvDataColumnB[33], wordCsvDataColumnB[34], wordCsvDataColumnB[35],
+                                                                               wordCsvDataColumnB[36], wordCsvDataColumnB[37], wordCsvDataColumnB[38], wordCsvDataColumnB[39],
+                                                                               wordCsvDataColumnB[40], wordCsvDataColumnB[41]);
+
+                                    textBoxLastIndexOfCsvDataRowB.Text = indexCsvDataRowB.ToString();
+                                }
 
                                 indexCsvDataRowB++;
                             }
@@ -4026,7 +4072,7 @@ namespace SIRE_Test_Healthy_Check
             GC.WaitForPendingFinalizers(); //Wait for all finalizer
 
             switchDownloadCsvDataA = true; //Start function : download_CsvData1()
-            switchDownloadCsvDataB = true; //Start function : download_CsvData2()
+            //switchDownloadCsvDataB = true; //Start function : download_CsvData2()
         }
         private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
