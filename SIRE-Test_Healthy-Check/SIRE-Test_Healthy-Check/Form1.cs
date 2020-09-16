@@ -53,6 +53,7 @@ namespace SIRE_Test_Healthy_Check
         double stateShow_UrlToGetCsvDataA = 0; //Initial State of Function show_UrlToGetCsvDataA
         double stateShow_UrlToGetCsvDataB = 0; //Initial State of Function show_UrlToGetCsvDataB
 
+
         string[] wordSplitA; //Decare String array to use in Function split_TextA()
         string[] wordSplitB; //Decare String array to use in Function split_TextB()
         string urlToRetrieveParamA = "http://dwhweb.prb.hgst.com/dwh/retrieve/comParam?"; //Initial urlToRetrieveParamA
@@ -90,14 +91,18 @@ namespace SIRE_Test_Healthy_Check
         bool switchDownloadCsvDataA = false; //Decare for ON function download_CsvDataA
         bool switchDownloadCsvDataB = false; //Decare for ON function download_CsvDataB
         bool switchDisplayData = false; //Decare for ON function display_Data
+        bool switchDisplayDataA = false; //Decare for ON function display_DataA
+        bool switchDisplayDataB = false; //Decare for ON function display_DataB
 
         double stateDownloadCsvDataA = 0; //Initial State of Function download_CsvDataA at state0
         double stateDownloadCsvDataB = 0; //Initial State of Function download_CsvDataB at state0
         byte stateDisplayData = 0; //Initial State of Function display_Data at state0
         byte subStateDisplayData1 = 0; //Initial subStateDisplayData1 of Function display_Data at State2
+        byte stateDisplayDataA = 0; //Initial State of Function display_DataA
+        byte stateDisplayDataB = 0; //Initial State of Function display_DataB
 
         int errorCodeTotal = 0; //Initial Count Total Error Code
-        int errorCodePass = 0; //Initial Count Pass Error Code
+        int errorCodePass = 0; //Initial Count Pass Error Coded
         int errorCodeFail = 0; //Initial Count Fail Error Code
         int countErrorCodeLoop = 0; //Initial errorCodeFail counting 
         string checkColumnPfcd = ""; //Initial for check Column Name : PFCD
@@ -116,6 +121,9 @@ namespace SIRE_Test_Healthy_Check
         DataTable dataTable1B = new DataTable(); //Decare to use Class DataTable to help checking
         DataTable dataTable2A = new DataTable(); //Decare to use Class DataTable to help checking CSV Data
         DataTable dataTable2B = new DataTable(); //Decare to use Class DataTable to help checking CSV Data
+        DataTable dataTable3A = new DataTable(); //Decare to use Class DataTable to display_DataA
+        DataTable dataTable3B = new DataTable(); //Decare to use Class DataTable to display_DataToday
+
         //AutoHand autoHand = new AutoHand();//Decare to use DLL File of AutoItX3
         //Point point = new Point(0, 0); //Decare point x=0, y=0
         Point point = new Point(0, 0); //Decare point x=0, y=0
@@ -3579,6 +3587,7 @@ namespace SIRE_Test_Healthy_Check
                         textBoxCsvDataA.Clear();
 
                         //End Clear Ram
+                        switchDisplayDataA = true; //Start function : display_DataA()
                         switchDownloadCsvDataB = true; //Start function : download_CsvData2()
                         switchDownloadCsvDataA = false;
                         stateDownloadCsvDataA = 0;
@@ -3778,7 +3787,7 @@ namespace SIRE_Test_Healthy_Check
                             textBoxCsvDataB.Clear();
 
                             //End Clear Ram
-
+                            switchDisplayDataB = true;
                             switchDownloadCsvDataB = false;
                             stateDownloadCsvDataB = 0;
                             break;
@@ -3929,6 +3938,198 @@ namespace SIRE_Test_Healthy_Check
             */
         }
         //##### End : display_Data
+
+        //##### Begin : display_DataA
+        private void display_DataA()
+        {
+            if (switchDisplayDataA)
+            {
+                switch (stateDisplayDataA)
+                {
+                    case 0: //State0 : Initial Variables
+                        stateDisplayDataA = 1;
+                        break;
+                    case 1: //State1 : Open Display Area
+                        tabControl1.SelectedTab = tabPage5; //Open tabPage5
+                        stateDisplayDataA = 2;
+                        break;
+                    case 2: //State2 : Clear Table
+                        dataTable3A.Clear(); //Clear data in Table
+                        dataTable3A.Columns.Clear(); //Clear Columnn
+                        dataTable3A.Rows.Clear(); //Clear Row
+                        stateDisplayDataA = 3;
+                        break;
+                    case 3: //State3 : Add Column
+                        //dataTable3A.Columns.Add("ITEM"); //Add Column0
+                        dataTable3A.Columns.Add("TARGET"); //Add Column0
+                        dataTable3A.Columns.Add("G2_(L)"); //Add Column1
+                        dataTable3A.Columns.Add("G2_(R)"); //Add Column2
+                        dataTable3A.Columns.Add("G3_(L)"); //Add Column3
+                        dataTable3A.Columns.Add("G3_(R)"); //Add Column4
+                        dataTable3A.Columns.Add("G4_(L)"); //Add Column5
+                        dataTable3A.Columns.Add("G4_(R)"); //Add Column6
+                        dataTable3A.Columns.Add("G5_(L)"); //Add Column7
+                        dataTable3A.Columns.Add("G5_(R)"); //Add Column8
+                        dataTable3A.Columns.Add("G6_(L)"); //Add Column9
+                        dataTable3A.Columns.Add("G6_(R)"); //Add Column10
+                        dataTable3A.Columns.Add("G7_(L)"); //Add Column11
+                        dataTable3A.Columns.Add("G7_(R)"); //Add Column12
+                        dataTable3A.Columns.Add("G8_(L)"); //Add Column13
+                        dataTable3A.Columns.Add("G8_(R)"); //Add Column14
+                        dataTable3A.Columns.Add("G9_(L)"); //Add Column15
+                        dataTable3A.Columns.Add("G9_(R)"); //Add Column16
+                        dataTable3A.Columns.Add("GA_(L)"); //Add Column17
+                        dataTable3A.Columns.Add("GA_(R)"); //Add Column18
+                        dataTable3A.Columns.Add("GB_(L)"); //Add Column19
+                        dataTable3A.Columns.Add("GB_(R)"); //Add Column20
+                        dataTable3A.Columns.Add("GC_(L)"); //Add Column21
+                        dataTable3A.Columns.Add("GC_(R)"); //Add Column22
+                        dataTable3A.Columns.Add("GD_(L)"); //Add Column23
+                        dataTable3A.Columns.Add("GD_(R)"); //Add Column24
+                        dataTable3A.Columns.Add("GE_(L)"); //Add Column25
+                        dataTable3A.Columns.Add("GE_(R)"); //Add Column26
+                        dataTable3A.Columns.Add("GF_(L)"); //Add Column27
+                        dataTable3A.Columns.Add("GF_(R)"); //Add Column28
+                        dataTable3A.Columns.Add("GG_(L)"); //Add Column29
+                        dataTable3A.Columns.Add("GG_(R)"); //Add Column30
+                        dataTable3A.Columns.Add("GH_(L)"); //Add Column31
+                        dataTable3A.Columns.Add("GH_(R)"); //Add Column32
+                        dataTable3A.Columns.Add("GI_(L)"); //Add Column33
+                        dataTable3A.Columns.Add("GI_(R)"); //Add Column34
+                        dataTable3A.Columns.Add("GJ_(L)"); //Add Column35
+                        dataTable3A.Columns.Add("GJ_(R)"); //Add Column36
+                        dataTable3A.Columns.Add("GK_(L)"); //Add Column37
+                        dataTable3A.Columns.Add("GK_(R)"); //Add Column38
+                        dataTable3A.Columns.Add("GL_(L)"); //Add Column39
+                        dataTable3A.Columns.Add("GL_(R)"); //Add Column40
+                        dataTable3A.Columns.Add("GM_(L)"); //Add Column41
+                        dataTable3A.Columns.Add("GM_(R)"); //Add Column42
+                        dataTable3A.Columns.Add("GN_(L)"); //Add Column43
+                        dataTable3A.Columns.Add("GN_(R)"); //Add Column44
+                        dataTable3A.Columns.Add("GO_(L)"); //Add Column45
+                        dataTable3A.Columns.Add("GO_(R)"); //Add Column46
+                        dataTable3A.Columns.Add("GP_(L)"); //Add Column47
+                        dataTable3A.Columns.Add("GP_(R)"); //Add Column48
+                        stateDisplayDataA = 4;
+                        break;
+                    case 4: //State4 : Add Row for Items
+                        dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row0 : INPUT
+                        dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row1 : READABILITY FAIL
+                        dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row2 : ETESTER FAIL
+                        dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row3 : BAD OCR
+                        dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row4 : SW.VERSION
+                        stateDisplayDataA = 5;
+                        break;
+                    case 5: //State5 : Dump into dataGridView3A
+                        dataGridView3A.DataSource = dataTable3A;
+                        stateDisplayDataA = 10;
+                        break;
+                    case 10:
+                        stateDisplayDataA = 0;
+                        switchDisplayDataA = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        //##### End : display_DataA
+
+        //##### Begin : display_DataB
+        private void display_DataB()
+        {
+            if (switchDisplayDataB)
+            {
+                switch (stateDisplayDataB)
+                {
+                    case 0: //State0 : Initial Variables
+                        stateDisplayDataB = 1;
+                        break;
+                    case 1: //State1 : Open Display Area
+                        tabControl1.SelectedTab = tabPage5; //Open tabPage5
+                        stateDisplayDataB = 2;
+                        break;
+                    case 2: //State2 : Clear Table
+                        dataTable3B.Clear(); //Clear data in Table
+                        dataTable3B.Columns.Clear(); //Clear Columnn
+                        dataTable3B.Rows.Clear(); //Clear Row
+                        stateDisplayDataB = 3;
+                        break;
+                    case 3: //State3 : Add Column
+                        //dataTable3B.Columns.Add("ITEM"); //Add Column0
+                        dataTable3B.Columns.Add("TARGET"); //Add Column0
+                        dataTable3B.Columns.Add("G2_(L)"); //Add Column1
+                        dataTable3B.Columns.Add("G2_(R)"); //Add Column2
+                        dataTable3B.Columns.Add("G3_(L)"); //Add Column3
+                        dataTable3B.Columns.Add("G3_(R)"); //Add Column4
+                        dataTable3B.Columns.Add("G4_(L)"); //Add Column5
+                        dataTable3B.Columns.Add("G4_(R)"); //Add Column6
+                        dataTable3B.Columns.Add("G5_(L)"); //Add Column7
+                        dataTable3B.Columns.Add("G5_(R)"); //Add Column8
+                        dataTable3B.Columns.Add("G6_(L)"); //Add Column9
+                        dataTable3B.Columns.Add("G6_(R)"); //Add Column10
+                        dataTable3B.Columns.Add("G7_(L)"); //Add Column11
+                        dataTable3B.Columns.Add("G7_(R)"); //Add Column12
+                        dataTable3B.Columns.Add("G8_(L)"); //Add Column13
+                        dataTable3B.Columns.Add("G8_(R)"); //Add Column14
+                        dataTable3B.Columns.Add("G9_(L)"); //Add Column15
+                        dataTable3B.Columns.Add("G9_(R)"); //Add Column16
+                        dataTable3B.Columns.Add("GA_(L)"); //Add Column17
+                        dataTable3B.Columns.Add("GA_(R)"); //Add Column18
+                        dataTable3B.Columns.Add("GB_(L)"); //Add Column19
+                        dataTable3B.Columns.Add("GB_(R)"); //Add Column20
+                        dataTable3B.Columns.Add("GC_(L)"); //Add Column21
+                        dataTable3B.Columns.Add("GC_(R)"); //Add Column22
+                        dataTable3B.Columns.Add("GD_(L)"); //Add Column23
+                        dataTable3B.Columns.Add("GD_(R)"); //Add Column24
+                        dataTable3B.Columns.Add("GE_(L)"); //Add Column25
+                        dataTable3B.Columns.Add("GE_(R)"); //Add Column26
+                        dataTable3B.Columns.Add("GF_(L)"); //Add Column27
+                        dataTable3B.Columns.Add("GF_(R)"); //Add Column28
+                        dataTable3B.Columns.Add("GG_(L)"); //Add Column29
+                        dataTable3B.Columns.Add("GG_(R)"); //Add Column30
+                        dataTable3B.Columns.Add("GH_(L)"); //Add Column31
+                        dataTable3B.Columns.Add("GH_(R)"); //Add Column32
+                        dataTable3B.Columns.Add("GI_(L)"); //Add Column33
+                        dataTable3B.Columns.Add("GI_(R)"); //Add Column34
+                        dataTable3B.Columns.Add("GJ_(L)"); //Add Column35
+                        dataTable3B.Columns.Add("GJ_(R)"); //Add Column36
+                        dataTable3B.Columns.Add("GK_(L)"); //Add Column37
+                        dataTable3B.Columns.Add("GK_(R)"); //Add Column38
+                        dataTable3B.Columns.Add("GL_(L)"); //Add Column39
+                        dataTable3B.Columns.Add("GL_(R)"); //Add Column40
+                        dataTable3B.Columns.Add("GM_(L)"); //Add Column41
+                        dataTable3B.Columns.Add("GM_(R)"); //Add Column42
+                        dataTable3B.Columns.Add("GN_(L)"); //Add Column43
+                        dataTable3B.Columns.Add("GN_(R)"); //Add Column44
+                        dataTable3B.Columns.Add("GO_(L)"); //Add Column45
+                        dataTable3B.Columns.Add("GO_(R)"); //Add Column46
+                        dataTable3B.Columns.Add("GP_(L)"); //Add Column47
+                        dataTable3B.Columns.Add("GP_(R)"); //Add Column48
+                        stateDisplayDataB = 4;
+                        break;
+                    case 4: //State4 : Add Row for Items
+                        dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row0 : INPUT
+                        dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row1 : READABILITY FAIL
+                        dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row2 : ETESTER FAIL
+                        dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row3 : BAD OCR
+                        dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row4 : SW.VERSION
+                        stateDisplayDataB = 5;
+                        break;
+                    case 5: //State5 : Dump into dataGridView3A
+                        dataGridView3B.DataSource = dataTable3B;
+                        stateDisplayDataB = 10;
+                        break;
+                    case 10:
+                        stateDisplayDataB = 0;
+                        switchDisplayDataB = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        //##### End : display_DataB
 
         //##### End : My function Area #####
 
@@ -4114,6 +4315,8 @@ namespace SIRE_Test_Healthy_Check
             download_CsvDataA(); //Auto download CSV Data Yesterday 07:00 to Today 06:59
             download_CsvDataB(); //Auto download CSV Data Today 07:00 to Today 23.59
             //display_Data(); //Auto display Data
+            display_DataA(); //Auto display Data Yesterday 07:00 to Today 06:59
+            display_DataB(); //Auto display Data Today 07:00 to Now(23:59:59)
             textBoxStateDownloadCsvDataA.Text = stateDownloadCsvDataA.ToString();
             textBoxStateDownloadCsvDataB.Text = stateDownloadCsvDataB.ToString();
             //textBoxStateDisplayData.Text = stateDisplayData.ToString();

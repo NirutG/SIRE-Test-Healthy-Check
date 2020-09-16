@@ -131,10 +131,25 @@
             this.dataGridView2B = new System.Windows.Forms.DataGridView();
             this.dataGridView2A = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dataGridView3A = new System.Windows.Forms.DataGridView();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.labelInputA = new System.Windows.Forms.Label();
+            this.labelReadabilityFailA = new System.Windows.Forms.Label();
+            this.labelEtesterFailA = new System.Windows.Forms.Label();
+            this.labelBadOcrA = new System.Windows.Forms.Label();
+            this.labelSwVersionA = new System.Windows.Forms.Label();
+            this.dataGridView3B = new System.Windows.Forms.DataGridView();
+            this.labelInputB = new System.Windows.Forms.Label();
+            this.labelReadabilityFailB = new System.Windows.Forms.Label();
+            this.labelEtesterFailB = new System.Windows.Forms.Label();
+            this.labelBadOcrB = new System.Windows.Forms.Label();
+            this.labelSwVersionB = new System.Windows.Forms.Label();
+            this.labelProgramTitle = new System.Windows.Forms.Label();
+            this.labelTableNameA = new System.Windows.Forms.Label();
+            this.labelTableNameB = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -144,6 +159,9 @@
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2B)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2A)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3A)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3B)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonTest
@@ -1142,12 +1160,35 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.labelSwVersionB);
+            this.tabPage5.Controls.Add(this.labelSwVersionA);
+            this.tabPage5.Controls.Add(this.labelBadOcrB);
+            this.tabPage5.Controls.Add(this.labelBadOcrA);
+            this.tabPage5.Controls.Add(this.labelEtesterFailB);
+            this.tabPage5.Controls.Add(this.labelEtesterFailA);
+            this.tabPage5.Controls.Add(this.labelReadabilityFailB);
+            this.tabPage5.Controls.Add(this.labelReadabilityFailA);
+            this.tabPage5.Controls.Add(this.labelInputB);
+            this.tabPage5.Controls.Add(this.labelTableNameB);
+            this.tabPage5.Controls.Add(this.labelTableNameA);
+            this.tabPage5.Controls.Add(this.labelProgramTitle);
+            this.tabPage5.Controls.Add(this.labelInputA);
+            this.tabPage5.Controls.Add(this.dataGridView3B);
+            this.tabPage5.Controls.Add(this.dataGridView3A);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(1272, 954);
             this.tabPage5.TabIndex = 5;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3A
+            // 
+            this.dataGridView3A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3A.Location = new System.Drawing.Point(193, 158);
+            this.dataGridView3A.Name = "dataGridView3A";
+            this.dataGridView3A.Size = new System.Drawing.Size(1040, 151);
+            this.dataGridView3A.TabIndex = 0;
             // 
             // tabPage6
             // 
@@ -1170,6 +1211,144 @@
             // timer2
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // labelInputA
+            // 
+            this.labelInputA.AutoSize = true;
+            this.labelInputA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInputA.Location = new System.Drawing.Point(139, 178);
+            this.labelInputA.Name = "labelInputA";
+            this.labelInputA.Size = new System.Drawing.Size(48, 15);
+            this.labelInputA.TabIndex = 1;
+            this.labelInputA.Text = "INPUT";
+            // 
+            // labelReadabilityFailA
+            // 
+            this.labelReadabilityFailA.AutoSize = true;
+            this.labelReadabilityFailA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReadabilityFailA.Location = new System.Drawing.Point(62, 201);
+            this.labelReadabilityFailA.Name = "labelReadabilityFailA";
+            this.labelReadabilityFailA.Size = new System.Drawing.Size(125, 15);
+            this.labelReadabilityFailA.TabIndex = 1;
+            this.labelReadabilityFailA.Text = "READABILITY FAIL";
+            // 
+            // labelEtesterFailA
+            // 
+            this.labelEtesterFailA.AutoSize = true;
+            this.labelEtesterFailA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEtesterFailA.Location = new System.Drawing.Point(84, 226);
+            this.labelEtesterFailA.Name = "labelEtesterFailA";
+            this.labelEtesterFailA.Size = new System.Drawing.Size(101, 15);
+            this.labelEtesterFailA.TabIndex = 1;
+            this.labelEtesterFailA.Text = "ETESTER FAIL";
+            // 
+            // labelBadOcrA
+            // 
+            this.labelBadOcrA.AutoSize = true;
+            this.labelBadOcrA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBadOcrA.Location = new System.Drawing.Point(117, 250);
+            this.labelBadOcrA.Name = "labelBadOcrA";
+            this.labelBadOcrA.Size = new System.Drawing.Size(67, 15);
+            this.labelBadOcrA.TabIndex = 1;
+            this.labelBadOcrA.Text = "BAD OCR";
+            // 
+            // labelSwVersionA
+            // 
+            this.labelSwVersionA.AutoSize = true;
+            this.labelSwVersionA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSwVersionA.Location = new System.Drawing.Point(91, 273);
+            this.labelSwVersionA.Name = "labelSwVersionA";
+            this.labelSwVersionA.Size = new System.Drawing.Size(92, 15);
+            this.labelSwVersionA.TabIndex = 1;
+            this.labelSwVersionA.Text = "SW.VERSION";
+            // 
+            // dataGridView3B
+            // 
+            this.dataGridView3B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3B.Location = new System.Drawing.Point(193, 486);
+            this.dataGridView3B.Name = "dataGridView3B";
+            this.dataGridView3B.Size = new System.Drawing.Size(1040, 223);
+            this.dataGridView3B.TabIndex = 0;
+            // 
+            // labelInputB
+            // 
+            this.labelInputB.AutoSize = true;
+            this.labelInputB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInputB.Location = new System.Drawing.Point(119, 524);
+            this.labelInputB.Name = "labelInputB";
+            this.labelInputB.Size = new System.Drawing.Size(54, 16);
+            this.labelInputB.TabIndex = 1;
+            this.labelInputB.Text = "INPUT";
+            // 
+            // labelReadabilityFailB
+            // 
+            this.labelReadabilityFailB.AutoSize = true;
+            this.labelReadabilityFailB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReadabilityFailB.Location = new System.Drawing.Point(11, 563);
+            this.labelReadabilityFailB.Name = "labelReadabilityFailB";
+            this.labelReadabilityFailB.Size = new System.Drawing.Size(141, 16);
+            this.labelReadabilityFailB.TabIndex = 1;
+            this.labelReadabilityFailB.Text = "READABILITY FAIL";
+            // 
+            // labelEtesterFailB
+            // 
+            this.labelEtesterFailB.AutoSize = true;
+            this.labelEtesterFailB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEtesterFailB.Location = new System.Drawing.Point(47, 603);
+            this.labelEtesterFailB.Name = "labelEtesterFailB";
+            this.labelEtesterFailB.Size = new System.Drawing.Size(114, 16);
+            this.labelEtesterFailB.TabIndex = 1;
+            this.labelEtesterFailB.Text = "ETESTER FAIL";
+            // 
+            // labelBadOcrB
+            // 
+            this.labelBadOcrB.AutoSize = true;
+            this.labelBadOcrB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBadOcrB.Location = new System.Drawing.Point(90, 642);
+            this.labelBadOcrB.Name = "labelBadOcrB";
+            this.labelBadOcrB.Size = new System.Drawing.Size(75, 16);
+            this.labelBadOcrB.TabIndex = 1;
+            this.labelBadOcrB.Text = "BAD OCR";
+            // 
+            // labelSwVersionB
+            // 
+            this.labelSwVersionB.AutoSize = true;
+            this.labelSwVersionB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSwVersionB.Location = new System.Drawing.Point(57, 678);
+            this.labelSwVersionB.Name = "labelSwVersionB";
+            this.labelSwVersionB.Size = new System.Drawing.Size(103, 16);
+            this.labelSwVersionB.TabIndex = 1;
+            this.labelSwVersionB.Text = "SW.VERSION";
+            // 
+            // labelProgramTitle
+            // 
+            this.labelProgramTitle.AutoSize = true;
+            this.labelProgramTitle.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProgramTitle.Location = new System.Drawing.Point(432, 20);
+            this.labelProgramTitle.Name = "labelProgramTitle";
+            this.labelProgramTitle.Size = new System.Drawing.Size(436, 41);
+            this.labelProgramTitle.TabIndex = 1;
+            this.labelProgramTitle.Text = "SIRE-TEST HEALTY DATA";
+            // 
+            // labelTableNameA
+            // 
+            this.labelTableNameA.AutoSize = true;
+            this.labelTableNameA.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTableNameA.Location = new System.Drawing.Point(189, 117);
+            this.labelTableNameA.Name = "labelTableNameA";
+            this.labelTableNameA.Size = new System.Drawing.Size(429, 24);
+            this.labelTableNameA.TabIndex = 1;
+            this.labelTableNameA.Text = "YESTERDAY 7:00 AM. TO TODAY 6:59 AM.";
+            // 
+            // labelTableNameB
+            // 
+            this.labelTableNameB.AutoSize = true;
+            this.labelTableNameB.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTableNameB.Location = new System.Drawing.Point(189, 443);
+            this.labelTableNameB.Name = "labelTableNameB";
+            this.labelTableNameB.Size = new System.Drawing.Size(264, 24);
+            this.labelTableNameB.TabIndex = 1;
+            this.labelTableNameB.Text = "TODAY 7:00 AM. TO NOW";
             // 
             // Form1
             // 
@@ -1194,6 +1373,10 @@
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2B)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2A)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3A)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3B)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1306,6 +1489,21 @@
         private System.Windows.Forms.TextBox textBoxTimeA;
         private System.Windows.Forms.Label labelTimeB;
         private System.Windows.Forms.Label labelTimeA;
+        private System.Windows.Forms.DataGridView dataGridView3A;
+        private System.Windows.Forms.Label labelSwVersionB;
+        private System.Windows.Forms.Label labelSwVersionA;
+        private System.Windows.Forms.Label labelBadOcrB;
+        private System.Windows.Forms.Label labelBadOcrA;
+        private System.Windows.Forms.Label labelEtesterFailB;
+        private System.Windows.Forms.Label labelEtesterFailA;
+        private System.Windows.Forms.Label labelReadabilityFailB;
+        private System.Windows.Forms.Label labelReadabilityFailA;
+        private System.Windows.Forms.Label labelInputB;
+        private System.Windows.Forms.Label labelInputA;
+        private System.Windows.Forms.DataGridView dataGridView3B;
+        private System.Windows.Forms.Label labelTableNameB;
+        private System.Windows.Forms.Label labelTableNameA;
+        private System.Windows.Forms.Label labelProgramTitle;
     }
 }
 
