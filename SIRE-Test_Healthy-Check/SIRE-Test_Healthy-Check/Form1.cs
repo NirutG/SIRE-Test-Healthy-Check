@@ -107,7 +107,7 @@ namespace SIRE_Test_Healthy_Check
         int countErrorCodeLoop = 0; //Initial errorCodeFail counting 
         string checkColumnPfcd = ""; //Initial for check Column Name : PFCD
 
-        int indexDataGridView3 = 0; 
+        int indexDataGridView3 = 0;
         int indexDataGridView4 = 0; //Decare for separate ErrorCode count how many difference ErrorCode in dataGridView4
         string[] errorCode = new string[100000000]; //Decare for store ErrorCode 
         int[] errorCodeQuantity = new int[10000]; //Decare for Store ErrorCode Quantity in dataGridView4
@@ -132,6 +132,36 @@ namespace SIRE_Test_Healthy_Check
         int timeA = 0; //Initial Check Time of ProcessA
         int timeB = 0; //Initial Check Time of ProcessB
         bool switchB = false; //Initial switch of ProcessB
+        int inputHSA = 0; //Initial to count HSA
+        int inputHeadL = 0; //Initial to count HSA Head L
+        int inputHeadR = 0; //Initial to count HSA Head L
+        byte headL = 1; //Initial for G2_(L)
+        byte headR = 2; //Initial for G2_(R)
+        string[] genesis = {"G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "GA", "GB", "GC", "GD", "GE", "GF", "GG", "GH", "GI", "GJ", "GK", "GL", "GM", "GN", "GO", "GP" }; //genesis[0] to genesis[23]
+        //G2_(L) = Column1, G2_(R) = Column2
+        //G3_(L) = Column3, G3_(R) = Column4
+        //G4_(L) = Column5, G4_(R) = Column6
+        //G5_(L) = Column7, G5_(R) = Column8
+        //G6_(L) = Column9, G6_(R) = Column10
+        //G7_(L) = Column11, G7_(R) = Column12
+        //G8_(L) = Column13, G8_(R) = Column14
+        //G9_(L) = Column15, G9_(R) = Column16
+        //GA_(L) = Column17, GA_(R) = Column18
+        //GB_(L) = Column19, GB_(R) = Column20
+        //GC_(L) = Column21, GC_(R) = Column22
+        //GD_(L) = Column23, GD_(R) = Column24
+        //GE_(L) = Column25, GE_(R) = Column26
+        //GF_(L) = Column27, GF_(R) = Column28
+        //GG_(L) = Column29, GG_(R) = Column30
+        //GH_(L) = Column31, GH_(R) = Column32
+        //GI_(L) = Column33, GI_(R) = Column34
+        //GJ_(L) = Column35, GJ_(R) = Column36
+        //GK_(L) = Column37, GK_(R) = Column38
+        //GL_(L) = Column39, GL_(R) = Column40
+        //GM_(L) = Column41, GM_(R) = Column42
+        //GN_(L) = Column43, GN_(R) = Column44
+        //GO_(L) = Column45, GO_(R) = Column46
+        //GP_(L) = Column47, GP_(R) = Column48
 
         //##### End : Decare variable in Form1 #####
 
@@ -3528,23 +3558,6 @@ namespace SIRE_Test_Healthy_Check
 
                         foreach (var dataRow in wordCsvDataRowA)
                         {
-                            /*
-                            wordCsvDataColumnA = dataRow.Split(',');
-
-                            dataTable2A.Rows.Add(indexCsvDataRowA, wordCsvDataColumnA[0], wordCsvDataColumnA[1], wordCsvDataColumnA[2], wordCsvDataColumnA[3],
-                                                                       wordCsvDataColumnA[4], wordCsvDataColumnA[5], wordCsvDataColumnA[6], wordCsvDataColumnA[7],
-                                                                       wordCsvDataColumnA[8], wordCsvDataColumnA[9], wordCsvDataColumnA[10], wordCsvDataColumnA[11],
-                                                                       wordCsvDataColumnA[12], wordCsvDataColumnA[13], wordCsvDataColumnA[14], wordCsvDataColumnA[15],
-                                                                       wordCsvDataColumnA[16], wordCsvDataColumnA[17], wordCsvDataColumnA[18], wordCsvDataColumnA[19],
-                                                                       wordCsvDataColumnA[20], wordCsvDataColumnA[21], wordCsvDataColumnA[22], wordCsvDataColumnA[23],
-                                                                       wordCsvDataColumnA[24], wordCsvDataColumnA[25], wordCsvDataColumnA[26], wordCsvDataColumnA[27],
-                                                                       wordCsvDataColumnA[28], wordCsvDataColumnA[29], wordCsvDataColumnA[30], wordCsvDataColumnA[31],
-                                                                       wordCsvDataColumnA[32], wordCsvDataColumnA[33], wordCsvDataColumnA[34], wordCsvDataColumnA[35],
-                                                                       wordCsvDataColumnA[36], wordCsvDataColumnA[37], wordCsvDataColumnA[38], wordCsvDataColumnA[39],
-                                                                       wordCsvDataColumnA[40], wordCsvDataColumnA[41]);
-
-                            textBoxLastIndexOfCsvDataRowA.Text = indexCsvDataRowA.ToString();
-                            */
                             if (indexCsvDataRowA > 0)
                             {
                                 wordCsvDataColumnA = dataRow.Split(',');
@@ -3568,16 +3581,12 @@ namespace SIRE_Test_Healthy_Check
                         }
 
                         dataGridView2A.DataSource = dataTable2A;
-                        //dataGridView5.DataSource = dataTable2A;
 
                         tabControl1.SelectedTab = tabPage2; //Debug
 
                         stateDownloadCsvDataA = 100;
                         break;
                     case 100: //State100 : End This Function and Resetting variables
-                        //switchDisplayData = true; //Enable Function display_Data()
-                        //switchDownloadCsvData2 = true; //Start function : download_CsvData2()
-
                         //Begin Clear Ram
                         this.webBrowser1.Navigate(string.Empty);
 
@@ -3728,23 +3737,6 @@ namespace SIRE_Test_Healthy_Check
 
                             foreach (var dataRow in wordCsvDataRowB)
                             {
-                                /*
-                                wordCsvDataColumnB = dataRow.Split(',');
-
-                                dataTable2B.Rows.Add(indexCsvDataRowB, wordCsvDataColumnB[0], wordCsvDataColumnB[1], wordCsvDataColumnB[2], wordCsvDataColumnB[3],
-                                                                           wordCsvDataColumnB[4], wordCsvDataColumnB[5], wordCsvDataColumnB[6], wordCsvDataColumnB[7],
-                                                                           wordCsvDataColumnB[8], wordCsvDataColumnB[9], wordCsvDataColumnB[10], wordCsvDataColumnB[11],
-                                                                           wordCsvDataColumnB[12], wordCsvDataColumnB[13], wordCsvDataColumnB[14], wordCsvDataColumnB[15],
-                                                                           wordCsvDataColumnB[16], wordCsvDataColumnB[17], wordCsvDataColumnB[18], wordCsvDataColumnB[19],
-                                                                           wordCsvDataColumnB[20], wordCsvDataColumnB[21], wordCsvDataColumnB[22], wordCsvDataColumnB[23],
-                                                                           wordCsvDataColumnB[24], wordCsvDataColumnB[25], wordCsvDataColumnB[26], wordCsvDataColumnB[27],
-                                                                           wordCsvDataColumnB[28], wordCsvDataColumnB[29], wordCsvDataColumnB[30], wordCsvDataColumnB[31],
-                                                                           wordCsvDataColumnB[32], wordCsvDataColumnB[33], wordCsvDataColumnB[34], wordCsvDataColumnB[35],
-                                                                           wordCsvDataColumnB[36], wordCsvDataColumnB[37], wordCsvDataColumnB[38], wordCsvDataColumnB[39],
-                                                                           wordCsvDataColumnB[40], wordCsvDataColumnB[41]);
-
-                                textBoxLastIndexOfCsvDataRowB.Text = indexCsvDataRowB.ToString();
-                                */
                                 if (indexCsvDataRowB > 0)
                                 {
                                     wordCsvDataColumnB = dataRow.Split(',');
@@ -3768,16 +3760,12 @@ namespace SIRE_Test_Healthy_Check
                             }
 
                             dataGridView2B.DataSource = dataTable2B;
-                            //dataGridView5.DataSource = dataTable2B;
 
                             tabControl1.SelectedTab = tabPage2; //Debug
 
                             stateDownloadCsvDataB = 100;
                             break;
                         case 100: //State100 : End This Function and Resetting variables
-                                  //switchDisplayData = true; //Enable Function display_Data()
-                                  //switchDownloadCsvData2 = true; //Start function : download_CsvData2()
-
                             //Begin Clear Ram
                             this.webBrowser2.Navigate(string.Empty);
 
@@ -3947,6 +3935,8 @@ namespace SIRE_Test_Healthy_Check
                 switch (stateDisplayDataA)
                 {
                     case 0: //State0 : Initial Variables
+                        headL = 1; //Initial for G2_(L)
+                        headR = 2; //Initial for G2_(R)
                         stateDisplayDataA = 1;
                         break;
                     case 1: //State1 : Open Display Area
@@ -3960,7 +3950,6 @@ namespace SIRE_Test_Healthy_Check
                         stateDisplayDataA = 3;
                         break;
                     case 3: //State3 : Add Column
-                        //dataTable3A.Columns.Add("ITEM"); //Add Column0
                         dataTable3A.Columns.Add("TARGET"); //Add Column0
                         dataTable3A.Columns.Add("G2_(L)"); //Add Column1
                         dataTable3A.Columns.Add("G2_(R)"); //Add Column2
@@ -4020,7 +4009,65 @@ namespace SIRE_Test_Healthy_Check
                         dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row4 : SW.VERSION
                         stateDisplayDataA = 5;
                         break;
-                    case 5: //State5 : Dump into dataGridView3A
+                    case 5: //State6 : Count HSA Input
+                        /*
+                        for(int i=0; i< (indexCsvDataRowA-1); i++) //Check again maybe noneed to -1
+                        {
+                            if (dataTable2A.Rows[i][21].ToString() == "G5") //Check in Column21(LI)
+                            {
+                                if (dataTable2A.Rows[i][11].ToString().EndsWith("1"))
+                                {
+                                    inputHeadL++;
+                                }
+                                else if (dataTable2A.Rows[i][11].ToString().EndsWith("2"))
+                                {
+                                    inputHeadR++;
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
+                        dataTable3A.Rows[0][7] = inputHeadL.ToString(); //G5_(L)
+                        dataTable3A.Rows[0][8] = inputHeadR.ToString(); //G5_(R)
+                        Console.WriteLine(indexCsvDataRowA - 1); //Debug
+                        */
+
+                        foreach (string line in genesis) //Check Line G2 to GN
+                        {
+                            for (int i = 0; i < (indexCsvDataRowA - 1); i++) //Check again maybe noneed to -1
+                            {
+                                if (dataTable2A.Rows[i][21].ToString() == line) //Check in Column21(LI)
+                                {
+                                    if (dataTable2A.Rows[i][11].ToString().EndsWith("1"))
+                                    {
+                                        inputHeadL++;
+                                    }
+                                    else if (dataTable2A.Rows[i][11].ToString().EndsWith("2"))
+                                    {
+                                        inputHeadR++;
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                }
+                            }
+                            Console.WriteLine(indexCsvDataRowA - 1); //Debug
+
+                            dataTable3A.Rows[0][headL] = (inputHeadL / 18).ToString(); //Write HSA HeadL Value (HGA / 18 = HSA)
+                            dataTable3A.Rows[0][headR] = (inputHeadR / 18).ToString(); //Write HSA HeadR Value (HGA / 18 = HSA)
+                            inputHeadL = 0; //Reset inputHeadL
+                            inputHeadR = 0; //Reset inputHeadR
+                            headL += 2; //Increase to Next Head
+                            headR += 2; //Increase to Next Head
+                        }
+                        headL = 1; //Reset headL
+                        headR = 2; //Reset headR
+                        stateDisplayDataA = 6;
+                        break;
+                    case 6: //State6 : Dump into dataGridView3A
                         dataGridView3A.DataSource = dataTable3A;
                         stateDisplayDataA = 10;
                         break;
@@ -4056,7 +4103,6 @@ namespace SIRE_Test_Healthy_Check
                         stateDisplayDataB = 3;
                         break;
                     case 3: //State3 : Add Column
-                        //dataTable3B.Columns.Add("ITEM"); //Add Column0
                         dataTable3B.Columns.Add("TARGET"); //Add Column0
                         dataTable3B.Columns.Add("G2_(L)"); //Add Column1
                         dataTable3B.Columns.Add("G2_(R)"); //Add Column2
@@ -4319,7 +4365,8 @@ namespace SIRE_Test_Healthy_Check
             display_DataB(); //Auto display Data Today 07:00 to Now(23:59:59)
             textBoxStateDownloadCsvDataA.Text = stateDownloadCsvDataA.ToString();
             textBoxStateDownloadCsvDataB.Text = stateDownloadCsvDataB.ToString();
-            //textBoxStateDisplayData.Text = stateDisplayData.ToString();
+            textBoxStateDisplayDataA.Text = stateDisplayDataA.ToString();
+            textBoxStateDisplayDataB.Text = stateDisplayDataB.ToString();
         }
 
         private void buttonCheckDataInDataGridView2A_Click(object sender, EventArgs e)
