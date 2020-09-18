@@ -133,10 +133,16 @@ namespace SIRE_Test_Healthy_Check
         int timeB = 0; //Initial Check Time of ProcessB
         bool switchB = false; //Initial switch of ProcessB
         int inputHSA = 0; //Initial to count HSA
-        int inputHeadL = 0; //Initial to count HSA Head L
-        int inputHeadR = 0; //Initial to count HSA Head L
-        byte headL = 1; //Initial for G2_(L)
-        byte headR = 2; //Initial for G2_(R)
+        int inputHeadL_A = 0; //Initial to count HSA Head L of ProcessA
+        int inputHeadR_A = 0; //Initial to count HSA Head L of ProcessA
+        byte headL_A = 1; //Initial for G2_(L) of ProcessA
+        byte headR_A = 2; //Initial for G2_(R) of ProcessA
+
+        int inputHeadL_B = 0; //Initial to count HSA Head L of ProcessB
+        int inputHeadR_B = 0; //Initial to count HSA Head L of ProcessB
+        byte headL_B = 1; //Initial for G2_(L) of ProcessB
+        byte headR_B = 2; //Initial for G2_(R) of ProcessB
+
         string[] genesis = {"G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "GA", "GB", "GC", "GD", "GE", "GF", "GG", "GH", "GI", "GJ", "GK", "GL", "GM", "GN", "GO", "GP" }; //genesis[0] to genesis[23]
         //G2_(L) = Column1, G2_(R) = Column2
         //G3_(L) = Column3, G3_(R) = Column4
@@ -3935,8 +3941,8 @@ namespace SIRE_Test_Healthy_Check
                 switch (stateDisplayDataA)
                 {
                     case 0: //State0 : Initial Variables
-                        headL = 1; //Initial for G2_(L)
-                        headR = 2; //Initial for G2_(R)
+                        headL_A = 1; //Initial for G2_(L)
+                        headR_A = 2; //Initial for G2_(R)
                         stateDisplayDataA = 1;
                         break;
                     case 1: //State1 : Open Display Area
@@ -4010,29 +4016,6 @@ namespace SIRE_Test_Healthy_Check
                         stateDisplayDataA = 5;
                         break;
                     case 5: //State6 : Count HSA Input
-                        /*
-                        for(int i=0; i< (indexCsvDataRowA-1); i++) //Check again maybe noneed to -1
-                        {
-                            if (dataTable2A.Rows[i][21].ToString() == "G5") //Check in Column21(LI)
-                            {
-                                if (dataTable2A.Rows[i][11].ToString().EndsWith("1"))
-                                {
-                                    inputHeadL++;
-                                }
-                                else if (dataTable2A.Rows[i][11].ToString().EndsWith("2"))
-                                {
-                                    inputHeadR++;
-                                }
-                                else
-                                {
-
-                                }
-                            }
-                        }
-                        dataTable3A.Rows[0][7] = inputHeadL.ToString(); //G5_(L)
-                        dataTable3A.Rows[0][8] = inputHeadR.ToString(); //G5_(R)
-                        Console.WriteLine(indexCsvDataRowA - 1); //Debug
-                        */
 
                         foreach (string line in genesis) //Check Line G2 to GN
                         {
@@ -4042,11 +4025,11 @@ namespace SIRE_Test_Healthy_Check
                                 {
                                     if (dataTable2A.Rows[i][11].ToString().EndsWith("1"))
                                     {
-                                        inputHeadL++;
+                                        inputHeadL_A++;
                                     }
                                     else if (dataTable2A.Rows[i][11].ToString().EndsWith("2"))
                                     {
-                                        inputHeadR++;
+                                        inputHeadR_A++;
                                     }
                                     else
                                     {
@@ -4054,17 +4037,17 @@ namespace SIRE_Test_Healthy_Check
                                     }
                                 }
                             }
-                            Console.WriteLine(indexCsvDataRowA - 1); //Debug
+                            //Console.WriteLine(indexCsvDataRowA - 1); //Debug
 
-                            dataTable3A.Rows[0][headL] = (inputHeadL / 18).ToString(); //Write HSA HeadL Value (HGA / 18 = HSA)
-                            dataTable3A.Rows[0][headR] = (inputHeadR / 18).ToString(); //Write HSA HeadR Value (HGA / 18 = HSA)
-                            inputHeadL = 0; //Reset inputHeadL
-                            inputHeadR = 0; //Reset inputHeadR
-                            headL += 2; //Increase to Next Head
-                            headR += 2; //Increase to Next Head
+                            dataTable3A.Rows[0][headL_A] = (inputHeadL_A / 18).ToString(); //Write HSA headL_A Value (HGA / 18 = HSA)
+                            dataTable3A.Rows[0][headR_A] = (inputHeadR_A / 18).ToString(); //Write HSA headR_A Value (HGA / 18 = HSA)
+                            inputHeadL_A = 0; //Reset inputHeadL_A
+                            inputHeadR_A = 0; //Reset inputHeadR_A
+                            headL_A += 2; //Increase to Next Head
+                            headR_A += 2; //Increase to Next Head
                         }
-                        headL = 1; //Reset headL
-                        headR = 2; //Reset headR
+                        headL_A = 1; //Reset headL_A
+                        headR_A = 2; //Reset headR_A
                         stateDisplayDataA = 6;
                         break;
                     case 6: //State6 : Dump into dataGridView3A
@@ -4090,6 +4073,8 @@ namespace SIRE_Test_Healthy_Check
                 switch (stateDisplayDataB)
                 {
                     case 0: //State0 : Initial Variables
+                        headL_B = 1; //Initial for G2_(L)
+                        headR_B = 2; //Initial for G2_(R)
                         stateDisplayDataB = 1;
                         break;
                     case 1: //State1 : Open Display Area
@@ -4162,7 +4147,42 @@ namespace SIRE_Test_Healthy_Check
                         dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row4 : SW.VERSION
                         stateDisplayDataB = 5;
                         break;
-                    case 5: //State5 : Dump into dataGridView3A
+                    case 5: //State6 : Count HSA Input
+
+                        foreach (string line in genesis) //Check Line G2 to GN
+                        {
+                            for (int i = 0; i < (indexCsvDataRowB - 1); i++) //Check again maybe noneed to -1
+                            {
+                                if (dataTable2B.Rows[i][21].ToString() == line) //Check in Column21(LI)
+                                {
+                                    if (dataTable2B.Rows[i][11].ToString().EndsWith("1"))
+                                    {
+                                        inputHeadL_B++;
+                                    }
+                                    else if (dataTable2B.Rows[i][11].ToString().EndsWith("2"))
+                                    {
+                                        inputHeadR_B++;
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                }
+                            }
+                            //Console.WriteLine(indexCsvDataRowB - 1); //Debug
+
+                            dataTable3B.Rows[0][headL_B] = (inputHeadL_B / 18).ToString(); //Write HSA headL_B Value (HGA / 18 = HSA)
+                            dataTable3B.Rows[0][headR_B] = (inputHeadR_B / 18).ToString(); //Write HSA headR_B Value (HGA / 18 = HSA)
+                            inputHeadL_B = 0; //Reset inputHeadL_B
+                            inputHeadR_B = 0; //Reset inputHeadR_B
+                            headL_B += 2; //Increase to Next Head
+                            headR_B += 2; //Increase to Next Head
+                        }
+                        headL_B = 1; //Reset headL_B
+                        headR_B = 2; //Reset headR_B
+                        stateDisplayDataB = 6;
+                        break;
+                    case 6: //State6 : Dump into dataGridView3B
                         dataGridView3B.DataSource = dataTable3B;
                         stateDisplayDataB = 10;
                         break;
@@ -4176,6 +4196,7 @@ namespace SIRE_Test_Healthy_Check
             }
         }
         //##### End : display_DataB
+
 
         //##### End : My function Area #####
 

@@ -169,7 +169,7 @@
             this.buttonTest.Location = new System.Drawing.Point(27, 14);
             this.buttonTest.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTest.Name = "buttonTest";
-            this.buttonTest.Size = new System.Drawing.Size(91, 28);
+            this.buttonTest.Size = new System.Drawing.Size(86, 23);
             this.buttonTest.TabIndex = 0;
             this.buttonTest.Text = "TEST AGAIN";
             this.buttonTest.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(1053, 414);
+            this.webBrowser1.Size = new System.Drawing.Size(1053, 281);
             this.webBrowser1.TabIndex = 1;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
@@ -190,35 +190,35 @@
             // 
             // textBoxUrlToGo
             // 
-            this.textBoxUrlToGo.Location = new System.Drawing.Point(27, 66);
+            this.textBoxUrlToGo.Location = new System.Drawing.Point(155, 21);
             this.textBoxUrlToGo.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUrlToGo.Multiline = true;
             this.textBoxUrlToGo.Name = "textBoxUrlToGo";
-            this.textBoxUrlToGo.Size = new System.Drawing.Size(1171, 19);
+            this.textBoxUrlToGo.Size = new System.Drawing.Size(1039, 19);
             this.textBoxUrlToGo.TabIndex = 2;
             // 
             // textBoxUrlResponseA
             // 
-            this.textBoxUrlResponseA.Location = new System.Drawing.Point(27, 107);
+            this.textBoxUrlResponseA.Location = new System.Drawing.Point(155, 52);
             this.textBoxUrlResponseA.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUrlResponseA.Multiline = true;
             this.textBoxUrlResponseA.Name = "textBoxUrlResponseA";
-            this.textBoxUrlResponseA.Size = new System.Drawing.Size(1171, 75);
+            this.textBoxUrlResponseA.Size = new System.Drawing.Size(1039, 46);
             this.textBoxUrlResponseA.TabIndex = 3;
             // 
             // textBoxWebCodeResponseA
             // 
-            this.textBoxWebCodeResponseA.Location = new System.Drawing.Point(23, 307);
+            this.textBoxWebCodeResponseA.Location = new System.Drawing.Point(155, 151);
             this.textBoxWebCodeResponseA.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseA.Multiline = true;
             this.textBoxWebCodeResponseA.Name = "textBoxWebCodeResponseA";
-            this.textBoxWebCodeResponseA.Size = new System.Drawing.Size(1171, 93);
+            this.textBoxWebCodeResponseA.Size = new System.Drawing.Size(1039, 46);
             this.textBoxWebCodeResponseA.TabIndex = 4;
             // 
             // labelUrlToGo
             // 
             this.labelUrlToGo.AutoSize = true;
-            this.labelUrlToGo.Location = new System.Drawing.Point(28, 50);
+            this.labelUrlToGo.Location = new System.Drawing.Point(156, 6);
             this.labelUrlToGo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUrlToGo.Name = "labelUrlToGo";
             this.labelUrlToGo.Size = new System.Drawing.Size(56, 13);
@@ -228,7 +228,7 @@
             // labelUrlResponseA
             // 
             this.labelUrlResponseA.AutoSize = true;
-            this.labelUrlResponseA.Location = new System.Drawing.Point(27, 91);
+            this.labelUrlResponseA.Location = new System.Drawing.Point(53, 55);
             this.labelUrlResponseA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUrlResponseA.Name = "labelUrlResponseA";
             this.labelUrlResponseA.Size = new System.Drawing.Size(87, 13);
@@ -238,7 +238,7 @@
             // labelWebCodeResponseA
             // 
             this.labelWebCodeResponseA.AutoSize = true;
-            this.labelWebCodeResponseA.Location = new System.Drawing.Point(24, 292);
+            this.labelWebCodeResponseA.Location = new System.Drawing.Point(24, 166);
             this.labelWebCodeResponseA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseA.Name = "labelWebCodeResponseA";
             this.labelWebCodeResponseA.Size = new System.Drawing.Size(116, 13);
@@ -252,7 +252,7 @@
             this.dataGridView1A.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1A.Name = "dataGridView1A";
             this.dataGridView1A.RowTemplate.Height = 24;
-            this.dataGridView1A.Size = new System.Drawing.Size(511, 377);
+            this.dataGridView1A.Size = new System.Drawing.Size(511, 223);
             this.dataGridView1A.TabIndex = 6;
             // 
             // labelWebCodeResponseStringLengthA
@@ -312,7 +312,7 @@
             // labelWebCodeResponseSubStringIndex17A
             // 
             this.labelWebCodeResponseSubStringIndex17A.AutoSize = true;
-            this.labelWebCodeResponseSubStringIndex17A.Location = new System.Drawing.Point(534, 58);
+            this.labelWebCodeResponseSubStringIndex17A.Location = new System.Drawing.Point(616, 42);
             this.labelWebCodeResponseSubStringIndex17A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseSubStringIndex17A.Name = "labelWebCodeResponseSubStringIndex17A";
             this.labelWebCodeResponseSubStringIndex17A.Size = new System.Drawing.Size(196, 26);
@@ -321,10 +321,10 @@
             // 
             // textBoxWebCodeResponseSubStringIndex17A
             // 
-            this.textBoxWebCodeResponseSubStringIndex17A.Location = new System.Drawing.Point(538, 74);
+            this.textBoxWebCodeResponseSubStringIndex17A.Location = new System.Drawing.Point(816, 48);
             this.textBoxWebCodeResponseSubStringIndex17A.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseSubStringIndex17A.Name = "textBoxWebCodeResponseSubStringIndex17A";
-            this.textBoxWebCodeResponseSubStringIndex17A.Size = new System.Drawing.Size(661, 20);
+            this.textBoxWebCodeResponseSubStringIndex17A.Size = new System.Drawing.Size(423, 20);
             this.textBoxWebCodeResponseSubStringIndex17A.TabIndex = 7;
             // 
             // buttonTestTrim
@@ -341,7 +341,7 @@
             // labelWebCodeResponseAfterTrimmedA
             // 
             this.labelWebCodeResponseAfterTrimmedA.AutoSize = true;
-            this.labelWebCodeResponseAfterTrimmedA.Location = new System.Drawing.Point(535, 96);
+            this.labelWebCodeResponseAfterTrimmedA.Location = new System.Drawing.Point(544, 75);
             this.labelWebCodeResponseAfterTrimmedA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseAfterTrimmedA.Name = "labelWebCodeResponseAfterTrimmedA";
             this.labelWebCodeResponseAfterTrimmedA.Size = new System.Drawing.Size(268, 13);
@@ -350,16 +350,16 @@
             // 
             // textBoxWebCodeResponseSubStringIndex17AfterTrimmedA
             // 
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Location = new System.Drawing.Point(537, 111);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Location = new System.Drawing.Point(816, 72);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Name = "textBoxWebCodeResponseSubStringIndex17AfterTrimmedA";
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Size = new System.Drawing.Size(662, 20);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Size = new System.Drawing.Size(423, 20);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.TabIndex = 7;
             // 
             // labelParametricDataRetrieveProductionDB_A
             // 
             this.labelParametricDataRetrieveProductionDB_A.AutoSize = true;
-            this.labelParametricDataRetrieveProductionDB_A.Location = new System.Drawing.Point(534, 133);
+            this.labelParametricDataRetrieveProductionDB_A.Location = new System.Drawing.Point(601, 99);
             this.labelParametricDataRetrieveProductionDB_A.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelParametricDataRetrieveProductionDB_A.Name = "labelParametricDataRetrieveProductionDB_A";
             this.labelParametricDataRetrieveProductionDB_A.Size = new System.Drawing.Size(211, 13);
@@ -368,15 +368,15 @@
             // 
             // textBoxParametricDataRetrieveProductionDB_A
             // 
-            this.textBoxParametricDataRetrieveProductionDB_A.Location = new System.Drawing.Point(537, 148);
+            this.textBoxParametricDataRetrieveProductionDB_A.Location = new System.Drawing.Point(816, 96);
             this.textBoxParametricDataRetrieveProductionDB_A.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxParametricDataRetrieveProductionDB_A.Name = "textBoxParametricDataRetrieveProductionDB_A";
-            this.textBoxParametricDataRetrieveProductionDB_A.Size = new System.Drawing.Size(662, 20);
+            this.textBoxParametricDataRetrieveProductionDB_A.Size = new System.Drawing.Size(423, 20);
             this.textBoxParametricDataRetrieveProductionDB_A.TabIndex = 7;
             // 
             // buttonTestGoParametricUrl1
             // 
-            this.buttonTestGoParametricUrl1.Location = new System.Drawing.Point(537, 172);
+            this.buttonTestGoParametricUrl1.Location = new System.Drawing.Point(701, 124);
             this.buttonTestGoParametricUrl1.Margin = new System.Windows.Forms.Padding(2);
             this.buttonTestGoParametricUrl1.Name = "buttonTestGoParametricUrl1";
             this.buttonTestGoParametricUrl1.Size = new System.Drawing.Size(151, 27);
@@ -413,6 +413,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBoxUrlResponseB);
+            this.tabPage1.Controls.Add(this.textBoxUrlResponseA);
             this.tabPage1.Controls.Add(this.buttonTest);
             this.tabPage1.Controls.Add(this.labelCsvDataB);
             this.tabPage1.Controls.Add(this.labelCsvDataA);
@@ -421,8 +423,6 @@
             this.tabPage1.Controls.Add(this.textBoxUrlToGo);
             this.tabPage1.Controls.Add(this.labelUrlResponseB);
             this.tabPage1.Controls.Add(this.labelUrlResponseA);
-            this.tabPage1.Controls.Add(this.textBoxUrlResponseB);
-            this.tabPage1.Controls.Add(this.textBoxUrlResponseA);
             this.tabPage1.Controls.Add(this.labelUrlToGo);
             this.tabPage1.Controls.Add(this.textBoxCsvDataB);
             this.tabPage1.Controls.Add(this.textBoxCsvDataA);
@@ -440,7 +440,7 @@
             // labelCsvDataB
             // 
             this.labelCsvDataB.AutoSize = true;
-            this.labelCsvDataB.Location = new System.Drawing.Point(24, 697);
+            this.labelCsvDataB.Location = new System.Drawing.Point(79, 314);
             this.labelCsvDataB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCsvDataB.Name = "labelCsvDataB";
             this.labelCsvDataB.Size = new System.Drawing.Size(61, 13);
@@ -450,7 +450,7 @@
             // labelCsvDataA
             // 
             this.labelCsvDataA.AutoSize = true;
-            this.labelCsvDataA.Location = new System.Drawing.Point(24, 531);
+            this.labelCsvDataA.Location = new System.Drawing.Point(79, 265);
             this.labelCsvDataA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCsvDataA.Name = "labelCsvDataA";
             this.labelCsvDataA.Size = new System.Drawing.Size(61, 13);
@@ -460,7 +460,7 @@
             // labelWebCodeResponseB
             // 
             this.labelWebCodeResponseB.AutoSize = true;
-            this.labelWebCodeResponseB.Location = new System.Drawing.Point(24, 407);
+            this.labelWebCodeResponseB.Location = new System.Drawing.Point(24, 214);
             this.labelWebCodeResponseB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseB.Name = "labelWebCodeResponseB";
             this.labelWebCodeResponseB.Size = new System.Drawing.Size(116, 13);
@@ -470,7 +470,7 @@
             // labelUrlResponseB
             // 
             this.labelUrlResponseB.AutoSize = true;
-            this.labelUrlResponseB.Location = new System.Drawing.Point(26, 188);
+            this.labelUrlResponseB.Location = new System.Drawing.Point(53, 116);
             this.labelUrlResponseB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelUrlResponseB.Name = "labelUrlResponseB";
             this.labelUrlResponseB.Size = new System.Drawing.Size(87, 13);
@@ -479,38 +479,38 @@
             // 
             // textBoxUrlResponseB
             // 
-            this.textBoxUrlResponseB.Location = new System.Drawing.Point(26, 204);
+            this.textBoxUrlResponseB.Location = new System.Drawing.Point(155, 102);
             this.textBoxUrlResponseB.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUrlResponseB.Multiline = true;
             this.textBoxUrlResponseB.Name = "textBoxUrlResponseB";
-            this.textBoxUrlResponseB.Size = new System.Drawing.Size(1171, 75);
+            this.textBoxUrlResponseB.Size = new System.Drawing.Size(1039, 46);
             this.textBoxUrlResponseB.TabIndex = 3;
             // 
             // textBoxCsvDataB
             // 
-            this.textBoxCsvDataB.Location = new System.Drawing.Point(23, 717);
+            this.textBoxCsvDataB.Location = new System.Drawing.Point(155, 301);
             this.textBoxCsvDataB.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCsvDataB.Multiline = true;
             this.textBoxCsvDataB.Name = "textBoxCsvDataB";
-            this.textBoxCsvDataB.Size = new System.Drawing.Size(1171, 137);
+            this.textBoxCsvDataB.Size = new System.Drawing.Size(1039, 46);
             this.textBoxCsvDataB.TabIndex = 4;
             // 
             // textBoxCsvDataA
             // 
-            this.textBoxCsvDataA.Location = new System.Drawing.Point(23, 551);
+            this.textBoxCsvDataA.Location = new System.Drawing.Point(155, 251);
             this.textBoxCsvDataA.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCsvDataA.Multiline = true;
             this.textBoxCsvDataA.Name = "textBoxCsvDataA";
-            this.textBoxCsvDataA.Size = new System.Drawing.Size(1171, 137);
+            this.textBoxCsvDataA.Size = new System.Drawing.Size(1039, 46);
             this.textBoxCsvDataA.TabIndex = 4;
             // 
             // textBoxWebCodeResponseB
             // 
-            this.textBoxWebCodeResponseB.Location = new System.Drawing.Point(23, 422);
+            this.textBoxWebCodeResponseB.Location = new System.Drawing.Point(155, 201);
             this.textBoxWebCodeResponseB.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseB.Multiline = true;
             this.textBoxWebCodeResponseB.Name = "textBoxWebCodeResponseB";
-            this.textBoxWebCodeResponseB.Size = new System.Drawing.Size(1171, 93);
+            this.textBoxWebCodeResponseB.Size = new System.Drawing.Size(1039, 46);
             this.textBoxWebCodeResponseB.TabIndex = 4;
             // 
             // tabPage2
@@ -540,24 +540,24 @@
             // 
             // textBoxTimeB
             // 
-            this.textBoxTimeB.Location = new System.Drawing.Point(1087, 676);
+            this.textBoxTimeB.Location = new System.Drawing.Point(1084, 464);
             this.textBoxTimeB.Name = "textBoxTimeB";
             this.textBoxTimeB.Size = new System.Drawing.Size(75, 20);
             this.textBoxTimeB.TabIndex = 5;
             // 
             // textBoxTimeA
             // 
-            this.textBoxTimeA.Location = new System.Drawing.Point(1084, 174);
+            this.textBoxTimeA.Location = new System.Drawing.Point(1084, 161);
             this.textBoxTimeA.Name = "textBoxTimeA";
             this.textBoxTimeA.Size = new System.Drawing.Size(78, 20);
             this.textBoxTimeA.TabIndex = 5;
             // 
             // webBrowser2
             // 
-            this.webBrowser2.Location = new System.Drawing.Point(3, 445);
+            this.webBrowser2.Location = new System.Drawing.Point(0, 325);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(1050, 473);
+            this.webBrowser2.Size = new System.Drawing.Size(1053, 281);
             this.webBrowser2.TabIndex = 4;
             this.webBrowser2.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser2_DocumentCompleted);
             this.webBrowser2.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser2_Navigated);
@@ -566,7 +566,7 @@
             // labelTimeB
             // 
             this.labelTimeB.AutoSize = true;
-            this.labelTimeB.Location = new System.Drawing.Point(1087, 660);
+            this.labelTimeB.Location = new System.Drawing.Point(1084, 448);
             this.labelTimeB.Name = "labelTimeB";
             this.labelTimeB.Size = new System.Drawing.Size(37, 13);
             this.labelTimeB.TabIndex = 3;
@@ -575,7 +575,7 @@
             // labelStateDisplayDataB
             // 
             this.labelStateDisplayDataB.AutoSize = true;
-            this.labelStateDisplayDataB.Location = new System.Drawing.Point(1087, 599);
+            this.labelStateDisplayDataB.Location = new System.Drawing.Point(1084, 387);
             this.labelStateDisplayDataB.Name = "labelStateDisplayDataB";
             this.labelStateDisplayDataB.Size = new System.Drawing.Size(96, 13);
             this.labelStateDisplayDataB.TabIndex = 3;
@@ -584,7 +584,7 @@
             // labelTimeA
             // 
             this.labelTimeA.AutoSize = true;
-            this.labelTimeA.Location = new System.Drawing.Point(1084, 158);
+            this.labelTimeA.Location = new System.Drawing.Point(1084, 145);
             this.labelTimeA.Name = "labelTimeA";
             this.labelTimeA.Size = new System.Drawing.Size(37, 13);
             this.labelTimeA.TabIndex = 3;
@@ -593,7 +593,7 @@
             // labelStateDisplayDataA
             // 
             this.labelStateDisplayDataA.AutoSize = true;
-            this.labelStateDisplayDataA.Location = new System.Drawing.Point(1084, 95);
+            this.labelStateDisplayDataA.Location = new System.Drawing.Point(1084, 82);
             this.labelStateDisplayDataA.Name = "labelStateDisplayDataA";
             this.labelStateDisplayDataA.Size = new System.Drawing.Size(96, 13);
             this.labelStateDisplayDataA.TabIndex = 3;
@@ -602,7 +602,7 @@
             // labelStateDownloadCsvDataB
             // 
             this.labelStateDownloadCsvDataB.AutoSize = true;
-            this.labelStateDownloadCsvDataB.Location = new System.Drawing.Point(1087, 547);
+            this.labelStateDownloadCsvDataB.Location = new System.Drawing.Point(1084, 335);
             this.labelStateDownloadCsvDataB.Name = "labelStateDownloadCsvDataB";
             this.labelStateDownloadCsvDataB.Size = new System.Drawing.Size(128, 13);
             this.labelStateDownloadCsvDataB.TabIndex = 3;
@@ -611,7 +611,7 @@
             // labelStateDownloadCsvDataA
             // 
             this.labelStateDownloadCsvDataA.AutoSize = true;
-            this.labelStateDownloadCsvDataA.Location = new System.Drawing.Point(1084, 44);
+            this.labelStateDownloadCsvDataA.Location = new System.Drawing.Point(1084, 31);
             this.labelStateDownloadCsvDataA.Name = "labelStateDownloadCsvDataA";
             this.labelStateDownloadCsvDataA.Size = new System.Drawing.Size(128, 13);
             this.labelStateDownloadCsvDataA.TabIndex = 3;
@@ -619,28 +619,28 @@
             // 
             // textBoxStateDisplayDataB
             // 
-            this.textBoxStateDisplayDataB.Location = new System.Drawing.Point(1087, 618);
+            this.textBoxStateDisplayDataB.Location = new System.Drawing.Point(1084, 406);
             this.textBoxStateDisplayDataB.Name = "textBoxStateDisplayDataB";
             this.textBoxStateDisplayDataB.Size = new System.Drawing.Size(100, 20);
             this.textBoxStateDisplayDataB.TabIndex = 2;
             // 
             // textBoxStateDisplayDataA
             // 
-            this.textBoxStateDisplayDataA.Location = new System.Drawing.Point(1084, 114);
+            this.textBoxStateDisplayDataA.Location = new System.Drawing.Point(1084, 101);
             this.textBoxStateDisplayDataA.Name = "textBoxStateDisplayDataA";
             this.textBoxStateDisplayDataA.Size = new System.Drawing.Size(100, 20);
             this.textBoxStateDisplayDataA.TabIndex = 2;
             // 
             // textBoxStateDownloadCsvDataB
             // 
-            this.textBoxStateDownloadCsvDataB.Location = new System.Drawing.Point(1087, 566);
+            this.textBoxStateDownloadCsvDataB.Location = new System.Drawing.Point(1084, 354);
             this.textBoxStateDownloadCsvDataB.Name = "textBoxStateDownloadCsvDataB";
             this.textBoxStateDownloadCsvDataB.Size = new System.Drawing.Size(100, 20);
             this.textBoxStateDownloadCsvDataB.TabIndex = 2;
             // 
             // textBoxStateDownloadCsvDataA
             // 
-            this.textBoxStateDownloadCsvDataA.Location = new System.Drawing.Point(1084, 63);
+            this.textBoxStateDownloadCsvDataA.Location = new System.Drawing.Point(1084, 50);
             this.textBoxStateDownloadCsvDataA.Name = "textBoxStateDownloadCsvDataA";
             this.textBoxStateDownloadCsvDataA.Size = new System.Drawing.Size(100, 20);
             this.textBoxStateDownloadCsvDataA.TabIndex = 2;
@@ -702,7 +702,7 @@
             // labelWordRunningB
             // 
             this.labelWordRunningB.AutoSize = true;
-            this.labelWordRunningB.Location = new System.Drawing.Point(908, 615);
+            this.labelWordRunningB.Location = new System.Drawing.Point(949, 378);
             this.labelWordRunningB.Name = "labelWordRunningB";
             this.labelWordRunningB.Size = new System.Drawing.Size(83, 13);
             this.labelWordRunningB.TabIndex = 13;
@@ -711,7 +711,7 @@
             // labelWordRunningA
             // 
             this.labelWordRunningA.AutoSize = true;
-            this.labelWordRunningA.Location = new System.Drawing.Point(908, 173);
+            this.labelWordRunningA.Location = new System.Drawing.Point(949, 118);
             this.labelWordRunningA.Name = "labelWordRunningA";
             this.labelWordRunningA.Size = new System.Drawing.Size(83, 13);
             this.labelWordRunningA.TabIndex = 13;
@@ -719,14 +719,14 @@
             // 
             // textBoxWordRunningB
             // 
-            this.textBoxWordRunningB.Location = new System.Drawing.Point(908, 628);
+            this.textBoxWordRunningB.Location = new System.Drawing.Point(949, 391);
             this.textBoxWordRunningB.Name = "textBoxWordRunningB";
             this.textBoxWordRunningB.Size = new System.Drawing.Size(291, 20);
             this.textBoxWordRunningB.TabIndex = 12;
             // 
             // textBoxWordRunningA
             // 
-            this.textBoxWordRunningA.Location = new System.Drawing.Point(908, 186);
+            this.textBoxWordRunningA.Location = new System.Drawing.Point(949, 131);
             this.textBoxWordRunningA.Name = "textBoxWordRunningA";
             this.textBoxWordRunningA.Size = new System.Drawing.Size(291, 20);
             this.textBoxWordRunningA.TabIndex = 12;
@@ -734,7 +734,7 @@
             // labelIndexRunningB
             // 
             this.labelIndexRunningB.AutoSize = true;
-            this.labelIndexRunningB.Location = new System.Drawing.Point(816, 615);
+            this.labelIndexRunningB.Location = new System.Drawing.Point(857, 378);
             this.labelIndexRunningB.Name = "labelIndexRunningB";
             this.labelIndexRunningB.Size = new System.Drawing.Size(83, 13);
             this.labelIndexRunningB.TabIndex = 13;
@@ -743,7 +743,7 @@
             // labelIndexRunningA
             // 
             this.labelIndexRunningA.AutoSize = true;
-            this.labelIndexRunningA.Location = new System.Drawing.Point(816, 173);
+            this.labelIndexRunningA.Location = new System.Drawing.Point(857, 118);
             this.labelIndexRunningA.Name = "labelIndexRunningA";
             this.labelIndexRunningA.Size = new System.Drawing.Size(83, 13);
             this.labelIndexRunningA.TabIndex = 13;
@@ -751,54 +751,54 @@
             // 
             // textBoxIndexRunningB
             // 
-            this.textBoxIndexRunningB.Location = new System.Drawing.Point(816, 628);
+            this.textBoxIndexRunningB.Location = new System.Drawing.Point(857, 391);
             this.textBoxIndexRunningB.Name = "textBoxIndexRunningB";
             this.textBoxIndexRunningB.Size = new System.Drawing.Size(67, 20);
             this.textBoxIndexRunningB.TabIndex = 12;
             // 
             // textBoxIndexRunningA
             // 
-            this.textBoxIndexRunningA.Location = new System.Drawing.Point(816, 186);
+            this.textBoxIndexRunningA.Location = new System.Drawing.Point(857, 131);
             this.textBoxIndexRunningA.Name = "textBoxIndexRunningA";
             this.textBoxIndexRunningA.Size = new System.Drawing.Size(67, 20);
             this.textBoxIndexRunningA.TabIndex = 12;
             // 
             // textBoxUrlToGetCsvDataB
             // 
-            this.textBoxUrlToGetCsvDataB.Location = new System.Drawing.Point(541, 749);
+            this.textBoxUrlToGetCsvDataB.Location = new System.Drawing.Point(545, 483);
             this.textBoxUrlToGetCsvDataB.Multiline = true;
             this.textBoxUrlToGetCsvDataB.Name = "textBoxUrlToGetCsvDataB";
-            this.textBoxUrlToGetCsvDataB.Size = new System.Drawing.Size(709, 83);
+            this.textBoxUrlToGetCsvDataB.Size = new System.Drawing.Size(709, 47);
             this.textBoxUrlToGetCsvDataB.TabIndex = 11;
             // 
             // textBoxUrlToGetCsvDataA
             // 
-            this.textBoxUrlToGetCsvDataA.Location = new System.Drawing.Point(538, 308);
+            this.textBoxUrlToGetCsvDataA.Location = new System.Drawing.Point(547, 224);
             this.textBoxUrlToGetCsvDataA.Multiline = true;
             this.textBoxUrlToGetCsvDataA.Name = "textBoxUrlToGetCsvDataA";
-            this.textBoxUrlToGetCsvDataA.Size = new System.Drawing.Size(709, 83);
+            this.textBoxUrlToGetCsvDataA.Size = new System.Drawing.Size(709, 47);
             this.textBoxUrlToGetCsvDataA.TabIndex = 11;
             // 
             // textBoxUrlToRetrieveParamB
             // 
-            this.textBoxUrlToRetrieveParamB.Location = new System.Drawing.Point(541, 654);
+            this.textBoxUrlToRetrieveParamB.Location = new System.Drawing.Point(547, 417);
             this.textBoxUrlToRetrieveParamB.Multiline = true;
             this.textBoxUrlToRetrieveParamB.Name = "textBoxUrlToRetrieveParamB";
-            this.textBoxUrlToRetrieveParamB.Size = new System.Drawing.Size(709, 74);
+            this.textBoxUrlToRetrieveParamB.Size = new System.Drawing.Size(709, 47);
             this.textBoxUrlToRetrieveParamB.TabIndex = 11;
             // 
             // textBoxUrlToRetrieveParamA
             // 
-            this.textBoxUrlToRetrieveParamA.Location = new System.Drawing.Point(541, 217);
+            this.textBoxUrlToRetrieveParamA.Location = new System.Drawing.Point(547, 157);
             this.textBoxUrlToRetrieveParamA.Multiline = true;
             this.textBoxUrlToRetrieveParamA.Name = "textBoxUrlToRetrieveParamA";
-            this.textBoxUrlToRetrieveParamA.Size = new System.Drawing.Size(709, 74);
+            this.textBoxUrlToRetrieveParamA.Size = new System.Drawing.Size(709, 47);
             this.textBoxUrlToRetrieveParamA.TabIndex = 11;
             // 
             // labelUrlToGetCsvDataB
             // 
             this.labelUrlToGetCsvDataB.AutoSize = true;
-            this.labelUrlToGetCsvDataB.Location = new System.Drawing.Point(540, 733);
+            this.labelUrlToGetCsvDataB.Location = new System.Drawing.Point(544, 467);
             this.labelUrlToGetCsvDataB.Name = "labelUrlToGetCsvDataB";
             this.labelUrlToGetCsvDataB.Size = new System.Drawing.Size(109, 13);
             this.labelUrlToGetCsvDataB.TabIndex = 10;
@@ -807,7 +807,7 @@
             // labelUrlToRetrieveParamB
             // 
             this.labelUrlToRetrieveParamB.AutoSize = true;
-            this.labelUrlToRetrieveParamB.Location = new System.Drawing.Point(535, 638);
+            this.labelUrlToRetrieveParamB.Location = new System.Drawing.Point(541, 401);
             this.labelUrlToRetrieveParamB.Name = "labelUrlToRetrieveParamB";
             this.labelUrlToRetrieveParamB.Size = new System.Drawing.Size(121, 13);
             this.labelUrlToRetrieveParamB.TabIndex = 10;
@@ -816,7 +816,7 @@
             // labelUrlToGetCsvDataA
             // 
             this.labelUrlToGetCsvDataA.AutoSize = true;
-            this.labelUrlToGetCsvDataA.Location = new System.Drawing.Point(537, 292);
+            this.labelUrlToGetCsvDataA.Location = new System.Drawing.Point(546, 208);
             this.labelUrlToGetCsvDataA.Name = "labelUrlToGetCsvDataA";
             this.labelUrlToGetCsvDataA.Size = new System.Drawing.Size(109, 13);
             this.labelUrlToGetCsvDataA.TabIndex = 10;
@@ -825,7 +825,7 @@
             // labelUrlToRetrieveParamA
             // 
             this.labelUrlToRetrieveParamA.AutoSize = true;
-            this.labelUrlToRetrieveParamA.Location = new System.Drawing.Point(535, 201);
+            this.labelUrlToRetrieveParamA.Location = new System.Drawing.Point(541, 141);
             this.labelUrlToRetrieveParamA.Name = "labelUrlToRetrieveParamA";
             this.labelUrlToRetrieveParamA.Size = new System.Drawing.Size(121, 13);
             this.labelUrlToRetrieveParamA.TabIndex = 10;
@@ -834,17 +834,17 @@
             // dataGridView1B
             // 
             this.dataGridView1B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1B.Location = new System.Drawing.Point(12, 503);
+            this.dataGridView1B.Location = new System.Drawing.Point(12, 316);
             this.dataGridView1B.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1B.Name = "dataGridView1B";
             this.dataGridView1B.RowTemplate.Height = 24;
-            this.dataGridView1B.Size = new System.Drawing.Size(511, 377);
+            this.dataGridView1B.Size = new System.Drawing.Size(511, 223);
             this.dataGridView1B.TabIndex = 6;
             // 
             // labelWebCodeResponseStringLengthB
             // 
             this.labelWebCodeResponseStringLengthB.AutoSize = true;
-            this.labelWebCodeResponseStringLengthB.Location = new System.Drawing.Point(9, 466);
+            this.labelWebCodeResponseStringLengthB.Location = new System.Drawing.Point(9, 284);
             this.labelWebCodeResponseStringLengthB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseStringLengthB.Name = "labelWebCodeResponseStringLengthB";
             this.labelWebCodeResponseStringLengthB.Size = new System.Drawing.Size(109, 26);
@@ -854,7 +854,7 @@
             // labelWebCodeResponseSubStringLengthB
             // 
             this.labelWebCodeResponseSubStringLengthB.AutoSize = true;
-            this.labelWebCodeResponseSubStringLengthB.Location = new System.Drawing.Point(178, 466);
+            this.labelWebCodeResponseSubStringLengthB.Location = new System.Drawing.Point(178, 284);
             this.labelWebCodeResponseSubStringLengthB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseSubStringLengthB.Name = "labelWebCodeResponseSubStringLengthB";
             this.labelWebCodeResponseSubStringLengthB.Size = new System.Drawing.Size(109, 26);
@@ -863,16 +863,16 @@
             // 
             // textBoxParametricDataRetrieveProductionDB_B
             // 
-            this.textBoxParametricDataRetrieveProductionDB_B.Location = new System.Drawing.Point(537, 593);
+            this.textBoxParametricDataRetrieveProductionDB_B.Location = new System.Drawing.Point(816, 356);
             this.textBoxParametricDataRetrieveProductionDB_B.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxParametricDataRetrieveProductionDB_B.Name = "textBoxParametricDataRetrieveProductionDB_B";
-            this.textBoxParametricDataRetrieveProductionDB_B.Size = new System.Drawing.Size(662, 20);
+            this.textBoxParametricDataRetrieveProductionDB_B.Size = new System.Drawing.Size(423, 20);
             this.textBoxParametricDataRetrieveProductionDB_B.TabIndex = 7;
             // 
             // labelWebCodeResponseLastSubStringB
             // 
             this.labelWebCodeResponseLastSubStringB.AutoSize = true;
-            this.labelWebCodeResponseLastSubStringB.Location = new System.Drawing.Point(352, 466);
+            this.labelWebCodeResponseLastSubStringB.Location = new System.Drawing.Point(352, 284);
             this.labelWebCodeResponseLastSubStringB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseLastSubStringB.Name = "labelWebCodeResponseLastSubStringB";
             this.labelWebCodeResponseLastSubStringB.Size = new System.Drawing.Size(109, 26);
@@ -881,15 +881,15 @@
             // 
             // textBoxWebCodeResponseSubStringIndex17AfterTrimmedB
             // 
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Location = new System.Drawing.Point(537, 556);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Location = new System.Drawing.Point(816, 332);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Name = "textBoxWebCodeResponseSubStringIndex17AfterTrimmedB";
-            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Size = new System.Drawing.Size(662, 20);
+            this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Size = new System.Drawing.Size(423, 20);
             this.textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.TabIndex = 7;
             // 
             // textBoxWebCodeResponseStringLengthB
             // 
-            this.textBoxWebCodeResponseStringLengthB.Location = new System.Drawing.Point(118, 466);
+            this.textBoxWebCodeResponseStringLengthB.Location = new System.Drawing.Point(118, 284);
             this.textBoxWebCodeResponseStringLengthB.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseStringLengthB.Name = "textBoxWebCodeResponseStringLengthB";
             this.textBoxWebCodeResponseStringLengthB.Size = new System.Drawing.Size(50, 20);
@@ -897,15 +897,15 @@
             // 
             // textBoxWebCodeResponseSubStringIndex17B
             // 
-            this.textBoxWebCodeResponseSubStringIndex17B.Location = new System.Drawing.Point(538, 519);
+            this.textBoxWebCodeResponseSubStringIndex17B.Location = new System.Drawing.Point(816, 308);
             this.textBoxWebCodeResponseSubStringIndex17B.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseSubStringIndex17B.Name = "textBoxWebCodeResponseSubStringIndex17B";
-            this.textBoxWebCodeResponseSubStringIndex17B.Size = new System.Drawing.Size(661, 20);
+            this.textBoxWebCodeResponseSubStringIndex17B.Size = new System.Drawing.Size(423, 20);
             this.textBoxWebCodeResponseSubStringIndex17B.TabIndex = 7;
             // 
             // textBoxWebCodeResponseSubStringLengthB
             // 
-            this.textBoxWebCodeResponseSubStringLengthB.Location = new System.Drawing.Point(289, 466);
+            this.textBoxWebCodeResponseSubStringLengthB.Location = new System.Drawing.Point(289, 284);
             this.textBoxWebCodeResponseSubStringLengthB.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseSubStringLengthB.Name = "textBoxWebCodeResponseSubStringLengthB";
             this.textBoxWebCodeResponseSubStringLengthB.Size = new System.Drawing.Size(50, 20);
@@ -914,7 +914,7 @@
             // labelParametricDataRetrieveProductionDB_B
             // 
             this.labelParametricDataRetrieveProductionDB_B.AutoSize = true;
-            this.labelParametricDataRetrieveProductionDB_B.Location = new System.Drawing.Point(534, 578);
+            this.labelParametricDataRetrieveProductionDB_B.Location = new System.Drawing.Point(601, 359);
             this.labelParametricDataRetrieveProductionDB_B.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelParametricDataRetrieveProductionDB_B.Name = "labelParametricDataRetrieveProductionDB_B";
             this.labelParametricDataRetrieveProductionDB_B.Size = new System.Drawing.Size(211, 13);
@@ -923,7 +923,7 @@
             // 
             // textBoxWebCodeResponseLastSubStringB
             // 
-            this.textBoxWebCodeResponseLastSubStringB.Location = new System.Drawing.Point(464, 466);
+            this.textBoxWebCodeResponseLastSubStringB.Location = new System.Drawing.Point(464, 284);
             this.textBoxWebCodeResponseLastSubStringB.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxWebCodeResponseLastSubStringB.Name = "textBoxWebCodeResponseLastSubStringB";
             this.textBoxWebCodeResponseLastSubStringB.Size = new System.Drawing.Size(735, 20);
@@ -932,7 +932,7 @@
             // labelWebCodeResponseAfterTrimmedB
             // 
             this.labelWebCodeResponseAfterTrimmedB.AutoSize = true;
-            this.labelWebCodeResponseAfterTrimmedB.Location = new System.Drawing.Point(535, 541);
+            this.labelWebCodeResponseAfterTrimmedB.Location = new System.Drawing.Point(544, 335);
             this.labelWebCodeResponseAfterTrimmedB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseAfterTrimmedB.Name = "labelWebCodeResponseAfterTrimmedB";
             this.labelWebCodeResponseAfterTrimmedB.Size = new System.Drawing.Size(268, 13);
@@ -942,7 +942,7 @@
             // labelWebCodeResponseSubStringIndex17B
             // 
             this.labelWebCodeResponseSubStringIndex17B.AutoSize = true;
-            this.labelWebCodeResponseSubStringIndex17B.Location = new System.Drawing.Point(534, 503);
+            this.labelWebCodeResponseSubStringIndex17B.Location = new System.Drawing.Point(616, 306);
             this.labelWebCodeResponseSubStringIndex17B.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWebCodeResponseSubStringIndex17B.Name = "labelWebCodeResponseSubStringIndex17B";
             this.labelWebCodeResponseSubStringIndex17B.Size = new System.Drawing.Size(196, 26);
@@ -982,7 +982,7 @@
             // 
             // buttonCheckDataInDataGridView2B
             // 
-            this.buttonCheckDataInDataGridView2B.Location = new System.Drawing.Point(944, 882);
+            this.buttonCheckDataInDataGridView2B.Location = new System.Drawing.Point(957, 558);
             this.buttonCheckDataInDataGridView2B.Name = "buttonCheckDataInDataGridView2B";
             this.buttonCheckDataInDataGridView2B.Size = new System.Drawing.Size(125, 34);
             this.buttonCheckDataInDataGridView2B.TabIndex = 22;
@@ -992,7 +992,7 @@
             // 
             // buttonCheckDataInDataGridView2A
             // 
-            this.buttonCheckDataInDataGridView2A.Location = new System.Drawing.Point(944, 381);
+            this.buttonCheckDataInDataGridView2A.Location = new System.Drawing.Point(957, 254);
             this.buttonCheckDataInDataGridView2A.Name = "buttonCheckDataInDataGridView2A";
             this.buttonCheckDataInDataGridView2A.Size = new System.Drawing.Size(125, 34);
             this.buttonCheckDataInDataGridView2A.TabIndex = 22;
@@ -1002,14 +1002,14 @@
             // 
             // textBoxDataGridView2ColumnB
             // 
-            this.textBoxDataGridView2ColumnB.Location = new System.Drawing.Point(461, 890);
+            this.textBoxDataGridView2ColumnB.Location = new System.Drawing.Point(474, 566);
             this.textBoxDataGridView2ColumnB.Name = "textBoxDataGridView2ColumnB";
             this.textBoxDataGridView2ColumnB.Size = new System.Drawing.Size(157, 20);
             this.textBoxDataGridView2ColumnB.TabIndex = 21;
             // 
             // textBoxDataGridView2ColumnA
             // 
-            this.textBoxDataGridView2ColumnA.Location = new System.Drawing.Point(461, 389);
+            this.textBoxDataGridView2ColumnA.Location = new System.Drawing.Point(474, 262);
             this.textBoxDataGridView2ColumnA.Name = "textBoxDataGridView2ColumnA";
             this.textBoxDataGridView2ColumnA.Size = new System.Drawing.Size(157, 20);
             this.textBoxDataGridView2ColumnA.TabIndex = 21;
@@ -1017,7 +1017,7 @@
             // labelDataGridView2ColumnB
             // 
             this.labelDataGridView2ColumnB.AutoSize = true;
-            this.labelDataGridView2ColumnB.Location = new System.Drawing.Point(325, 893);
+            this.labelDataGridView2ColumnB.Location = new System.Drawing.Point(338, 569);
             this.labelDataGridView2ColumnB.Name = "labelDataGridView2ColumnB";
             this.labelDataGridView2ColumnB.Size = new System.Drawing.Size(127, 13);
             this.labelDataGridView2ColumnB.TabIndex = 20;
@@ -1026,7 +1026,7 @@
             // labelDataGridView2ColumnA
             // 
             this.labelDataGridView2ColumnA.AutoSize = true;
-            this.labelDataGridView2ColumnA.Location = new System.Drawing.Point(325, 392);
+            this.labelDataGridView2ColumnA.Location = new System.Drawing.Point(338, 265);
             this.labelDataGridView2ColumnA.Name = "labelDataGridView2ColumnA";
             this.labelDataGridView2ColumnA.Size = new System.Drawing.Size(127, 13);
             this.labelDataGridView2ColumnA.TabIndex = 20;
@@ -1034,28 +1034,28 @@
             // 
             // textBoxDataGridView2ValueB
             // 
-            this.textBoxDataGridView2ValueB.Location = new System.Drawing.Point(1075, 890);
+            this.textBoxDataGridView2ValueB.Location = new System.Drawing.Point(1088, 566);
             this.textBoxDataGridView2ValueB.Name = "textBoxDataGridView2ValueB";
             this.textBoxDataGridView2ValueB.Size = new System.Drawing.Size(157, 20);
             this.textBoxDataGridView2ValueB.TabIndex = 18;
             // 
             // textBoxDataGridView2ValueA
             // 
-            this.textBoxDataGridView2ValueA.Location = new System.Drawing.Point(1075, 389);
+            this.textBoxDataGridView2ValueA.Location = new System.Drawing.Point(1088, 262);
             this.textBoxDataGridView2ValueA.Name = "textBoxDataGridView2ValueA";
             this.textBoxDataGridView2ValueA.Size = new System.Drawing.Size(157, 20);
             this.textBoxDataGridView2ValueA.TabIndex = 18;
             // 
             // textBoxDataGridView2RowB
             // 
-            this.textBoxDataGridView2RowB.Location = new System.Drawing.Point(148, 890);
+            this.textBoxDataGridView2RowB.Location = new System.Drawing.Point(161, 566);
             this.textBoxDataGridView2RowB.Name = "textBoxDataGridView2RowB";
             this.textBoxDataGridView2RowB.Size = new System.Drawing.Size(157, 20);
             this.textBoxDataGridView2RowB.TabIndex = 19;
             // 
             // textBoxDataGridView2RowA
             // 
-            this.textBoxDataGridView2RowA.Location = new System.Drawing.Point(148, 389);
+            this.textBoxDataGridView2RowA.Location = new System.Drawing.Point(161, 262);
             this.textBoxDataGridView2RowA.Name = "textBoxDataGridView2RowA";
             this.textBoxDataGridView2RowA.Size = new System.Drawing.Size(157, 20);
             this.textBoxDataGridView2RowA.TabIndex = 19;
@@ -1063,7 +1063,7 @@
             // labelDataGridView2RowB
             // 
             this.labelDataGridView2RowB.AutoSize = true;
-            this.labelDataGridView2RowB.Location = new System.Drawing.Point(14, 893);
+            this.labelDataGridView2RowB.Location = new System.Drawing.Point(27, 569);
             this.labelDataGridView2RowB.Name = "labelDataGridView2RowB";
             this.labelDataGridView2RowB.Size = new System.Drawing.Size(114, 13);
             this.labelDataGridView2RowB.TabIndex = 17;
@@ -1072,7 +1072,7 @@
             // labelDataGridView2RowA
             // 
             this.labelDataGridView2RowA.AutoSize = true;
-            this.labelDataGridView2RowA.Location = new System.Drawing.Point(14, 392);
+            this.labelDataGridView2RowA.Location = new System.Drawing.Point(27, 265);
             this.labelDataGridView2RowA.Name = "labelDataGridView2RowA";
             this.labelDataGridView2RowA.Size = new System.Drawing.Size(114, 13);
             this.labelDataGridView2RowA.TabIndex = 17;
@@ -1080,7 +1080,7 @@
             // 
             // textBoxLastIndexOfCsvDataColumnB
             // 
-            this.textBoxLastIndexOfCsvDataColumnB.Location = new System.Drawing.Point(447, 511);
+            this.textBoxLastIndexOfCsvDataColumnB.Location = new System.Drawing.Point(447, 327);
             this.textBoxLastIndexOfCsvDataColumnB.Name = "textBoxLastIndexOfCsvDataColumnB";
             this.textBoxLastIndexOfCsvDataColumnB.Size = new System.Drawing.Size(157, 20);
             this.textBoxLastIndexOfCsvDataColumnB.TabIndex = 16;
@@ -1095,7 +1095,7 @@
             // labelLastIndexOfCsvDataColumnB
             // 
             this.labelLastIndexOfCsvDataColumnB.AutoSize = true;
-            this.labelLastIndexOfCsvDataColumnB.Location = new System.Drawing.Point(325, 514);
+            this.labelLastIndexOfCsvDataColumnB.Location = new System.Drawing.Point(325, 330);
             this.labelLastIndexOfCsvDataColumnB.Name = "labelLastIndexOfCsvDataColumnB";
             this.labelLastIndexOfCsvDataColumnB.Size = new System.Drawing.Size(122, 13);
             this.labelLastIndexOfCsvDataColumnB.TabIndex = 15;
@@ -1112,7 +1112,7 @@
             // 
             // textBoxLastIndexOfCsvDataRowB
             // 
-            this.textBoxLastIndexOfCsvDataRowB.Location = new System.Drawing.Point(124, 511);
+            this.textBoxLastIndexOfCsvDataRowB.Location = new System.Drawing.Point(124, 327);
             this.textBoxLastIndexOfCsvDataRowB.Name = "textBoxLastIndexOfCsvDataRowB";
             this.textBoxLastIndexOfCsvDataRowB.Size = new System.Drawing.Size(157, 20);
             this.textBoxLastIndexOfCsvDataRowB.TabIndex = 14;
@@ -1127,7 +1127,7 @@
             // labelLastIndexOfCsvDataRowB
             // 
             this.labelLastIndexOfCsvDataRowB.AutoSize = true;
-            this.labelLastIndexOfCsvDataRowB.Location = new System.Drawing.Point(14, 514);
+            this.labelLastIndexOfCsvDataRowB.Location = new System.Drawing.Point(14, 330);
             this.labelLastIndexOfCsvDataRowB.Name = "labelLastIndexOfCsvDataRowB";
             this.labelLastIndexOfCsvDataRowB.Size = new System.Drawing.Size(109, 13);
             this.labelLastIndexOfCsvDataRowB.TabIndex = 13;
@@ -1145,9 +1145,9 @@
             // dataGridView2B
             // 
             this.dataGridView2B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2B.Location = new System.Drawing.Point(17, 539);
+            this.dataGridView2B.Location = new System.Drawing.Point(23, 353);
             this.dataGridView2B.Name = "dataGridView2B";
-            this.dataGridView2B.Size = new System.Drawing.Size(1222, 338);
+            this.dataGridView2B.Size = new System.Drawing.Size(1222, 207);
             this.dataGridView2B.TabIndex = 0;
             // 
             // dataGridView2A
@@ -1155,7 +1155,7 @@
             this.dataGridView2A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2A.Location = new System.Drawing.Point(17, 38);
             this.dataGridView2A.Name = "dataGridView2A";
-            this.dataGridView2A.Size = new System.Drawing.Size(1222, 338);
+            this.dataGridView2A.Size = new System.Drawing.Size(1222, 207);
             this.dataGridView2A.TabIndex = 0;
             // 
             // tabPage5
@@ -1354,11 +1354,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.ClientSize = new System.Drawing.Size(1264, 640);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SIRE-TEST HEALTY CHECK";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).EndInit();
             this.tabControl1.ResumeLayout(false);
