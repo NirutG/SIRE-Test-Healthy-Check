@@ -5,16 +5,27 @@ VisualStudioVersion = 15.0.28307.1169
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIRE-Test_Healthy-Check", "SIRE-Test_Healthy-Check\SIRE-Test_Healthy-Check.csproj", "{C96B21F8-CA68-4E5C-84A9-314F5A14D6B5}"
 EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "SIRE-TEST HEALTHY CHECK_SETUP", "SIRE-TEST HEALTHY CHECK_SETUP\SIRE-TEST HEALTHY CHECK_SETUP.aiproj", "{898F93BB-B05D-4917-8D9C-AA165E987A6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C96B21F8-CA68-4E5C-84A9-314F5A14D6B5}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{C96B21F8-CA68-4E5C-84A9-314F5A14D6B5}.All|Any CPU.Build.0 = Release|Any CPU
 		{C96B21F8-CA68-4E5C-84A9-314F5A14D6B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C96B21F8-CA68-4E5C-84A9-314F5A14D6B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C96B21F8-CA68-4E5C-84A9-314F5A14D6B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C96B21F8-CA68-4E5C-84A9-314F5A14D6B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{898F93BB-B05D-4917-8D9C-AA165E987A6E}.All|Any CPU.ActiveCfg = DefaultBuild
+		{898F93BB-B05D-4917-8D9C-AA165E987A6E}.All|Any CPU.Build.0 = DefaultBuild
+		{898F93BB-B05D-4917-8D9C-AA165E987A6E}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{898F93BB-B05D-4917-8D9C-AA165E987A6E}.Debug|Any CPU.Build.0 = DefaultBuild
+		{898F93BB-B05D-4917-8D9C-AA165E987A6E}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{898F93BB-B05D-4917-8D9C-AA165E987A6E}.Release|Any CPU.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -133,15 +133,28 @@ namespace SIRE_Test_Healthy_Check
         int timeB = 0; //Initial Check Time of ProcessB
         bool switchB = false; //Initial switch of ProcessB
         int inputHSA = 0; //Initial to count HSA
-        int inputHeadL_A = 0; //Initial to count HSA Head L of ProcessA
-        int inputHeadR_A = 0; //Initial to count HSA Head L of ProcessA
-        byte headL_A = 1; //Initial for G2_(L) of ProcessA
-        byte headR_A = 2; //Initial for G2_(R) of ProcessA
+        byte lineHeadL_A = 1; //Initial for G2_(L) of ProcessA
+        byte lineHeadR_A = 2; //Initial for G2_(R) of ProcessA
+        int inputLineHeadL_A = 0; //Initial to count HSA Head L of ProcessA
+        int inputLineHeadR_A = 0; //Initial to count HSA Head L of ProcessA
+        double readabilityFailLineHeadL_A = 0; //Initial to check HGA Head L of ProcessA
+        double readabilityFailLineHeadR_A = 0; //Initial to check HGA Head R of ProcessA
+        double etesterFailLineHeadL_A = 0; //Initial to check HSA Head L of ProcessA
+        double etesterFailLineHeadR_A = 0; //Initial to check HSA Head R of ProcessA
+        double badOCRLineHeadL_A = 0; //Initial to check HGA Head L of ProcessA
+        double badOCRLineHeadR_A = 0; //Initial to check HGA Head R of ProcessA
 
-        int inputHeadL_B = 0; //Initial to count HSA Head L of ProcessB
-        int inputHeadR_B = 0; //Initial to count HSA Head L of ProcessB
-        byte headL_B = 1; //Initial for G2_(L) of ProcessB
-        byte headR_B = 2; //Initial for G2_(R) of ProcessB
+        byte lineHeadL_B = 1; //Initial for G2_(L) of ProcessB
+        byte lineHeadR_B = 2; //Initial for G2_(R) of ProcessB
+        int inputLineHeadL_B = 0; //Initial to count HSA Head L of ProcessB
+        int inputLineHeadR_B = 0; //Initial to count HSA Head L of ProcessB
+        double readabilityFailLineHeadL_B = 0; //Initial to check HGA Head L of ProcessB
+        double readabilityFailLineHeadR_B = 0; //Initial to check HGA Head R of ProcessB
+        double etesterFailLineHeadL_B = 0; //Initial to check HSA Head L of ProcessB
+        double etesterFailLineHeadR_B = 0; //Initial to check HSA Head R of ProcessB
+        double badOCRLineHeadL_B = 0; //Initial to check HGA Head L of ProcessB
+        double badOCRLineHeadR_B = 0; //Initial to check HGA Head R of ProcessB
+
 
         string[] genesis = {"G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "GA", "GB", "GC", "GD", "GE", "GF", "GG", "GH", "GI", "GJ", "GK", "GL", "GM", "GN", "GO", "GP" }; //genesis[0] to genesis[23]
         //G2_(L) = Column1, G2_(R) = Column2
@@ -3941,8 +3954,16 @@ namespace SIRE_Test_Healthy_Check
                 switch (stateDisplayDataA)
                 {
                     case 0: //State0 : Initial Variables
-                        headL_A = 1; //Initial for G2_(L)
-                        headR_A = 2; //Initial for G2_(R)
+                        lineHeadL_A = 1; //Initial for G2_(L)
+                        lineHeadR_A = 2; //Initial for G2_(R)
+                        inputLineHeadL_A = 0; //Reset inputLineHeadL_A
+                        inputLineHeadR_A = 0; //Reset inputLineHeadR_A
+                        readabilityFailLineHeadL_A = 0; //Reset readabilityFailLineHeadL_A
+                        readabilityFailLineHeadR_A = 0; //Reset readabilityFailLineHeadR_A
+                        etesterFailLineHeadL_A = 0; //Reset etesterFailLineHeadL_A
+                        etesterFailLineHeadR_A = 0; //Reset etesterFailLineHeadR_A
+                        badOCRLineHeadL_A = 0; //Reset badOCRLineHeadL_A
+                        badOCRLineHeadR_A = 0; //Reset badOCRLineHeadR_A
                         stateDisplayDataA = 1;
                         break;
                     case 1: //State1 : Open Display Area
@@ -4015,7 +4036,7 @@ namespace SIRE_Test_Healthy_Check
                         dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row4 : SW.VERSION
                         stateDisplayDataA = 5;
                         break;
-                    case 5: //State6 : Count HSA Input
+                    case 5: //State5 : Check HSA Input, HGA ReadabilityFail,
 
                         foreach (string line in genesis) //Check Line G2 to GN
                         {
@@ -4025,11 +4046,35 @@ namespace SIRE_Test_Healthy_Check
                                 {
                                     if (dataTable2A.Rows[i][11].ToString().EndsWith("1"))
                                     {
-                                        inputHeadL_A++;
+                                        inputLineHeadL_A++; //Increase Input Head L of Process A
+                                        if (dataTable2A.Rows[i][30].ToString() == "..........")
+                                        {
+                                            readabilityFailLineHeadL_A++; //Increase Readability Fail Head L of Process A
+                                        }
+                                        if(dataTable2A.Rows[i][7].ToString() != "0000")
+                                        {
+                                            etesterFailLineHeadL_A++; //Increase ETEST FAIL Head L of Process A
+                                        }
+                                        if(dataTable2A.Rows[i][30].ToString() == "..ROI.NG..")
+                                        {
+                                            badOCRLineHeadL_A++; //Increase BAD OCR Head L of Process A
+                                        }
                                     }
                                     else if (dataTable2A.Rows[i][11].ToString().EndsWith("2"))
                                     {
-                                        inputHeadR_A++;
+                                        inputLineHeadR_A++; //Increase Input Head R of Process A
+                                        if (dataTable2A.Rows[i][30].ToString() == "..........")
+                                        {
+                                            readabilityFailLineHeadR_A++; //Increase Readability Fail Head R of Process A
+                                        }
+                                        if (dataTable2A.Rows[i][7].ToString() != "0000")
+                                        {
+                                            etesterFailLineHeadR_A++; //Increase ETEST FAIL Head R of Process A
+                                        }
+                                        if (dataTable2A.Rows[i][30].ToString() == "..ROI.NG..")
+                                        {
+                                            badOCRLineHeadR_A++; //Increase BAD OCR Head R of Process A
+                                        }
                                     }
                                     else
                                     {
@@ -4039,15 +4084,88 @@ namespace SIRE_Test_Healthy_Check
                             }
                             //Console.WriteLine(indexCsvDataRowA - 1); //Debug
 
-                            dataTable3A.Rows[0][headL_A] = (inputHeadL_A / 18).ToString(); //Write HSA headL_A Value (HGA / 18 = HSA)
-                            dataTable3A.Rows[0][headR_A] = (inputHeadR_A / 18).ToString(); //Write HSA headR_A Value (HGA / 18 = HSA)
-                            inputHeadL_A = 0; //Reset inputHeadL_A
-                            inputHeadR_A = 0; //Reset inputHeadR_A
-                            headL_A += 2; //Increase to Next Head
-                            headR_A += 2; //Increase to Next Head
+                            //*********** HSA Input *******************
+
+                            dataTable3A.Rows[0][lineHeadL_A] = (inputLineHeadL_A / 18).ToString(); //Write HSA inputLineHeadL_A Value (HGA / 18 = HSA)
+                            dataTable3A.Rows[0][lineHeadR_A] = (inputLineHeadR_A / 18).ToString(); //Write HSA inputLineHeadR_A Value (HGA / 18 = HSA)
+                            //*********** HGA Readability Fail ****************
+                            if ((readabilityFailLineHeadL_A == 0) && (readabilityFailLineHeadR_A == 0)) //00
+                            {
+                                dataTable3A.Rows[1][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_A Value
+                                dataTable3A.Rows[1][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_A Value
+                            }
+                            if ((readabilityFailLineHeadL_A == 0) && (readabilityFailLineHeadR_A != 0)) //01
+                            {
+                                dataTable3A.Rows[1][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_A Value
+                                dataTable3A.Rows[1][lineHeadR_A] = (((readabilityFailLineHeadR_A / inputLineHeadR_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_A Value
+                            }
+                            if ((readabilityFailLineHeadL_A != 0) && (readabilityFailLineHeadR_A == 0)) //10
+                            {
+                                dataTable3A.Rows[1][lineHeadL_A] = (((readabilityFailLineHeadL_A / inputLineHeadL_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_A Value
+                                dataTable3A.Rows[1][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_A Value
+                            }
+                            if ((readabilityFailLineHeadL_A != 0) && (readabilityFailLineHeadR_A != 0)) //11
+                            {
+                                dataTable3A.Rows[1][lineHeadL_A] = (((readabilityFailLineHeadL_A / inputLineHeadL_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_A Value
+                                dataTable3A.Rows[1][lineHeadR_A] = (((readabilityFailLineHeadR_A / inputLineHeadR_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_A Value
+                            }
+                            //*********** HSA ETEST Fail ****************
+                            if ((etesterFailLineHeadL_A == 0) && (etesterFailLineHeadR_A == 0)) //00
+                            {
+                                dataTable3A.Rows[2][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadL_A Value
+                                dataTable3A.Rows[2][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadR_A Value
+                            }
+                            if ((etesterFailLineHeadL_A == 0) && (etesterFailLineHeadR_A != 0)) //01
+                            {
+                                dataTable3A.Rows[2][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadL_A Value
+                                dataTable3A.Rows[2][lineHeadR_A] = ((((etesterFailLineHeadR_A / 18) / (inputLineHeadR_A / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadR_A Value
+                            }
+                            if ((etesterFailLineHeadL_A != 0) && (etesterFailLineHeadR_A == 0)) //10
+                            {
+                                dataTable3A.Rows[2][lineHeadL_A] = ((((etesterFailLineHeadL_A / 18) / (inputLineHeadL_A / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadL_A Value
+                                dataTable3A.Rows[2][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadR_A Value
+                            }
+                            if ((etesterFailLineHeadL_A != 0) && (etesterFailLineHeadR_A != 0)) //11
+                            {
+                                dataTable3A.Rows[2][lineHeadL_A] = ((((etesterFailLineHeadL_A / 18) / (inputLineHeadL_A / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadL_A Value
+                                dataTable3A.Rows[2][lineHeadR_A] = ((((etesterFailLineHeadR_A / 18) / (inputLineHeadR_A / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadR_A Value
+
+                            }
+                            //********** HGA BAD OCR ****************
+                            if ((badOCRLineHeadL_A == 0) && (badOCRLineHeadR_A == 0)) //00
+                            {
+                                dataTable3A.Rows[3][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_A  Value
+                                dataTable3A.Rows[3][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_A Value
+                            }
+                            if ((badOCRLineHeadL_A == 0) && (badOCRLineHeadR_A != 0)) //01
+                            {
+                                dataTable3A.Rows[3][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_A  Value
+                                dataTable3A.Rows[3][lineHeadR_A] = (((badOCRLineHeadR_A / inputLineHeadR_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_A Value
+                            }
+                            if ((badOCRLineHeadL_A != 0) && (badOCRLineHeadR_A == 0)) //10
+                            {
+                                dataTable3A.Rows[3][lineHeadL_A] = (((badOCRLineHeadL_A / inputLineHeadL_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_A  Value
+                                dataTable3A.Rows[3][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_A Value
+                            }
+                            if ((badOCRLineHeadL_A != 0) && (badOCRLineHeadR_A != 0)) //11
+                            {
+                                dataTable3A.Rows[3][lineHeadL_A] = (((badOCRLineHeadL_A / inputLineHeadL_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_A  Value
+                                dataTable3A.Rows[3][lineHeadR_A] = (((badOCRLineHeadR_A / inputLineHeadR_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_A Value
+                            }
+                            //**********
+                            inputLineHeadL_A = 0; //Reset inputLineHeadL_A
+                            inputLineHeadR_A = 0; //Reset inputLineHeadR_A
+                            readabilityFailLineHeadL_A = 0; //Reset readabilityFailLineHeadL_A
+                            readabilityFailLineHeadR_A = 0; //Reset readabilityFailLineHeadR_A
+                            etesterFailLineHeadL_A = 0; //Reset etesterFailLineHeadL_A
+                            etesterFailLineHeadR_A = 0; //Reset etesterFailLineHeadR_A
+                            badOCRLineHeadL_A = 0; //Reset badOCRLineHeadL_A
+                            badOCRLineHeadR_A = 0; //Reset badOCRLineHeadR_A
+                            lineHeadL_A += 2; //Increase to Next Head
+                            lineHeadR_A += 2; //Increase to Next Head
                         }
-                        headL_A = 1; //Reset headL_A
-                        headR_A = 2; //Reset headR_A
+                        lineHeadL_A = 1; //Reset lineHeadL_A
+                        lineHeadR_A = 2; //Reset lineHeadR_A
                         stateDisplayDataA = 6;
                         break;
                     case 6: //State6 : Dump into dataGridView3A
@@ -4073,8 +4191,16 @@ namespace SIRE_Test_Healthy_Check
                 switch (stateDisplayDataB)
                 {
                     case 0: //State0 : Initial Variables
-                        headL_B = 1; //Initial for G2_(L)
-                        headR_B = 2; //Initial for G2_(R)
+                        lineHeadL_B = 1; //Initial for G2_(L)
+                        lineHeadR_B = 2; //Initial for G2_(R)
+                        inputLineHeadL_B = 0; //Reset inputLineHeadL_B
+                        inputLineHeadR_B = 0; //Reset inputLineHeadR_B
+                        readabilityFailLineHeadL_B = 0; //Reset readabilityFailLineHeadL_B
+                        readabilityFailLineHeadR_B = 0; //Reset readabilityFailLineHeadR_B
+                        etesterFailLineHeadL_B = 0; //Reset etesterFailLineHeadL_B
+                        etesterFailLineHeadR_B = 0; //Reset etesterFailLineHeadR_B
+                        badOCRLineHeadL_B = 0; //Reset badOCRLineHeadL_B
+                        badOCRLineHeadR_B = 0; //Reset badOCRLineHeadR_B
                         stateDisplayDataB = 1;
                         break;
                     case 1: //State1 : Open Display Area
@@ -4147,7 +4273,7 @@ namespace SIRE_Test_Healthy_Check
                         dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row4 : SW.VERSION
                         stateDisplayDataB = 5;
                         break;
-                    case 5: //State6 : Count HSA Input
+                    case 5: //State5 : Check HSA Input, HGA ReadabilityFail,
 
                         foreach (string line in genesis) //Check Line G2 to GN
                         {
@@ -4157,11 +4283,35 @@ namespace SIRE_Test_Healthy_Check
                                 {
                                     if (dataTable2B.Rows[i][11].ToString().EndsWith("1"))
                                     {
-                                        inputHeadL_B++;
+                                        inputLineHeadL_B++; //Increase Input Head L of Process B
+                                        if (dataTable2B.Rows[i][30].ToString() == "..........")
+                                        {
+                                            readabilityFailLineHeadL_B++; //Increase Readability Fail Head L of Process B
+                                        }
+                                        if (dataTable2B.Rows[i][7].ToString() != "0000")
+                                        {
+                                            etesterFailLineHeadL_B++; //Increase ETEST FAIL Head L of Process B
+                                        }
+                                        if (dataTable2B.Rows[i][30].ToString() == "..ROI.NG..")
+                                        {
+                                            badOCRLineHeadL_B++; //Increase BAD OCR Head L of Process B
+                                        }
                                     }
                                     else if (dataTable2B.Rows[i][11].ToString().EndsWith("2"))
                                     {
-                                        inputHeadR_B++;
+                                        inputLineHeadR_B++; //Increase Input Head R of Process B
+                                        if (dataTable2B.Rows[i][30].ToString() == "..........")
+                                        {
+                                            readabilityFailLineHeadR_B++; //Increase Readability Fail Head R of Process B
+                                        }
+                                        if (dataTable2B.Rows[i][7].ToString() != "0000")
+                                        {
+                                            etesterFailLineHeadR_B++; //Increase ETEST FAIL Head R of Process B
+                                        }
+                                        if (dataTable2B.Rows[i][30].ToString() == "..ROI.NG..")
+                                        {
+                                            badOCRLineHeadR_B++; //Increase BAD OCR Head R of Process B
+                                        }
                                     }
                                     else
                                     {
@@ -4171,17 +4321,89 @@ namespace SIRE_Test_Healthy_Check
                             }
                             //Console.WriteLine(indexCsvDataRowB - 1); //Debug
 
-                            dataTable3B.Rows[0][headL_B] = (inputHeadL_B / 18).ToString(); //Write HSA headL_B Value (HGA / 18 = HSA)
-                            dataTable3B.Rows[0][headR_B] = (inputHeadR_B / 18).ToString(); //Write HSA headR_B Value (HGA / 18 = HSA)
-                            inputHeadL_B = 0; //Reset inputHeadL_B
-                            inputHeadR_B = 0; //Reset inputHeadR_B
-                            headL_B += 2; //Increase to Next Head
-                            headR_B += 2; //Increase to Next Head
+                            //*********** HSA Input *******************
+                            dataTable3B.Rows[0][lineHeadL_B] = (inputLineHeadL_B / 18).ToString(); //Write HSA inputLineHeadL_B Value (HGA / 18 = HSA)
+                            dataTable3B.Rows[0][lineHeadR_B] = (inputLineHeadR_B / 18).ToString(); //Write HSA inputLineHeadR_B Value (HGA / 18 = HSA)
+                            //*********** HGA Readability Fail ****************
+                            if ((readabilityFailLineHeadL_B == 0) && (readabilityFailLineHeadR_B == 0)) //00
+                            {
+                                dataTable3B.Rows[1][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_B Value
+                                dataTable3B.Rows[1][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_B Value
+                            }
+                            if ((readabilityFailLineHeadL_B == 0) && (readabilityFailLineHeadR_B != 0)) //01
+                            {
+                                dataTable3B.Rows[1][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_B Value
+                                dataTable3B.Rows[1][lineHeadR_B] = (((readabilityFailLineHeadR_B / inputLineHeadR_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_B Value
+                            }
+                            if ((readabilityFailLineHeadL_B != 0) && (readabilityFailLineHeadR_B == 0)) //10
+                            {
+                                dataTable3B.Rows[1][lineHeadL_B] = (((readabilityFailLineHeadL_B / inputLineHeadL_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_B Value
+                                dataTable3B.Rows[1][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_B Value
+                            }
+                            if ((readabilityFailLineHeadL_B != 0) && (readabilityFailLineHeadR_B != 0)) //11
+                            {
+                                dataTable3B.Rows[1][lineHeadL_B] = (((readabilityFailLineHeadL_B / inputLineHeadL_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_B Value
+                                dataTable3B.Rows[1][lineHeadR_B] = (((readabilityFailLineHeadR_B / inputLineHeadR_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_B Value
+                            }
+                            //*********** HSA ETEST Fail ****************
+                            if ((etesterFailLineHeadL_B == 0) && (etesterFailLineHeadR_B == 0)) //00
+                            {
+                                dataTable3B.Rows[2][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadL_B Value
+                                dataTable3B.Rows[2][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadR_B Value
+                            }
+                            if ((etesterFailLineHeadL_B == 0) && (etesterFailLineHeadR_B != 0)) //01
+                            {
+                                dataTable3B.Rows[2][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadL_B Value
+                                dataTable3B.Rows[2][lineHeadR_B] = ((((etesterFailLineHeadR_B / 18) / (inputLineHeadR_B / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadR_B Value
+                            }
+                            if ((etesterFailLineHeadL_B != 0) && (etesterFailLineHeadR_B == 0)) //10
+                            {
+                                dataTable3B.Rows[2][lineHeadL_B] = ((((etesterFailLineHeadL_B / 18) / (inputLineHeadL_B / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadL_B Value
+                                dataTable3B.Rows[2][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadR_B Value
+                            }
+                            if ((etesterFailLineHeadL_B != 0) && (etesterFailLineHeadR_B != 0)) //11
+                            {
+                                dataTable3B.Rows[2][lineHeadL_B] = ((((etesterFailLineHeadL_B / 18) / (inputLineHeadL_B / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadL_B Value
+                                dataTable3B.Rows[2][lineHeadR_B] = ((((etesterFailLineHeadR_B / 18) / (inputLineHeadR_B / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadR_B Value
+                            }
+                            //********** HGA BAD OCR ****************
+                            if ((badOCRLineHeadL_B == 0) && (badOCRLineHeadR_B == 0)) //00
+                            {
+                                dataTable3B.Rows[3][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_B  Value
+                                dataTable3B.Rows[3][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_B Value
+                            }
+                            if ((badOCRLineHeadL_B == 0) && (badOCRLineHeadR_B != 0)) //01
+                            {
+                                dataTable3B.Rows[3][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_B  Value
+                                dataTable3B.Rows[3][lineHeadR_B] = (((badOCRLineHeadR_B / inputLineHeadR_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_B Value
+                            }
+                            if ((badOCRLineHeadL_B != 0) && (badOCRLineHeadR_B == 0)) //10
+                            {
+                                dataTable3B.Rows[3][lineHeadL_B] = (((badOCRLineHeadL_B / inputLineHeadL_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_B  Value
+                                dataTable3B.Rows[3][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_B Value
+                            }
+                            if ((badOCRLineHeadL_B != 0) && (badOCRLineHeadR_B != 0)) //11
+                            {
+                                dataTable3B.Rows[3][lineHeadL_B] = (((badOCRLineHeadL_B / inputLineHeadL_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_B  Value
+                                dataTable3B.Rows[3][lineHeadR_B] = (((badOCRLineHeadR_B / inputLineHeadR_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_B Value
+                            }
+                            //**********
+                            inputLineHeadL_B = 0; //Reset inputLineHeadL_B
+                            inputLineHeadR_B = 0; //Reset inputLineHeadR_B
+                            readabilityFailLineHeadL_B = 0; //Reset readabilityFailLineHeadL_B
+                            readabilityFailLineHeadR_B = 0; //Reset readabilityFailLineHeadR_B
+                            etesterFailLineHeadL_B = 0; //Reset etesterFailLineHeadL_B
+                            etesterFailLineHeadR_B = 0; //Reset etesterFailLineHeadR_B
+                            badOCRLineHeadL_B = 0; //Reset badOCRLineHeadL_B
+                            badOCRLineHeadR_B = 0; //Reset badOCRLineHeadR_B
+                            lineHeadL_B += 2; //Increase to Next Head
+                            lineHeadR_B += 2; //Increase to Next Head
                         }
-                        headL_B = 1; //Reset headL_B
-                        headR_B = 2; //Reset headR_B
+                        lineHeadL_B = 1; //Reset lineHeadL_B
+                        lineHeadR_B = 2; //Reset lineHeadR_B
                         stateDisplayDataB = 6;
                         break;
+
                     case 6: //State6 : Dump into dataGridView3B
                         dataGridView3B.DataSource = dataTable3B;
                         stateDisplayDataB = 10;
