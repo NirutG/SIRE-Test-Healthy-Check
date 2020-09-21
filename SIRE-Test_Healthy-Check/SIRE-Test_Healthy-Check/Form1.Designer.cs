@@ -55,11 +55,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage0 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBoxUrlResponseB = new System.Windows.Forms.TextBox();
             this.labelCsvDataB = new System.Windows.Forms.Label();
             this.labelCsvDataA = new System.Windows.Forms.Label();
             this.labelWebCodeResponseB = new System.Windows.Forms.Label();
             this.labelUrlResponseB = new System.Windows.Forms.Label();
-            this.textBoxUrlResponseB = new System.Windows.Forms.TextBox();
             this.textBoxCsvDataB = new System.Windows.Forms.TextBox();
             this.textBoxCsvDataA = new System.Windows.Forms.TextBox();
             this.textBoxWebCodeResponseB = new System.Windows.Forms.TextBox();
@@ -437,6 +437,15 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBoxUrlResponseB
+            // 
+            this.textBoxUrlResponseB.Location = new System.Drawing.Point(155, 102);
+            this.textBoxUrlResponseB.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxUrlResponseB.Multiline = true;
+            this.textBoxUrlResponseB.Name = "textBoxUrlResponseB";
+            this.textBoxUrlResponseB.Size = new System.Drawing.Size(1039, 46);
+            this.textBoxUrlResponseB.TabIndex = 3;
+            // 
             // labelCsvDataB
             // 
             this.labelCsvDataB.AutoSize = true;
@@ -476,15 +485,6 @@
             this.labelUrlResponseB.Size = new System.Drawing.Size(87, 13);
             this.labelUrlResponseB.TabIndex = 5;
             this.labelUrlResponseB.Text = "URL ResponseB";
-            // 
-            // textBoxUrlResponseB
-            // 
-            this.textBoxUrlResponseB.Location = new System.Drawing.Point(155, 102);
-            this.textBoxUrlResponseB.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxUrlResponseB.Multiline = true;
-            this.textBoxUrlResponseB.Name = "textBoxUrlResponseB";
-            this.textBoxUrlResponseB.Size = new System.Drawing.Size(1039, 46);
-            this.textBoxUrlResponseB.TabIndex = 3;
             // 
             // textBoxCsvDataB
             // 
@@ -1307,6 +1307,7 @@
             this.dataGridView3B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3B.Location = new System.Drawing.Point(193, 385);
             this.dataGridView3B.Name = "dataGridView3B";
+            this.dataGridView3B.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView3B.Size = new System.Drawing.Size(1040, 151);
             this.dataGridView3B.TabIndex = 0;
             // 
@@ -1325,6 +1326,7 @@
             this.dataGridView3A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3A.Location = new System.Drawing.Point(193, 158);
             this.dataGridView3A.Name = "dataGridView3A";
+            this.dataGridView3A.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridView3A.Size = new System.Drawing.Size(1040, 151);
             this.dataGridView3A.TabIndex = 0;
             // 

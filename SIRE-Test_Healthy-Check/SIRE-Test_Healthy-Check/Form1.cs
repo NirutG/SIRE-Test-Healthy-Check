@@ -137,23 +137,33 @@ namespace SIRE_Test_Healthy_Check
         byte lineHeadR_A = 2; //Initial for G2_(R) of ProcessA
         int inputLineHeadL_A = 0; //Initial to count HSA Head L of ProcessA
         int inputLineHeadR_A = 0; //Initial to count HSA Head L of ProcessA
+        double readabilityFailTarget_A = 0.50; //Initial to check HGA Read Target of ProcessA
+        double etesterFailTarget_A = 5.00; //Initial to check HSA ETEST Fail Target of ProcessA
+        double badOCRTarget_A = 0.50; //Initial to check HGA BAD OCR Target of ProcessA
         double readabilityFailLineHeadL_A = 0; //Initial to check HGA Head L of ProcessA
         double readabilityFailLineHeadR_A = 0; //Initial to check HGA Head R of ProcessA
         double etesterFailLineHeadL_A = 0; //Initial to check HSA Head L of ProcessA
         double etesterFailLineHeadR_A = 0; //Initial to check HSA Head R of ProcessA
         double badOCRLineHeadL_A = 0; //Initial to check HGA Head L of ProcessA
         double badOCRLineHeadR_A = 0; //Initial to check HGA Head R of ProcessA
+        string softwareVersionL_A = ""; //Initial to check Software Version Head L of ProcessA
+        string softwareVersionR_A = ""; //Initial to check Software Version Head R of ProcessA
 
         byte lineHeadL_B = 1; //Initial for G2_(L) of ProcessB
         byte lineHeadR_B = 2; //Initial for G2_(R) of ProcessB
         int inputLineHeadL_B = 0; //Initial to count HSA Head L of ProcessB
         int inputLineHeadR_B = 0; //Initial to count HSA Head L of ProcessB
+        double readabilityFailTarget_B = 0.50; //Initial to check HGA Read Target of ProcessB
+        double etesterFailTarget_B = 5.00; //Initial to check HSA ETEST Fail Target of ProcessB
+        double badOCRTarget_B = 0.50; //Initial to check HGA BAD OCR Target of ProcessB
         double readabilityFailLineHeadL_B = 0; //Initial to check HGA Head L of ProcessB
         double readabilityFailLineHeadR_B = 0; //Initial to check HGA Head R of ProcessB
         double etesterFailLineHeadL_B = 0; //Initial to check HSA Head L of ProcessB
         double etesterFailLineHeadR_B = 0; //Initial to check HSA Head R of ProcessB
         double badOCRLineHeadL_B = 0; //Initial to check HGA Head L of ProcessB
         double badOCRLineHeadR_B = 0; //Initial to check HGA Head R of ProcessB
+        string softwareVersionL_B = ""; //Initial to check Software Version Head L of ProcessB
+        string softwareVersionR_B = ""; //Initial to check Software Version Head R of ProcessB
 
 
         string[] genesis = {"G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "GA", "GB", "GC", "GD", "GE", "GF", "GG", "GH", "GI", "GJ", "GK", "GL", "GM", "GN", "GO", "GP" }; //genesis[0] to genesis[23]
@@ -3616,7 +3626,7 @@ namespace SIRE_Test_Healthy_Check
 
                         //End Clear Ram
                         switchDisplayDataA = true; //Start function : display_DataA()
-                        switchDownloadCsvDataB = true; //Start function : download_CsvData2()
+                        //switchDownloadCsvDataB = true; //Start function : download_CsvData2() -->Debug
                         switchDownloadCsvDataA = false;
                         stateDownloadCsvDataA = 0;
                         break;
@@ -3954,6 +3964,9 @@ namespace SIRE_Test_Healthy_Check
                 switch (stateDisplayDataA)
                 {
                     case 0: //State0 : Initial Variables
+                        readabilityFailTarget_A = 0.50; //Initial to check HGA Read Target of ProcessA
+                        etesterFailTarget_A = 5.00; //Initial to check HSA ETEST Fail Target of ProcessA
+                        badOCRTarget_A = 0.50; //Initial to check HGA BAD OCR Target of ProcessA
                         lineHeadL_A = 1; //Initial for G2_(L)
                         lineHeadR_A = 2; //Initial for G2_(R)
                         inputLineHeadL_A = 0; //Reset inputLineHeadL_A
@@ -3964,6 +3977,8 @@ namespace SIRE_Test_Healthy_Check
                         etesterFailLineHeadR_A = 0; //Reset etesterFailLineHeadR_A
                         badOCRLineHeadL_A = 0; //Reset badOCRLineHeadL_A
                         badOCRLineHeadR_A = 0; //Reset badOCRLineHeadR_A
+                        softwareVersionL_A = ""; //Reset Line Software Version
+                        softwareVersionR_A = ""; //Reset Line Software Version
                         stateDisplayDataA = 1;
                         break;
                     case 1: //State1 : Open Display Area
@@ -4030,10 +4045,14 @@ namespace SIRE_Test_Healthy_Check
                         break;
                     case 4: //State4 : Add Row for Items
                         dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row0 : INPUT
-                        dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row1 : READABILITY FAIL
-                        dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row2 : ETESTER FAIL
-                        dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row3 : BAD OCR
+                        dataTable3A.Rows.Add((readabilityFailTarget_A.ToString("#,##0.00") +"%"), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row1 : READABILITY FAIL
+                        dataTable3A.Rows.Add((etesterFailTarget_A.ToString("#,##0.00") + "%"), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row2 : ETESTER FAIL
+                        dataTable3A.Rows.Add((badOCRTarget_A.ToString("#,##0.00") + "%"), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row3 : BAD OCR
                         dataTable3A.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row4 : SW.VERSION
+
+                        dataGridView3A.DataSource = dataTable3A; //Dump data in Table
+                        dataGridView3A.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; //Make Text Center in Header Cell
+                        dataGridView3A.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; //Make Text Center in Cell
                         stateDisplayDataA = 5;
                         break;
                     case 5: //State5 : Check HSA Input, HGA ReadabilityFail,
@@ -4059,6 +4078,7 @@ namespace SIRE_Test_Healthy_Check
                                         {
                                             badOCRLineHeadL_A++; //Increase BAD OCR Head L of Process A
                                         }
+                                        softwareVersionL_A = dataTable2A.Rows[i][13].ToString(); //Store SW.Version Head L use to Run Machine
                                     }
                                     else if (dataTable2A.Rows[i][11].ToString().EndsWith("2"))
                                     {
@@ -4075,6 +4095,7 @@ namespace SIRE_Test_Healthy_Check
                                         {
                                             badOCRLineHeadR_A++; //Increase BAD OCR Head R of Process A
                                         }
+                                        softwareVersionR_A = dataTable2A.Rows[i][13].ToString(); //Store SW.Version Head R use to Run Machine
                                     }
                                     else
                                     {
@@ -4092,66 +4113,260 @@ namespace SIRE_Test_Healthy_Check
                             if ((readabilityFailLineHeadL_A == 0) && (readabilityFailLineHeadR_A == 0)) //00
                             {
                                 dataTable3A.Rows[1][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_A Value
+                                if (double.Parse(dataTable3A.Rows[1][lineHeadL_A].ToString().Replace("%","")) >= readabilityFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 1].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[1][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[1][lineHeadR_A].ToString().Replace("%", "")) >= readabilityFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 1].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((readabilityFailLineHeadL_A == 0) && (readabilityFailLineHeadR_A != 0)) //01
                             {
                                 dataTable3A.Rows[1][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_A Value
+                                if (double.Parse(dataTable3A.Rows[1][lineHeadL_A].ToString().Replace("%", "")) >= readabilityFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 1].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[1][lineHeadR_A] = (((readabilityFailLineHeadR_A / inputLineHeadR_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[1][lineHeadR_A].ToString().Replace("%", "")) >= readabilityFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 1].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((readabilityFailLineHeadL_A != 0) && (readabilityFailLineHeadR_A == 0)) //10
                             {
                                 dataTable3A.Rows[1][lineHeadL_A] = (((readabilityFailLineHeadL_A / inputLineHeadL_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_A Value
+                                if (double.Parse(dataTable3A.Rows[1][lineHeadL_A].ToString().Replace("%", "")) >= readabilityFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 1].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[1][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[1][lineHeadR_A].ToString().Replace("%", "")) >= readabilityFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 1].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((readabilityFailLineHeadL_A != 0) && (readabilityFailLineHeadR_A != 0)) //11
                             {
                                 dataTable3A.Rows[1][lineHeadL_A] = (((readabilityFailLineHeadL_A / inputLineHeadL_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_A Value
+                                if (double.Parse(dataTable3A.Rows[1][lineHeadL_A].ToString().Replace("%", "")) >= readabilityFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 1].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[1][lineHeadR_A] = (((readabilityFailLineHeadR_A / inputLineHeadR_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[1][lineHeadR_A].ToString().Replace("%", "")) >= readabilityFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 1].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             //*********** HSA ETEST Fail ****************
                             if ((etesterFailLineHeadL_A == 0) && (etesterFailLineHeadR_A == 0)) //00
                             {
                                 dataTable3A.Rows[2][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadL_A Value
+                                if (double.Parse(dataTable3A.Rows[2][lineHeadL_A].ToString().Replace("%", "")) >= etesterFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 2].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[2][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[2][lineHeadR_A].ToString().Replace("%", "")) >= etesterFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 2].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((etesterFailLineHeadL_A == 0) && (etesterFailLineHeadR_A != 0)) //01
                             {
                                 dataTable3A.Rows[2][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadL_A Value
+                                if (double.Parse(dataTable3A.Rows[2][lineHeadL_A].ToString().Replace("%", "")) >= etesterFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 2].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[2][lineHeadR_A] = ((((etesterFailLineHeadR_A / 18) / (inputLineHeadR_A / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[2][lineHeadR_A].ToString().Replace("%", "")) >= etesterFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 2].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((etesterFailLineHeadL_A != 0) && (etesterFailLineHeadR_A == 0)) //10
                             {
                                 dataTable3A.Rows[2][lineHeadL_A] = ((((etesterFailLineHeadL_A / 18) / (inputLineHeadL_A / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadL_A Value
+                                if (double.Parse(dataTable3A.Rows[2][lineHeadL_A].ToString().Replace("%", "")) >= etesterFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 2].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[2][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[2][lineHeadR_A].ToString().Replace("%", "")) >= etesterFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 2].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((etesterFailLineHeadL_A != 0) && (etesterFailLineHeadR_A != 0)) //11
                             {
                                 dataTable3A.Rows[2][lineHeadL_A] = ((((etesterFailLineHeadL_A / 18) / (inputLineHeadL_A / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadL_A Value
+                                if (double.Parse(dataTable3A.Rows[2][lineHeadL_A].ToString().Replace("%", "")) >= etesterFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 2].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[2][lineHeadR_A] = ((((etesterFailLineHeadR_A / 18) / (inputLineHeadR_A / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadR_A Value
-
+                                if (double.Parse(dataTable3A.Rows[2][lineHeadR_A].ToString().Replace("%", "")) >= etesterFailTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 2].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             //********** HGA BAD OCR ****************
                             if ((badOCRLineHeadL_A == 0) && (badOCRLineHeadR_A == 0)) //00
                             {
                                 dataTable3A.Rows[3][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_A  Value
+                                if (double.Parse(dataTable3A.Rows[3][lineHeadL_A].ToString().Replace("%", "")) >= badOCRTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 3].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[3][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[3][lineHeadR_A].ToString().Replace("%", "")) >= badOCRTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 3].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((badOCRLineHeadL_A == 0) && (badOCRLineHeadR_A != 0)) //01
                             {
                                 dataTable3A.Rows[3][lineHeadL_A] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_A  Value
+                                if (double.Parse(dataTable3A.Rows[3][lineHeadL_A].ToString().Replace("%", "")) >= badOCRTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 3].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[3][lineHeadR_A] = (((badOCRLineHeadR_A / inputLineHeadR_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[3][lineHeadR_A].ToString().Replace("%", "")) >= badOCRTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 3].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((badOCRLineHeadL_A != 0) && (badOCRLineHeadR_A == 0)) //10
                             {
                                 dataTable3A.Rows[3][lineHeadL_A] = (((badOCRLineHeadL_A / inputLineHeadL_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_A  Value
+                                if (double.Parse(dataTable3A.Rows[3][lineHeadL_A].ToString().Replace("%", "")) >= badOCRTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 3].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[3][lineHeadR_A] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[3][lineHeadR_A].ToString().Replace("%", "")) >= badOCRTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 3].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((badOCRLineHeadL_A != 0) && (badOCRLineHeadR_A != 0)) //11
                             {
                                 dataTable3A.Rows[3][lineHeadL_A] = (((badOCRLineHeadL_A / inputLineHeadL_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_A  Value
+                                if (double.Parse(dataTable3A.Rows[3][lineHeadL_A].ToString().Replace("%", "")) >= badOCRTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadL_A, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadL_A, 3].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3A.Rows[3][lineHeadR_A] = (((badOCRLineHeadR_A / inputLineHeadR_A)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_A Value
+                                if (double.Parse(dataTable3A.Rows[3][lineHeadR_A].ToString().Replace("%", "")) >= badOCRTarget_A) //Check >= Target?
+                                {
+                                    dataGridView3A[lineHeadR_A, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3A[lineHeadR_A, 3].Style.BackColor = Color.LawnGreen;
+                                }
                             }
+                            //********** Line Software Version ***************
+                            dataTable3A.Rows[4][lineHeadL_A] = softwareVersionL_A; //Write Line Software Version
+                            dataTable3A.Rows[4][lineHeadR_A] = softwareVersionR_A; //Write Line Software Version
                             //**********
                             inputLineHeadL_A = 0; //Reset inputLineHeadL_A
                             inputLineHeadR_A = 0; //Reset inputLineHeadR_A
@@ -4161,6 +4376,8 @@ namespace SIRE_Test_Healthy_Check
                             etesterFailLineHeadR_A = 0; //Reset etesterFailLineHeadR_A
                             badOCRLineHeadL_A = 0; //Reset badOCRLineHeadL_A
                             badOCRLineHeadR_A = 0; //Reset badOCRLineHeadR_A
+                            softwareVersionL_A = ""; //Reset Line Software Version
+                            softwareVersionR_A = ""; //Reset Line Software Version
                             lineHeadL_A += 2; //Increase to Next Head
                             lineHeadR_A += 2; //Increase to Next Head
                         }
@@ -4169,7 +4386,10 @@ namespace SIRE_Test_Healthy_Check
                         stateDisplayDataA = 6;
                         break;
                     case 6: //State6 : Dump into dataGridView3A
-                        dataGridView3A.DataSource = dataTable3A;
+                            //dataGridView3A.DataSource = dataTable3A;
+                        dataGridView3A.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; //Auto Adjust Column Width
+                        dataGridView3A.Columns[0].DefaultCellStyle.ForeColor = Color.Red; //Change Text in Column0 to Red Color
+                        dataGridView3A.Columns[0].Frozen = true; //Freeze Column0
                         stateDisplayDataA = 10;
                         break;
                     case 10:
@@ -4191,6 +4411,9 @@ namespace SIRE_Test_Healthy_Check
                 switch (stateDisplayDataB)
                 {
                     case 0: //State0 : Initial Variables
+                        readabilityFailTarget_B = 0.50; //Initial to check HGA Read Target of ProcessB
+                        etesterFailTarget_B = 5.00; //Initial to check HSA ETEST Fail Target of ProcessB
+                        badOCRTarget_B = 0.50; //Initial to check HGA BAD OCR Target of ProcessB
                         lineHeadL_B = 1; //Initial for G2_(L)
                         lineHeadR_B = 2; //Initial for G2_(R)
                         inputLineHeadL_B = 0; //Reset inputLineHeadL_B
@@ -4201,6 +4424,8 @@ namespace SIRE_Test_Healthy_Check
                         etesterFailLineHeadR_B = 0; //Reset etesterFailLineHeadR_B
                         badOCRLineHeadL_B = 0; //Reset badOCRLineHeadL_B
                         badOCRLineHeadR_B = 0; //Reset badOCRLineHeadR_B
+                        softwareVersionL_B = ""; //Reset Line Software Version
+                        softwareVersionR_B = ""; //Reset Line Software Version
                         stateDisplayDataB = 1;
                         break;
                     case 1: //State1 : Open Display Area
@@ -4267,10 +4492,14 @@ namespace SIRE_Test_Healthy_Check
                         break;
                     case 4: //State4 : Add Row for Items
                         dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row0 : INPUT
-                        dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row1 : READABILITY FAIL
-                        dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row2 : ETESTER FAIL
-                        dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row3 : BAD OCR
+                        dataTable3B.Rows.Add((readabilityFailTarget_B.ToString("#,##0.00") + "%"), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row1 : READABILITY FAIL
+                        dataTable3B.Rows.Add((etesterFailTarget_B.ToString("#,##0.00") + "%"), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row2 : ETESTER FAIL
+                        dataTable3B.Rows.Add((badOCRTarget_B.ToString("#,##0.00") + "%"), "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row3 : BAD OCR
                         dataTable3B.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""); //Add in ITEM Row4 : SW.VERSION
+
+                        dataGridView3B.DataSource = dataTable3B; //Dump data in Table
+                        dataGridView3B.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; //Make Text Center in Header Cell
+                        dataGridView3B.RowsDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; //Make Text Center in Cell
                         stateDisplayDataB = 5;
                         break;
                     case 5: //State5 : Check HSA Input, HGA ReadabilityFail,
@@ -4296,6 +4525,7 @@ namespace SIRE_Test_Healthy_Check
                                         {
                                             badOCRLineHeadL_B++; //Increase BAD OCR Head L of Process B
                                         }
+                                        softwareVersionL_B = dataTable2B.Rows[i][13].ToString(); //Store SW.Version Head L use to Run Machine
                                     }
                                     else if (dataTable2B.Rows[i][11].ToString().EndsWith("2"))
                                     {
@@ -4312,6 +4542,7 @@ namespace SIRE_Test_Healthy_Check
                                         {
                                             badOCRLineHeadR_B++; //Increase BAD OCR Head R of Process B
                                         }
+                                        softwareVersionR_B = dataTable2B.Rows[i][13].ToString(); //Store SW.Version Head R use to Run Machine
                                     }
                                     else
                                     {
@@ -4328,65 +4559,260 @@ namespace SIRE_Test_Healthy_Check
                             if ((readabilityFailLineHeadL_B == 0) && (readabilityFailLineHeadR_B == 0)) //00
                             {
                                 dataTable3B.Rows[1][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_B Value
+                                if (double.Parse(dataTable3B.Rows[1][lineHeadL_B].ToString().Replace("%", "")) >= readabilityFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 1].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[1][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[1][lineHeadR_B].ToString().Replace("%", "")) >= readabilityFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 1].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((readabilityFailLineHeadL_B == 0) && (readabilityFailLineHeadR_B != 0)) //01
                             {
                                 dataTable3B.Rows[1][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_B Value
+                                if (double.Parse(dataTable3B.Rows[1][lineHeadL_B].ToString().Replace("%", "")) >= readabilityFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 1].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[1][lineHeadR_B] = (((readabilityFailLineHeadR_B / inputLineHeadR_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[1][lineHeadR_B].ToString().Replace("%", "")) >= readabilityFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 1].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((readabilityFailLineHeadL_B != 0) && (readabilityFailLineHeadR_B == 0)) //10
                             {
                                 dataTable3B.Rows[1][lineHeadL_B] = (((readabilityFailLineHeadL_B / inputLineHeadL_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_B Value
+                                if (double.Parse(dataTable3B.Rows[1][lineHeadL_B].ToString().Replace("%", "")) >= readabilityFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 1].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[1][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[1][lineHeadR_B].ToString().Replace("%", "")) >= readabilityFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 1].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((readabilityFailLineHeadL_B != 0) && (readabilityFailLineHeadR_B != 0)) //11
                             {
                                 dataTable3B.Rows[1][lineHeadL_B] = (((readabilityFailLineHeadL_B / inputLineHeadL_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadL_B Value
+                                if (double.Parse(dataTable3B.Rows[1][lineHeadL_B].ToString().Replace("%", "")) >= readabilityFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 1].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[1][lineHeadR_B] = (((readabilityFailLineHeadR_B / inputLineHeadR_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA readabilityFailLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[1][lineHeadR_B].ToString().Replace("%", "")) >= readabilityFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 1].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 1].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             //*********** HSA ETEST Fail ****************
                             if ((etesterFailLineHeadL_B == 0) && (etesterFailLineHeadR_B == 0)) //00
                             {
                                 dataTable3B.Rows[2][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadL_B Value
+                                if (double.Parse(dataTable3B.Rows[2][lineHeadL_B].ToString().Replace("%", "")) >= etesterFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 2].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[2][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[2][lineHeadR_B].ToString().Replace("%", "")) >= etesterFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 2].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((etesterFailLineHeadL_B == 0) && (etesterFailLineHeadR_B != 0)) //01
                             {
                                 dataTable3B.Rows[2][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadL_B Value
+                                if (double.Parse(dataTable3B.Rows[2][lineHeadL_B].ToString().Replace("%", "")) >= etesterFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 2].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[2][lineHeadR_B] = ((((etesterFailLineHeadR_B / 18) / (inputLineHeadR_B / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[2][lineHeadR_B].ToString().Replace("%", "")) >= etesterFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 2].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((etesterFailLineHeadL_B != 0) && (etesterFailLineHeadR_B == 0)) //10
                             {
                                 dataTable3B.Rows[2][lineHeadL_B] = ((((etesterFailLineHeadL_B / 18) / (inputLineHeadL_B / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadL_B Value
+                                if (double.Parse(dataTable3B.Rows[2][lineHeadL_B].ToString().Replace("%", "")) >= etesterFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 2].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[2][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HSA etesterFailLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[2][lineHeadR_B].ToString().Replace("%", "")) >= etesterFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 2].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((etesterFailLineHeadL_B != 0) && (etesterFailLineHeadR_B != 0)) //11
                             {
                                 dataTable3B.Rows[2][lineHeadL_B] = ((((etesterFailLineHeadL_B / 18) / (inputLineHeadL_B / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadL_B Value
+                                if (double.Parse(dataTable3B.Rows[2][lineHeadL_B].ToString().Replace("%", "")) >= etesterFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 2].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[2][lineHeadR_B] = ((((etesterFailLineHeadR_B / 18) / (inputLineHeadR_B / 18))) * 100).ToString("#,##0.00") + "%"; //Write HSA readabilityFailLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[2][lineHeadR_B].ToString().Replace("%", "")) >= etesterFailTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 2].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 2].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             //********** HGA BAD OCR ****************
                             if ((badOCRLineHeadL_B == 0) && (badOCRLineHeadR_B == 0)) //00
                             {
                                 dataTable3B.Rows[3][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_B  Value
+                                if (double.Parse(dataTable3B.Rows[3][lineHeadL_B].ToString().Replace("%", "")) >= badOCRTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 3].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[3][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[3][lineHeadR_B].ToString().Replace("%", "")) >= badOCRTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 3].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((badOCRLineHeadL_B == 0) && (badOCRLineHeadR_B != 0)) //01
                             {
                                 dataTable3B.Rows[3][lineHeadL_B] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_B  Value
+                                if (double.Parse(dataTable3B.Rows[3][lineHeadL_B].ToString().Replace("%", "")) >= badOCRTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 3].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[3][lineHeadR_B] = (((badOCRLineHeadR_B / inputLineHeadR_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[3][lineHeadR_B].ToString().Replace("%", "")) >= badOCRTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 3].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((badOCRLineHeadL_B != 0) && (badOCRLineHeadR_B == 0)) //10
                             {
                                 dataTable3B.Rows[3][lineHeadL_B] = (((badOCRLineHeadL_B / inputLineHeadL_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_B  Value
+                                if (double.Parse(dataTable3B.Rows[3][lineHeadL_B].ToString().Replace("%", "")) >= badOCRTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 3].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[3][lineHeadR_B] = 0.ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[3][lineHeadR_B].ToString().Replace("%", "")) >= badOCRTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 3].Style.BackColor = Color.LawnGreen;
+                                }
                             }
                             if ((badOCRLineHeadL_B != 0) && (badOCRLineHeadR_B != 0)) //11
                             {
                                 dataTable3B.Rows[3][lineHeadL_B] = (((badOCRLineHeadL_B / inputLineHeadL_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadL_B  Value
+                                if (double.Parse(dataTable3B.Rows[3][lineHeadL_B].ToString().Replace("%", "")) >= badOCRTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadL_B, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadL_B, 3].Style.BackColor = Color.LawnGreen;
+                                }
                                 dataTable3B.Rows[3][lineHeadR_B] = (((badOCRLineHeadR_B / inputLineHeadR_B)) * 100).ToString("#,##0.00") + "%"; //Write HGA badOCRLineHeadR_B Value
+                                if (double.Parse(dataTable3B.Rows[3][lineHeadR_B].ToString().Replace("%", "")) >= badOCRTarget_B) //Check >= Target?
+                                {
+                                    dataGridView3B[lineHeadR_B, 3].Style.BackColor = Color.Red;
+                                }
+                                else
+                                {
+                                    dataGridView3B[lineHeadR_B, 3].Style.BackColor = Color.LawnGreen;
+                                }
                             }
+                            //********** Line Software Version ***************
+                            dataTable3B.Rows[4][lineHeadL_B] = softwareVersionL_B; //Write Line Software Version
+                            dataTable3B.Rows[4][lineHeadR_B] = softwareVersionR_B; //Write Line Software Version
                             //**********
                             inputLineHeadL_B = 0; //Reset inputLineHeadL_B
                             inputLineHeadR_B = 0; //Reset inputLineHeadR_B
@@ -4396,6 +4822,8 @@ namespace SIRE_Test_Healthy_Check
                             etesterFailLineHeadR_B = 0; //Reset etesterFailLineHeadR_B
                             badOCRLineHeadL_B = 0; //Reset badOCRLineHeadL_B
                             badOCRLineHeadR_B = 0; //Reset badOCRLineHeadR_B
+                            softwareVersionL_B = ""; //Reset Line Software Version
+                            softwareVersionR_B = ""; //Reset Line Software Version
                             lineHeadL_B += 2; //Increase to Next Head
                             lineHeadR_B += 2; //Increase to Next Head
                         }
@@ -4403,9 +4831,11 @@ namespace SIRE_Test_Healthy_Check
                         lineHeadR_B = 2; //Reset lineHeadR_B
                         stateDisplayDataB = 6;
                         break;
-
                     case 6: //State6 : Dump into dataGridView3B
-                        dataGridView3B.DataSource = dataTable3B;
+                        //dataGridView3B.DataSource = dataTable3B;
+                        dataGridView3B.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; //Auto Adjust Column Width
+                        dataGridView3B.Columns[0].DefaultCellStyle.ForeColor = Color.Red; //Change Text in Column0 to Red Color
+                        dataGridView3B.Columns[0].Frozen = true; //Freeze Column0
                         stateDisplayDataB = 10;
                         break;
                     case 10:
