@@ -165,7 +165,6 @@ namespace SIRE_Test_Healthy_Check
         string softwareVersionL_B = ""; //Initial to check Software Version Head L of ProcessB
         string softwareVersionR_B = ""; //Initial to check Software Version Head R of ProcessB
 
-
         string[] genesis = {"G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "GA", "GB", "GC", "GD", "GE", "GF", "GG", "GH", "GI", "GJ", "GK", "GL", "GM", "GN", "GO", "GP" }; //genesis[0] to genesis[23]
         //G2_(L) = Column1, G2_(R) = Column2
         //G3_(L) = Column3, G3_(R) = Column4
@@ -197,6 +196,7 @@ namespace SIRE_Test_Healthy_Check
         public Form1()
         {
             InitializeComponent();
+            //webBrowser1_Born(); //webBrowser1 Born
             timerStateCyclic.Enabled = true;
             timerStateCyclic.Start(); //Add new
         }
@@ -517,7 +517,7 @@ namespace SIRE_Test_Healthy_Check
                 case 2: //State2 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
                     textBoxWebCodeResponseSubStringIndex17AfterTrimmedA.Text = wordWebCodeResponseA[17].Substring(7, 56);
                     //Console.WriteLine(wordWebCodeResponseA[17].Substring(7, 56)); //Debug
-                    tabControl1.SelectedTab = tabPage2; //Open tabPage3 to normal
+                    //tabControl1.SelectedTab = tabPage2; //Open tabPage3 to normal
                     stateShowUrlToRetrieveProcessA = 3;
                     break;
                 case 3: //State3 : Show ParametricDataRetrieveProductionDB URL to textbox
@@ -553,7 +553,7 @@ namespace SIRE_Test_Healthy_Check
                 case 2: //State2 : Show wordWebCodeResponse[17] after trimmed unneccessary charracters to textbox
                     textBoxWebCodeResponseSubStringIndex17AfterTrimmedB.Text = wordWebCodeResponseB[17].Substring(7, 56);
                     //Console.WriteLine(wordWebCodeResponseB[17].Substring(7, 56)); //Debug
-                    tabControl1.SelectedTab = tabPage2; //Open tabPage3 to normal
+                    //tabControl1.SelectedTab = tabPage2; //Open tabPage3 to normal
                     stateShowUrlToRetrieveProcessB = 3;
                     break;
                 case 3: //State3 : Show ParametricDataRetrieveProductionDB URL to textbox
@@ -3475,7 +3475,9 @@ namespace SIRE_Test_Healthy_Check
                         indexCsvDataColumnA = 0;
 
                         stateDownloadCsvDataA = 1;
-                        tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
+                        //tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
+
+                        webBrowser1_Born(); //webBrowser1 Born
                         break;
                     case 1: //State1 : Initial Entering Web VnusQ by Logoff
                         if(go_UrlA("http://dwhweb.prb.hgst.com/dwh/logoff.jsp"))
@@ -3561,6 +3563,8 @@ namespace SIRE_Test_Healthy_Check
 
                         textBoxCsvDataA.Text = webBrowser1.Document.Body.InnerText;
 
+                        webBrowser1_Dead(); //webBrowser1 Dead
+
                         dataTable2A.Clear(); //Clear datatable of CSV Data
                         dataTable2A.Columns.Clear(); //Clear Columns of datatable CSV Data
                         dataTable2A.Rows.Clear(); //Clear Rows of datatable CSV Data
@@ -3611,14 +3615,14 @@ namespace SIRE_Test_Healthy_Check
 
                         dataGridView2A.DataSource = dataTable2A;
 
-                        tabControl1.SelectedTab = tabPage2; //Debug
+                        //tabControl1.SelectedTab = tabPage2; //Debug
 
                         stateDownloadCsvDataA = 100;
                         break;
                     case 100: //State100 : End This Function and Resetting variables
                         //Begin Clear Ram
-                        this.webBrowser1.Navigate(string.Empty);
-
+                        //this.webBrowser1.Navigate(string.Empty);
+                        
                         textBoxUrlToGo.Clear();
                         textBoxUrlResponseA.Clear();
                         textBoxWebCodeResponseA.Clear();
@@ -3626,7 +3630,7 @@ namespace SIRE_Test_Healthy_Check
 
                         //End Clear Ram
                         switchDisplayDataA = true; //Start function : display_DataA()
-                        //switchDownloadCsvDataB = true; //Start function : download_CsvData2() -->Debug
+                        switchDownloadCsvDataB = false; //Start function : download_CsvData2() -->Debug
                         switchDownloadCsvDataA = false;
                         stateDownloadCsvDataA = 0;
                         break;
@@ -3653,7 +3657,7 @@ namespace SIRE_Test_Healthy_Check
                             indexCsvDataColumnB = 0;
 
                             stateDownloadCsvDataB = 1;
-                            tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
+                            //tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
                             break;
                         case 1: //State1 : Initial Entering Web VnusQ by Logoff
                             if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/logoff.jsp"))
@@ -3790,7 +3794,7 @@ namespace SIRE_Test_Healthy_Check
 
                             dataGridView2B.DataSource = dataTable2B;
 
-                            tabControl1.SelectedTab = tabPage2; //Debug
+                            //tabControl1.SelectedTab = tabPage2; //Debug
 
                             stateDownloadCsvDataB = 100;
                             break;
@@ -3816,145 +3820,6 @@ namespace SIRE_Test_Healthy_Check
         }
         //##### End : download_CsvDataB
 
-        //##### Begin : display_Data
-        private void display_Data()
-        {
-            /*
-            if (switchDisplayData)
-            {
-
-                switch (stateDisplayData)
-                {
-                    case 0: //Initial Variable
-                        errorCodeTotal = indexCsvDataRow; //Initial Count Total Error Code
-                        errorCodePass = 0; //Initial Count Pass Error Code
-                        errorCodeFail = 0; //Initial Count Fail Error Code
-
-                        dataTable3.Clear(); //Clear datatable of Display Data
-                        dataTable3.Columns.Clear(); //Clear Columns of Display CSV Data
-                        dataTable3.Rows.Clear(); //Clear Rows of Display CSV Data
-                        dataTable3.Columns.Add("Item"); //Add 1st Column
-                        dataTable3.Columns.Add("ErrorCode"); //Add 2nd Column
-
-                        dataTable4.Clear(); //Clear datatable of ErrorCodeCount
-                        dataTable4.Columns.Clear(); //Clear Column of ErrorCodeCount
-                        dataTable4.Rows.Clear(); //Clear Rows of ErrorCodeCount
-                        dataTable4.Columns.Add("ErrorCodeNumber"); //Add 1st Column
-                        dataTable4.Columns.Add("Q'ty or dataGrid3Item"); //Add 2nd Column
-                        dataTable4.Columns.Add("%"); //Add 3rn Column
-
-                        tabControl1.SelectedTab = tabPage5; //Open tabPage5 to Display data
-                        subStateDisplayData1 = 0;
-                        stateDisplayData = 1;
-                        break;
-                    case 1: //State1 : Count ErrorCode in Column "PFCD", Total and Pass and Fail = ? and Identigy ErrorCode into dataGridView3
-                        for(int i = 1; i < errorCodeTotal; i++)
-                        {
-                            if(dataTable2A.Rows[i][7].ToString()=="0000")
-                            {
-                                errorCodePass++; //Debug
-                            }
-                            else
-                            {
-                                dataTable3.Rows.Add(i, dataTable2A.Rows[i][7].ToString()); //Debug
-                                errorCodeFail++;
-                            }
-                        }
-                        textBoxTest.Text = dataTable2A.Rows[0][7].ToString(); //Debug
-                        textBoxErorCodeTotal.Text = errorCodeTotal.ToString();
-                        textBoxErorCodePass.Text = errorCodePass.ToString();
-                        textBoxErorCodeFail.Text = errorCodeFail.ToString();
-                        dataGridView3.DataSource = dataTable3; //Dump dataTable3 after added all ErrorCode into dataGridView3 to Analyze
-                        stateDisplayData = 2;
-                        break;
-                    case 2: //State2 : Count Q'ty and % of ErrorCode in dataTable3 
-                        foreach (DataGridViewRow checkCode in dataGridView3.Rows)
-                        {
-                            errorCodeInColumn += checkCode.Cells["ErrorCode"].Value + " ";
-                        }
-                        textBoxCheckErrorCode.Text = errorCodeInColumn;
-                        stateDisplayData = 3;
-                        break;
-                    case 3: //State3 : Count Q'ty and % of ErrorCode in dataTable3 Continue
-                        indexDataGridView3 = 0; 
-                        indexDataGridView4 = 0; //Prepare to count ErrorCode1
-                        errorCodeInColumn = errorCodeInColumn.TrimEnd(); //Trim Whitespaces
-                        errorCode = errorCodeInColumn.Split(' '); //Test
-                        stateDisplayData = 4;
-                        break;
-                    case 4: //State4 : Count Q'ty and % of ErrorCode in dataTable3 Continue
-                        list.Add(errorCode[indexDataGridView4]); //Add errorCode[0] into list
-                        errorCodeNumber = list.ToArray(); //Add 1st ErrorCode to errorCodeNumber
-                        dataTable4.Rows.Add(errorCodeNumber[indexDataGridView4], dataTable3.Rows[indexDataGridView3][0], "NotReady!"); //Add 1st ErrorCode into dataTable4
-                        stateDisplayData = 5;
-                        break;
-                    case 5: //State5 : Count Q'ty and % of ErrorCode in dataTable3 Continue
-                        foreach (string checkWord in errorCode)
-                        {
-                            if (checkWord != errorCodeNumber[indexDataGridView4]) //Checking Difference ErrorCode
-                            {
-                                foreach(string check in errorCodeNumber)
-                                {
-                                    if (errorCodeNumber.Contains(checkWord)) //Check current ErrorCodeNumber is contain in errorCodeNumber array or not?
-                                    {
-
-                                    }
-                                    else
-                                    {
-                                        list.Add(checkWord); //Add current ErrorCodeNumber to list
-                                        errorCodeNumber = list.ToArray(); //Convert list to be Array then dump to errorCodeNumber
-                                        indexDataGridView4++;
-
-                                        dataTable4.Rows.Add(checkWord, dataTable3.Rows[indexDataGridView3][0], "NotReady!"); //Add Difference ErrorCode into dataTable4
-                                    }
-                                }
-                                indexDataGridView3++;
-                            }
-                            else
-                            {
-                                indexDataGridView3++;
-                            }
-                            textBoxTest.Text = indexDataGridView3.ToString();
-                        }
-                        errorCodeQuantity[0] = 0; //Initial before count errorCode
-                        errorCodeShiftRow = 0; //Initial before count errorCode
-
-                        stateDisplayData = 6;
-                        break;
-                    case 6: //State6 : Count Q'ty of ErrorCode in dataTable3
-                        textBoxTest.Text = dataTable4.Rows.Count.ToString();
-                        for (int count = 0; count < dataTable4.Rows.Count; count++)
-                        {
-                            foreach(string code in errorCode)
-                            {
-                                if(code == dataTable4.Rows[count][0].ToString())
-                                {
-                                    errorCodeQuantity[count]++;
-                                    dataTable4.Rows[count][2] = errorCodeQuantity[count]; //Put ErrorCode Quantity to Column2
-                                }
-                                else
-                                {
-                                }
-                            }
-                        }
-                        stateDisplayData = 7;
-                        break;
-                    case 7: //State7 : Count Q'ty and % of ErrorCode in dataTable3 Continue
-                        dataGridView4.DataSource = dataTable4; //Assign dataGridView4.DataSource = dataTable4
-                        stateDisplayData = 100;
-                        break;
-                    case 100: //State100:
-                        switchDisplayData = false;
-                        subStateDisplayData1 = 0;
-                        stateDisplayData = 0;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            */
-        }
-        //##### End : display_Data
 
         //##### Begin : display_DataA
         private void display_DataA()
@@ -4395,6 +4260,7 @@ namespace SIRE_Test_Healthy_Check
                     case 10:
                         stateDisplayDataA = 0;
                         switchDisplayDataA = false;
+                        //Application.Restart(); // Debug
                         break;
                     default:
                         break;
@@ -4841,6 +4707,7 @@ namespace SIRE_Test_Healthy_Check
                     case 10:
                         stateDisplayDataB = 0;
                         switchDisplayDataB = false;
+                        //Application.Restart(); // Debug
                         break;
                     default:
                         break;
@@ -4984,7 +4851,7 @@ namespace SIRE_Test_Healthy_Check
             indexCsvDataRowB = 0;
             indexCsvDataColumnB = 0;
             stateDownloadCsvDataB = 0;
-            tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
+            //tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
 
             //Begin again
 
@@ -4998,6 +4865,7 @@ namespace SIRE_Test_Healthy_Check
         {
             statusWebBrowser1DocumentCompleted = false; //Set status = false
         }
+
         private void webBrowser2_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
             statusWebBrowser2DocumentCompleted = false; //Set status = false
@@ -5033,7 +4901,6 @@ namespace SIRE_Test_Healthy_Check
             check_Time(); //Check Time to use Function download_CsvDataB() must between 09:00 to 23:54 
             download_CsvDataA(); //Auto download CSV Data Yesterday 07:00 to Today 06:59
             download_CsvDataB(); //Auto download CSV Data Today 07:00 to Today 23.59
-            //display_Data(); //Auto display Data
             display_DataA(); //Auto display Data Yesterday 07:00 to Today 06:59
             display_DataB(); //Auto display Data Today 07:00 to Now(23:59:59)
             textBoxStateDownloadCsvDataA.Text = stateDownloadCsvDataA.ToString();

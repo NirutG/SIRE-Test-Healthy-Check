@@ -1,4 +1,6 @@
-﻿namespace SIRE_Test_Healthy_Check
+﻿using System;
+//using System.Windows.Forms;
+namespace SIRE_Test_Healthy_Check
 {
     partial class Form1
     {
@@ -30,7 +32,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.buttonTest = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.textBoxUrlToGo = new System.Windows.Forms.TextBox();
             this.textBoxUrlResponseA = new System.Windows.Forms.TextBox();
             this.textBoxWebCodeResponseA = new System.Windows.Forms.TextBox();
@@ -150,6 +151,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timerWebBrowser1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -174,19 +176,6 @@
             this.buttonTest.Text = "TEST AGAIN";
             this.buttonTest.UseVisualStyleBackColor = true;
             this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(2);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(1053, 281);
-            this.webBrowser1.TabIndex = 1;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
-            this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
-            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
             // 
             // textBoxUrlToGo
             // 
@@ -528,7 +517,6 @@
             this.tabPage2.Controls.Add(this.textBoxStateDisplayDataA);
             this.tabPage2.Controls.Add(this.textBoxStateDownloadCsvDataB);
             this.tabPage2.Controls.Add(this.textBoxStateDownloadCsvDataA);
-            this.tabPage2.Controls.Add(this.webBrowser1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
@@ -1352,6 +1340,10 @@
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // timerWebBrowser1
+            // 
+            this.timerWebBrowser1.Tick += new System.EventHandler(this.timerWebBrowser1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1385,8 +1377,51 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonTest;
+        //##### BEGIN : webBrowser1_Born()
+        private void webBrowser1_Born()
+        {
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(2);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
+            this.webBrowser1.Size = new System.Drawing.Size(1053, 281);
+            this.webBrowser1.TabIndex = 1;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
+            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
+            this.tabPage2.Controls.Add(this.webBrowser1);
+        }
+
         private System.Windows.Forms.WebBrowser webBrowser1;
+
+        //##### END : webBrowser1_Born()
+
+        //##### BEGIN : Area about webBrowser1 Event
+        //See in area of Form1.cs
+        //##### END : Area about webBrowser1 Event
+
+        //##### BEGIN : webBrowser1_Dead()
+        private void webBrowser1_Dead()
+        {
+            timerWebBrowser1.Interval = 10000;
+            timerWebBrowser1.Enabled = true;
+            timerWebBrowser1.Start();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void timerWebBrowser1_Tick(object sender, EventArgs e)
+        {
+            webBrowser1.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            timerWebBrowser1.Stop();
+            timerWebBrowser1.Enabled = false;
+        }
+        //##### END : webBrowser1_Dead()
+
+        private System.Windows.Forms.Button buttonTest;
         private System.Windows.Forms.TextBox textBoxUrlToGo;
         private System.Windows.Forms.TextBox textBoxUrlResponseA;
         private System.Windows.Forms.TextBox textBoxWebCodeResponseA;
@@ -1506,6 +1541,7 @@
         private System.Windows.Forms.Label labelTableNameB;
         private System.Windows.Forms.Label labelInputB;
         private System.Windows.Forms.DataGridView dataGridView3B;
+        private System.Windows.Forms.Timer timerWebBrowser1;
     }
 }
 
