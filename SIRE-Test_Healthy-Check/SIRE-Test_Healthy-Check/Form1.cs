@@ -196,7 +196,6 @@ namespace SIRE_Test_Healthy_Check
         public Form1()
         {
             InitializeComponent();
-            //webBrowser1_Born(); //webBrowser1 Born
             timerStateCyclic.Enabled = true;
             timerStateCyclic.Start(); //Add new
         }
@@ -401,10 +400,7 @@ namespace SIRE_Test_Healthy_Check
                     stateAddWordInRowTableA = 5;
                     break;
                 case 5: //State5 : Clear all data in datatable
-                    //dataTable1A.Clear();
                     dataTable1A.Clear(); //Clear datatable
-                    //dataTable1A.Columns.Clear(); //Clear Columns of datatable
-                    //dataTable1A.Rows.Clear(); //Clear Rows of datatable
                     stateAddWordInRowTableA = 6;
                     break;
                 case 6: //State6 : Initial indexWordWebCodeResponseA = 0
@@ -420,7 +416,9 @@ namespace SIRE_Test_Healthy_Check
                     stateAddWordInRowTableA = 8;
                     break;
                 case 8: //State8 : Input dataGridViewA1 by dataTable1A to show in Table
+                    dataGridView1A_Birth(); //dataGridView1A Birth
                     dataGridView1A.DataSource = dataTable1A;
+                    dataGridView1A_Die(); //dataGridView1A Die
                     stateAddWordInRowTableA = 9;
                     break;
                 case 9: //State9 : Clear Variable
@@ -485,7 +483,9 @@ namespace SIRE_Test_Healthy_Check
                     stateAddWordInRowTableB = 8;
                     break;
                 case 8: //State8 : Input dataGridViewB1 by dataTable1B to show in Table
+                    dataGridView1B_Birth(); //dataGridView1B Birth
                     dataGridView1B.DataSource = dataTable1B;
+                    dataGridView1B_Die(); //dataGridView1B Die
                     stateAddWordInRowTableB = 9;
                     break;
                 case 9: //State9 : Clear Variable
@@ -3477,7 +3477,7 @@ namespace SIRE_Test_Healthy_Check
                         stateDownloadCsvDataA = 1;
                         //tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
 
-                        webBrowser1_Born(); //webBrowser1 Born
+                        webBrowser1_Birth(); //webBrowser1 Birth
                         break;
                     case 1: //State1 : Initial Entering Web VnusQ by Logoff
                         if(go_UrlA("http://dwhweb.prb.hgst.com/dwh/logoff.jsp"))
@@ -3559,11 +3559,11 @@ namespace SIRE_Test_Healthy_Check
                         break;
                     case 14: //State14 : Convert CSV Data from web to dataGridView2A
 
-                        tabControl1.SelectedTab = tabPage1; //Debug
+                        //tabControl1.SelectedTab = tabPage1; //Debug
 
                         textBoxCsvDataA.Text = webBrowser1.Document.Body.InnerText;
 
-                        webBrowser1_Dead(); //webBrowser1 Dead
+                        webBrowser1_Die(); //webBrowser1 Die
 
                         dataTable2A.Clear(); //Clear datatable of CSV Data
                         dataTable2A.Columns.Clear(); //Clear Columns of datatable CSV Data
@@ -3613,7 +3613,9 @@ namespace SIRE_Test_Healthy_Check
                             indexCsvDataRowA++;
                         }
 
+                        dataGridView2A_Birth();
                         dataGridView2A.DataSource = dataTable2A;
+                        dataGridView2A_Die();
 
                         //tabControl1.SelectedTab = tabPage2; //Debug
 
@@ -3630,7 +3632,7 @@ namespace SIRE_Test_Healthy_Check
 
                         //End Clear Ram
                         switchDisplayDataA = true; //Start function : display_DataA()
-                        switchDownloadCsvDataB = false; //Start function : download_CsvData2() -->Debug
+                        switchDownloadCsvDataB = true; //Start function : download_CsvData2() -->Debug
                         switchDownloadCsvDataA = false;
                         stateDownloadCsvDataA = 0;
                         break;
@@ -3658,6 +3660,8 @@ namespace SIRE_Test_Healthy_Check
 
                             stateDownloadCsvDataB = 1;
                             //tabControl1.SelectedTab = tabPage2; //Open tabPage2 to monitor
+
+                            webBrowser2_Birth(); //webBrowser2 Birth
                             break;
                         case 1: //State1 : Initial Entering Web VnusQ by Logoff
                             if (go_UrlB("http://dwhweb.prb.hgst.com/dwh/logoff.jsp"))
@@ -3718,7 +3722,7 @@ namespace SIRE_Test_Healthy_Check
                             {
                                 stateDownloadCsvDataB = 11;
                             }
-                            webBrowser2.ScriptErrorsSuppressed = true; //Debug
+                            //webBrowser2.ScriptErrorsSuppressed = true; //Debug
                             break;
                         case 11: //State11 : Show WebCode Response String from Server
                             if (addword_InRowTableB())
@@ -3738,11 +3742,13 @@ namespace SIRE_Test_Healthy_Check
                                 stateDownloadCsvDataB = 14;
                             }
                             break;
-                        case 14: //State14 : Convert CSV Data from web to dataGridView2A
+                        case 14: //State14 : Convert CSV Data from web to dataGridView2B
 
-                            tabControl1.SelectedTab = tabPage1; //Debug
+                            //tabControl1.SelectedTab = tabPage1; //Debug
 
                             textBoxCsvDataB.Text = webBrowser2.Document.Body.InnerText;
+
+                            webBrowser2_Die(); //webBrowser2 Die
 
                             dataTable2B.Clear(); //Clear datatable of CSV Data
                             dataTable2B.Columns.Clear(); //Clear Columns of datatable CSV Data
@@ -3792,7 +3798,9 @@ namespace SIRE_Test_Healthy_Check
                                 indexCsvDataRowB++;
                             }
 
+                            dataGridView2B_Birth(); 
                             dataGridView2B.DataSource = dataTable2B;
+                            dataGridView2B_Die();
 
                             //tabControl1.SelectedTab = tabPage2; //Debug
 
@@ -4773,15 +4781,9 @@ namespace SIRE_Test_Healthy_Check
 
             textBoxLastIndexOfCsvDataRowA.Clear();
             textBoxLastIndexOfCsvDataColumnA.Clear();
-            textBoxDataGridView2RowA.Clear();
-            textBoxDataGridView2ColumnA.Clear();
-            textBoxDataGridView2ValueA.Clear();
 
             textBoxLastIndexOfCsvDataRowB.Clear();
             textBoxLastIndexOfCsvDataColumnB.Clear();
-            textBoxDataGridView2RowB.Clear();
-            textBoxDataGridView2ColumnB.Clear();
-            textBoxDataGridView2ValueB.Clear();
 
             dataTable2A.Clear(); //Clear datatable
             dataTable2B.Clear(); //Clear datatable
@@ -4907,16 +4909,6 @@ namespace SIRE_Test_Healthy_Check
             textBoxStateDownloadCsvDataB.Text = stateDownloadCsvDataB.ToString();
             textBoxStateDisplayDataA.Text = stateDisplayDataA.ToString();
             textBoxStateDisplayDataB.Text = stateDisplayDataB.ToString();
-        }
-
-        private void buttonCheckDataInDataGridView2A_Click(object sender, EventArgs e)
-        {
-            textBoxDataGridView2ValueA.Text = dataGridView2A[int.Parse(textBoxDataGridView2ColumnA.Text), int.Parse(textBoxDataGridView2RowA.Text)].Value.ToString();
-        }
-
-        private void buttonCheckDataInDataGridView2B_Click(object sender, EventArgs e)
-        {
-            textBoxDataGridView2ValueB.Text = dataGridView2B[int.Parse(textBoxDataGridView2ColumnB.Text), int.Parse(textBoxDataGridView2RowB.Text)].Value.ToString();
         }
 
     }

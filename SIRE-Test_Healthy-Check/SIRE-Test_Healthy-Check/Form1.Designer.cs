@@ -38,7 +38,6 @@ namespace SIRE_Test_Healthy_Check
             this.labelUrlToGo = new System.Windows.Forms.Label();
             this.labelUrlResponseA = new System.Windows.Forms.Label();
             this.labelWebCodeResponseA = new System.Windows.Forms.Label();
-            this.dataGridView1A = new System.Windows.Forms.DataGridView();
             this.labelWebCodeResponseStringLengthA = new System.Windows.Forms.Label();
             this.textBoxWebCodeResponseStringLengthA = new System.Windows.Forms.TextBox();
             this.textBoxWebCodeResponseSubStringLengthA = new System.Windows.Forms.TextBox();
@@ -67,7 +66,6 @@ namespace SIRE_Test_Healthy_Check
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.textBoxTimeB = new System.Windows.Forms.TextBox();
             this.textBoxTimeA = new System.Windows.Forms.TextBox();
-            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.labelTimeB = new System.Windows.Forms.Label();
             this.labelStateDisplayDataB = new System.Windows.Forms.Label();
             this.labelTimeA = new System.Windows.Forms.Label();
@@ -95,7 +93,6 @@ namespace SIRE_Test_Healthy_Check
             this.labelUrlToRetrieveParamB = new System.Windows.Forms.Label();
             this.labelUrlToGetCsvDataA = new System.Windows.Forms.Label();
             this.labelUrlToRetrieveParamA = new System.Windows.Forms.Label();
-            this.dataGridView1B = new System.Windows.Forms.DataGridView();
             this.labelWebCodeResponseStringLengthB = new System.Windows.Forms.Label();
             this.labelWebCodeResponseSubStringLengthB = new System.Windows.Forms.Label();
             this.textBoxParametricDataRetrieveProductionDB_B = new System.Windows.Forms.TextBox();
@@ -109,18 +106,6 @@ namespace SIRE_Test_Healthy_Check
             this.labelWebCodeResponseAfterTrimmedB = new System.Windows.Forms.Label();
             this.labelWebCodeResponseSubStringIndex17B = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.buttonCheckDataInDataGridView2B = new System.Windows.Forms.Button();
-            this.buttonCheckDataInDataGridView2A = new System.Windows.Forms.Button();
-            this.textBoxDataGridView2ColumnB = new System.Windows.Forms.TextBox();
-            this.textBoxDataGridView2ColumnA = new System.Windows.Forms.TextBox();
-            this.labelDataGridView2ColumnB = new System.Windows.Forms.Label();
-            this.labelDataGridView2ColumnA = new System.Windows.Forms.Label();
-            this.textBoxDataGridView2ValueB = new System.Windows.Forms.TextBox();
-            this.textBoxDataGridView2ValueA = new System.Windows.Forms.TextBox();
-            this.textBoxDataGridView2RowB = new System.Windows.Forms.TextBox();
-            this.textBoxDataGridView2RowA = new System.Windows.Forms.TextBox();
-            this.labelDataGridView2RowB = new System.Windows.Forms.Label();
-            this.labelDataGridView2RowA = new System.Windows.Forms.Label();
             this.textBoxLastIndexOfCsvDataColumnB = new System.Windows.Forms.TextBox();
             this.textBoxLastIndexOfCsvDataColumnA = new System.Windows.Forms.TextBox();
             this.labelLastIndexOfCsvDataColumnB = new System.Windows.Forms.Label();
@@ -129,8 +114,6 @@ namespace SIRE_Test_Healthy_Check
             this.textBoxLastIndexOfCsvDataRowA = new System.Windows.Forms.TextBox();
             this.labelLastIndexOfCsvDataRowB = new System.Windows.Forms.Label();
             this.labelLastIndexOfCsvDataRowA = new System.Windows.Forms.Label();
-            this.dataGridView2B = new System.Windows.Forms.DataGridView();
-            this.dataGridView2A = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.labelSwVersionB = new System.Windows.Forms.Label();
             this.labelSwVersionA = new System.Windows.Forms.Label();
@@ -152,15 +135,16 @@ namespace SIRE_Test_Healthy_Check
             this.timerStateCyclic = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timerWebBrowser1 = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).BeginInit();
+            this.timerDataGridView1A = new System.Windows.Forms.Timer(this.components);
+            this.timerDataGridView2A = new System.Windows.Forms.Timer(this.components);
+            this.timerWebBrowser2 = new System.Windows.Forms.Timer(this.components);
+            this.timerDataGridView1B = new System.Windows.Forms.Timer(this.components);
+            this.timerDataGridView2B = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1B)).BeginInit();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2B)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2A)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3B)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3A)).BeginInit();
@@ -233,16 +217,6 @@ namespace SIRE_Test_Healthy_Check
             this.labelWebCodeResponseA.Size = new System.Drawing.Size(116, 13);
             this.labelWebCodeResponseA.TabIndex = 5;
             this.labelWebCodeResponseA.Text = "Web Code ResponseA";
-            // 
-            // dataGridView1A
-            // 
-            this.dataGridView1A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1A.Location = new System.Drawing.Point(12, 48);
-            this.dataGridView1A.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1A.Name = "dataGridView1A";
-            this.dataGridView1A.RowTemplate.Height = 24;
-            this.dataGridView1A.Size = new System.Drawing.Size(511, 223);
-            this.dataGridView1A.TabIndex = 6;
             // 
             // labelWebCodeResponseStringLengthA
             // 
@@ -506,7 +480,6 @@ namespace SIRE_Test_Healthy_Check
             // 
             this.tabPage2.Controls.Add(this.textBoxTimeB);
             this.tabPage2.Controls.Add(this.textBoxTimeA);
-            this.tabPage2.Controls.Add(this.webBrowser2);
             this.tabPage2.Controls.Add(this.labelTimeB);
             this.tabPage2.Controls.Add(this.labelStateDisplayDataB);
             this.tabPage2.Controls.Add(this.labelTimeA);
@@ -539,17 +512,6 @@ namespace SIRE_Test_Healthy_Check
             this.textBoxTimeA.Name = "textBoxTimeA";
             this.textBoxTimeA.Size = new System.Drawing.Size(78, 20);
             this.textBoxTimeA.TabIndex = 5;
-            // 
-            // webBrowser2
-            // 
-            this.webBrowser2.Location = new System.Drawing.Point(0, 325);
-            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(1053, 281);
-            this.webBrowser2.TabIndex = 4;
-            this.webBrowser2.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser2_DocumentCompleted);
-            this.webBrowser2.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser2_Navigated);
-            this.webBrowser2.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser2_Navigating);
             // 
             // labelTimeB
             // 
@@ -651,8 +613,6 @@ namespace SIRE_Test_Healthy_Check
             this.tabPage3.Controls.Add(this.labelUrlToRetrieveParamB);
             this.tabPage3.Controls.Add(this.labelUrlToGetCsvDataA);
             this.tabPage3.Controls.Add(this.labelUrlToRetrieveParamA);
-            this.tabPage3.Controls.Add(this.dataGridView1B);
-            this.tabPage3.Controls.Add(this.dataGridView1A);
             this.tabPage3.Controls.Add(this.buttonTestGoParametricUrl1);
             this.tabPage3.Controls.Add(this.labelWebCodeResponseStringLengthB);
             this.tabPage3.Controls.Add(this.labelWebCodeResponseStringLengthA);
@@ -819,16 +779,6 @@ namespace SIRE_Test_Healthy_Check
             this.labelUrlToRetrieveParamA.TabIndex = 10;
             this.labelUrlToRetrieveParamA.Text = "URL to RetrieveParamA";
             // 
-            // dataGridView1B
-            // 
-            this.dataGridView1B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1B.Location = new System.Drawing.Point(12, 316);
-            this.dataGridView1B.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1B.Name = "dataGridView1B";
-            this.dataGridView1B.RowTemplate.Height = 24;
-            this.dataGridView1B.Size = new System.Drawing.Size(511, 223);
-            this.dataGridView1B.TabIndex = 6;
-            // 
             // labelWebCodeResponseStringLengthB
             // 
             this.labelWebCodeResponseStringLengthB.AutoSize = true;
@@ -939,18 +889,6 @@ namespace SIRE_Test_Healthy_Check
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.buttonCheckDataInDataGridView2B);
-            this.tabPage4.Controls.Add(this.buttonCheckDataInDataGridView2A);
-            this.tabPage4.Controls.Add(this.textBoxDataGridView2ColumnB);
-            this.tabPage4.Controls.Add(this.textBoxDataGridView2ColumnA);
-            this.tabPage4.Controls.Add(this.labelDataGridView2ColumnB);
-            this.tabPage4.Controls.Add(this.labelDataGridView2ColumnA);
-            this.tabPage4.Controls.Add(this.textBoxDataGridView2ValueB);
-            this.tabPage4.Controls.Add(this.textBoxDataGridView2ValueA);
-            this.tabPage4.Controls.Add(this.textBoxDataGridView2RowB);
-            this.tabPage4.Controls.Add(this.textBoxDataGridView2RowA);
-            this.tabPage4.Controls.Add(this.labelDataGridView2RowB);
-            this.tabPage4.Controls.Add(this.labelDataGridView2RowA);
             this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataColumnB);
             this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataColumnA);
             this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataColumnB);
@@ -959,112 +897,12 @@ namespace SIRE_Test_Healthy_Check
             this.tabPage4.Controls.Add(this.textBoxLastIndexOfCsvDataRowA);
             this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataRowB);
             this.tabPage4.Controls.Add(this.labelLastIndexOfCsvDataRowA);
-            this.tabPage4.Controls.Add(this.dataGridView2B);
-            this.tabPage4.Controls.Add(this.dataGridView2A);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1272, 954);
             this.tabPage4.TabIndex = 4;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // buttonCheckDataInDataGridView2B
-            // 
-            this.buttonCheckDataInDataGridView2B.Location = new System.Drawing.Point(957, 558);
-            this.buttonCheckDataInDataGridView2B.Name = "buttonCheckDataInDataGridView2B";
-            this.buttonCheckDataInDataGridView2B.Size = new System.Drawing.Size(125, 34);
-            this.buttonCheckDataInDataGridView2B.TabIndex = 22;
-            this.buttonCheckDataInDataGridView2B.Text = "Check Data in DataGridView2B";
-            this.buttonCheckDataInDataGridView2B.UseVisualStyleBackColor = true;
-            this.buttonCheckDataInDataGridView2B.Click += new System.EventHandler(this.buttonCheckDataInDataGridView2B_Click);
-            // 
-            // buttonCheckDataInDataGridView2A
-            // 
-            this.buttonCheckDataInDataGridView2A.Location = new System.Drawing.Point(957, 254);
-            this.buttonCheckDataInDataGridView2A.Name = "buttonCheckDataInDataGridView2A";
-            this.buttonCheckDataInDataGridView2A.Size = new System.Drawing.Size(125, 34);
-            this.buttonCheckDataInDataGridView2A.TabIndex = 22;
-            this.buttonCheckDataInDataGridView2A.Text = "Check Data in DataGridView2A";
-            this.buttonCheckDataInDataGridView2A.UseVisualStyleBackColor = true;
-            this.buttonCheckDataInDataGridView2A.Click += new System.EventHandler(this.buttonCheckDataInDataGridView2A_Click);
-            // 
-            // textBoxDataGridView2ColumnB
-            // 
-            this.textBoxDataGridView2ColumnB.Location = new System.Drawing.Point(474, 566);
-            this.textBoxDataGridView2ColumnB.Name = "textBoxDataGridView2ColumnB";
-            this.textBoxDataGridView2ColumnB.Size = new System.Drawing.Size(157, 20);
-            this.textBoxDataGridView2ColumnB.TabIndex = 21;
-            // 
-            // textBoxDataGridView2ColumnA
-            // 
-            this.textBoxDataGridView2ColumnA.Location = new System.Drawing.Point(474, 262);
-            this.textBoxDataGridView2ColumnA.Name = "textBoxDataGridView2ColumnA";
-            this.textBoxDataGridView2ColumnA.Size = new System.Drawing.Size(157, 20);
-            this.textBoxDataGridView2ColumnA.TabIndex = 21;
-            // 
-            // labelDataGridView2ColumnB
-            // 
-            this.labelDataGridView2ColumnB.AutoSize = true;
-            this.labelDataGridView2ColumnB.Location = new System.Drawing.Point(338, 569);
-            this.labelDataGridView2ColumnB.Name = "labelDataGridView2ColumnB";
-            this.labelDataGridView2ColumnB.Size = new System.Drawing.Size(127, 13);
-            this.labelDataGridView2ColumnB.TabIndex = 20;
-            this.labelDataGridView2ColumnB.Text = "dataGridView2ColumnB =";
-            // 
-            // labelDataGridView2ColumnA
-            // 
-            this.labelDataGridView2ColumnA.AutoSize = true;
-            this.labelDataGridView2ColumnA.Location = new System.Drawing.Point(338, 265);
-            this.labelDataGridView2ColumnA.Name = "labelDataGridView2ColumnA";
-            this.labelDataGridView2ColumnA.Size = new System.Drawing.Size(127, 13);
-            this.labelDataGridView2ColumnA.TabIndex = 20;
-            this.labelDataGridView2ColumnA.Text = "dataGridView2ColumnA =";
-            // 
-            // textBoxDataGridView2ValueB
-            // 
-            this.textBoxDataGridView2ValueB.Location = new System.Drawing.Point(1088, 566);
-            this.textBoxDataGridView2ValueB.Name = "textBoxDataGridView2ValueB";
-            this.textBoxDataGridView2ValueB.Size = new System.Drawing.Size(157, 20);
-            this.textBoxDataGridView2ValueB.TabIndex = 18;
-            // 
-            // textBoxDataGridView2ValueA
-            // 
-            this.textBoxDataGridView2ValueA.Location = new System.Drawing.Point(1088, 262);
-            this.textBoxDataGridView2ValueA.Name = "textBoxDataGridView2ValueA";
-            this.textBoxDataGridView2ValueA.Size = new System.Drawing.Size(157, 20);
-            this.textBoxDataGridView2ValueA.TabIndex = 18;
-            // 
-            // textBoxDataGridView2RowB
-            // 
-            this.textBoxDataGridView2RowB.Location = new System.Drawing.Point(161, 566);
-            this.textBoxDataGridView2RowB.Name = "textBoxDataGridView2RowB";
-            this.textBoxDataGridView2RowB.Size = new System.Drawing.Size(157, 20);
-            this.textBoxDataGridView2RowB.TabIndex = 19;
-            // 
-            // textBoxDataGridView2RowA
-            // 
-            this.textBoxDataGridView2RowA.Location = new System.Drawing.Point(161, 262);
-            this.textBoxDataGridView2RowA.Name = "textBoxDataGridView2RowA";
-            this.textBoxDataGridView2RowA.Size = new System.Drawing.Size(157, 20);
-            this.textBoxDataGridView2RowA.TabIndex = 19;
-            // 
-            // labelDataGridView2RowB
-            // 
-            this.labelDataGridView2RowB.AutoSize = true;
-            this.labelDataGridView2RowB.Location = new System.Drawing.Point(27, 569);
-            this.labelDataGridView2RowB.Name = "labelDataGridView2RowB";
-            this.labelDataGridView2RowB.Size = new System.Drawing.Size(114, 13);
-            this.labelDataGridView2RowB.TabIndex = 17;
-            this.labelDataGridView2RowB.Text = "dataGridView2RowB =";
-            // 
-            // labelDataGridView2RowA
-            // 
-            this.labelDataGridView2RowA.AutoSize = true;
-            this.labelDataGridView2RowA.Location = new System.Drawing.Point(27, 265);
-            this.labelDataGridView2RowA.Name = "labelDataGridView2RowA";
-            this.labelDataGridView2RowA.Size = new System.Drawing.Size(114, 13);
-            this.labelDataGridView2RowA.TabIndex = 17;
-            this.labelDataGridView2RowA.Text = "dataGridView2RowA =";
             // 
             // textBoxLastIndexOfCsvDataColumnB
             // 
@@ -1129,22 +967,6 @@ namespace SIRE_Test_Healthy_Check
             this.labelLastIndexOfCsvDataRowA.Size = new System.Drawing.Size(109, 13);
             this.labelLastIndexOfCsvDataRowA.TabIndex = 13;
             this.labelLastIndexOfCsvDataRowA.Text = "Last Index of RowA =";
-            // 
-            // dataGridView2B
-            // 
-            this.dataGridView2B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2B.Location = new System.Drawing.Point(23, 353);
-            this.dataGridView2B.Name = "dataGridView2B";
-            this.dataGridView2B.Size = new System.Drawing.Size(1222, 207);
-            this.dataGridView2B.TabIndex = 0;
-            // 
-            // dataGridView2A
-            // 
-            this.dataGridView2A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2A.Location = new System.Drawing.Point(17, 38);
-            this.dataGridView2A.Name = "dataGridView2A";
-            this.dataGridView2A.Size = new System.Drawing.Size(1222, 207);
-            this.dataGridView2A.TabIndex = 0;
             // 
             // tabPage5
             // 
@@ -1344,6 +1166,26 @@ namespace SIRE_Test_Healthy_Check
             // 
             this.timerWebBrowser1.Tick += new System.EventHandler(this.timerWebBrowser1_Tick);
             // 
+            // timerDataGridView1A
+            // 
+            this.timerDataGridView1A.Tick += new System.EventHandler(this.timerDataGridView1A_Tick);
+            // 
+            // timerDataGridView2A
+            // 
+            this.timerDataGridView2A.Tick += new System.EventHandler(this.timerDataGridView2A_Tick);
+            // 
+            // timerWebBrowser2
+            // 
+            this.timerWebBrowser2.Tick += new System.EventHandler(this.timerWebBrowser2_Tick);
+            // 
+            // timerDataGridView1B
+            // 
+            this.timerDataGridView1B.Tick += new System.EventHandler(this.timerDataGridView1B_Tick);
+            // 
+            // timerDataGridView2B
+            // 
+            this.timerDataGridView2B.Tick += new System.EventHandler(this.timerDataGridView2B_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1354,7 +1196,6 @@ namespace SIRE_Test_Healthy_Check
             this.Name = "Form1";
             this.Text = "SIRE-TEST HEALTY CHECK";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1362,11 +1203,8 @@ namespace SIRE_Test_Healthy_Check
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1B)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2B)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2A)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3B)).EndInit();
@@ -1377,8 +1215,8 @@ namespace SIRE_Test_Healthy_Check
 
         #endregion
 
-        //##### BEGIN : webBrowser1_Born()
-        private void webBrowser1_Born()
+        //##### BEGIN : webBrowser1_Birth()
+        private void webBrowser1_Birth()
         {
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
@@ -1396,14 +1234,120 @@ namespace SIRE_Test_Healthy_Check
 
         private System.Windows.Forms.WebBrowser webBrowser1;
 
-        //##### END : webBrowser1_Born()
+        //##### END : webBrowser1_Birth()
 
-        //##### BEGIN : Area about webBrowser1 Event
-        //See in area of Form1.cs
-        //##### END : Area about webBrowser1 Event
+        //##### BEGIN : webBrowser2_Birth()
+        private void webBrowser2_Birth()
+        {
+            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
 
-        //##### BEGIN : webBrowser1_Dead()
-        private void webBrowser1_Dead()
+            this.tabPage2.Controls.Add(this.webBrowser2);
+
+            this.webBrowser2.Location = new System.Drawing.Point(0, 325);
+            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser2.Name = "webBrowser2";
+            this.webBrowser2.ScriptErrorsSuppressed = true;
+            this.webBrowser2.Size = new System.Drawing.Size(1053, 281);
+            this.webBrowser2.TabIndex = 4;
+            this.webBrowser2.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser2_DocumentCompleted);
+            this.webBrowser2.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser2_Navigated);
+            this.webBrowser2.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser2_Navigating);
+
+        }
+        private System.Windows.Forms.WebBrowser webBrowser2;
+        //##### END : webBrowser2_Birth()
+
+        //##### BEGIN : dataGridView1A_Birth()
+        private void dataGridView1A_Birth()
+        {
+            this.dataGridView1A = new System.Windows.Forms.DataGridView();
+
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).BeginInit();
+
+            this.dataGridView1A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1A.Location = new System.Drawing.Point(12, 48);
+            this.dataGridView1A.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1A.Name = "dataGridView1A";
+            this.dataGridView1A.RowTemplate.Height = 24;
+            this.dataGridView1A.Size = new System.Drawing.Size(511, 223);
+            this.dataGridView1A.TabIndex = 6;
+
+            this.tabPage3.Controls.Add(this.dataGridView1A);
+
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1A)).EndInit();
+
+        }
+        private System.Windows.Forms.DataGridView dataGridView1A;
+        //##### END : dataGridView1A_Birth()
+
+        //##### BEGIN : dataGridView1B_Birth()
+        private void dataGridView1B_Birth()
+        {
+            this.dataGridView1B = new System.Windows.Forms.DataGridView();
+
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1B)).BeginInit();
+
+            this.tabPage3.Controls.Add(this.dataGridView1B);
+
+            this.dataGridView1B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1B.Location = new System.Drawing.Point(12, 316);
+            this.dataGridView1B.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1B.Name = "dataGridView1B";
+            this.dataGridView1B.RowTemplate.Height = 24;
+            this.dataGridView1B.Size = new System.Drawing.Size(511, 223);
+            this.dataGridView1B.TabIndex = 6;
+
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1B)).EndInit();
+
+        }
+        private System.Windows.Forms.DataGridView dataGridView1B;
+        //##### END : dataGridView1B_Birth()
+
+        //##### BEGIN : dataGridView2A_Birth()
+        private void dataGridView2A_Birth()
+        {
+            this.dataGridView2A = new System.Windows.Forms.DataGridView();
+
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2A)).BeginInit();
+
+            this.tabPage4.Controls.Add(this.dataGridView2A);
+
+            this.dataGridView2A.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2A.Location = new System.Drawing.Point(17, 38);
+            this.dataGridView2A.Name = "dataGridView2A";
+            this.dataGridView2A.Size = new System.Drawing.Size(1222, 207);
+            this.dataGridView2A.TabIndex = 0;
+
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2A)).EndInit();
+
+        }
+        private System.Windows.Forms.DataGridView dataGridView2A;
+        //##### END : dataGridView2A_Birth()
+
+        //##### BEGIN : dataGridView2B_Birth()
+        private void dataGridView2B_Birth()
+        {
+            this.dataGridView2B = new System.Windows.Forms.DataGridView();
+
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2B)).BeginInit();
+
+            this.tabPage4.Controls.Add(this.dataGridView2B);
+
+            this.dataGridView2B.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2B.Location = new System.Drawing.Point(23, 353);
+            this.dataGridView2B.Name = "dataGridView2B";
+            this.dataGridView2B.Size = new System.Drawing.Size(1222, 207);
+            this.dataGridView2B.TabIndex = 0;
+
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2B)).EndInit();
+
+        }
+        private System.Windows.Forms.DataGridView dataGridView2B;
+        //##### END : dataGridView2B_Birth()
+
+
+        //##### BEGIN : webBrowser1_Die()
+        private void webBrowser1_Die()
         {
             timerWebBrowser1.Interval = 10000;
             timerWebBrowser1.Enabled = true;
@@ -1413,13 +1357,117 @@ namespace SIRE_Test_Healthy_Check
         }
         private void timerWebBrowser1_Tick(object sender, EventArgs e)
         {
-            webBrowser1.Dispose();
+            this.webBrowser1.Dispose();
             GC.Collect();
             GC.WaitForPendingFinalizers();
             timerWebBrowser1.Stop();
             timerWebBrowser1.Enabled = false;
         }
-        //##### END : webBrowser1_Dead()
+        //##### END : webBrowser1_Die()
+
+        //##### BEGIN : webBrowser2_Die()
+        private void webBrowser2_Die()
+        {
+            timerWebBrowser2.Interval = 10000;
+            timerWebBrowser2.Enabled = true;
+            timerWebBrowser2.Start();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void timerWebBrowser2_Tick(object sender, EventArgs e)
+        {
+            this.webBrowser2.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            timerWebBrowser2.Stop();
+            timerWebBrowser2.Enabled = false;
+        }
+        //##### END : webBrowser2_Die()
+
+        //##### BEGIN : dataGridView1A_Die()
+        private void dataGridView1A_Die()
+        {
+            //timerDataGridView1A.Interval = 10000;
+            //timerDataGridView1A.Enabled = true;
+            //timerDataGridView1A.Start();
+            this.dataGridView1A.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        
+        private void timerDataGridView1A_Tick(object sender, EventArgs e)
+        {
+            /*
+            this.dataGridView1A.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            timerDataGridView1A.Stop();
+            timerDataGridView1A.Enabled = false;
+            */
+        }
+        //##### END : dataGridView1A_Die()
+
+        //##### BEGIN : dataGridView1B_Die()
+        private void dataGridView1B_Die()
+        {
+            //timerDataGridView1B.Interval = 10000;
+            //timerDataGridView1B.Enabled = true;
+            //timerDataGridView1B.Start();
+            this.dataGridView1B.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void timerDataGridView1B_Tick(object sender, EventArgs e)
+        {
+            /*
+            this.dataGridView1B.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            timerDataGridView1B.Stop();
+            timerDataGridView1B.Enabled = false;
+            */
+        }
+        //##### END : dataGridView1B_Die()
+
+        //##### BEGIN : dataGridView2A_Die()
+        private void dataGridView2A_Die()
+        {
+            timerDataGridView2A.Interval = 10000;
+            timerDataGridView2A.Enabled = true;
+            timerDataGridView2A.Start();
+            //this.dataGridView2A.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void timerDataGridView2A_Tick(object sender, EventArgs e)
+        {
+            this.dataGridView2A.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            timerDataGridView2A.Stop();
+            timerDataGridView2A.Enabled = false;
+        }
+        //##### END : dataGridView2A_Die()
+
+        //##### BEGIN : dataGridView2B_Die()
+        private void dataGridView2B_Die()
+        {
+            timerDataGridView2B.Interval = 10000;
+            timerDataGridView2B.Enabled = true;
+            timerDataGridView2B.Start();
+            //this.dataGridView2B.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+        private void timerDataGridView2B_Tick(object sender, EventArgs e)
+        {
+            this.dataGridView2B.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            timerDataGridView2B.Stop();
+            timerDataGridView2B.Enabled = false;
+        }
+
 
         private System.Windows.Forms.Button buttonTest;
         private System.Windows.Forms.TextBox textBoxUrlToGo;
@@ -1428,7 +1476,6 @@ namespace SIRE_Test_Healthy_Check
         private System.Windows.Forms.Label labelUrlToGo;
         private System.Windows.Forms.Label labelUrlResponseA;
         private System.Windows.Forms.Label labelWebCodeResponseA;
-        private System.Windows.Forms.DataGridView dataGridView1A;
         private System.Windows.Forms.Label labelWebCodeResponseStringLengthA;
         private System.Windows.Forms.TextBox textBoxWebCodeResponseStringLengthA;
         private System.Windows.Forms.TextBox textBoxWebCodeResponseSubStringLengthA;
@@ -1465,26 +1512,17 @@ namespace SIRE_Test_Healthy_Check
         private System.Windows.Forms.Label labelCsvDataA;
         private System.Windows.Forms.TextBox textBoxCsvDataA;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridView2A;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataColumnA;
         private System.Windows.Forms.Label labelLastIndexOfCsvDataColumnA;
         private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataRowA;
         private System.Windows.Forms.Label labelLastIndexOfCsvDataRowA;
-        private System.Windows.Forms.Button buttonCheckDataInDataGridView2A;
-        private System.Windows.Forms.TextBox textBoxDataGridView2ColumnA;
-        private System.Windows.Forms.Label labelDataGridView2ColumnA;
-        private System.Windows.Forms.TextBox textBoxDataGridView2ValueA;
-        private System.Windows.Forms.TextBox textBoxDataGridView2RowA;
-        private System.Windows.Forms.Label labelDataGridView2RowA;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.WebBrowser webBrowser2;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label labelUrlResponseB;
         private System.Windows.Forms.TextBox textBoxUrlResponseB;
         private System.Windows.Forms.Label labelWebCodeResponseB;
         private System.Windows.Forms.TextBox textBoxWebCodeResponseB;
-        private System.Windows.Forms.DataGridView dataGridView1B;
         private System.Windows.Forms.Label labelWebCodeResponseStringLengthB;
         private System.Windows.Forms.Label labelWebCodeResponseSubStringLengthB;
         private System.Windows.Forms.Label labelWebCodeResponseLastSubStringB;
@@ -1507,17 +1545,10 @@ namespace SIRE_Test_Healthy_Check
         private System.Windows.Forms.Label labelUrlToGetCsvDataB;
         private System.Windows.Forms.Label labelCsvDataB;
         private System.Windows.Forms.TextBox textBoxCsvDataB;
-        private System.Windows.Forms.Button buttonCheckDataInDataGridView2B;
-        private System.Windows.Forms.TextBox textBoxDataGridView2ColumnB;
-        private System.Windows.Forms.Label labelDataGridView2ColumnB;
-        private System.Windows.Forms.TextBox textBoxDataGridView2ValueB;
-        private System.Windows.Forms.TextBox textBoxDataGridView2RowB;
-        private System.Windows.Forms.Label labelDataGridView2RowB;
         private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataColumnB;
         private System.Windows.Forms.Label labelLastIndexOfCsvDataColumnB;
         private System.Windows.Forms.TextBox textBoxLastIndexOfCsvDataRowB;
         private System.Windows.Forms.Label labelLastIndexOfCsvDataRowB;
-        private System.Windows.Forms.DataGridView dataGridView2B;
         private System.Windows.Forms.Label labelStateDisplayDataB;
         private System.Windows.Forms.Label labelStateDownloadCsvDataB;
         private System.Windows.Forms.TextBox textBoxStateDisplayDataB;
@@ -1542,6 +1573,11 @@ namespace SIRE_Test_Healthy_Check
         private System.Windows.Forms.Label labelInputB;
         private System.Windows.Forms.DataGridView dataGridView3B;
         private System.Windows.Forms.Timer timerWebBrowser1;
+        private System.Windows.Forms.Timer timerDataGridView1A;
+        private System.Windows.Forms.Timer timerDataGridView2A;
+        private System.Windows.Forms.Timer timerWebBrowser2;
+        private System.Windows.Forms.Timer timerDataGridView1B;
+        private System.Windows.Forms.Timer timerDataGridView2B;
     }
 }
 
